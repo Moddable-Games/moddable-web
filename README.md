@@ -4,35 +4,37 @@ Static site generator for [moddable.games](https://moddable.games) — replaces 
 
 ## Architecture
 
-### Three-repo model
+### Four-repo model
 
-| Repo | Role | Owns |
-|------|------|------|
-| **moddable-engine** | Game logic, tools, MCP server | Chess engine, hex maps, piece gallery, oracles, game tools, Worker |
-| **moddable-rules** | Rulebooks as markdown → HTML | Game rulesets, variant rules, oracle tables — rendered at rules.moddable.games |
-| **moddable-web** (this) | Marketing site (moddable.games) | Templates, CSS, UX JS, build script — consumes engine API for dynamic data |
+| Repo | Domain | Hosting | Role |
+|------|--------|---------|------|
+| **moddable-engine** | engine.moddable.games | GitHub Pages (static) | Game logic SDK (play modules, AI, validation) + asset galleries (pieces, boards, tiles) |
+| **moddable-rules** | rules.moddable.games | GitHub Pages (static) | Rulebooks (markdown → HTML) + JSON API (metadata, oracles, entities) |
+| **moddable-web** (this) | moddable.games | GitHub Pages (static) | Marketing site (Python SSG) + JSON API (mods, news, team, stats) |
+| **moddable-tools** | tools.moddable.games | Cloudflare Worker (private) | MCP server, REST API, game sessions, Discord bot — the ONLY compute |
 
 ### Data flow
 
 ```
-moddable-engine (serves tools API — dynamic counts, stats, listings)
-       │
-       ▼
-moddable-web (SSG fetches API at build time → renders static HTML)
-       │
-       ▼
-GitHub Pages / Cloudflare Pages (moddable.games)
+moddable-engine (static: SDK modules + gallery JSON)
+moddable-rules  (static: markdown + metadata JSON API)
+moddable-web    (static: marketing JSON API)
+       │  │  │
+       ▼  ▼  ▼
+moddable-tools (Worker: imports engine SDK at bundle time,
+                fetches rules + web + engine APIs at runtime,
+                runs all compute, serves MCP + REST + game sessions)
 ```
-
-Rules remains its own project and domain (rules.moddable.games). Web links to it but does not consume its markdown directly.
 
 ### Key principles
 
-1. **Engine is the single API provider** — web calls `tools.moddable.games/api/*` for all dynamic data (tool counts, variant listings, game stats, piece gallery)
-2. **Web is the marketing site** — moddable.games, presenting the project to humans and AI agents; all content is JSON-driven so other consumers can reuse the same data
-3. **Rules stays separate** — rules.moddable.games renders its own markdown to HTML; web links to it but doesn't import from it
-4. **JSON-driven content** — all marketing content (descriptions, stats, features, copy) lives in JSON so the engine API, Discord bot, and any future consumer can access the same material
-5. **moddable-website stays live** — this repo replaces it incrementally; the old site runs untouched until web can fully replicate its content
+1. **Tools is the only compute** — the single Cloudflare Worker, the only private repo; imports engine SDK, fetches from all three static APIs at runtime
+2. **Engine is a public library, not a service** — publishes importable JS modules (move gen, AI, validation, rendering, play modules for local/pass-and-play); tools bundles them at deploy time; engine's static site serves galleries and enables local play without sessions
+3. **Every other repo serves static JSON APIs** — predictable URLs at their domains, no Workers needed, consumable by tools or any external client
+4. **Web is the marketing site** — moddable.games; all content JSON-driven so tools, Discord bot, and agents can consume the same material
+5. **Rules stays separate** — rules.moddable.games renders its own markdown; also exposes structured JSON (game metadata, oracle tables, entity indexes) for tools to fetch at runtime
+6. **moddable-website stays live** — this repo replaces it incrementally; the old site runs untouched until web can fully replicate its content
+7. **Tools is private** — holds secrets, Durable Objects for multiplayer sessions, player state, PvP logic; the only repo that needs to be private. Engine handles local play (vs AI, pass-and-play) publicly; tools adds the networked/session layer on top
 
 ### Agent-readiness by design
 
@@ -119,11 +121,19 @@ These happen independently and don't block each other:
 
 | Stream | Repo | Work |
 |--------|------|------|
-| Engine absorbs chess/hexmaps | moddable-engine | Import game logic, replace moddable-chess |
-| MCP Worker moves to engine | moddable-engine | Issue moddable-website#139 |
-| Web pages built incrementally | moddable-web | This plan |
-| Rules content grows | moddable-rules | More games, variants, oracle tables |
-| Agent-readiness issues | all repos | Issues #129, #60, #235, #34 |
+| Engine publishes SDK modules | moddable-engine | Extract game logic into importable JS; expose static gallery APIs |
+| Engine absorbs chess/hexmaps | moddable-engine | Import game logic from moddable-chess/hexmaps, replace those repos |
+| Rules exposes JSON API | moddable-rules | Serve metadata, oracle tables, entity indexes as static JSON |
+| Tools becomes standalone | moddable-tools (new, private) | Extract Worker from moddable-website; import engine SDK; fetch APIs |
+| Web pages built incrementally | moddable-web | This plan — page-by-page migration |
+| Agent-readiness | all repos | Issues #129, #60, #235, #34 |
+
+### Dependency chain
+
+- Engine SDK must exist before tools can import it (currently tools bundles chess/hex JS directly)
+- Rules JSON API must exist before tools stops bundling oracle-data.json / rules-index.json
+- Web JSON API must exist before tools fetches marketing content at runtime
+- None of this blocks the web SSG migration (web reads its own local JSON for now, transitions to serving it as API later)
 
 ## JavaScript philosophy
 
