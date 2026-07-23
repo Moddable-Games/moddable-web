@@ -185,10 +185,14 @@ Everything the user reads is baked into HTML at build time. If a page has no JS 
 
 ## What this is NOT
 
-- Not a rewrite of the design system (CSS stays the same)
-- Not a new visual design (pixel-for-pixel match with current site)
-- Not a framework migration (no React, no Astro, no Next)
-- Not blocking on engine migration (can start now with direct data file reads)
+- **Not a redesign** — all pages look identical to the current site
+- **Not a rewrite** — same content, same copy, same styles; the only changes are structural (templates instead of JS rendering)
+- **Not a restyling** — CSS is carried over as-is, not refactored or rewritten
+- **Not a content refresh** — all text, descriptions, and copy stay exactly as they are
+- **Not a framework migration** — no React, no Astro, no Next
+- **Not blocking on engine migration** — can start now with direct data file reads
+
+The goal is to move from client-rendered to server-built while changing as little as possible. If a page looks different after migration, that's a bug.
 
 ## Changelog
 
