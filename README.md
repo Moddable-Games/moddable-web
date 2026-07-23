@@ -9,30 +9,29 @@ Static site generator for [moddable.games](https://moddable.games) — replaces 
 | Repo | Role | Owns |
 |------|------|------|
 | **moddable-engine** | Game logic, tools, MCP server | Chess engine, hex maps, piece gallery, oracles, game tools, Worker |
-| **moddable-rules** | Content as markdown | Game rulesets, variant descriptions, oracle tables, entity data |
-| **moddable-web** (this) | Static site build | Templates, CSS, interactive JS, build script, deploy |
+| **moddable-rules** | Rulebooks as markdown → HTML | Game rulesets, variant rules, oracle tables — rendered at rules.moddable.games |
+| **moddable-web** (this) | Marketing site (moddable.games) | Templates, CSS, UX JS, build script — consumes engine API for dynamic data |
 
 ### Data flow
 
 ```
-moddable-rules (markdown)
+moddable-engine (serves tools API — dynamic counts, stats, listings)
        │
        ▼
-moddable-engine (consumes rules, serves tools API)
-       │
-       ▼
-moddable-web (SSG consumes engine API + rules markdown → static HTML)
+moddable-web (SSG fetches API at build time → renders static HTML)
        │
        ▼
 GitHub Pages / Cloudflare Pages (moddable.games)
 ```
 
+Rules remains its own project and domain (rules.moddable.games). Web links to it but does not consume its markdown directly.
+
 ### Key principles
 
-1. **Engine is the single provider** — web calls `tools.moddable.games/api/*` for all dynamic data, never imports game logic directly
-2. **Engine has no game knowledge** — variant descriptions, flavour text, rules, and oracle tables live in moddable-rules; engine consumes them
-3. **Rules is pure markdown** — structured content that both humans and AI agents can consume natively
-4. **Web is pure output** — Python SSG renders templates using data from engine API + markdown from rules; no game logic in this repo
+1. **Engine is the single API provider** — web calls `tools.moddable.games/api/*` for all dynamic data (tool counts, variant listings, game stats, piece gallery)
+2. **Web is the marketing site** — moddable.games, presenting the project to humans and AI agents; all content is JSON-driven so other consumers can reuse the same data
+3. **Rules stays separate** — rules.moddable.games renders its own markdown to HTML; web links to it but doesn't import from it
+4. **JSON-driven content** — all marketing content (descriptions, stats, features, copy) lives in JSON so the engine API, Discord bot, and any future consumer can access the same material
 5. **moddable-website stays live** — this repo replaces it incrementally; the old site runs untouched until web can fully replicate its content
 
 ### Agent-readiness by design
@@ -53,19 +52,18 @@ A single `build/build.py` script using only Python standard library. No pip, no 
 
 ### Data sources
 
-Dynamic data is API-driven. Content flows from the rules repo as markdown.
+All content is JSON-driven so that multiple consumers (website, Discord bot, API clients, AI agents) can access the same material.
 
 | Source | Method | Content |
 |--------|--------|---------|
 | Engine API | HTTP fetch at build time | Dynamic data: tool listings, variant counts, piece gallery stats, game states, live stats |
-| Rules markdown | Git submodule or file path | Content: game descriptions, rulebooks, articles, oracle table descriptions, flavour text |
-| Local config | `data/*.json` | Build config: template paths, hero layout params, nav structure, CSS class mappings, page metadata |
+| Local JSON | `data/*.json` | Marketing content: page copy, descriptions, features, hero configs, nav structure, team, news, meta |
 
 **API-driven** = anything that changes when the engine deploys (tool counts go up, new variants added, piece sets change). The build fetches this live so the site stays current without manual updates.
 
-**Content** = authored markdown in moddable-rules. Flows into templates as rendered HTML. Changes when someone writes or edits a rulebook.
+**Local JSON** = authored marketing content for the site. Structured as JSON (not markdown) so the same data can be served via API to other consumers (Discord bot, AI agents, partner integrations).
 
-**Config** = how pages are assembled and styled. Changes only when we redesign a page layout.
+Rules content lives at rules.moddable.games — this site links to it but does not import or render it.
 
 ### Build process
 
