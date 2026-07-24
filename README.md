@@ -204,6 +204,16 @@ The goal is to move from client-rendered to server-built while changing as littl
 
 ## Changelog
 
+#### 2026-07-24
+- Phase 0-2 complete: SSG infrastructure, 15 pages built
+- Custom Python template engine with nested block support
+- Per-page CSS bundling (build-time concatenation)
+- --base flag for local development under subdirectories
+- 7 templates producing all pages (page.html handles 8 via data-driven sections)
+- Homepage built with all sections (hero, gallery, featured, dev band, nukes, news, community)
+- All CSS and fonts carried from moddable-website
+- UX-only JS (hamburger, dropdown, parallax, scroll-reveal)
+
 #### 2026-07-23
 - Repository created
 - Architecture plan documented
