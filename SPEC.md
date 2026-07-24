@@ -60,24 +60,27 @@ Each uses the same template with different data.
 | `/engines/moddable-hexmaps/` | mg-engine-hexmaps-page.js | Engine content JSON |
 | `/news/<slug>/` (×14) | mg-news-article-page.js | `data/news.json` + `data/articles/<slug>.html` |
 
-### Tier 4: Tool pages — 8 pages (HANDLED BY moddable-tools, NOT this repo)
+### Tier 4: Tool pages — 8 pages (widgets from ENGINE, embedded here)
 
-These pages are interactive widgets powered by live data and compute. They do NOT belong in a static site generator. moddable-tools serves them — either as full pages at tools.moddable.games or as embeddable iframes that moddable-web can include.
+The interactive tools are **embeddable widgets produced by moddable-engine** (web components or iframe-ready pages). They call moddable-tools' API for compute. moddable-web embeds them to prove they're consumable.
 
-| Page | Current location | Moves to |
-|------|-----------------|----------|
-| `/tools/chess/` | moddable-website | moddable-tools (engine SDK + live API) |
-| `/tools/ti/` | moddable-website | moddable-tools (data from rules API) |
-| `/tools/oracles/` | moddable-website | moddable-tools (data from rules API) |
-| `/tools/dice/` | moddable-website | moddable-tools (engine SDK for dice systems) |
-| `/tools/decks/` | moddable-website | moddable-tools (engine SDK for deck logic) |
-| `/tools/talisman/` | moddable-website | moddable-tools (data from rules API) |
-| `/tools/nukes/` | moddable-website | moddable-tools (data from rules API) |
-| `/developers/api/` | moddable-website | moddable-tools (live tool testing) |
+| Page | Widget source | API backend |
+|------|--------------|-------------|
+| `/tools/chess/` | engine (chess widget) | tools API (move gen, puzzles) |
+| `/tools/ti/` | engine (TI4 widget) | tools API (draft, objectives) |
+| `/tools/oracles/` | engine (oracle widget) | tools API (oracle roll, scenes) |
+| `/tools/dice/` | engine (dice widget) | tools API (dice roll) |
+| `/tools/decks/` | engine (deck widget) | tools API (deck ops) |
+| `/tools/talisman/` | engine (talisman widget) | tools API (character data) |
+| `/tools/nukes/` | engine (nukes widget) | tools API (setup, tracking) |
+| `/developers/api/` | engine (playground widget) | tools API (any tool call) |
 
-**What moddable-web does for tools:** Renders a static `/tools/` hub page listing all available tools with descriptions (pulled from tools API at build time). Each tool links to or embeds the live version from tools.moddable.games. The hub is marketing; the tools themselves are compute.
+**Separation of concerns:**
+- **Engine** produces the widgets (UI components, embeddable, data-driven)
+- **Tools** provides the API backend (compute, data fetching from rules)
+- **Web** embeds the widgets on `/tools/*` pages (proves they're consumable, marketing showcase)
 
-See moddable-tools/SPEC.md for the full tools implementation plan.
+**What moddable-web does:** Renders static `/tools/` hub page listing all tools (from tools API at build time). Each sub-page embeds the engine's widget and provides the surrounding marketing context (description, related tools, CTAs). The widget does the interactive work; web just hosts it.
 
 ### Tier 5: Home page — 1 page
 Complex hero, featured content, multiple sections.
