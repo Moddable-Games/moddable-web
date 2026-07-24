@@ -1,0 +1,353 @@
+/* ── Hero System — Tier 1 & Tier 2 ──────────────────────────────────── */
+
+/* Shared hero container */
+.mg-hero {
+  position: relative;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
+}
+.mg-hero--tier1 {
+  min-height: 580px;
+}
+.mg-hero--tier2 {
+  min-height: 400px;
+}
+
+/* Gradient background layer */
+.mg-hero__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--hero-deep, #0a0d2a) 0%, var(--hero-mid, #1a3680) 45%, #000 100%);
+}
+
+/* Hexland landscape (tier 1 only) */
+.mg-hero__land {
+  position: absolute;
+  inset: 0;
+  background: url('../img/hex-land.jpg') center 70% / cover no-repeat;
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 60%, transparent 90%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 60%, transparent 90%);
+  will-change: transform;
+  transform-origin: center bottom;
+}
+
+/* Hex grid overlay — parallax target */
+.mg-hero__hex {
+  position: absolute;
+  inset: -20% 0;
+  background-size: 56px 64px;
+  animation: hexFloat 30s linear infinite;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Tinted hex overlays */
+.mg-hero__hex--blue { background-image: url('../img/hex-grid-blue.svg'); }
+.mg-hero__hex--green { background-image: url('../img/hex-grid-green.svg'); }
+.mg-hero__hex--red { background-image: url('../img/hex-grid-red.svg'); }
+.mg-hero__hex--white { background-image: url('../img/hex-grid-white.svg'); }
+.mg-hero__hex--purple { background-image: url('../img/hex-grid-purple.svg'); }
+.mg-hero__hex--cyan { background-image: url('../img/hex-grid-cyan.svg'); }
+.mg-hero__hex--magenta { background-image: url('../img/hex-grid-magenta.svg'); }
+.mg-hero__hex--amber { background-image: url('../img/hex-grid-amber.svg'); }
+
+/* Fade overlays */
+.mg-hero__fade-top {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,10,30,0.5) 0%, transparent 40%);
+  z-index: 2;
+  pointer-events: none;
+}
+.mg-hero__fade-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.6) 85%, #000 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Accent glow — positioned center-bottom for tier 1 */
+.mg-hero__glow {
+  position: absolute;
+  left: 50%;
+  bottom: -80px;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 400px;
+  pointer-events: none;
+  filter: blur(30px);
+  background: radial-gradient(ellipse, var(--hero-glow, rgba(111,181,255,0.3)) 0%, transparent 65%);
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* Content layer */
+.mg-hero__content {
+  position: relative;
+  z-index: 5;
+  padding: 140px 32px 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  will-change: transform, opacity;
+}
+.mg-hero--tier2 .mg-hero__content {
+  padding: 88px 32px 80px;
+}
+
+.mg-hero__eyebrow {
+  font-family: var(--mg-font-pixel);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+  color: var(--hero-accent, var(--mg-cosmic-glow));
+  text-shadow: 0 0 12px var(--hero-accent-alpha, rgba(111,181,255,0.55));
+}
+.mg-hero__title {
+  font-family: var(--mg-font-display);
+  font-weight: 600;
+  font-size: clamp(48px, 7vw, 100px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+  text-wrap: balance;
+}
+.mg-hero--tier2 .mg-hero__title {
+  font-size: clamp(40px, 5.5vw, 72px);
+}
+.mg-hero__title em {
+  color: var(--hero-accent, var(--mg-cosmic-glow));
+  font-style: normal;
+}
+.mg-hero__lede {
+  font-family: var(--mg-font-body);
+  font-size: 19px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.86);
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+  text-wrap: balance;
+}
+.mg-hero--tier2 .mg-hero__lede {
+  font-size: 17px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.mg-hero__btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+/* ── Feature element layout (hero with side graphic) ────────────────── */
+.mg-hero--has-feature .mg-hero__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  text-align: left;
+}
+.mg-hero__text {
+  flex: 1;
+  min-width: 0;
+}
+.mg-hero__feature {
+  flex: none;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mg-hero--has-feature .mg-hero__lede {
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .mg-hero--has-feature .mg-hero__content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .mg-hero__feature {
+    width: 140px;
+    height: 140px;
+    order: -1;
+  }
+  .mg-hero--has-feature .mg-hero__lede {
+    margin: 0 auto;
+  }
+}
+
+/* ── Floating SVG elements layer ────────────────────────────────────── */
+.mg-hero__floats {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+.mg-hero__float {
+  position: absolute;
+  opacity: 0;
+  animation: heroFloat var(--float-dur, 18s) var(--float-delay, 0s) ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes heroFloat {
+  0% {
+    opacity: 0;
+    transform: translate(var(--fx, 0px), var(--fy, 0px)) rotate(var(--fr, 0deg)) scale(0.8);
+  }
+  8% { opacity: var(--fo, 0.18); }
+  50% {
+    transform: translate(calc(var(--fx, 0px) + var(--fdx, 20px)), calc(var(--fy, 0px) + var(--fdy, -40px))) rotate(calc(var(--fr, 0deg) + var(--frot, 15deg))) scale(1);
+  }
+  92% { opacity: var(--fo, 0.18); }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--fx, 0px) + var(--fdx2, -10px)), calc(var(--fy, 0px) + var(--fdy2, -60px))) rotate(calc(var(--fr, 0deg) + var(--frot2, 30deg))) scale(0.85);
+  }
+}
+
+/* Slower orbit variant for engines cog */
+@keyframes heroOrbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes heroPulse {
+  0%, 100% { opacity: var(--fo, 0.15); transform: scale(1); }
+  50% { opacity: calc(var(--fo, 0.15) * 1.4); transform: scale(1.06); }
+}
+
+/* ── Section-specific accent vars ───────────────────────────────────── */
+.mg-hero--mods {
+  --hero-accent: #e63232;
+  --hero-accent-alpha: rgba(230,50,50,0.55);
+  --hero-glow: rgba(209,26,26,0.35);
+  --hero-mid: #5c1010;
+}
+.mg-hero--games {
+  --hero-accent: #e8a91a;
+  --hero-accent-alpha: rgba(232,169,26,0.55);
+  --hero-glow: rgba(232,169,26,0.35);
+  --hero-mid: #5c4310;
+}
+.mg-hero--tools {
+  --hero-accent: #3a9928;
+  --hero-accent-alpha: rgba(58,153,40,0.55);
+  --hero-glow: rgba(58,153,40,0.35);
+  --hero-mid: #1a5e10;
+}
+.mg-hero--news {
+  --hero-accent: #e11d89;
+  --hero-accent-alpha: rgba(225,29,137,0.55);
+  --hero-glow: rgba(225,29,137,0.3);
+  --hero-mid: #5c0f3a;
+}
+.mg-hero--engines {
+  --hero-accent: #06b6d4;
+  --hero-accent-alpha: rgba(6,182,212,0.55);
+  --hero-glow: rgba(6,182,212,0.35);
+  --hero-mid: #0e4f5c;
+}
+.mg-hero--developers {
+  --hero-accent: #8b5cf6;
+  --hero-accent-alpha: rgba(139,92,246,0.55);
+  --hero-glow: rgba(139,92,246,0.35);
+  --hero-mid: #3b1a80;
+}
+.mg-hero--about {
+  --hero-accent: #6fb5ff;
+  --hero-accent-alpha: rgba(111,181,255,0.55);
+  --hero-glow: rgba(111,181,255,0.25);
+}
+
+/* Sub-page tints */
+.mg-hero--submit {
+  --hero-accent: #e63232;
+  --hero-accent-alpha: rgba(230,50,50,0.55);
+  --hero-glow: rgba(209,26,26,0.25);
+  --hero-mid: #5c1010;
+}
+.mg-hero--team {
+  --hero-accent: #6fb5ff;
+  --hero-accent-alpha: rgba(111,181,255,0.55);
+  --hero-glow: rgba(111,181,255,0.2);
+}
+.mg-hero--roadmap {
+  --hero-accent: #6fb5ff;
+  --hero-accent-alpha: rgba(111,181,255,0.55);
+  --hero-glow: rgba(111,181,255,0.2);
+}
+.mg-hero--community {
+  --hero-accent: #6fb5ff;
+  --hero-accent-alpha: rgba(111,181,255,0.55);
+  --hero-glow: rgba(111,181,255,0.25);
+}
+.mg-hero--press {
+  --hero-accent: #6fb5ff;
+  --hero-accent-alpha: rgba(111,181,255,0.55);
+  --hero-glow: rgba(111,181,255,0.2);
+}
+
+/* Tool sub-page tints — inherit green from Tools parent */
+.mg-hero--tool-ti {
+  --hero-accent: #3a9928;
+  --hero-accent-alpha: rgba(58,153,40,0.55);
+  --hero-glow: rgba(58,153,40,0.25);
+  --hero-mid: #1a5e10;
+}
+.mg-hero--tool-talisman {
+  --hero-accent: #3a9928;
+  --hero-accent-alpha: rgba(58,153,40,0.55);
+  --hero-glow: rgba(58,153,40,0.25);
+  --hero-mid: #1a5e10;
+}
+.mg-hero--tool-nukes {
+  --hero-accent: #3a9928;
+  --hero-accent-alpha: rgba(58,153,40,0.55);
+  --hero-glow: rgba(58,153,40,0.25);
+  --hero-mid: #1a5e10;
+}
+.mg-hero--tool-dice {
+  --hero-accent: #3a9928;
+  --hero-accent-alpha: rgba(58,153,40,0.55);
+  --hero-glow: rgba(58,153,40,0.25);
+  --hero-mid: #1a5e10;
+}
+.mg-hero--tool-decks {
+  --hero-accent: #3a9928;
+  --hero-accent-alpha: rgba(58,153,40,0.55);
+  --hero-glow: rgba(58,153,40,0.25);
+  --hero-mid: #1a5e10;
+}
+.mg-hero--tool-chess {
+  --hero-accent: #3a9928;
+  --hero-accent-alpha: rgba(58,153,40,0.55);
+  --hero-glow: rgba(58,153,40,0.25);
+  --hero-mid: #1a5e10;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .mg-hero--tier1 { min-height: 480px; }
+  .mg-hero--tier2 { min-height: 340px; }
+  .mg-hero__content { padding: 100px 20px 88px; }
+  .mg-hero--tier2 .mg-hero__content { padding: 64px 20px 56px; }
+  .mg-hero__float { display: none; }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .mg-hero__hex { animation: none; }
+  .mg-hero__float { animation: none; opacity: var(--fo, 0.12) !important; }
+}

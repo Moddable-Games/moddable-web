@@ -1,0 +1,93 @@
+{
+  "about": {
+    "title": "About",
+    "description": "The first board game company built entirely in the open. CC BY-SA rules, MIT engines, forkable rulebooks in git. Founded in Kuala Lumpur, incorporated in the UK.",
+    "url": "https://moddable.games/about/",
+    "image": "https://moddable.games/img/og/about.png"
+  },
+  "roadmap": {
+    "title": "Roadmap",
+    "description": "Our public 18-month roadmap. Physical production, online engines, marketplace, and community tools.",
+    "url": "https://moddable.games/about/roadmap/",
+    "image": "https://moddable.games/img/og/about.png"
+  },
+  "community": {
+    "title": "Community",
+    "description": "Join the Moddable.Games community on Discord. Playtesters, designers, and rule-tinkerers building open-source board games together.",
+    "url": "https://moddable.games/community/",
+    "image": "https://moddable.games/img/og/community.png"
+  },
+  "press": {
+    "title": "Press Kit",
+    "description": "Moddable.Games press kit. Logos, screenshots, brand colours, and contact details for editorial use.",
+    "url": "https://moddable.games/press/",
+    "image": "https://moddable.games/img/og/press.png"
+  },
+  "team": {
+    "title": "Team",
+    "description": "Meet the team behind Moddable.Games. Four people building open-source board games.",
+    "url": "https://moddable.games/team/",
+    "image": "https://moddable.games/img/og/team.png"
+  },
+  "subscribe": {
+    "title": "Subscribe",
+    "description": "Get updates on new mods, games, and tools from Moddable.Games.",
+    "url": "https://moddable.games/subscribe/",
+    "image": "https://moddable.games/img/og/about.png"
+  },
+  "submit": {
+    "title": "Submit a Mod",
+    "description": "Submit your board game mod to the Moddable.Games library. Open to all designers.",
+    "url": "https://moddable.games/submit/",
+    "image": "https://moddable.games/img/og/about.png"
+  },
+  "developers": {
+    "title": "Developers",
+    "description": "Build on Moddable engines. APIs, SDKs, and embeddable game tools for developers.",
+    "url": "https://moddable.games/developers/",
+    "image": "https://moddable.games/img/og/developers.png"
+  },
+  "mods": {
+    "title": "Mods",
+    "description": "Browse our library of open-source rulebook mods for board games you already own.",
+    "url": "https://moddable.games/mods/",
+    "image": "https://moddable.games/img/og/mods.png"
+  },
+  "games": {
+    "title": "Games",
+    "description": "Original games designed to be modded from day one — Nukes, Planet Mongo, Endless Skies.",
+    "url": "https://moddable.games/games/",
+    "image": "https://moddable.games/img/og/games.png"
+  },
+  "engines": {
+    "title": "Engines",
+    "description": "Open-source game engines anyone can embed, extend, or fork. Moddable Chess and Moddable Hexmaps.",
+    "url": "https://moddable.games/engines/",
+    "image": "https://moddable.games/img/og/engines.png"
+  },
+  "news": {
+    "title": "News",
+    "description": "Essays, announcements, and build logs from Moddable.Games. Written by humans, for humans.",
+    "url": "https://moddable.games/news/",
+    "image": "https://moddable.games/img/og/news.png"
+  },
+  "tools": {
+    "title": "Tools",
+    "description": "Free digital tools for tabletop play. Dice rollers, deck builders, map generators, and more.",
+    "url": "https://moddable.games/tools/",
+    "image": "https://moddable.games/img/og/tools.png"
+  },
+  "404": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist.",
+    "url": "https://moddable.games/404.html",
+    "image": "https://moddable.games/img/og/about.png"
+  },
+  "home": {
+    "title": "Moddable.Games",
+    "full_title": "Moddable.Games — Creating games you already own",
+    "description": "The first board game company built entirely in the open. CC-licensed rulebooks, forkable engines, and original games designed to be taken apart.",
+    "url": "https://moddable.games/",
+    "image": "https://moddable.games/img/og/default.png"
+  }
+}

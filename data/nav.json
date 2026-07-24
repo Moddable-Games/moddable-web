@@ -1,0 +1,139 @@
+{
+  "items": [
+    {
+      "id": "Mods",
+      "href": "/mods/",
+      "accent": "#e63232",
+      "children": [
+        { "label": "Conversions", "href": "/mods/#Conversion" },
+        { "label": "Rebalances", "href": "/mods/#Rebalance" },
+        { "label": "Reskins", "href": "/mods/#Reskin" },
+        { "label": "Submit Mod", "href": "/submit/" }
+      ]
+    },
+    {
+      "id": "Engines",
+      "href": "/engines/",
+      "accent": "#06b6d4",
+      "children": [
+        { "label": "Chess", "href": "/engines/moddable-chess/" },
+        { "label": "Hexmaps", "href": "/engines/moddable-hexmaps/" }
+      ]
+    },
+    {
+      "id": "Games",
+      "href": "/games/",
+      "accent": "#e8a91a",
+      "children": [
+        { "label": "Nukes", "href": "/games/nukes/" },
+        { "label": "Planet Mongo", "href": "/games/planet-mongo/" },
+        { "label": "Endless Skies", "href": "/games/endless-skies/" }
+      ]
+    },
+    {
+      "id": "Tools",
+      "href": "/tools/",
+      "accent": "#3a9928",
+      "children": [
+        { "label": "Twilight", "href": "/tools/ti/" },
+        { "label": "Talisman", "href": "/tools/talisman/" },
+        { "label": "Nukes", "href": "/tools/nukes/" },
+        { "label": "Dice", "href": "/tools/dice/" },
+        { "label": "Decks", "href": "/tools/decks/" },
+        { "label": "Chess", "href": "/tools/chess/" },
+        { "label": "Oracles", "href": "/tools/oracles/" }
+      ]
+    },
+    {
+      "id": "Developers",
+      "href": "/developers/",
+      "accent": "#8b5cf6",
+      "children": [
+        { "label": "Tools API", "href": "/developers/api/" },
+        { "label": "Examples", "href": "/developers/examples/" },
+        { "label": "Live Server", "href": "https://tools.moddable.games/" }
+      ]
+    },
+    {
+      "id": "About",
+      "href": "/about/",
+      "accent": "#6fb5ff",
+      "children": [
+        { "label": "Team", "href": "/team/" },
+        { "label": "Roadmap", "href": "/about/roadmap/" },
+        { "label": "Community", "href": "/community/" },
+        { "label": "Press", "href": "/press/" }
+      ]
+    },
+    {
+      "id": "News",
+      "href": "/news/",
+      "accent": "#e11d89"
+    }
+  ],
+  "footer_cols": [
+    {
+      "title": "Mods",
+      "href": "/mods/",
+      "links": [
+        { "label": "Conversions", "href": "/mods/#Conversion" },
+        { "label": "Rebalances", "href": "/mods/#Rebalance" },
+        { "label": "Reskins", "href": "/mods/#Reskin" },
+        { "label": "Submit Mod", "href": "/submit/" }
+      ]
+    },
+    {
+      "title": "Games",
+      "href": "/games/",
+      "links": [
+        { "label": "Endless Skies", "href": "/games/endless-skies/" },
+        { "label": "Planet Mongo", "href": "/games/planet-mongo/" },
+        { "label": "Nukes", "href": "/games/nukes/" },
+        { "label": "Rulebooks", "href": "https://rules.moddable.games/" }
+      ]
+    },
+    {
+      "title": "Engines",
+      "href": "/engines/",
+      "links": [
+        { "label": "Chess", "href": "/engines/moddable-chess/" },
+        { "label": "Hexmaps", "href": "/engines/moddable-hexmaps/" }
+      ]
+    },
+    {
+      "title": "Developers",
+      "href": "/developers/",
+      "links": [
+        { "label": "Tools API", "href": "/developers/api/" },
+        { "label": "Examples", "href": "/developers/examples/" },
+        { "label": "Live Server", "href": "https://tools.moddable.games/" },
+        { "label": "GitHub", "href": "https://github.com/Moddable-Games" }
+      ]
+    },
+    {
+      "title": "Tools",
+      "href": "/tools/",
+      "links": [
+        { "label": "Twilight", "href": "/tools/ti/" },
+        { "label": "Talisman", "href": "/tools/talisman/" },
+        { "label": "Nukes", "href": "/tools/nukes/" },
+        { "label": "Dice", "href": "/tools/dice/" },
+        { "label": "Decks", "href": "/tools/decks/" },
+        { "label": "Chess", "href": "/tools/chess/" },
+        { "label": "Oracles", "href": "/tools/oracles/" }
+      ]
+    },
+    {
+      "title": "Community",
+      "href": "/community/",
+      "links": [
+        { "label": "News", "href": "/news/" },
+        { "label": "About", "href": "/about/" },
+        { "label": "Roadmap", "href": "/about/roadmap/" },
+        { "label": "Team", "href": "/team/" },
+        { "label": "Press", "href": "/press/" },
+        { "label": "Subscribe", "href": "/subscribe/" }
+      ]
+    }
+  ]
+}

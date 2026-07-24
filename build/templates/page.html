@@ -1,0 +1,63 @@
+{{>_head}}
+{{>_navbar}}
+{{>_hero}}
+
+<div id="main-content">
+{{#if has_sidebar}}
+<section class="{{page_id}}-main">
+  <div class="{{page_id}}-layout">
+    <div class="{{page_id}}-content">
+      {{#each sections}}
+      {{#if type "text"}}<div>{{{html}}}</div>{{/if}}
+      {{#if type "prose"}}<div class="{{page_id}}-prose">{{>_section-prose}}</div>{{/if}}
+      {{#if type "stats"}}{{>_section-stats}}{{/if}}
+      {{#if type "channels"}}{{>_section-channels}}{{/if}}
+      {{#if type "featured"}}{{>_section-featured}}{{/if}}
+      {{#if type "activity"}}{{>_section-activity}}{{/if}}
+      {{#if type "members"}}{{>_section-members}}{{/if}}
+      {{#if type "jams"}}{{>_section-jams}}{{/if}}
+      {{#if type "timeline"}}{{>_section-timeline}}{{/if}}
+      {{#if type "vision"}}{{>_section-vision}}{{/if}}
+      {{#if type "logos"}}{{>_section-logos}}{{/if}}
+      {{#if type "screenshots"}}{{>_section-screenshots}}{{/if}}
+      {{#if type "downloads"}}{{>_section-downloads}}{{/if}}
+      {{#if type "swatches"}}{{>_section-swatches}}{{/if}}
+      {{#if type "game-logos"}}{{>_section-game-logos}}{{/if}}
+      {{#if type "cta"}}{{>_section-cta}}{{/if}}
+      {{/each}}
+    </div>
+    <aside class="{{page_id}}-sidebar">
+      {{#each sidebar}}
+      {{#if type "facts"}}{{>_sidebar-facts}}{{/if}}
+      {{#if type "links"}}{{>_sidebar-links}}{{/if}}
+      {{#if type "contact"}}{{>_sidebar-contact}}{{/if}}
+      {{/each}}
+    </aside>
+  </div>
+</section>
+{{/if}}
+
+{{#unless has_sidebar}}
+<section class="{{page_id}}-main">
+  <div class="mg-container">
+    {{#each sections}}
+    {{#if type "text"}}<div>{{{html}}}</div>{{/if}}
+    {{#if type "prose"}}<div class="{{page_id}}-prose">{{>_section-prose}}</div>{{/if}}
+    {{#if type "stats"}}{{>_section-stats}}{{/if}}
+    {{#if type "channels"}}{{>_section-channels}}{{/if}}
+    {{#if type "featured"}}{{>_section-featured}}{{/if}}
+    {{#if type "activity"}}{{>_section-activity}}{{/if}}
+    {{#if type "members"}}{{>_section-members}}{{/if}}
+    {{#if type "jams"}}{{>_section-jams}}{{/if}}
+    {{#if type "timeline"}}{{>_section-timeline}}{{/if}}
+    {{#if type "vision"}}{{>_section-vision}}{{/if}}
+    {{#if type "cards"}}{{>_section-cards}}{{/if}}
+    {{#if type "cta"}}{{>_section-cta}}{{/if}}
+    {{#if type "form"}}{{>_section-form}}{{/if}}
+    {{/each}}
+  </div>
+</section>
+{{/unless}}
+</div>
+
+{{>_foot}}

@@ -1,0 +1,9 @@
+{{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
+<div class="roadmap-timeline">
+  {{#each items}}
+  <div class="milestone-row" data-reveal="up">
+    <span class="milestone-badge" style="background:{{color}}">{{quarter}}</span>
+    <div class="milestone-text">{{text}}</div>
+  </div>
+  {{/each}}
+</div>

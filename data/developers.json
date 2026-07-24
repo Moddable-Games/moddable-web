@@ -1,0 +1,18 @@
+{
+  "has_sidebar": false,
+  "sections": [
+    {
+      "type": "prose",
+      "lede": "Moddable engines are designed to be embedded, extended, and forked. Every tool and engine exposes a clean API for developers.",
+      "blocks": []
+    },
+    {
+      "type": "cards",
+      "items": [
+        { "icon": "API", "icon_color": "#06b6d4", "title": "Tools API", "desc": "REST API for dice rolls, oracle queries, deck operations, and chess moves. Free, no auth required.", "href": "/developers/api/", "link_label": "Explore API" },
+        { "icon": "SDK", "icon_color": "#3a9928", "title": "Chess Engine", "desc": "Embed the chess variant engine in your own app. SVG renderer, AI opponent, and 74 variants.", "href": "/engines/moddable-chess/", "link_label": "View Engine" },
+        { "icon": "HEX", "icon_color": "#e8a91a", "title": "Hexmaps Engine", "desc": "Generate, render, and edit hex maps. Seeded RNG, multiple styles, import/export JSON.", "href": "/engines/moddable-hexmaps/", "link_label": "View Engine" }
+      ]
+    }
+  ]
+}

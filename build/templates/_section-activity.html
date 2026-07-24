@@ -1,0 +1,16 @@
+{{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
+<div class="activity-feed">
+  {{#each items}}
+  <div class="activity-item">
+    <img class="activity-item__avatar" src="{{avatar}}" alt="{{user}}">
+    <div class="activity-item__content">
+      <div class="activity-item__header">
+        <span class="activity-item__user">{{user}}</span>
+        <span class="activity-item__channel">{{channel}}</span>
+        <span class="activity-item__date">{{date}}</span>
+      </div>
+      <div class="activity-item__body">{{msg}}</div>
+    </div>
+  </div>
+  {{/each}}
+</div>

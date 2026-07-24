@@ -1,0 +1,47 @@
+{{>_head}}
+{{>_navbar}}
+{{>_hero}}
+
+<section class="mods-filter" id="main-content">
+  <div class="mods-filter__inner">
+    <div class="mods-filter__bar">
+      <div class="mods-filter__search-wrap">
+        <input id="search-input" type="search" placeholder="Search mods or a base game…" class="mods-filter__search">
+        <span class="mods-filter__search-icon">&#8981;</span>
+      </div>
+      <div id="cat-filters" class="mods-filter__cats">
+        <button class="mods-filter__btn mods-filter__btn--active">All</button>
+        <button class="mods-filter__btn">Conversion</button>
+        <button class="mods-filter__btn">Rebalance</button>
+        <button class="mods-filter__btn">Reskin</button>
+      </div>
+    </div>
+    <div class="mods-filter__meta">
+      <div class="mods-filter__count">{{mod_count}} MODS</div>
+      <div class="mods-filter__sort">Sorted by base game</div>
+    </div>
+    <div id="mods-grid" class="mg-grid-auto" data-stagger>
+      {{#each mods}}
+      <article class="mod-card" data-reveal="up" data-category="{{category}}">
+        <div class="mod-card__accent" style="background:{{category_color}}"></div>
+        <div class="mod-card__inner">
+          <div class="mod-card__thumb" style="background:linear-gradient(135deg, #0a0d2a 0%, {{category_color}} 100%)">
+            <div class="mod-card__thumb-hex" style="background-image:url('/img/hex-grid-white.svg')"></div>
+            {{#if logo}}<img src="/{{logo}}" alt="{{title}}" class="mod-card__thumb-logo">{{/if}}
+          </div>
+          <div class="mod-card__meta">
+            <span class="mod-card__category" style="background:{{category_color}}">{{category}}</span>
+            <span class="mod-card__base-game">{{baseGame}}</span>
+          </div>
+          <h3 class="mod-card__title">{{title}}</h3>
+          <p class="mod-card__body">{{body}}</p>
+          <div class="mod-card__stats">{{stats}}{{#if source}} <span class="mod-card__source">via {{source}}</span>{{/if}}</div>
+          <a href="{{path}}" class="mod-card__link" style="color:{{category_color}}">View the rules <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+{{>_foot}}

@@ -1,0 +1,21 @@
+<footer role="contentinfo" aria-label="Site footer" class="mg-footer">
+  <div class="mg-footer__hex" style="background-image:url('/img/hex-grid-blue.svg')"></div>
+  <div class="mg-footer__inner">
+    <div class="mg-footer__grid">
+      {{#each nav.footer_cols}}
+      <div>
+        <h4 class="mg-footer__col-title"><a href="{{href}}" class="mg-footer__col-title-link">{{title}}</a></h4>
+        <ul class="mg-footer__col-list">
+          {{#each links}}
+          <li><a href="{{href}}" class="mg-footer__col-link"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/each}}
+    </div>
+    <div class="mg-footer__bottom">
+      <span>&copy; {{year}} Moddable.Games</span>
+      <span>v{{version}}</span>
+    </div>
+  </div>
+</footer>

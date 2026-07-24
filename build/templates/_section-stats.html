@@ -1,0 +1,9 @@
+{{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
+<div class="stats-grid">
+  {{#each items}}
+  <div class="stat-card" data-reveal="up">
+    <div class="stat-card__number">{{number}}</div>
+    <div class="stat-card__label">{{label}}</div>
+  </div>
+  {{/each}}
+</div>

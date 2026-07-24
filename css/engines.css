@@ -1,0 +1,210 @@
+.engines-hero {
+  position: relative;
+  min-height: 520px;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
+}
+.engines-hero__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #0a0d2a 0%, #1a3680 45%, #000 100%);
+}
+.engines-hero__hex {
+  position: absolute;
+  inset: 0;
+  background-size: 56px 64px;
+  animation: hexFloat 30s linear infinite;
+  pointer-events: none;
+}
+.engines-hero__fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.6) 85%, #000 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+.engines-hero__content {
+  position: relative;
+  z-index: 3;
+  padding: 140px 32px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.engines-hero__title {
+  font-family: var(--mg-font-display);
+  font-weight: 600;
+  font-size: clamp(40px, 7vw, 90px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+}
+.engines-hero__lede {
+  font-family: var(--mg-font-body);
+  font-size: 19px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.86);
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+}
+
+.engines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 32px;
+  padding: 48px 0 64px;
+}
+
+.engine-card {
+  display: block;
+  text-decoration: none;
+  color: var(--mg-ink);
+  background: #fff;
+  border: 1px solid var(--mg-hairline-light);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.engine-card:hover {
+  transform: translateY(-4px);
+}
+.engine-card__bar {
+  height: 4px;
+  width: 100%;
+}
+.engine-card__image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+}
+.engine-card__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 28px 0;
+  text-align: center;
+}
+.engine-card__title-wrap {
+  text-align: center;
+}
+.engine-card__status {
+  font-family: var(--mg-font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.engine-card__title {
+  font-family: var(--mg-font-display);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.1;
+  margin: 0;
+}
+.engine-card__tagline {
+  font-family: var(--mg-font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--mg-body);
+  padding: 16px 28px 0;
+  margin: 0;
+  text-align: center;
+}
+.engine-card__stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px 28px 0;
+}
+.engine-card__stat {
+  text-align: center;
+}
+.engine-card__stat-value {
+  font-family: var(--mg-font-mono);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--mg-ink);
+}
+.engine-card__stat-label {
+  font-family: var(--mg-font-body);
+  font-size: 12px;
+  color: var(--mg-mute);
+  margin-top: 2px;
+}
+.engine-card__features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 28px 28px;
+}
+.engine-card__feature {
+  font-family: var(--mg-font-body);
+  font-size: 12px;
+  color: var(--mg-charcoal);
+  background: var(--mg-canvas-light);
+  border: 1px solid var(--mg-hairline-light);
+  border-radius: 9999px;
+  padding: 4px 12px;
+}
+
+.engines-cta {
+  max-width: 1200px;
+  margin: 0 auto 72px;
+  padding: 56px 40px;
+  background: #000;
+  color: #fff;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.engines-cta__inner {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+.engines-cta__heading {
+  font-family: var(--mg-font-display);
+  font-weight: 600;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+.engines-cta__body {
+  font-family: var(--mg-font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.78);
+  margin: 0 0 32px;
+  text-wrap: balance;
+}
+
+@media (max-width: 768px) {
+  .engines-hero__content { padding: 80px 20px 72px; }
+  .engines-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 32px 0 48px;
+  }
+  .engines-cta { margin: 0 20px 48px; padding: 40px 24px; border-radius: 16px; }
+}
+@media (max-width: 480px) {
+  .engine-card__header {
+    padding: 20px 20px 0;
+  }
+  .engine-card__tagline,
+  .engine-card__stats,
+  .engine-card__features {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

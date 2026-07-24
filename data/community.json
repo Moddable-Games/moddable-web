@@ -1,0 +1,80 @@
+{
+  "has_sidebar": false,
+  "sections": [
+    {
+      "type": "stats",
+      "items": [
+        { "number": "15", "label": "Members" },
+        { "number": "12", "label": "Channels" },
+        { "number": "3", "label": "Countries" },
+        { "number": "50+", "label": "Posts" }
+      ]
+    },
+    {
+      "type": "channels",
+      "heading": "Channels",
+      "items": [
+        { "name": "viticulture", "desc": "Strategy wine-making and worker placement discussion", "cat": "boardgames" },
+        { "name": "twilight", "desc": "Twilight Imperium strategy, session reports, and Hyper Imperium playtesting", "cat": "boardgames" },
+        { "name": "catan", "desc": "Catan mods, hex variants, and Nukes conversion guides", "cat": "boardgames" },
+        { "name": "monopoly", "desc": "Econopoly playtesting, house rules, and economic fixes", "cat": "boardgames" },
+        { "name": "print-n-play", "desc": "PnP builds, card stock selection, and DIY production tips", "cat": "boardgames" },
+        { "name": "design", "desc": "Game design theory, prototyping, and mechanics discussion", "cat": "community" },
+        { "name": "showcase", "desc": "Share your artwork, mod concepts, and board designs", "cat": "community" },
+        { "name": "playtesting", "desc": "Find testers, offer feedback, and report session results", "cat": "community" },
+        { "name": "online", "desc": "Online games: nukes.moddable.games, chess, and open-source titles", "cat": "community" },
+        { "name": "events-uk", "desc": "UK meetups, conventions, and game nights", "cat": "events" },
+        { "name": "events-usa", "desc": "US meetups, conventions, and community gatherings", "cat": "events" },
+        { "name": "events-malaysia", "desc": "Malaysia meetups, cafes, and weekly game nights", "cat": "events" }
+      ]
+    },
+    {
+      "type": "featured",
+      "heading": "Featured resources",
+      "items": [
+        { "type": "video", "title": "Behind the scenes: card game production", "user": "djkaspa", "source": "YouTube", "url": "https://www.youtube.com/watch?v=joMpOOZAz9c" },
+        { "type": "link", "title": "Deciding card stock for your games", "user": "darktalon8", "source": "Article", "url": "https://www.qpmarketnetwork.com/card-design" },
+        { "type": "link", "title": "Simple card maker with free tier", "user": "darktalon8", "source": "Tool", "url": "https://www.dextrous.com.au/" }
+      ]
+    },
+    {
+      "type": "activity",
+      "heading": "Recent activity",
+      "items": [
+        { "channel": "#design", "user": "djkaspa", "avatar": "https://cdn.discordapp.com/avatars/1059998798027444304/41d74062e4ad48206877b2aaba7a640e.png?size=64", "msg": "Nice BTS video on card game production workflows", "date": "May 22" },
+        { "channel": "#design", "user": "darktalon8", "avatar": "https://cdn.discordapp.com/avatars/433932623941730304/fbd8e6a47ac0580e0af2cf3b7d896dd9.png?size=64", "msg": "Great article on deciding card stock for your games", "date": "May 20" },
+        { "channel": "#design", "user": "darktalon8", "avatar": "https://cdn.discordapp.com/avatars/433932623941730304/fbd8e6a47ac0580e0af2cf3b7d896dd9.png?size=64", "msg": "Simple card maker with a free layer to test it out", "date": "May 11" },
+        { "channel": "#general", "user": "arjitraj_", "avatar": "https://cdn.discordapp.com/avatars/190300566046507018/4eb2498fe54b8bb8c23f7948b183ec5b.png?size=64", "msg": "Thanks Kevin for the invite.", "date": "Jun 3" },
+        { "channel": "#print-n-play", "user": "reshwindblade", "avatar": "https://cdn.discordapp.com/avatars/243395223898554368/14332d7f98baf422e6c2bc3d67bdedfc.png?size=64", "msg": "First prototype printed — card alignment is tricky", "date": "Jun 1" },
+        { "channel": "#monopoly", "user": "wundercover", "avatar": "https://cdn.discordapp.com/avatars/113239562452541440/135bed57657861016f475a42771de44f.png?size=64", "msg": "Econopoly v1.4 playtest report — variable objectives feel great", "date": "May 8" }
+      ]
+    },
+    {
+      "type": "members",
+      "heading": "Members",
+      "items": [
+        { "display": "Darktalon", "avatar": "https://cdn.discordapp.com/avatars/433932623941730304/fbd8e6a47ac0580e0af2cf3b7d896dd9.png?size=128", "role": "management", "msgs": 31, "lastActive": "Jun 5", "lastMsg": "New expansion from Stonemaier. Looking forward to this one." },
+        { "display": "Arjit", "avatar": "https://cdn.discordapp.com/avatars/190300566046507018/4eb2498fe54b8bb8c23f7948b183ec5b.png?size=128", "role": "member", "msgs": 1, "lastActive": "Jun 3", "lastMsg": "Thanks Kevin for the invite." },
+        { "display": "djkaspa", "avatar": "https://cdn.discordapp.com/avatars/1059998798027444304/41d74062e4ad48206877b2aaba7a640e.png?size=128", "role": "management", "msgs": 16, "lastActive": "May 22", "lastMsg": "Nice BTS video on card game production workflows." },
+        { "display": "Wunder", "avatar": "https://cdn.discordapp.com/avatars/113239562452541440/135bed57657861016f475a42771de44f.png?size=128", "role": "member", "msgs": 1, "lastActive": "Oct 19", "lastMsg": "Hi from the ara group." }
+      ]
+    },
+    {
+      "type": "jams",
+      "heading": "Mod Jams",
+      "items": [
+        { "number": "JAM #1", "title": "Monopoly", "date": "March 2024", "color": "#3a9928", "result_text": "Produced Econopoly", "result_detail": "victory points replace bankruptcy", "result_href": "/mods/econopoly/", "upcoming": false },
+        { "number": "JAM #2", "title": "Talisman", "date": "August 2024", "color": "#0c4f8d", "result_text": "Produced Talisman Worlds", "result_detail": "hex grid replaces the spiral", "result_href": "/mods/talisman-worlds/", "upcoming": false },
+        { "number": "JAM #3", "title": "Twilight Imperium", "date": "January 2025", "color": "#d11a1a", "result_text": "Produced Hyper Imperium", "result_detail": "12 hours down to 8", "result_href": "/mods/hyper-imperium/", "upcoming": false },
+        { "number": "JAM #4", "title": "???", "date": "Coming soon", "color": "#6fb5ff", "result_text": "", "result_detail": "", "result_href": "", "upcoming": true }
+      ]
+    },
+    {
+      "type": "cta",
+      "buttons": [
+        { "label": "Join Discord", "href": "https://discord.gg/VhsVGNq6Za", "style": "primary", "external": true },
+        { "label": "Submit Mod", "href": "/submit/", "style": "outline-dark" }
+      ]
+    }
+  ]
+}

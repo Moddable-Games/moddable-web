@@ -1,0 +1,46 @@
+[
+  {
+    "slug": "moddable-chess",
+    "title": "Moddable Chess",
+    "tagline": "74 chess variants. One modular engine.",
+    "accent": "blue",
+    "url": "https://chess.moddable.games/",
+    "repo": "https://github.com/Moddable-Games/moddable-chess",
+    "logo": "/img/moddable-chess-cube.svg",
+    "image": "/img/engine-chess-screenshot.png",
+    "stats": [
+      { "value": "70", "label": "playable variants" },
+      { "value": "5", "label": "AI difficulties" },
+      { "value": "3", "label": "consumer apps" }
+    ],
+    "features": ["SVG board renderer", "AI opponent (minimax)", "Embed API", "Consumer APIs", "Game controller", "Opening books", "Developer guides", "Touch/mobile support"],
+    "consumers": [
+      { "title": "Dungeon Chess", "href": "/mods/dungeon-chess/" },
+      { "title": "Chess Variant Loader", "href": "/tools/chess/" }
+    ]
+  },
+  {
+    "slug": "moddable-hexmaps",
+    "title": "Moddable Hexmaps",
+    "tagline": "Hex map generation for any game. Seeded, shareable, moddable.",
+    "accent": "green",
+    "url": "https://hex.moddable.games/",
+    "repo": "https://github.com/Moddable-Games/moddable-hexmaps",
+    "logo": "/img/moddable-hexmaps-cube.svg",
+    "image": "/img/engine-hexmaps-screenshot.png",
+    "stats": [
+      { "value": "6", "label": "supported games" },
+      { "value": "4", "label": "render styles" },
+      { "value": "6", "label": "consumer apps" }
+    ],
+    "features": ["Canvas renderer", "Seeded RNG", "Import/export JSON", "Style selector", "Editor mode"],
+    "consumers": [
+      { "title": "Nukes", "href": "/games/nukes/" },
+      { "title": "Planet Mongo", "href": "/games/planet-mongo/" },
+      { "title": "Endless Skies", "href": "/games/endless-skies/" },
+      { "title": "Colony", "href": "https://hex.moddable.games/generate/?game=colony" },
+      { "title": "Talisman Worlds", "href": "/mods/talisman-worlds/" },
+      { "title": "Hyper Imperium", "href": "/mods/hyper-imperium/" }
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+{{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
+<div class="dev-grid" data-stagger>
+  {{#each items}}
+  <div class="dev-card" data-reveal="up">
+    <div class="dev-card__icon" style="background:{{icon_color}}">{{icon}}</div>
+    <h3 class="dev-card__title">{{title}}</h3>
+    <p class="dev-card__desc">{{desc}}</p>
+    <a href="{{href}}" class="dev-card__link">{{link_label}} &rarr;</a>
+  </div>
+  {{/each}}
+</div>

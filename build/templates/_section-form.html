@@ -1,0 +1,6 @@
+<form class="subscribe-form" action="{{action}}" method="{{method}}">
+  {{#each fields}}
+  <input type="{{type}}" name="{{name}}" placeholder="{{placeholder}}" class="subscribe-form__input"{{#if required}} required{{/if}}>
+  {{/each}}
+  <button type="submit" class="mg-btn mg-btn--primary">{{submit_label}}</button>
+</form>

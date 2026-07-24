@@ -1,0 +1,664 @@
+[
+  {
+    "slug": "the-civilization-loop",
+    "tags": ["Civilization", "Tech Trees", "Game History"],
+    "date": "Jul 2026",
+    "cover": "#1a3680",
+    "img": "the-civilization-loop.jpg",
+    "title": "The Civilization Loop",
+    "heroTitle": "The <em>Civilization</em> Loop.",
+    "lede": "How one board game invented the tech tree, became a video game, and then a board game again.",
+    "excerpt": "In 1980, a RAF radio instructor in Wales published a board game that invented the technology tree. Eleven years later, it became the most influential strategy franchise in computing history. Then it came back to cardboard.",
+    "theme": "blue",
+    "category": "ESSAY",
+    "readTime": "8 min read",
+    "author": "Mark Smalley",
+    "authorHandle": "Founder · moddable team",
+    "teamSlug": "mark",
+    "toc": [
+      { "label": "Wales, 1974", "id": "wales-1974" },
+      { "label": "The digital leap", "id": "the-digital-leap" },
+      { "label": "The detour", "id": "the-detour" },
+      { "label": "The loop closes", "id": "the-loop-closes" },
+      { "label": "The return", "id": "the-return" },
+      { "label": "Why this matters", "id": "why-this-matters" }
+    ],
+    "modCard": {
+      "eyebrow": "THE ENGINE",
+      "title": "Moddable Chess",
+      "version": "v0.10.0 · 75 variants",
+      "href": "/engines/moddable-chess/",
+      "btnLabel": "Try It"
+    }
+  },
+  {
+    "slug": "the-infrastructure-behind-the-games",
+    "tags": [
+      "Chess",
+      "Nukes",
+      "Talisman",
+      "Open Source"
+    ],
+    "date": "Jun 2026",
+    "cover": "#0c4f8d",
+    "img": "the-infrastructure-behind-the-games.jpg",
+    "title": "The Infrastructure Behind the Games",
+    "heroTitle": "The <em>Infrastructure</em> Behind the Games.",
+    "lede": "The future of tabletop gaming is not bound by cardboard and plastic.",
+    "excerpt": "Building moddable engines: how Hexmaps, Chess Engine, and Rules work together as shared infrastructure for infinite hex worlds.",
+    "theme": "blue",
+    "category": "ENGINEERING",
+    "readTime": "7 min read",
+    "author": "Akmal Fikri",
+    "authorHandle": "Engine \u00b7 Community",
+    "teamSlug": "akmal",
+    "toc": [
+      {
+        "label": "Infinite hex worlds",
+        "id": "infinite-hex-worlds"
+      },
+      {
+        "label": "Moddable Hexmaps",
+        "id": "moddable-hexmaps"
+      },
+      {
+        "label": "Moddable Chess Engine",
+        "id": "moddable-chess-engine"
+      },
+      {
+        "label": "Moddable Rules",
+        "id": "moddable-rules"
+      },
+      {
+        "label": "Plugin architecture",
+        "id": "plugin-architecture"
+      },
+      {
+        "label": "Open-source everything",
+        "id": "open-source-everything"
+      }
+    ],
+    "modCard": {
+      "eyebrow": "THE ENGINE",
+      "title": "Moddable Chess",
+      "version": "v0.7.1 \u00b7 74 variants",
+      "href": "/engines/moddable-chess/",
+      "btnLabel": "Try It"
+    }
+  },
+  {
+    "slug": "beyond-the-box",
+    "tags": [
+      "Catan",
+      "Carcassonne",
+      "Gloomhaven",
+      "Twilight Imperium"
+    ],
+    "date": "May 2026",
+    "cover": "#0c4f8d",
+    "img": "beyond-the-box.jpg",
+    "title": "Beyond The Box",
+    "heroTitle": "Beyond The <em>Box</em>.",
+    "lede": "More than just an artistic cover.",
+    "excerpt": "The art of board game design begins and ends with the box \u2014 but what happens when we open it?",
+    "theme": "blue",
+    "category": "DESIGN",
+    "readTime": "7 min read",
+    "author": "Iqbal Ridzuan",
+    "authorHandle": "Lead Designer \u00b7 moddable team",
+    "teamSlug": "iqbal",
+    "toc": [
+      {
+        "label": "The illustrator",
+        "id": "the-illustrator"
+      },
+      {
+        "label": "The graphic designer",
+        "id": "the-graphic-designer"
+      },
+      {
+        "label": "The rulebook editor",
+        "id": "the-rulebook-editor"
+      },
+      {
+        "label": "The worldbuilder",
+        "id": "the-worldbuilder"
+      },
+      {
+        "label": "The community",
+        "id": "the-community"
+      }
+    ],
+    "modCard": {
+      "eyebrow": "THE GAMES",
+      "title": "Original Games",
+      "version": "3 originals \u00b7 Built to be modded",
+      "href": "/games/",
+      "btnLabel": "View All"
+    }
+  },
+  {
+    "slug": "the-ancients",
+    "tags": [
+      "Chess",
+      "Go",
+      "Game Design"
+    ],
+    "date": "Apr 2026",
+    "cover": "#1a3680",
+    "img": "the-ancients.jpg",
+    "title": "The Ancients",
+    "heroTitle": "The <em>Ancients</em>.",
+    "lede": "Designing games that will last a thousand years.",
+    "excerpt": "We rarely pause to consider what has already endured \u2014 games older than history itself.",
+    "theme": "blue",
+    "category": "ESSAY",
+    "readTime": "7 min read",
+    "author": "Kevin Chand",
+    "authorHandle": "Chief Playtester",
+    "teamSlug": "kevin",
+    "toc": [
+      {
+        "label": "Games older than history",
+        "id": "games-older-than-history"
+      },
+      {
+        "label": "Ancient origins",
+        "id": "ancient-origins"
+      },
+      {
+        "label": "Games as cultural fabric",
+        "id": "games-as-cultural-fabric"
+      },
+      {
+        "label": "What made them last",
+        "id": "what-made-them-last"
+      },
+      {
+        "label": "Evolution over replacement",
+        "id": "evolution-over-replacement"
+      },
+      {
+        "label": "Building to last",
+        "id": "building-to-last"
+      }
+    ],
+    "modCard": {
+      "title": "Moddable Community",
+      "version": "Discord \u00b7 Open to all",
+      "href": "/community/",
+      "btnLabel": "Join Discord",
+      "eyebrow": "COMMUNITY"
+    }
+  },
+  {
+    "slug": "making-mods-matter",
+    "tags": [
+      "Carcassonne",
+      "Chess",
+      "Twilight Imperium"
+    ],
+    "date": "Mar 2026",
+    "cover": "#3a9928",
+    "img": "making-mods-matter.jpg",
+    "title": "Making Mods Matter",
+    "heroTitle": "Making Mods <em>Matter</em>.",
+    "lede": "Why modders mod what matters \u2014 and how participatory design is reshaping tabletop gaming.",
+    "excerpt": "Those who tinker, tailor and say lore beyond casual play \u2014 and why they deserve better tools.",
+    "theme": "green",
+    "category": "COMMUNITY",
+    "readTime": "5 min read",
+    "author": "Kevin Chand",
+    "authorHandle": "@kchand \u00b7 chief playtester",
+    "teamSlug": "kevin",
+    "toc": [
+      {
+        "label": "A quiet revolution",
+        "id": "a-quiet-revolution"
+      },
+      {
+        "label": "Systems thinking",
+        "id": "systems-thinking"
+      },
+      {
+        "label": "Centuries of play",
+        "id": "centuries-of-play"
+      },
+      {
+        "label": "Players as collaborators",
+        "id": "players-as-collaborators"
+      },
+      {
+        "label": "What we're building",
+        "id": "what-were-building"
+      }
+    ],
+    "modCard": {
+      "title": "Moddable Community",
+      "version": "Discord \u00b7 Open to all",
+      "href": "/community/",
+      "btnLabel": "Join Discord",
+      "eyebrow": "COMMUNITY"
+    }
+  },
+  {
+    "slug": "the-house-always-wins",
+    "tags": [
+      "Chess",
+      "Monopoly",
+      "Go",
+      "Game Design"
+    ],
+    "date": "Feb 2026",
+    "cover": "#3a9928",
+    "img": "the-house-always-wins.jpg",
+    "title": "The House Always Wins!",
+    "heroTitle": "The House Always Wins!",
+    "lede": "House rules that became canon \u2014 and what they tell us about the future of game design.",
+    "excerpt": "How house rules become canon, from en passant to free parking jackpots.",
+    "theme": "green",
+    "category": "EDITORIAL",
+    "readTime": "5 min read",
+    "author": "Kevin Chand",
+    "authorHandle": "Chief Playtester",
+    "teamSlug": "kevin",
+    "toc": [
+      {
+        "label": "Rules that stuck",
+        "id": "rules-that-stuck"
+      },
+      {
+        "label": "Why does this matter?",
+        "id": "why-does-this-matter"
+      },
+      {
+        "label": "Versioning the tabletop",
+        "id": "versioning-the-tabletop"
+      }
+    ],
+    "modCard": {
+      "title": "Submit a Mod",
+      "version": "Share your house rules",
+      "href": "/submit/",
+      "btnLabel": "Get Started",
+      "eyebrow": "GET INVOLVED"
+    }
+  },
+  {
+    "slug": "open-sourcing-tabletop-games",
+    "tags": [
+      "Nukes",
+      "Catan",
+      "Open Source",
+      "Game Design"
+    ],
+    "date": "Jan 2026",
+    "cover": "#0c4f8d",
+    "img": "open-sourcing-tabletop-games.jpg",
+    "title": "Open Sourcing Tabletop Games",
+    "heroTitle": "Open Sourcing <em>Tabletop Games</em>.",
+    "lede": "Is the future one with hyper-local manufacturing \u2014 and should board games be open source?",
+    "excerpt": "Herein lies the paradox of protecting creative work in a medium built on sharing.",
+    "theme": "green",
+    "category": "PHILOSOPHY",
+    "readTime": "6 min read",
+    "author": "Mark Smalley",
+    "authorHandle": "CEO & Founder",
+    "teamSlug": "mark",
+    "toc": [
+      {
+        "label": "What does open-source mean?",
+        "id": "what-does-open-source-mean"
+      },
+      {
+        "label": "It already happened",
+        "id": "the-fear-and-the-opportunity"
+      },
+      {
+        "label": "The three-layer model",
+        "id": "ecosystems-over-hits"
+      },
+      {
+        "label": "What we believe",
+        "id": "what-we-believe"
+      }
+    ],
+    "modCard": {
+      "title": "Mod Library",
+      "version": "7 mods \u00b7 3 games \u00b7 open source",
+      "href": "/mods/",
+      "btnLabel": "Browse Mods",
+      "eyebrow": "EXPLORE"
+    }
+  },
+  {
+    "slug": "tis-the-season-for-traditions",
+    "tags": [
+      "Monopoly",
+      "Blood Bowl",
+      "Carcassonne"
+    ],
+    "date": "Dec 2025",
+    "cover": "#d11a1a",
+    "img": "tis-the-season-for-traditions.jpg",
+    "title": "'Tis the Season for Traditions",
+    "heroTitle": "'Tis the Season for <em>Traditions</em>.",
+    "lede": "Or a game of Blood Bowl?",
+    "excerpt": "Reconnect through the ritual of games \u2014 why the holidays belong at the table.",
+    "theme": "green",
+    "category": "COMMUNITY",
+    "readTime": "5 min read",
+    "author": "Mark Smalley",
+    "authorHandle": "CEO & Founder",
+    "teamSlug": "mark",
+    "toc": [
+      {
+        "label": "Presence at the table",
+        "id": "presence-at-the-table"
+      },
+      {
+        "label": "Games as seasonal identity",
+        "id": "games-as-seasonal-identity"
+      },
+      {
+        "label": "Touch matters",
+        "id": "touch-matters"
+      }
+    ],
+    "modCard": {
+      "title": "Moddable Community",
+      "version": "Discord \u00b7 Open to all",
+      "href": "/community/",
+      "btnLabel": "Join Discord",
+      "eyebrow": "COMMUNITY"
+    }
+  },
+  {
+    "slug": "making-a-masterpiece-by-modification",
+    "tags": [
+      "Chess",
+      "Go",
+      "Game Design"
+    ],
+    "date": "Nov 2025",
+    "cover": "#d11a1a",
+    "img": "making-a-masterpiece-by-modification.jpg",
+    "title": "Making a Masterpiece by Modification",
+    "heroTitle": "Making a Masterpiece by <em>Modification</em>.",
+    "lede": "The checkered history of chess \u2014 from ancient India to the modern modding table.",
+    "excerpt": "Chess travelled the Silk Road and was rewritten at every stop. The greatest mod of all time.",
+    "theme": "red",
+    "category": "CHESS",
+    "readTime": "9 min read",
+    "author": "Kevin Chand",
+    "authorHandle": "Chief Playtester",
+    "teamSlug": "kevin",
+    "toc": [
+      {
+        "label": "The Silk Road transmissions",
+        "id": "the-silk-road-transmissions"
+      },
+      {
+        "label": "Europe and the modern game",
+        "id": "europe-and-the-modern-game"
+      },
+      {
+        "label": "The people who played",
+        "id": "the-people-who-played"
+      },
+      {
+        "label": "The modern modding era",
+        "id": "the-modern-modding-era"
+      },
+      {
+        "label": "Why this matters to us",
+        "id": "why-this-matters-to-us"
+      }
+    ],
+    "modCard": {
+      "title": "Moddable Chess",
+      "version": "74 variants \u00b7 Play online",
+      "href": "/engines/moddable-chess/",
+      "btnLabel": "Play Now",
+      "eyebrow": "THE ENGINE"
+    }
+  },
+  {
+    "slug": "twilights-prophecies-thunder-on",
+    "tags": [
+      "Twilight Imperium",
+      "Nukes"
+    ],
+    "date": "Oct 2025",
+    "cover": "#0c4f8d",
+    "img": "twilights-prophecies-thunder-on.png",
+    "title": "Twilight's Prophecies Thunder On!",
+    "heroTitle": "Twilight's Prophecies <em>Thunder On!</em>",
+    "lede": "The most epic game known to Humankind \u2014 and why its modding community refuses to stop expanding.",
+    "excerpt": "Twilight Imperium turns 25. We look at what Prophecy of Kings changed \u2014 and what we changed next.",
+    "theme": "blue",
+    "category": "TWILIGHT IMPERIUM",
+    "readTime": "7 min read",
+    "author": "Mark Smalley",
+    "authorHandle": "CEO & Founder",
+    "teamSlug": "mark",
+    "toc": [
+      {
+        "label": "Prophecy of Kings",
+        "id": "prophecy-of-kings"
+      },
+      {
+        "label": "Thunder's Edge arrives",
+        "id": "thunders-edge-arrives"
+      },
+      {
+        "label": "The modding community",
+        "id": "the-modding-community"
+      },
+      {
+        "label": "Why it works",
+        "id": "why-it-works"
+      },
+      {
+        "label": "Hyper Imperium",
+        "id": "hyper-imperium"
+      }
+    ],
+    "modCard": {
+      "title": "Hyper Imperium",
+      "version": "v1.0.0 \u00b7 Rebalance",
+      "href": "/mods/hyper-imperium/",
+      "btnLabel": "View Mod"
+    }
+  },
+  {
+    "slug": "nuking-catan",
+    "tags": [
+      "Nukes",
+      "Catan",
+      "Chess",
+      "Open Source"
+    ],
+    "date": "Sep 2025",
+    "cover": "#d11a1a",
+    "img": "nuking-catan.jpg",
+    "title": "Nuking Catan",
+    "heroTitle": "Nuking <em>Catan</em>.",
+    "lede": "Deterministic wartime strategy you may already own.",
+    "excerpt": "45 million Catan owners already have the hex tiles and generic pieces to play Nukes. They just don't know it yet.",
+    "theme": "red",
+    "category": "GAME DESIGN",
+    "readTime": "7 min read",
+    "author": "Mark Smalley",
+    "authorHandle": "Founder",
+    "teamSlug": "mark",
+    "toc": [
+      {
+        "label": "A game you already own",
+        "id": "a-game-you-already-own"
+      },
+      {
+        "label": "What Nukes actually is",
+        "id": "what-nukes-actually-is"
+      },
+      {
+        "label": "The hostage engine",
+        "id": "the-hostage-engine"
+      },
+      {
+        "label": "The Catan conversion",
+        "id": "the-catan-conversion"
+      },
+      {
+        "label": "How it compares",
+        "id": "how-it-compares"
+      },
+      {
+        "label": "Play it online",
+        "id": "play-it-online"
+      }
+    ],
+    "modCard": {
+      "title": "Nukes",
+      "version": "Live \u00b7 nukes.moddable.games",
+      "href": "/games/nukes/",
+      "btnLabel": "Play Online",
+      "eyebrow": "THE GAME"
+    }
+  },
+  {
+    "slug": "spiralling-paths-of-power-and-peril",
+    "tags": [
+      "Talisman",
+      "Monopoly"
+    ],
+    "date": "Aug 2025",
+    "cover": "#0c4f8d",
+    "img": "spiralling-paths-of-power-and-peril.jpg",
+    "title": "Spiralling Paths of Power and Peril",
+    "heroTitle": "Spiralling Paths of Power and <em>Peril</em>.",
+    "lede": "40 years of Talisman \u2014 a game that looks harmless but delivers unpredictable, polarising gameplay.",
+    "excerpt": "Talisman's 40-year journey from Necromancer to our hex-tile reimagining.",
+    "theme": "blue",
+    "category": "TALISMAN",
+    "readTime": "7 min read",
+    "author": "Kevin Chand",
+    "authorHandle": "Chief Playtester",
+    "teamSlug": "kevin",
+    "toc": [
+      {
+        "label": "Origin story",
+        "id": "origin-story"
+      },
+      {
+        "label": "Five editions, five eras",
+        "id": "five-editions-five-eras"
+      },
+      {
+        "label": "Why it survives",
+        "id": "why-it-survives"
+      },
+      {
+        "label": "The static spiral problem",
+        "id": "the-static-spiral-problem"
+      }
+    ],
+    "modCard": {
+      "title": "Talisman Worlds",
+      "version": "v1.0.0 \u00b7 Reskin",
+      "href": "/mods/talisman-worlds/",
+      "btnLabel": "View Mod"
+    }
+  },
+  {
+    "slug": "monopolising-modified-variations",
+    "tags": [
+      "Monopoly",
+      "Catan"
+    ],
+    "date": "Jul 2025",
+    "cover": "#3a9928",
+    "img": "monopolising-modified-variations.jpg",
+    "title": "Monopolising Modified Variations",
+    "heroTitle": "Monopolising Modified <em>Variations</em>.",
+    "lede": "275 million copies, 200+ editions \u2014 and the community is still finding new ways to break the rules.",
+    "excerpt": "Monopoly has more variants than any game alive. We asked: can we make it actually fun?",
+    "theme": "green",
+    "category": "MONOPOLY",
+    "readTime": "6 min read",
+    "author": "Kevin Chand",
+    "authorHandle": "Chief Playtester",
+    "teamSlug": "kevin",
+    "toc": [
+      {
+        "label": "Who changed what?",
+        "id": "who-changed-what"
+      },
+      {
+        "label": "The official editions",
+        "id": "the-official-editions"
+      },
+      {
+        "label": "The Stock Markets expansion",
+        "id": "the-stock-markets-expansion"
+      },
+      {
+        "label": "Enter Econopoly",
+        "id": "enter-econopoly"
+      }
+    ],
+    "modCard": {
+      "title": "Econopoly",
+      "version": "v1.4.0 \u00b7 Rebalance",
+      "href": "/mods/econopoly/",
+      "btnLabel": "View Mod"
+    }
+  },
+  {
+    "slug": "conquering-the-constrains-of-chess",
+    "tags": [
+      "Chess",
+      "Go",
+      "Nukes",
+      "Game Design"
+    ],
+    "date": "Jun 2025",
+    "cover": "#d11a1a",
+    "img": "conquering-the-constrains-of-chess.jpg",
+    "title": "Conquering the Constraints of Chess",
+    "heroTitle": "Conquering the Constraints of <em>Chess</em>.",
+    "lede": "Going beyond the game. If chess was designed today, how would it differ?",
+    "excerpt": "A decade of studying Chess, Checkers, and Go produced three design constraints. The game we built from them is Nukes.",
+    "theme": "red",
+    "category": "GAME DESIGN",
+    "readTime": "6 min read",
+    "author": "Mark Smalley",
+    "authorHandle": "Founder",
+    "teamSlug": "mark",
+    "toc": [
+      {
+        "label": "The predictability problem",
+        "id": "the-predictability-problem"
+      },
+      {
+        "label": "Hexagons and infinite setups",
+        "id": "hexagons-and-infinite-setups"
+      },
+      {
+        "label": "Accessibility first",
+        "id": "accessibility-first"
+      },
+      {
+        "label": "The game we built",
+        "id": "what-moddablegames-is-building"
+      }
+    ],
+    "modCard": {
+      "title": "Moddable Chess",
+      "version": "74 variants \u00b7 Play online",
+      "href": "/engines/moddable-chess/",
+      "btnLabel": "Play Now",
+      "eyebrow": "THE ENGINE"
+    }
+  }
+]

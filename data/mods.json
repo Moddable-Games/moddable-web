@@ -1,0 +1,112 @@
+[
+  {
+    "category": "Conversion",
+    "baseGame": "Chess",
+    "title": "Dungeon Chess",
+    "body": "Chess reimagined as an asymmetric dungeon skirmish. Four factions on modular boards with unique abilities, XP drafting, and environmental hazards. Powered by the Moddable Chess Engine.",
+    "stats": "2–4 players · 30–120 min · 12+",
+    "path": "/mods/dungeon-chess/",
+    "source": "Moddable.Games",
+    "logo": "img/dungeon-chess-logo.png"
+  },
+  {
+    "category": "Reskin",
+    "baseGame": "Talisman",
+    "title": "Talisman Worlds",
+    "body": "Replaces the Talisman board with 61 hexagonal tiles across four concentric rings plus a hidden ending. Every game generates a different board layout. Includes Dungeon expansion support.",
+    "stats": "2–6 players · 90 min · 13+",
+    "path": "/mods/talisman-worlds/",
+    "source": "Moddable.Games",
+    "logo": "img/talisman-worlds-logo.png"
+  },
+  {
+    "category": "Rebalance",
+    "baseGame": "Twilight Imperium",
+    "title": "Hyper Imperium",
+    "body": "3D exploration via hyperlanes, blind voting with influence cards, shared secret objectives, and a 100-point mercenary faction builder. Five modular rule changes for TI4 + Prophecy of Kings.",
+    "stats": "4–6 players · 4–6 hr · 14+",
+    "path": "/mods/hyper-imperium/",
+    "source": "Moddable.Games",
+    "logo": "img/hyper-imperium-logo.png"
+  },
+  {
+    "category": "Rebalance",
+    "baseGame": "Monopoly",
+    "title": "Econopoly",
+    "body": "Transforms Monopoly into a euro-game with resource collection, blind auctions, and victory point scoring via linked card combinations. Choose to move, trade, or build each turn.",
+    "stats": "2–6 players · 60 min · 10+",
+    "path": "/mods/econopoly/",
+    "source": "Moddable.Games",
+    "logo": "img/econopoly-logo.png"
+  },
+  {
+    "category": "Rebalance",
+    "baseGame": "Draughts",
+    "title": "Turkish Draughts",
+    "body": "Orthogonal movement on an 8x8 board replaces the diagonal play of standard draughts. Mandatory captures, majority rule, and immediate removal create sharp tactical puzzles. World Championships held since 2014.",
+    "stats": "2 players · 30 min · 8+",
+    "path": "/mods/turkish-draughts/",
+    "source": "Wikipedia (CC-BY-SA)",
+    "logo": "img/moddable-cube-logo.png"
+  },
+  {
+    "category": "Conversion",
+    "baseGame": "Draughts",
+    "title": "Lasca",
+    "body": "Emanuel Lasker's 1911 column checkers. Captured pieces stack beneath the captor instead of leaving the board. All 22 pieces stay in play for the entire game. Ownership shifts as columns change hands.",
+    "stats": "2 players · 30 min · 10+",
+    "path": "/mods/lasca/",
+    "source": "Wikipedia + Lasker 1911 (CC-BY-SA)",
+    "logo": "img/moddable-cube-logo.png"
+  },
+  {
+    "category": "Reskin",
+    "baseGame": "Go",
+    "title": "Toroidal Go",
+    "body": "Standard Go played on a board where edges wrap around horizontally and vertically. No corners, no edges, no joseki. Every group floats. Active tournament community since 2012 with 1,400+ recorded games.",
+    "stats": "2 players · 45 min · 10+",
+    "path": "/mods/toroidal-go/",
+    "source": "Sensei's Library (OPL 1.0)",
+    "logo": "img/moddable-cube-logo.png"
+  },
+  {
+    "category": "Conversion",
+    "baseGame": "Go",
+    "title": "Phantom Go",
+    "body": "Fog-of-war Go. Players cannot see opponent stones. A referee mediates all moves and announces captures. Deduction replaces reading. Played on 9x9 or 13x13 boards.",
+    "stats": "2 players + referee · 30 min · 12+",
+    "path": "/mods/phantom-go/",
+    "source": "Sensei's Library (OPL 1.0)",
+    "logo": "img/moddable-cube-logo.png"
+  },
+  {
+    "category": "Conversion",
+    "baseGame": "Nukes",
+    "title": "Nukes: Siege",
+    "body": "Total conversion of the hostage mechanic. Start with your own tokens in reserve; recruit them by returning to occupied regions. Enemy hostages only arrive through combat.",
+    "stats": "2 players · 90 min · 14+",
+    "path": "/mods/nukes-siege/",
+    "source": "Moddable.Games",
+    "logo": "img/nukes-logo.png"
+  },
+  {
+    "category": "Rebalance",
+    "baseGame": "Nukes",
+    "title": "Nukes: Asymmetric Powers",
+    "body": "Each player draws one Power Card at setup — Covert Network, Arms Industry, or Airborne Corps. No two players hold the same card. Standard Nukes underneath, explicit asymmetry on top.",
+    "stats": "2–3 players · 60 min · 12+",
+    "path": "/mods/nukes-asymmetric-powers/",
+    "source": "Moddable.Games",
+    "logo": "img/nukes-logo.png"
+  },
+  {
+    "category": "Reskin",
+    "baseGame": "Nukes",
+    "title": "Nukes: Fallout",
+    "body": "Biohazard tiles spread each round. Every nuclear strike leaves a growing contamination zone. City tiles are immune to spread. Win before the map runs out.",
+    "stats": "2–3 players · 60 min · 12+",
+    "path": "/mods/nukes-fallout/",
+    "source": "Moddable.Games",
+    "logo": "img/nukes-logo.png"
+  }
+]

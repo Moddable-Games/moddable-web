@@ -1,0 +1,17 @@
+{{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
+<div class="members-grid">
+  {{#each items}}
+  <div class="member-card">
+    <img class="member-card__avatar" src="{{avatar}}" alt="{{display}}">
+    <div class="member-card__info">
+      <div class="member-card__name">{{display}}</div>
+      <div class="member-card__meta">
+        <span class="member-card__role member-card__role--{{role}}">{{role}}</span>
+        {{#if msgs}}<span class="member-card__stat">{{msgs}} posts</span>{{/if}}
+        <span class="member-card__stat">Active {{lastActive}}</span>
+      </div>
+      {{#if lastMsg}}<div class="member-card__msg">"{{lastMsg}}"</div>{{/if}}
+    </div>
+  </div>
+  {{/each}}
+</div>

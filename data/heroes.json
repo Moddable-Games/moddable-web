@@ -1,0 +1,114 @@
+{
+  "about": {
+    "section": "about",
+    "tier": 1,
+    "hexColor": "blue",
+    "eyebrow": "ABOUT MODDABLE",
+    "title": "The <em>workshop</em> behind the rules",
+    "lede": "Designers, modders, and rule-tinkerers reshaping the boards already on your shelf."
+  },
+  "roadmap": {
+    "section": "roadmap",
+    "tier": 2,
+    "hexColor": "blue",
+    "eyebrow": "18-MONTH ROADMAP",
+    "title": "What ships when.",
+    "lede": "Our public roadmap, updated as milestones land."
+  },
+  "community": {
+    "section": "community",
+    "tier": 2,
+    "hexColor": "blue",
+    "eyebrow": "COMMUNITY",
+    "title": "Join the table.",
+    "lede": "Designers, playtesters, and rule-tinkerers building open-source board games together."
+  },
+  "press": {
+    "section": "press",
+    "tier": 2,
+    "hexColor": "blue",
+    "eyebrow": "PRESS & MEDIA",
+    "title": "Press kit.",
+    "lede": "Pre-cleared assets for editorial use. Just credit Moddable.Games."
+  },
+  "team": {
+    "section": "team",
+    "tier": 2,
+    "hexColor": "blue",
+    "eyebrow": "THE TEAM",
+    "title": "Four people, one table.",
+    "lede": "Meet the people building Moddable.Games."
+  },
+  "subscribe": {
+    "section": "community",
+    "tier": 2,
+    "hexColor": "blue",
+    "eyebrow": "SUBSCRIBE",
+    "title": "Stay in the loop.",
+    "lede": "Updates on new mods, games, and tools. No spam, unsubscribe anytime."
+  },
+  "submit": {
+    "section": "submit",
+    "tier": 2,
+    "hexColor": "green",
+    "eyebrow": "CONTRIBUTE",
+    "title": "Submit your mod.",
+    "lede": "Got a house rule that changes everything? Share it with the community."
+  },
+  "developers": {
+    "section": "developers",
+    "tier": 2,
+    "hexColor": "blue",
+    "eyebrow": "FOR DEVELOPERS",
+    "title": "Build on our engines.",
+    "lede": "APIs, SDKs, and embeddable tools for game developers."
+  },
+  "mods": {
+    "section": "mods",
+    "tier": 1,
+    "hexColor": "red",
+    "eyebrow": "THE LIBRARY",
+    "title": "Open <em>mods</em> for the boxes on your shelf",
+    "lede": "Rulebook patches for the games gathering dust on your shelves. Filter, search, or browse."
+  },
+  "games": {
+    "section": "games",
+    "tier": 1,
+    "hexColor": "amber",
+    "eyebrow": "ORIGINAL GAMES",
+    "title": "Three <em>games</em>, all moddable",
+    "lede": "Original tabletop games designed to be forked and rewritten."
+  },
+  "engines": {
+    "section": "engines",
+    "tier": 1,
+    "hexColor": "cyan",
+    "eyebrow": "OPEN SOURCE",
+    "title": "The <em>foundations</em> games are built on",
+    "lede": "Engines anyone can embed, extend, or fork. Powering games and tools across our ecosystem."
+  },
+  "news": {
+    "section": "news",
+    "tier": 1,
+    "hexColor": "magenta",
+    "eyebrow": "NEWS & UPDATES",
+    "title": "Signals from the <em>forge</em>, no noise",
+    "lede": "Essays, announcements, and build logs. Written by humans, for humans."
+  },
+  "tools": {
+    "section": "tools",
+    "tier": 1,
+    "hexColor": "green",
+    "eyebrow": "GAME TOOLS",
+    "title": "Digital tools for <em>tabletop</em> play",
+    "lede": "Dice rollers, deck builders, map generators, and more. All free, all open."
+  },
+  "404": {
+    "section": "about",
+    "tier": 2,
+    "hexColor": "blue",
+    "eyebrow": "404",
+    "title": "Page not found.",
+    "lede": "The page you are looking for does not exist or has been moved."
+  }
+}

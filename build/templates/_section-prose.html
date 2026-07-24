@@ -1,0 +1,9 @@
+{{#if lede}}<p class="{{page_id}}-lede"><em>{{lede}}</em></p>{{/if}}
+{{#each blocks}}
+<div>
+  {{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
+  {{#each paragraphs}}
+  <p>{{this}}</p>
+  {{/each}}
+</div>
+{{/each}}

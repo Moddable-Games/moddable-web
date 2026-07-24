@@ -1,0 +1,47 @@
+body { background: #f5f4ef; }
+.roadmap-main { padding: 72px 32px 96px; }
+.roadmap-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 280px; gap: 56px; align-items: start; }
+
+.roadmap-timeline { position: relative; padding-left: 0; }
+.roadmap-timeline::before { content: ''; position: absolute; left: 60px; top: 24px; bottom: 24px; width: 2px; background: var(--mg-hairline-light); }
+.milestone-row { display: flex; align-items: flex-start; gap: 20px; padding: 16px 0; position: relative; }
+.milestone-badge { flex: none; width: 100px; padding: 7px 12px; border-radius: 9999px; font-family: var(--mg-font-mono); font-size: 12px; font-weight: 600; color: #fff; text-align: center; position: relative; z-index: 1; }
+.milestone-text { font-family: var(--mg-font-body); font-size: 16px; line-height: 1.55; color: var(--mg-body-color); padding: 14px 20px; background: #fff; border: 1px solid var(--mg-hairline-light); border-radius: 14px; flex: 1; }
+
+.roadmap-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 24px; }
+.roadmap-sidebar__card { background: #fff; border: 1px solid var(--mg-hairline-light); border-radius: 16px; padding: 20px; }
+.roadmap-sidebar__card-title { font-family: var(--mg-font-display); font-weight: 600; font-size: 15px; color: var(--mg-ink); margin: 0 0 14px; }
+.roadmap-sidebar__links { display: flex; flex-direction: column; gap: 10px; }
+.roadmap-sidebar__link { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--mg-canvas-light); border: 1px solid var(--mg-hairline-light); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color 150ms; }
+.roadmap-sidebar__link:hover { border-color: var(--mg-ink); }
+.roadmap-sidebar__link-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.roadmap-sidebar__link-label { font-family: var(--mg-font-display); font-weight: 600; font-size: 14px; color: var(--mg-ink); }
+.roadmap-sidebar__link-sub { font-family: var(--mg-font-mono); font-size: 11px; color: var(--mg-mute); }
+
+.roadmap-vision { background: #fff; border-top: 1px solid var(--mg-hairline-light); padding: 72px 32px 96px; }
+.roadmap-vision__inner { max-width: 1200px; margin: 0 auto; }
+.roadmap-vision__title { font-family: var(--mg-font-display); font-weight: 600; font-size: clamp(28px, 4vw, 40px); color: var(--mg-ink); margin: 0 0 8px; letter-spacing: -0.5px; }
+.roadmap-vision__lede { font-family: var(--mg-font-body); font-size: 17px; color: var(--mg-mute); margin: 0 0 40px; }
+.roadmap-vision__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.vision-card { background: var(--mg-canvas-light); border: 1px solid var(--mg-hairline-light); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 8px; }
+.vision-number { font-family: var(--mg-font-mono); font-size: 28px; font-weight: 700; letter-spacing: -1px; }
+.vision-label { font-family: var(--mg-font-pixel); font-size: 9px; letter-spacing: 1.5px; color: var(--mg-mute); }
+.vision-title { font-family: var(--mg-font-display); font-weight: 600; font-size: 18px; color: var(--mg-ink); margin-top: 4px; }
+.vision-body { font-family: var(--mg-font-body); font-size: 15px; line-height: 1.55; color: #4a5060; }
+
+@media (max-width: 900px) {
+  .roadmap-layout { grid-template-columns: 1fr; }
+  .roadmap-sidebar { position: static; }
+  .roadmap-main { padding: 48px 20px 64px; }
+  .roadmap-timeline::before { display: none; }
+  .milestone-row { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  .milestone-badge { width: auto; min-width: 80px; font-size: 11px; padding: 6px 10px; }
+  .milestone-text { padding: 12px 16px; font-size: 15px; text-align: center; }
+  .roadmap-vision { padding: 48px 20px 64px; }
+  .roadmap-vision__title { text-align: center; }
+  .roadmap-vision__lede { text-align: center; }
+  .roadmap-vision__grid { grid-template-columns: 1fr; }
+  .vision-card { text-align: center; align-items: center; }
+  .roadmap-sidebar__card-title { text-align: center; }
+}

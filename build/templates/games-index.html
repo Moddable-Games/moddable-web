@@ -1,0 +1,60 @@
+{{>_head}}
+{{>_navbar}}
+{{>_hero}}
+
+<section class="mg-section--tight mg-section--light" id="main-content">
+  <div class="mg-container">
+    <div id="games-grid" class="mg-grid-auto" data-stagger>
+      {{#each games}}
+      <a href="{{path}}" class="game-card mg-lift" data-reveal="up">
+        <div class="game-card__bar" style="background:{{accent_color}}"></div>
+        <div class="game-card__thumb" style="background:linear-gradient(135deg, #0a0d2a 0%, {{accent_color}} 100%)">
+          <div class="game-card__thumb-hex" style="background-image:url('/img/hex-grid-white.svg')"></div>
+          {{#if logo}}<img src="{{logo}}" alt="{{title}}" class="game-card__logo">{{/if}}
+        </div>
+        <div class="game-card__body">
+          <div class="game-card__status" style="color:{{accent_color}}">{{status}}</div>
+          <h3 class="game-card__title">{{title}}</h3>
+          <p class="game-card__desc">{{desc}}</p>
+          <div class="game-card__stats">{{players}} · {{time}}</div>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section class="games-rules">
+  <div class="games-rules__hex" style="background-image:url('/img/hex-grid-blue.svg')"></div>
+  <div class="games-rules__inner">
+    <div class="mg-eyebrow mg-eyebrow--glow" data-reveal="fade">THE RULEBOOK LIBRARY</div>
+    <h2 class="games-rules__heading" data-reveal="up">Every rule in a git repo</h2>
+    <p class="games-rules__body" data-reveal="up">24 game families, 147 variants, printable PDFs, and board diagrams. All under open licences. Fork a rulebook, write a variant, or just read the rules before game night.</p>
+    <div class="games-rules__stats" data-reveal="up">
+      <div class="games-rules__stat"><span class="games-rules__stat-value">20</span><span class="games-rules__stat-label">Game Families</span></div>
+      <div class="games-rules__stat"><span class="games-rules__stat-value">135</span><span class="games-rules__stat-label">Variants</span></div>
+      <div class="games-rules__stat"><span class="games-rules__stat-value">CC BY-SA</span><span class="games-rules__stat-label">Licence</span></div>
+      <div class="games-rules__stat"><span class="games-rules__stat-value">PDF + Web</span><span class="games-rules__stat-label">Formats</span></div>
+    </div>
+    <div class="games-rules__btns" data-reveal="up">
+      <a href="https://rules.moddable.games/" class="mg-btn mg-btn--primary" target="_blank" rel="noopener">Browse Rulebooks</a>
+      <a href="https://github.com/Moddable-Games/moddable-rules" class="mg-btn mg-btn--outline-dark" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section class="mg-section--tight mg-section--light">
+  <div class="mg-container">
+    <div class="games-cta-card" data-reveal="up">
+      <div class="mg-eyebrow mg-eyebrow--blue">WHAT'S NEXT</div>
+      <h2 class="games-cta-card__heading">More games on the horizon. All open source</h2>
+      <p class="games-cta-card__body">Every game ships with moddable files, version-controlled rules, and community hooks. Built on engines you can embed, extend, or fork.</p>
+      <div class="games-cta-card__btns">
+        <a href="/engines/" class="mg-btn mg-btn--blue">Explore Engines</a>
+        <a href="/about/roadmap/" class="mg-btn mg-btn--outline-dark">See Roadmap</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{>_foot}}

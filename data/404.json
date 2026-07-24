@@ -1,0 +1,17 @@
+{
+  "has_sidebar": false,
+  "sections": [
+    {
+      "type": "prose",
+      "lede": "The page you are looking for doesn't exist or has been moved.",
+      "blocks": []
+    },
+    {
+      "type": "cta",
+      "buttons": [
+        { "label": "Go Home", "href": "/", "style": "primary" },
+        { "label": "Browse Mods", "href": "/mods/", "style": "outline-dark" }
+      ]
+    }
+  ]
+}

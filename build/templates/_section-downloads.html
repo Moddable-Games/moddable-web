@@ -1,0 +1,13 @@
+{{#if heading}}<h2 class="press-section__title">{{heading}}</h2>{{/if}}
+<div class="press-downloads">
+  {{#each items}}
+  <a href="{{href}}" target="_blank" rel="noopener" class="press-dl">
+    <div class="press-dl__icon" style="background:{{color}}">MD</div>
+    <div class="press-dl__text">
+      <div class="press-dl__label">{{label}}</div>
+      <div class="press-dl__meta">{{meta}}</div>
+    </div>
+    <span class="press-dl__arrow">&darr;</span>
+  </a>
+  {{/each}}
+</div>

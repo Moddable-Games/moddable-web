@@ -1,0 +1,19 @@
+{
+  "has_sidebar": false,
+  "sections": [
+    {
+      "type": "prose",
+      "lede": "Get notified when we release new mods, launch games, or ship tools. One email per month, unsubscribe anytime.",
+      "blocks": []
+    },
+    {
+      "type": "form",
+      "action": "https://moddable-website.neuroware.workers.dev/api/subscribe",
+      "method": "POST",
+      "fields": [
+        { "type": "email", "name": "email", "placeholder": "your@email.com", "required": true }
+      ],
+      "submit_label": "Subscribe"
+    }
+  ]
+}

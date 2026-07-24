@@ -1,0 +1,210 @@
+/* ── Mod card (JS-generated) ─────────────────────────────────────────── */
+.mod-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--mg-hairline-light);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 180ms cubic-bezier(.2,.8,.2,1), transform 250ms cubic-bezier(.2,.8,.2,1), box-shadow 250ms ease;
+  cursor: pointer;
+}
+
+.mg-section--white .mod-card { background: var(--mg-canvas-light); }
+.mod-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.mod-card__accent {
+  height: 4px;
+}
+
+.mod-card__inner {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.mod-card__thumb {
+  width: 100%;
+  aspect-ratio: 1.6;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mod-card__thumb-hex {
+  position: absolute;
+  inset: 0;
+  background-size: 28px 32px;
+}
+
+.mod-card__thumb-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: auto;
+  max-width: none;
+  z-index: 1;
+}
+
+.mod-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.mod-card__category {
+  font-family: var(--mg-font-body);
+  font-weight: 600;
+  font-size: 11px;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  letter-spacing: 0.2px;
+}
+
+.mod-card__base-game {
+  font-family: var(--mg-font-mono);
+  font-size: 11px;
+  color: var(--mg-stone);
+}
+
+.mod-card__title {
+  font-family: var(--mg-font-display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.25px;
+  color: var(--mg-ink);
+  margin: 0;
+}
+
+.mod-card__body {
+  font-family: var(--mg-font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--mg-mute);
+  margin: 0;
+  flex: 1;
+}
+
+.mod-card__stats {
+  font-family: var(--mg-font-mono);
+  font-size: 12px;
+  color: var(--mg-mute);
+  padding-top: 12px;
+  border-top: 1px solid var(--mg-hairline-light);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mod-card__source {
+  font-size: 11px;
+  color: var(--mg-stone);
+}
+
+.mod-card__link {
+  font-family: var(--mg-font-body);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Page hero (JS-generated) ───────────────────────────────────────── */
+.page-hero {
+  position: relative;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.page-hero__hex-land {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  mix-blend-mode: screen;
+}
+
+.page-hero__hex-layer {
+  position: absolute;
+  inset: 0;
+  background-size: 56px 64px;
+  opacity: 0.6;
+}
+
+.page-hero__fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,10,30,0.5) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.page-hero__fade-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, #000 100%);
+  pointer-events: none;
+}
+
+.page-hero__glow {
+  position: absolute;
+  right: -150px;
+  top: 30%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(58,123,232,0.22) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.page-hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 72px 32px 96px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.page-hero__eyebrow {
+  font-family: var(--mg-font-pixel);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+}
+
+.page-hero__title {
+  font-family: var(--mg-font-display);
+  font-weight: 600;
+  font-size: clamp(48px, 6.5vw, 88px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px;
+}
+
+.page-hero__lede {
+  font-family: var(--mg-font-body);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.82);
+  margin: 0 auto;
+  max-width: 680px;
+}

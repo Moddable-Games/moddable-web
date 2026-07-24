@@ -1,0 +1,28 @@
+{{>_head}}
+{{>_navbar}}
+{{>_hero}}
+
+<section class="news-main" id="main-content">
+  <div class="news-layout">
+    <div class="news-content">
+      <div id="posts-grid" class="news-posts-grid">
+        {{#each news}}
+        <a href="/news/{{slug}}/" class="news-grid-card">
+          <div class="news-cover" style="background:linear-gradient(135deg, #0a0d2a 0%, {{cover}} 100%)">
+            {{#if img}}<img src="/img/news/{{img}}" alt="" class="news-cover__img" loading="lazy">{{/if}}
+          </div>
+          <div class="news-grid-card__meta">
+            <span class="news-grid-card__cat">{{category}}</span>
+            <span class="news-grid-card__dot"></span>
+            <span class="news-grid-card__date">{{date}}</span>
+          </div>
+          <h3 class="news-grid-card__title">{{title}}</h3>
+          <p class="news-grid-card__excerpt">{{excerpt}}</p>
+        </a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{>_foot}}

@@ -1,0 +1,12 @@
+{{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
+<div class="jams-grid">
+  {{#each items}}
+  <div class="jam-card{{#if upcoming}} jam-card--upcoming{{/if}}{{#unless upcoming}} jam-card--complete{{/unless}}">
+    <div class="jam-card__number" style="color:{{color}}">{{number}}</div>
+    <div class="jam-card__title">{{title}}</div>
+    <div class="jam-card__meta">{{date}}</div>
+    {{#if upcoming}}<div class="jam-card__upcoming-msg">Community votes on the base game. You decide what gets modded next.</div>{{/if}}
+    {{#unless upcoming}}<div class="jam-card__result"><a href="{{result_href}}">{{result_text}}</a> — {{result_detail}}</div>{{/unless}}
+  </div>
+  {{/each}}
+</div>

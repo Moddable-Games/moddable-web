@@ -1,0 +1,58 @@
+{
+  "has_sidebar": true,
+  "sections": [
+    {
+      "type": "prose",
+      "lede": "Moddable.Games is the first board game company built entirely in the open. We publish CC-licensed rulebooks, forkable engines, and original games designed to be taken apart.",
+      "blocks": [
+        {
+          "heading": "The premise",
+          "paragraphs": [
+            "Tabletop publishing is conservative. Rules are copyrighted, artwork owned, and trademarks defended. No major publisher has ever released an original board game under an open licence as a core business decision.",
+            "We did. Every Moddable.Games original ships under CC BY-SA 4.0. The rules live in a git repo. Anyone can fork them, rewrite them, and publish their own variant. We believe this is the first time a board game company has been built entirely in the open.",
+            "We also write patches for existing games that you can run with the components in the box you already own. No expansions to buy, no replacement parts to print, just a PDF and a flat surface."
+          ]
+        },
+        {
+          "heading": "The bigger picture",
+          "paragraphs": [
+            "We're building the ecosystem tabletop games is still missing. A place where physical and online play converge under community ownership, with an online engine that hosts any hex-based game, a marketplace where designers sell mods and expansions, and instructive bots that learn from every game played.",
+            "The engine is live in open alpha. Print-on-demand is in progress. The marketplace follows. Every piece compounds: more creators means more players, which means better bots and more creators."
+          ]
+        },
+        {
+          "heading": "Open-source, always",
+          "paragraphs": [
+            "This is not a marketing angle. Open source is the company. Every rulebook is version-controlled in git. Every engine is MIT-licensed. Every game rule is CC BY-SA 4.0. You can fork a rulebook today, rewrite the endgame, add a faction, and publish your variant without asking permission.",
+            "The result: 24 game families, 147 variants, and a community that owns the rules as much as we do."
+          ]
+        }
+      ]
+    }
+  ],
+  "sidebar": [
+    {
+      "type": "facts",
+      "title": "Quick facts",
+      "items": [
+        { "label": "Founded", "value": "2024, Kuala Lumpur" },
+        { "label": "Incorporated", "value": "2025, UK" },
+        { "label": "Team", "value": "4 people" },
+        { "label": "Games", "value": "3 original" },
+        { "label": "Mods", "value": "10 published" },
+        { "label": "License", "value": "MIT + CC BY-SA" }
+      ]
+    },
+    {
+      "type": "links",
+      "title": "Explore",
+      "items": [
+        { "label": "Rulebooks", "sub": "21 game families", "color": "#3a9928", "href": "https://rules.moddable.games/", "external": true },
+        { "label": "Discord", "sub": "Join Community", "color": "#d11a1a", "href": "/community/" },
+        { "label": "Team", "sub": "Meet Workshop", "color": "#0c4f8d", "href": "/team/" },
+        { "label": "Roadmap", "sub": "18-month plan", "color": "#14161c", "href": "/about/roadmap/" },
+        { "label": "Press Kit", "sub": "Logos and assets", "color": "#14161c", "href": "/press/" }
+      ]
+    }
+  ]
+}

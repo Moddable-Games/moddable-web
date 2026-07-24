@@ -1,0 +1,9 @@
+{{#if heading}}<h2 class="press-section__title">{{heading}}</h2>{{/if}}
+<div class="press-screenshot-grid">
+  {{#each items}}
+  <a href="{{src}}" target="_blank" rel="noopener" class="press-screenshot">
+    <img src="{{src}}" alt="{{label}}" class="press-screenshot__img">
+    <div class="press-screenshot__label">{{label}}</div>
+  </a>
+  {{/each}}
+</div>

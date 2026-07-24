@@ -1,0 +1,386 @@
+/* ── Hero Feature Objects — 3D spinning cubes per section ────────────── */
+
+.hero-obj {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: heroSpin 8s linear infinite;
+  margin: 0 auto;
+}
+@keyframes heroSpin {
+  0% { transform: rotateX(15deg) rotateY(0deg); }
+  100% { transform: rotateX(15deg) rotateY(360deg); }
+}
+
+.hero-obj__face {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 14px;
+  background: #14161c;
+  border: 2px solid var(--obj-stroke, rgba(255,255,255,0.2));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-obj__face--front  { transform: translateZ(60px); }
+.hero-obj__face--back   { transform: rotateY(180deg) translateZ(60px); }
+.hero-obj__face--left   { transform: rotateY(-90deg) translateZ(60px); }
+.hero-obj__face--right  { transform: rotateY(90deg) translateZ(60px); }
+.hero-obj__face--top    { transform: rotateX(90deg) translateZ(60px); }
+.hero-obj__face--bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+/* ── MODS: Cube with rulebook pages on faces ────────────────────────── */
+.hero-obj--mods { --obj-stroke: rgba(230,50,50,0.35); }
+.mods-face-icon {
+  width: 60px;
+  height: 60px;
+  stroke: var(--mg-red-bright);
+  fill: none;
+  stroke-width: 1.5;
+  opacity: 0.8;
+  animation: modsDocSpin 8s linear infinite;
+}
+@keyframes modsDocSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* ── MODS: CSS clip-path shape morph ────────────────────────────────── */
+.mods-anim-wrap {
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mods-morph {
+  width: 220px;
+  height: 220px;
+  position: relative;
+  animation: modMorphFloat 8s ease-in-out infinite;
+}
+@keyframes modMorphFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(4deg); }
+}
+.mods-morph__glow {
+  position: absolute;
+  inset: -50px;
+  background: radial-gradient(circle, rgba(230,50,50,0.35) 0%, transparent 60%);
+  animation: morphGlowPulse 10s ease-in-out infinite;
+}
+@keyframes morphGlowPulse {
+  0%, 20% { opacity: 0.4; transform: scale(1); }
+  30% { opacity: 1; transform: scale(1.15); }
+  40%, 55% { opacity: 0.4; transform: scale(1); }
+  63% { opacity: 1; transform: scale(1.15); }
+  73%, 100% { opacity: 0.4; transform: scale(1); }
+}
+.mods-morph__ring {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid rgba(230,50,50,0.5);
+  animation: clipMorph 10s ease-in-out infinite;
+}
+.mods-morph__ring--1 {
+  inset: -6px;
+  border-color: rgba(230,50,50,0.4);
+  animation-delay: -0.3s;
+}
+.mods-morph__ring--2 {
+  inset: -16px;
+  border-color: rgba(230,50,50,0.25);
+  animation-delay: -0.7s;
+}
+.mods-morph__ring--3 {
+  inset: -28px;
+  border-color: rgba(230,50,50,0.12);
+  animation-delay: -1.1s;
+}
+.mods-morph__shape {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(230,50,50,0.4) 0%, rgba(180,20,20,0.15) 100%);
+  box-shadow: inset 0 0 0 3px rgba(230,50,50,0.9);
+  animation: clipMorph 10s ease-in-out infinite;
+}
+
+/* 12-point polygon — same vertex count in every keyframe.
+   Square → Circle → Hexagon (flat-top) → back to square */
+@keyframes clipMorph {
+  0%, 8% {
+    clip-path: polygon(
+      12% 12%, 50% 12%, 88% 12%, 88% 12%,
+      88% 50%, 88% 88%, 88% 88%,
+      50% 88%, 12% 88%, 12% 88%,
+      12% 50%, 12% 12%
+    );
+  }
+  33%, 42% {
+    clip-path: polygon(
+      50% 0%, 75% 7%, 93% 25%, 100% 50%,
+      93% 75%, 75% 93%, 50% 100%,
+      25% 93%, 7% 75%, 0% 50%,
+      7% 25%, 25% 7%
+    );
+  }
+  66%, 75% {
+    clip-path: polygon(
+      50% 0%, 50% 0%, 93% 25%, 93% 25%,
+      93% 75%, 93% 75%, 50% 100%,
+      50% 100%, 7% 75%, 7% 75%,
+      7% 25%, 7% 25%
+    );
+  }
+  93%, 100% {
+    clip-path: polygon(
+      12% 12%, 50% 12%, 88% 12%, 88% 12%,
+      88% 50%, 88% 88%, 88% 88%,
+      50% 88%, 12% 88%, 12% 88%,
+      12% 50%, 12% 12%
+    );
+  }
+}
+
+/* ── GAMES: Cube with d20 numbers on faces ──────────────────────────── */
+.hero-obj--games { --obj-stroke: rgba(232,169,26,0.4); }
+.games-face-num {
+  font-family: var(--mg-font-display);
+  font-weight: 700;
+  font-size: 42px;
+  color: #e8a91a;
+  opacity: 0.85;
+  text-shadow: 0 0 12px rgba(232,169,26,0.4);
+}
+
+/* ── ENGINES: Cube with gear on faces, slower spin ──────────────────── */
+.hero-obj--engines {
+  --obj-stroke: rgba(6,182,212,0.35);
+  animation-duration: 12s;
+}
+.engines-face-icon {
+  width: 70px;
+  height: 70px;
+  color: #06b6d4;
+  opacity: 0.8;
+  animation: gearCounterSpin 12s linear infinite;
+}
+@keyframes gearCounterSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* ── ABOUT: Tri-colour cube (R/G/B gradient faces) ──────────────────── */
+.hero-obj--about { --obj-stroke: transparent; }
+.hero-obj--about .hero-obj__face {
+  border: none;
+  background: transparent;
+}
+.cube-face-fill {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  opacity: 0.85;
+}
+.cube-face-fill--red { background: linear-gradient(135deg, #14161c, #d11a1a); border: 2px solid rgba(209,26,26,0.4); }
+.cube-face-fill--green { background: linear-gradient(135deg, #14161c, #3a9928); border: 2px solid rgba(58,153,40,0.4); }
+.cube-face-fill--blue { background: linear-gradient(135deg, #14161c, #0c4f8d); border: 2px solid rgba(12,79,141,0.4); }
+
+/* ── GAMES: Animated SVG (hex board with pieces) ────────────────────── */
+.games-anim-wrap {
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.games-anim-svg {
+  width: 260px;
+  height: 260px;
+}
+.games-anim-svg .hex-cell {
+  fill: none;
+  stroke: #e8a91a;
+  stroke-width: 0.8;
+  opacity: 0.3;
+}
+.games-anim-svg .hex-cell--lit {
+  fill: rgba(232,169,26,0.08);
+  opacity: 0.7;
+  animation: hexPulse 4s ease-in-out infinite;
+}
+.games-anim-svg .hex-cell--lit:nth-child(2) { animation-delay: 0.8s; }
+.games-anim-svg .hex-cell--lit:nth-child(3) { animation-delay: 1.6s; }
+.games-anim-svg .hex-cell--lit:nth-child(4) { animation-delay: 2.4s; }
+@keyframes hexPulse {
+  0%, 100% { fill: rgba(232,169,26,0.06); opacity: 0.5; }
+  50% { fill: rgba(232,169,26,0.18); opacity: 0.9; }
+}
+.games-anim-svg .piece {
+  fill: #e8a91a;
+  opacity: 0;
+  animation: pieceDrop 5s ease-out infinite;
+}
+.games-anim-svg .piece:nth-child(1) { animation-delay: 0s; }
+.games-anim-svg .piece:nth-child(2) { animation-delay: 1.2s; }
+.games-anim-svg .piece:nth-child(3) { animation-delay: 2.5s; }
+@keyframes pieceDrop {
+  0% { opacity: 0; transform: translateY(-8px) scale(0.6); }
+  12% { opacity: 0.9; transform: translateY(0) scale(1); }
+  70% { opacity: 0.9; transform: translateY(0) scale(1); }
+  85% { opacity: 0; transform: translateY(3px) scale(0.8); }
+  100% { opacity: 0; }
+}
+.games-anim-svg .move-path {
+  stroke: #e8a91a;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  fill: none;
+  opacity: 0.6;
+  animation: moveDraw 5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+@keyframes moveDraw {
+  0%, 10% { stroke-dashoffset: 30; opacity: 0; }
+  20% { opacity: 0.6; }
+  50% { stroke-dashoffset: 0; opacity: 0.6; }
+  70% { opacity: 0; stroke-dashoffset: 0; }
+  100% { opacity: 0; stroke-dashoffset: 0; }
+}
+.games-anim-svg .board-group {
+  animation: boardFloat 7s ease-in-out infinite;
+}
+@keyframes boardFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(1deg); }
+}
+
+/* ── NEWS: Animated SVG (not a cube) ────────────────────────────────── */
+.news-anim-wrap {
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.news-anim-svg {
+  width: 240px;
+  height: 240px;
+}
+.news-anim-svg .doc-body {
+  fill: none;
+  stroke: #e11d89;
+  stroke-width: 1.2;
+  opacity: 0.7;
+}
+.news-anim-svg .doc-fold {
+  fill: rgba(225,29,137,0.15);
+  stroke: #e11d89;
+  stroke-width: 1.2;
+}
+.news-anim-svg .doc-line {
+  stroke: #e11d89;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: newsLineIn 3s ease-out infinite;
+}
+.news-anim-svg .doc-line:nth-child(1) { animation-delay: 0s; }
+.news-anim-svg .doc-line:nth-child(2) { animation-delay: 0.3s; }
+.news-anim-svg .doc-line:nth-child(3) { animation-delay: 0.6s; }
+.news-anim-svg .doc-line:nth-child(4) { animation-delay: 0.9s; }
+.news-anim-svg .doc-line:nth-child(5) { animation-delay: 1.2s; }
+.news-anim-svg .doc-headline {
+  stroke: #e11d89;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: newsLineIn 3s ease-out infinite;
+  animation-delay: 0s;
+}
+@keyframes newsLineIn {
+  0% { opacity: 0; stroke-dashoffset: 40; }
+  15% { opacity: 0.8; stroke-dashoffset: 0; }
+  70% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+.news-anim-svg .doc-cursor {
+  fill: #e11d89;
+  opacity: 0;
+  animation: newsCursorBlink 1s step-end infinite;
+}
+@keyframes newsCursorBlink {
+  0%, 50% { opacity: 0.9; }
+  51%, 100% { opacity: 0; }
+}
+.news-anim-svg .doc-float {
+  animation: newsFloat 6s ease-in-out infinite;
+}
+@keyframes newsFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(1.5deg); }
+}
+
+/* ── Shared perspective container ───────────────────────────────────── */
+.hero-obj-wrap {
+  perspective: 600px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Developers SVG ────────────────────────────────────────────────── */
+.dev-anim-wrap {
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dev-anim-svg {
+  width: 240px;
+  height: 240px;
+}
+.dev-anim-svg .doc-body {
+  fill: none;
+  stroke: #8b5cf6;
+  stroke-width: 1.2;
+  opacity: 0.7;
+}
+.dev-anim-svg .doc-line {
+  stroke: #8b5cf6;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: newsLineIn 3s ease-out infinite;
+}
+.dev-anim-svg .doc-line:nth-child(2) { animation-delay: 0.2s; }
+.dev-anim-svg .doc-line:nth-child(3) { animation-delay: 0.4s; }
+.dev-anim-svg .doc-line:nth-child(4) { animation-delay: 0.6s; }
+.dev-anim-svg .doc-line:nth-child(5) { animation-delay: 0.8s; }
+.dev-anim-svg .dev-bracket {
+  fill: #8b5cf6;
+  font-family: var(--mg-font-mono);
+  font-weight: 700;
+  opacity: 0.9;
+}
+.dev-anim-svg .doc-cursor {
+  fill: #8b5cf6;
+  animation: newsCursorBlink 1s step-end infinite;
+}
+.dev-anim-svg .doc-float {
+  animation: newsFloat 6s ease-in-out infinite;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-obj { animation: none; transform: rotateX(15deg) rotateY(-25deg); }
+  .gear-svg { animation: none; }
+}

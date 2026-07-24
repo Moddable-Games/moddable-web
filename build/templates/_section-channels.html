@@ -1,0 +1,13 @@
+{{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
+<div class="channels-grid">
+  {{#each items}}
+  <div class="channel-card channel-card--{{cat}}">
+    <div class="channel-card__icon channel-card__icon--{{cat}}">#</div>
+    <div class="channel-card__text">
+      <div class="channel-card__name">{{name}}</div>
+      <div class="channel-card__desc">{{desc}}</div>
+      <div class="channel-card__category">{{cat}}</div>
+    </div>
+  </div>
+  {{/each}}
+</div>

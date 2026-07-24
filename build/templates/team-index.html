@@ -1,0 +1,22 @@
+{{>_head}}
+{{>_navbar}}
+{{>_hero}}
+
+<section class="team-main" id="main-content">
+  <div class="mg-container">
+    <div class="team-grid" data-stagger>
+      {{#each team}}
+      <a href="/team/{{slug}}/" class="team-card mg-lift" data-reveal="up">
+        <div class="team-card__avatar" style="background:{{color}}">
+          <img src="/img/team/{{img}}" alt="{{name}}" class="team-card__avatar-img">
+        </div>
+        <h3 class="team-card__name">{{name}}</h3>
+        <div class="team-card__role">{{role}}</div>
+        <p class="team-card__bio">{{bio}}</p>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+{{>_foot}}

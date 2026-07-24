@@ -1,0 +1,43 @@
+{{>_head}}
+{{>_navbar}}
+{{>_hero}}
+
+<section class="mg-section--tight" id="main-content">
+  <div class="mg-container">
+    <div id="engines-grid" class="engines-grid" data-stagger>
+      {{#each engines}}
+      <a href="/engines/{{slug}}/" class="engine-card mg-lift" data-reveal="up">
+        <div class="engine-card__bar" style="background:{{accent_color}}"></div>
+        {{#if image}}<img src="{{image}}" alt="{{title}} screenshot" class="engine-card__image">{{/if}}
+        <div class="engine-card__header">
+          <div class="engine-card__title-wrap">
+            <div class="engine-card__status" style="color:{{accent_color}}">Open source · Live</div>
+            <h3 class="engine-card__title">{{title}}</h3>
+          </div>
+        </div>
+        <p class="engine-card__tagline">{{tagline}}</p>
+        <div class="engine-card__stats">
+          {{#each stats}}
+          <div class="engine-card__stat">
+            <div class="engine-card__stat-value">{{value}}</div>
+            <div class="engine-card__stat-label">{{label}}</div>
+          </div>
+          {{/each}}
+        </div>
+        <div class="engine-card__features">
+          {{#each features}}
+          <span class="engine-card__feature">{{this}}</span>
+          {{/each}}
+        </div>
+      </a>
+      {{/each}}
+    </div>
+
+    <div class="engines-cta" data-reveal="up">
+      <a href="https://github.com/Moddable-Games" class="mg-btn mg-btn--primary" target="_blank" rel="noopener">View GitHub</a>
+      <a href="/about/roadmap/" class="mg-btn mg-btn--outline-dark">See Roadmap</a>
+    </div>
+  </div>
+</section>
+
+{{>_foot}}

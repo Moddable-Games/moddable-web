@@ -1,0 +1,192 @@
+{{>_head}}
+{{>_navbar}}
+
+<section id="hero">
+  <div id="hero-bg"><div id="hero-bg__inner"></div></div>
+  <div id="hero-tint"></div>
+  <div id="hero-hex"></div>
+  <div id="hero-glow"></div>
+  <div id="hero-top-fade"></div>
+  <div id="hero-bot-fade"></div>
+  <div id="hero-wash"></div>
+  <div id="hero-content" class="hero-anim">
+    <div class="mg-eyebrow mg-eyebrow--glow">{{home.hero.eyebrow}}</div>
+    <h1 class="home-hero__title"><span class="hero-word">{{home.hero.title_prefix}}</span> <span class="hero-word" id="hero-typewriter">games</span><br><span class="hero-word">{{home.hero.title_suffix}}</span></h1>
+    <div id="hero-lower">
+      <div id="hero-lower__text">
+        <p class="home-hero__lede">{{home.hero.lede}}</p>
+        <div class="home-hero__btns" id="hero-btns">
+          {{#each home.hero.buttons}}
+          <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-gallery" id="main-content">
+  <div class="mg-container">
+    <div class="home-gallery__header">
+      <div>
+        <div class="mg-eyebrow mg-eyebrow--blue">{{home.gallery.eyebrow}}</div>
+        <h2 class="home-gallery__heading">{{home.gallery.heading}}</h2>
+      </div>
+      <div id="gallery-filters" class="home-gallery__filters">
+        <button class="filter-btn filter-btn--active">All</button>
+      </div>
+    </div>
+    <div id="gallery-grid" class="mg-grid-3 mg-grid-auto" data-stagger>
+      {{#each featured_mods}}
+      <article class="mod-card" data-reveal="up">
+        <div class="mod-card__accent" style="background:{{category_color}}"></div>
+        <div class="mod-card__inner">
+          <div class="mod-card__thumb" style="background:linear-gradient(135deg, #0a0d2a 0%, {{category_color}} 100%)">
+            <div class="mod-card__thumb-hex" style="background-image:url('/img/hex-grid-white.svg')"></div>
+            {{#if logo}}<img src="/{{logo}}" alt="{{title}}" class="mod-card__thumb-logo">{{/if}}
+          </div>
+          <div class="mod-card__meta">
+            <span class="mod-card__category" style="background:{{category_color}}">{{category}}</span>
+            <span class="mod-card__base-game">{{baseGame}}</span>
+          </div>
+          <h3 class="mod-card__title">{{title}}</h3>
+          <p class="mod-card__body">{{body}}</p>
+          <div class="mod-card__stats">{{stats}}{{#if source}} <span class="mod-card__source">via {{source}}</span>{{/if}}</div>
+          <a href="{{path}}" class="mod-card__link" style="color:{{category_color}}">View the rules <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+    <div class="home-gallery__cta"><a href="{{home.gallery.cta_href}}">{{home.gallery.cta_label}} &rarr;</a></div>
+    <div class="home-rules-card" data-reveal="up">
+      <div class="home-rules-card__inner">
+        <div class="home-rules-card__text">
+          <div class="mg-eyebrow mg-eyebrow--green">{{home.rules_card.eyebrow}}</div>
+          <h3 class="home-rules-card__heading">{{home.rules_card.heading}}</h3>
+          <p class="home-rules-card__body">{{home.rules_card.body}}</p>
+          <div class="home-rules-card__btns">
+            {{#each home.rules_card.buttons}}
+            <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+            {{/each}}
+          </div>
+        </div>
+        <div class="home-rules-card__stats">
+          {{#each home.rules_card.stats}}
+          <div class="home-rules-card__stat">
+            <span class="home-rules-card__stat-value">{{value}}</span>
+            <span class="home-rules-card__stat-label">{{label}}</span>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-featured">
+  <div class="home-featured__glow"></div>
+  <div class="home-featured__inner" data-reveal="up">
+    <div>
+      <div class="mg-eyebrow mg-eyebrow--glow">{{home.featured.eyebrow}}</div>
+      <h2 class="home-featured__heading">{{home.featured.heading}}</h2>
+      <p class="home-featured__body">{{home.featured.body}}</p>
+      <div class="home-featured__btns">
+        {{#each home.featured.buttons}}
+        <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+        {{/each}}
+      </div>
+      <div class="stats-row">
+        {{#each home.featured.stats}}
+        <div class="stats-row__item">
+          <span class="stats-row__label">{{label}}</span>
+          <span class="stats-row__value">{{value}}</span>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <img src="{{home.featured.logo}}" alt="{{home.featured.heading}}" class="home-featured__logo" loading="lazy">
+  </div>
+</section>
+
+<section class="home-dev">
+  <div class="home-dev__inner">
+    <div class="home-dev__text">
+      <div class="mg-eyebrow mg-eyebrow--blue" data-reveal="fade">{{home.dev_band.eyebrow}}</div>
+      <h2 class="home-dev__heading" data-reveal="up">{{home.dev_band.heading}}</h2>
+      <p class="home-dev__body" data-reveal="up">{{home.dev_band.body}}</p>
+      <div class="home-dev__btns" data-reveal="up">
+        {{#each home.dev_band.buttons}}
+        <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+        {{/each}}
+      </div>
+    </div>
+    <div class="home-dev__tools" data-reveal="up">
+      {{#each home.dev_band.tool_rows}}
+      <div class="home-dev__tool-row">
+        {{#each this}}
+        <span class="home-dev__tool-chip">{{this}}</span>
+        {{/each}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section class="home-nuke">
+  <div class="home-nuke__bloom"></div>
+  <div class="home-nuke__inner">
+    <div class="mg-eyebrow mg-eyebrow--red" data-reveal="fade">{{home.nukes.eyebrow}}</div>
+    <div class="home-nuke__media">
+      <div class="home-nuke__smoke" id="nuke-smoke"></div>
+      <img src="{{home.nukes.image}}" alt="{{home.nukes.image_alt}}" class="home-nuke__img" data-reveal="scale" loading="lazy">
+    </div>
+    <h2 class="home-nuke__heading" data-reveal="up">{{{home.nukes.heading}}}</h2>
+    <p class="home-nuke__body" data-reveal="up">{{home.nukes.body}}</p>
+    <div class="home-nuke__btns" data-reveal="up">
+      {{#each home.nukes.buttons}}
+      <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section class="home-news">
+  <div class="home-news__inner">
+    <div class="home-news__header">
+      <h2 class="home-news__heading">{{home.news_row.heading}}</h2>
+      <a href="{{home.news_row.cta_href}}" class="home-news__link">{{home.news_row.cta_label}} &rarr;</a>
+    </div>
+    <div id="news-grid" class="mg-grid-3 mg-grid-auto" data-stagger>
+      {{#each latest_news}}
+      <a href="/news/{{slug}}/" class="news-card mg-lift" data-reveal="up">
+        <div class="news-card__header">
+          <span class="news-card__tag">{{category}}</span>
+          <span class="news-card__date">{{date}}</span>
+        </div>
+        <h3 class="news-card__title">{{title}}</h3>
+        <p class="news-card__body">{{excerpt}}</p>
+        <span class="news-card__more">Read more &rarr;</span>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section class="home-community">
+  <div class="home-community__gradient"></div>
+  <div class="home-community__glow"></div>
+  <div class="home-community__hex" style="background-image:url('/img/hex-grid-blue.svg')"></div>
+  <div class="home-community__fade"></div>
+  <div class="home-community__inner hero-anim">
+    <div class="mg-eyebrow mg-eyebrow--glow">{{home.community_band.eyebrow}}</div>
+    <h2 class="home-community__heading">{{home.community_band.heading}}</h2>
+    <p class="home-community__body">{{home.community_band.body}}</p>
+    <div class="home-community__btns">
+      {{#each home.community_band.buttons}}
+      <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+{{>_foot}}

@@ -1,0 +1,56 @@
+body { background: #f5f4ef; }
+.sub-main { padding: 72px 32px 96px; }
+.sub-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 280px; gap: 56px; align-items: start; }
+
+.sub-content { display: flex; flex-direction: column; gap: 32px; }
+
+.sub-form { background: #fff; border: 1px solid var(--mg-hairline-light); border-radius: 16px; padding: 32px; }
+.sub-form__email-row { display: flex; gap: 8px; margin-bottom: 20px; }
+.sub-form__email { flex: 1; padding: 12px 20px; border: 1px solid var(--mg-hairline-light); border-radius: 9999px; font-family: var(--mg-font-body); font-size: 15px; outline: none; background: var(--mg-canvas-light); }
+.sub-form__email:focus { border-color: var(--mg-green); }
+.sub-form__checks { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.sub-form__check { display: flex; align-items: center; gap: 10px; font-family: var(--mg-font-body); font-size: 14px; color: var(--mg-ink); cursor: pointer; }
+.sub-form__check input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--mg-green); cursor: pointer; }
+.sub-form__submit { width: 100%; }
+
+.sub-success { text-align: center; padding: 32px; display: none; }
+.sub-success--show { display: block; }
+.sub-success__icon { width: 56px; height: 56px; border-radius: 50%; background: var(--mg-green); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: #fff; font-size: 24px; }
+.sub-success__title { font-family: var(--mg-font-display); font-weight: 600; font-size: 22px; color: var(--mg-ink); margin-bottom: 8px; }
+.sub-success__text { font-family: var(--mg-font-body); font-size: 15px; color: var(--mg-mute); }
+
+.sub-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 24px; }
+.sub-sidebar__card { background: #fff; border: 1px solid var(--mg-hairline-light); border-radius: 16px; padding: 20px; }
+.sub-sidebar__card-title { font-family: var(--mg-font-display); font-weight: 600; font-size: 15px; color: var(--mg-ink); margin: 0 0 14px; }
+.sub-sidebar__links { display: flex; flex-direction: column; gap: 10px; }
+.sub-sidebar__link { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--mg-canvas-light); border: 1px solid var(--mg-hairline-light); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color 150ms; }
+.sub-sidebar__link:hover { border-color: var(--mg-ink); }
+.sub-sidebar__link-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.sub-sidebar__link-label { font-family: var(--mg-font-display); font-weight: 600; font-size: 14px; color: var(--mg-ink); }
+.sub-sidebar__link-sub { font-family: var(--mg-font-mono); font-size: 11px; color: var(--mg-mute); }
+
+.sub-benefits { background: #fff; border-top: 1px solid var(--mg-hairline-light); padding: 72px 32px 96px; }
+.sub-benefits__inner { max-width: 1200px; margin: 0 auto; }
+.sub-benefits__title { font-family: var(--mg-font-display); font-weight: 600; font-size: clamp(28px, 4vw, 40px); color: var(--mg-ink); margin: 0 0 32px; letter-spacing: -0.5px; }
+.sub-benefits__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.sub-benefit-card { background: var(--mg-canvas-light); border: 1px solid var(--mg-hairline-light); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.sub-benefit-card__dot { width: 10px; height: 10px; border-radius: 50%; }
+.sub-benefit-card__title { font-family: var(--mg-font-display); font-weight: 600; font-size: 16px; color: var(--mg-ink); margin-top: 4px; }
+.sub-benefit-card__body { font-family: var(--mg-font-body); font-size: 14px; line-height: 1.5; color: #4a5060; text-wrap: balance; }
+
+@media (max-width: 900px) {
+  .sub-layout { grid-template-columns: 1fr; }
+  .sub-sidebar { position: static; }
+  .sub-main { padding: 48px 20px 64px; }
+  .sub-form__email-row { flex-direction: column; }
+  .sub-form__email { font-size: 16px; }
+  .sub-benefits { padding: 48px 20px 64px; }
+  .sub-benefits__title { text-align: center; }
+  .sub-benefits__grid { grid-template-columns: 1fr 1fr; }
+  .sub-benefit-card { text-align: center; align-items: center; }
+  .sub-sidebar__card-title { text-align: center; }
+  .sub-sidebar__links { align-items: stretch; }
+}
+@media (max-width: 480px) {
+  .sub-benefits__grid { grid-template-columns: 1fr; }
+}

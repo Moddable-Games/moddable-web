@@ -1,0 +1,4 @@
+  body { background:#0a0d2a; color:#fff; display:flex; flex-direction:column; min-height:100vh; }
+  main { flex:1; display:flex; align-items:center; justify-content:center; text-align:center; padding:48px 24px; }
+  h1 { font-family:var(--mg-font-pixel); font-size:14px; color:#6fb5ff; letter-spacing:2px; margin-bottom:16px; }
+  p { font-family:var(--mg-font-body); font-size:18px; color:rgba(255,255,255,0.7); margin-bottom:32px; }

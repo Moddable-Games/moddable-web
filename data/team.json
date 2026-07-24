@@ -1,0 +1,62 @@
+[
+  {
+    "handle": "mark",
+    "slug": "mark",
+    "name": "Mark Smalley",
+    "role": "Founder · DM · Builder",
+    "bio": "Modder since forever. Built the world's first NoSQL CMS and a 500 Startups-backed Bitcoin wallet.",
+    "longBio": "Mark started Moddable.Games because he couldn't stop house-ruling every board game he owned. What began as a folder of homebrew PDFs turned into a publishing platform for the whole community. By day he builds products at the intersection of data and design. By night he's the group's forever-DM, perpetually one session behind on prep.",
+    "color": "#d11a1a",
+    "img": "mark.png",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/msmalley/",
+      "x": "https://x.com/m_smalley",
+      "instagram": "https://www.instagram.com/djkaspa"
+    }
+  },
+  {
+    "handle": "kevin",
+    "slug": "kevin",
+    "name": "Kevin Chand",
+    "role": "Playtest · Growth · Ops",
+    "bio": "Systems thinker. Chief playtester and social engineer leading online growth, marketing and manufacturing.",
+    "longBio": "Kevin is the reason our mods actually work at the table. He runs every prototype through dozens of sessions, tracking win-rates, turn lengths, and player satisfaction before anything ships. Off the clock he's scaling the community — Discord, socials, partnerships — and figuring out how to get physical copies into hands worldwide.",
+    "color": "#3a9928",
+    "img": "kevin.png",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/kevinsureshchand/",
+      "x": "https://x.com/kevinsureshc",
+      "instagram": "https://www.instagram.com/kevinchand75/"
+    }
+  },
+  {
+    "handle": "akmal",
+    "slug": "akmal",
+    "name": "Akmal Fikri",
+    "role": "Engine · Community",
+    "bio": "Web developer and board-game evangelist. Builds the online engine — grey hair earned the hard way.",
+    "longBio": "Akmal writes the code that makes the tools work — from the chess engine to the deck builder. A full-stack developer who fell into board games through a TI4 marathon that ran 14 hours, he now builds digital tools so tabletop players never have to pause the game to Google a rule again.",
+    "color": "#0c4f8d",
+    "img": "akmal.png",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/akmalfikri/",
+      "x": "https://x.com/akmalfikri",
+      "instagram": "https://www.instagram.com/akmalfikri/"
+    }
+  },
+  {
+    "handle": "iqbal",
+    "slug": "iqbal",
+    "name": "Iqbal Ridzuan",
+    "role": "Lead Artist · Creative",
+    "bio": "Head of creative. BioHack and Mechamato — featured on BoardGameGeek and IMDB.",
+    "longBio": "Iqbal brings every mod to life visually — from Nukes' fallout maps to the hex boards in Talisman Worlds. His background in animation (BioHack, Mechamato) means he thinks in movement and story even when designing static rulebook layouts. He believes great game art should make you want to play before you read a single rule.",
+    "color": "#e89a1a",
+    "img": "iqbal.png",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/iqbarizuan/",
+      "x": "https://x.com/iqbarizuan",
+      "instagram": "https://www.instagram.com/iqbarizuan/"
+    }
+  }
+]

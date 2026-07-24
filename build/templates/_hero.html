@@ -1,0 +1,19 @@
+<section class="mg-hero mg-hero--tier{{hero.tier}} mg-hero--{{hero.section}}">
+  <div class="mg-hero__gradient"></div>
+  {{#if hero.tier1}}
+  <div class="mg-hero__land"></div>
+  {{/if}}
+  <div class="mg-hero__hex mg-hero__hex--{{hero.hexColor}}"></div>
+  <div class="mg-hero__fade-top"></div>
+  <div class="mg-hero__fade-bottom"></div>
+  <div class="mg-hero__glow"></div>
+  <div class="mg-hero__floats"></div>
+  <div class="mg-hero__content hero-anim">
+    <div class="mg-hero__text">
+      <div class="mg-hero__eyebrow">{{hero.eyebrow}}</div>
+      <h1 class="mg-hero__title">{{{hero.title}}}</h1>
+      <p class="mg-hero__lede">{{hero.lede}}</p>
+      {{{hero_buttons}}}
+    </div>
+  </div>
+</section>

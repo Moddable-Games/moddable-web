@@ -1,0 +1,50 @@
+{
+  "about": {
+    "template": "page",
+    "output": "about/index.html",
+    "nav_active": "About",
+    "css_files": ["about", "cards"]
+  },
+  "roadmap": {
+    "template": "page",
+    "output": "about/roadmap/index.html",
+    "nav_active": "About",
+    "css_files": ["roadmap"]
+  },
+  "community": {
+    "template": "page",
+    "output": "community/index.html",
+    "nav_active": "About",
+    "css_files": ["community"]
+  },
+  "press": {
+    "template": "page",
+    "output": "press/index.html",
+    "nav_active": "About",
+    "css_files": ["press"]
+  },
+  "subscribe": {
+    "template": "page",
+    "output": "subscribe/index.html",
+    "nav_active": "About",
+    "css_files": ["subscribe"]
+  },
+  "submit": {
+    "template": "page",
+    "output": "submit/index.html",
+    "nav_active": "Mods",
+    "css_files": ["submit"]
+  },
+  "developers": {
+    "template": "page",
+    "output": "developers/index.html",
+    "nav_active": "Developers",
+    "css_files": ["developers"]
+  },
+  "404": {
+    "template": "page",
+    "output": "404.html",
+    "nav_active": "",
+    "css_files": ["404"]
+  }
+}

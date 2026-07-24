@@ -1,0 +1,46 @@
+<div class="mg-navbar">
+  <header role="banner" aria-label="Site header" class="mg-navbar__header">
+    <a href="#main-content" class="mg-skip-link">Skip to content</a>
+    <a href="/" class="mg-navbar__logo-link">
+      <img src="/img/moddable-logo-white.png" alt="Moddable Games" class="mg-navbar__logo-img">
+    </a>
+    <nav aria-label="Main navigation" class="mg-navbar__nav">
+      {{#each nav.items}}
+      <div class="mg-navbar__item">
+        <a href="{{href}}" class="mg-navbar__link{{#if active}} mg-navbar__link--active{{/if}}"{{#if active}} aria-current="page"{{/if}}>{{id}}{{#if active}}<span class="mg-navbar__active-bar" style="background:{{accent}}"></span>{{/if}}</a>
+        {{#if children}}
+        <div class="mg-navbar__dropdown">
+          <div class="mg-navbar__dropdown-menu" style="--nav-accent:{{accent}}">
+            {{#each children}}
+            <a href="{{href}}" class="mg-navbar__dropdown-link"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+            {{/each}}
+          </div>
+        </div>
+        {{/if}}
+      </div>
+      {{/each}}
+    </nav>
+    <div class="mg-navbar__right">
+      <a href="/community/" class="mg-navbar__discord">DISCORD</a>
+      <button class="mg-search-trigger" aria-label="Search the site">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="/submit/" class="mg-btn mg-btn--primary mg-btn--sm">MOD A GAME</a>
+    </div>
+    <button class="mg-navbar__hamburger" aria-label="Menu" aria-expanded="false">&#9776;</button>
+  </header>
+  <div class="mg-navbar__drawer">
+    <nav aria-label="Main navigation" class="mg-navbar__drawer-nav">
+      {{#each nav.items}}
+      <a href="{{href}}" class="mg-navbar__drawer-link{{#if active}} mg-navbar__drawer-link--active{{/if}}">{{id}}</a>
+      {{#if children}}
+      <div class="mg-navbar__drawer-sub">
+        {{#each children}}
+        <a href="{{href}}" class="mg-navbar__drawer-sub-link"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{/each}}
+    </nav>
+  </div>
+</div>

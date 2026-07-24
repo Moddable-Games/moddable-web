@@ -1,0 +1,37 @@
+body { background: #f5f4ef; }
+.mods-hero { background: #000; color: #fff; padding: 64px 32px 88px; position: relative; overflow: hidden; }
+.mods-hero__bloom { position: absolute; right: -150px; top: 10%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(58,123,232,0.28) 0%, transparent 65%); pointer-events: none; }
+.mods-hero__inner { max-width: 1200px; margin: 0 auto; position: relative; }
+.mods-hero__title { font-family: var(--mg-font-display); font-weight: 600; font-size: clamp(48px, 7vw, 96px); line-height: 0.95; letter-spacing: -0.025em; margin: 0 0 20px; }
+.mods-hero__lede { font-family: var(--mg-font-body); font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.82); max-width: 600px; margin: 0; }
+.mods-filter { background: var(--mg-canvas-light); padding: 40px 32px 96px; }
+.mods-filter__inner { max-width: 1200px; margin: 0 auto; }
+.mods-filter__bar { display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; align-items: center; position: sticky; top: 64px; z-index: 40; background: var(--mg-canvas-light); padding: 12px 0; border-bottom: 1px solid var(--mg-hairline-light); }
+.mods-filter__search-wrap { position: relative; flex: 1 1 280px; max-width: 360px; }
+.mods-filter__search { width: 100%; height: 44px; padding: 0 16px 0 44px; border: 1px solid var(--mg-hairline-light); border-radius: 9999px; font-family: var(--mg-font-body); font-size: 14px; background: #fff; outline: none; }
+.mods-filter__search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); opacity: 0.4; font-size: 16px; pointer-events: none; }
+.mods-filter__cats { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+.mods-filter__btn { font-family: var(--mg-font-body); font-weight: 600; font-size: 13px; height: 36px; padding: 0 14px; border-radius: 9999px; border: 1px solid #c3c5cc; background: transparent; color: var(--mg-ink); cursor: pointer; transition: all 150ms; }
+.mods-filter__btn--active { border: none; background: #000; color: #fff; }
+#mods-grid { scroll-margin-top: 140px; }
+.mods-filter__meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+.mods-filter__count { font-family: var(--mg-font-pixel); font-size: 9px; color: var(--mg-ink); letter-spacing: 1.5px; }
+.mods-filter__sort { font-family: var(--mg-font-mono); font-size: 12px; color: var(--mg-stone); }
+.mods-empty { display: none; background: #fff; border: 1px solid var(--mg-hairline-light); border-radius: 16px; padding: 48px; text-align: center; margin-top: 16px; }
+.mods-empty__title { font-family: var(--mg-font-display); font-weight: 600; font-size: 24px; color: var(--mg-ink); margin: 0 0 8px; }
+.mods-empty__body { font-family: var(--mg-font-body); font-size: 15px; color: var(--mg-mute); margin: 0 0 20px; }
+.mods-empty__link { display: inline-flex; align-items: center; height: 48px; padding: 0 22px; background: var(--mg-ink); color: #fff; border-radius: 9999px; font-family: var(--mg-font-body); font-weight: 600; font-size: 15px; text-decoration: none; }
+
+
+
+@media (max-width: 768px) {
+  .mods-hero { padding: 48px 20px 64px; text-align: center; }
+  .mods-hero__lede { margin-left: auto; margin-right: auto; }
+  .mods-filter { padding: 20px 20px 72px; }
+  .mods-filter__bar { flex-direction: column; align-items: center; gap: 12px; padding: 12px 0; margin-bottom: 20px; }
+  .mods-filter__search-wrap { max-width: none; width: 100%; flex: none; }
+  .mods-filter__search-icon { display: none; }
+  .mods-filter__search { padding-left: 16px; }
+  .mods-filter__cats { margin-left: 0; justify-content: center; }
+  .mods-filter__meta { justify-content: center; }
+}

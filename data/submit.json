@@ -1,0 +1,24 @@
+{
+  "has_sidebar": false,
+  "sections": [
+    {
+      "type": "prose",
+      "lede": "We accept mods for any board game. Your mod will be reviewed by the team and, if approved, published to the library with full credit.",
+      "blocks": [
+        {
+          "heading": "What we look for",
+          "paragraphs": [
+            "A clear base game (the original game your mod patches), playtest evidence (at least 3 sessions), a PDF rulebook or rules document, and player count, time estimate, and age rating."
+          ]
+        },
+        {
+          "heading": "How to submit",
+          "paragraphs": [
+            "Email your mod to submit@moddable.games with your rulebook attached. Include a one-paragraph description and your playtesting notes.",
+            "Alternatively, open a pull request on our rules repository with your rulebook in markdown format."
+          ]
+        }
+      ]
+    }
+  ]
+}

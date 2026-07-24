@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "eyebrow": "MODDABLE.GAMES",
+    "title_prefix": "Creating",
+    "title_suffix": "you already own",
+    "typewriter_words": ["games", "mods", "rules", "engines", "tools", "variants", "worlds"],
+    "lede": "The first board game company built entirely in the open. CC-licensed rules, forkable engines, and games designed to be taken apart.",
+    "buttons": [
+      { "label": "Browse Mods", "href": "/mods/", "style": "primary" },
+      { "label": "Learn More", "href": "/about/", "style": "outline-dark" }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "THE LIBRARY",
+    "heading": "Browse our collection or pick a game you own",
+    "cta_label": "View full library",
+    "cta_href": "/mods/"
+  },
+  "rules_card": {
+    "eyebrow": "RULEBOOK LIBRARY",
+    "heading": "Every rule in a git repo",
+    "body": "24 game families, 147 variants, printable PDFs, and board diagrams. All open-licensed, all forkable.",
+    "stats": [
+      { "value": "21", "label": "Games" },
+      { "value": "171", "label": "Variants" },
+      { "value": "PDF + Web", "label": "Formats" }
+    ],
+    "buttons": [
+      { "label": "Browse Rulebooks", "href": "https://rules.moddable.games/", "style": "green", "external": true },
+      { "label": "GitHub", "href": "https://github.com/Moddable-Games/moddable-rules", "style": "outline-dark", "external": true }
+    ]
+  },
+  "featured": {
+    "eyebrow": "MOD OF THE MONTH",
+    "heading": "Hyper Imperium",
+    "body": "Our homebrew for Twilight Imperium 4e + Prophecy of Kings. Hyper Movement, Hyper Trades, Hyper Objectives, Hyper Factions, Hyper Agendas — a faster ruleset that keeps the politics intact.",
+    "logo": "/img/hyper-imperium-logo.png",
+    "stats": [
+      { "label": "Players", "value": "3–6" },
+      { "label": "Time", "value": "4–6 hr" },
+      { "label": "Age", "value": "14+" },
+      { "label": "Version", "value": "v2.0.1" }
+    ],
+    "buttons": [
+      { "label": "Read Rules", "href": "https://rules.moddable.games/dist/hyper-imperium/", "style": "primary", "external": true },
+      { "label": "View Components", "href": "/mods/hyper-imperium/", "style": "outline-dark" }
+    ]
+  },
+  "dev_band": {
+    "eyebrow": "FOR DEVELOPERS",
+    "heading": "Board game engines as AI tools",
+    "body": "17 AI-callable tools for chess variant analysis, hex map generation, and board game utilities. Connect from Claude, Cursor, or VS Code in one command. Or build bots for Telegram, Slack, and Discord.",
+    "tool_rows": [
+      ["chess_analyze_position", "chess_generate_puzzle", "hex_generate_map"],
+      ["chess_validate_move", "hex_pathfind", "hex_compute_fov"],
+      ["chess_list_variants", "hex_export_svg", "chess_make_moves"]
+    ],
+    "buttons": [
+      { "label": "Explore Tools", "href": "/developers/", "style": "blue" },
+      { "label": "View API", "href": "https://tools.moddable.games/", "style": "outline-dark", "external": true }
+    ]
+  },
+  "nukes": {
+    "eyebrow": "ORIGINAL GAME · NUKES",
+    "heading": "Are you ready to <em>nuke</em> Catan?",
+    "body": "Cold-war hex strategy with no dice and no luck. Return hostages to move, but every return reinforces your enemy. 45 million Catan owners already have the board.",
+    "image": "/img/nuked-family.png",
+    "image_alt": "Family playing a board game with a mushroom cloud",
+    "buttons": [
+      { "label": "Play Nukes", "href": "/games/nukes/", "style": "red" },
+      { "label": "Read Article", "href": "/news/nuking-catan/", "style": "outline-dark" }
+    ]
+  },
+  "news_row": {
+    "heading": "From the table",
+    "cta_label": "All posts",
+    "cta_href": "/news/",
+    "count": 3
+  },
+  "community_band": {
+    "eyebrow": "JOIN THE TABLE",
+    "heading": "Mod a game with us",
+    "body": "Designers, playtesters, and rule-tinkerers building open-source board games together. Pitch a mod, test someone else's, or just argue about Catan's longest road rule.",
+    "buttons": [
+      { "label": "Join Community", "href": "/community/", "style": "primary" },
+      { "label": "Submit Mod", "href": "/submit/", "style": "outline-dark" }
+    ]
+  }
+}

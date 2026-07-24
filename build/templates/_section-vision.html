@@ -1,0 +1,11 @@
+{{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
+<div class="roadmap-vision">
+  {{#each items}}
+  <div class="vision-card" data-reveal="up">
+    <div class="vision-number" style="color:{{color}}">{{num}}</div>
+    <div class="vision-label">{{label}}</div>
+    <div class="vision-title">{{title}}</div>
+    <div class="vision-body">{{body}}</div>
+  </div>
+  {{/each}}
+</div>
