@@ -173,29 +173,91 @@ That's it for build time. The interactive tool pages (Tier 4) still call the API
 
 ---
 
-## Template conventions
+## Hosting: Cloudflare Pages
+
+Both moddable-web and moddable-tools are the first projects to use **Cloudflare Pages** (not GitHub Pages). Benefits:
+
+- `_headers` file for Link headers, Content-Type overrides, cache control
+- `_redirects` file for URL management
+- Build command integration (run `python build/build.py` on deploy)
+- Preview deployments per branch
+- Edge caching with instant purge
+- Free tier (unlimited sites, unlimited bandwidth, 500 builds/month)
+
+---
+
+## Template strategy: minimal templates, maximum reuse
+
+### Principle: as few templates as possible
+
+The 31 pages are produced from **7 templates** (not 31). Templates use conditionals and loops to adapt based on JSON data — sections appear or disappear based on what's in the data.
+
+| Template | Produces | Pages |
+|----------|----------|-------|
+| `_base.html` | Document shell (wraps everything) | All 31 |
+| `page.html` | Generic content page | about, roadmap, community, press, developers, examples, subscribe, submit, 404 (9) |
+| `index.html` | Card grid with optional filter | mods, games, engines, news, tools indexes (5) |
+| `detail.html` | Detail page with hero + content sections | mod details (11), game details (3), engine details (2), team details (4) = 20 |
+| `article.html` | News article with TOC + author | news articles (14) |
+| `team-index.html` | Team grid | team index (1) |
+| `home.html` | Home page (unique layout) | home (1) |
+
+**Total: 7 templates produce 31+ pages.**
+
+### How templates stay minimal
+
+The `page.html` template handles 9 different pages because it's data-driven:
 
 ```html
-<!-- _base.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{title}} — Moddable.Games</title>
-  {{>_meta}}
-  <link rel="stylesheet" href="{{cssPath}}/_mg.css?v={{version}}">
-  {{#if pageCss}}<link rel="stylesheet" href="{{cssPath}}/{{pageCss}}?v={{version}}">{{/if}}
-</head>
-<body class="{{bodyClass}}">
-  {{>_navbar}}
-  {{{content}}}
-  {{>_footer}}
-  <script type="module" src="{{jsPath}}/mg-enhance.js?v={{version}}"></script>
-  {{#if pageJs}}<script type="module" src="{{jsPath}}/{{pageJs}}?v={{version}}"></script>{{/if}}
-</body>
-</html>
+{{>_base}}
+{{>_hero}}
+
+{{#each sections}}
+  {{#if type "cards"}}{{>_section-cards}}{{/if}}
+  {{#if type "stats"}}{{>_section-stats}}{{/if}}
+  {{#if type "text"}}{{>_section-text}}{{/if}}
+  {{#if type "cta"}}{{>_section-cta}}{{/if}}
+  {{#if type "grid"}}{{>_section-grid}}{{/if}}
+{{/each}}
 ```
+
+The JSON for each page declares which sections appear and in what order. The template just iterates.
+
+Similarly, `detail.html` handles mods, games, engines, AND team detail pages because they all follow the same pattern: hero → content blocks → related items → CTA. The differences are in the data, not the template.
+
+### Shared partials (snippets reused across all templates)
+
+| Partial | Used by | Purpose |
+|---------|---------|---------|
+| `_base.html` | All templates | Document shell (head, body open/close, CSS/JS refs) |
+| `_navbar.html` | All (via _base) | Main navigation (single source, active state from data) |
+| `_footer.html` | All (via _base) | Footer (single source) |
+| `_hero.html` | All page templates | Hero section (adapts via data: dark/light, eyebrow, title, lede, accent) |
+| `_meta.html` | All (via _base) | OG tags, Twitter cards, JSON-LD (driven by page metadata) |
+| `_card-mod.html` | index, home | Mod card component |
+| `_card-game.html` | index, home | Game card component |
+| `_card-news.html` | index, home | News card component |
+| `_section-cards.html` | page, home | Generic card grid section |
+| `_section-stats.html` | page, detail | Stats row (numbers + labels) |
+| `_section-text.html` | page, detail | Rich text block |
+| `_section-cta.html` | page, detail | Call-to-action band |
+
+**Navbar, footer, and hero are NEVER hardcoded into page templates.** They are always `{{>_partial}}` includes — one source file, rendered everywhere. Change the nav once, every page updates on next build.
+
+---
+
+## Template engine requirements
+
+The template engine must support:
+
+- `{{>partial}}` — includes (critical for nav/footer/hero reuse)
+- `{{#each items}}...{{/each}}` — loops (card grids, sections, lists)
+- `{{#if value}}...{{/if}}` — conditionals (show/hide sections based on data)
+- `{{#if key "value"}}` — equality checks (section type matching)
+- `{{variable}}` — escaped substitution
+- `{{{raw}}}` — unescaped HTML (for pre-rendered content like article bodies)
+- Nested partials (a partial can include other partials)
+- Data passed to partials (hero partial receives hero config from page data)
 
 ---
 
