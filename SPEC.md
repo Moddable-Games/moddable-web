@@ -60,19 +60,24 @@ Each uses the same template with different data.
 | `/engines/moddable-hexmaps/` | mg-engine-hexmaps-page.js | Engine content JSON |
 | `/news/<slug>/` (×14) | mg-news-article-page.js | `data/news.json` + `data/articles/<slug>.html` |
 
-### Tier 4: Interactive tool pages — 8 pages
-Content renders statically but pages have live interactive widgets.
+### Tier 4: Tool pages — 8 pages (HANDLED BY moddable-tools, NOT this repo)
 
-| Page | Interactivity | API dependency |
-|------|--------------|----------------|
-| `/tools/chess/` | Variant explorer, puzzles | `tools.moddable.games/api/call` |
-| `/tools/ti/` | Faction picker, objectives, agendas | Local `data/ti4.json` |
-| `/tools/oracles/` | Oracle roller, scene forge | `tools.moddable.games/api/call` |
-| `/tools/dice/` | Multi-system dice roller | None (client-side RNG) |
-| `/tools/decks/` | Deck builder | None (client-side) |
-| `/tools/talisman/` | Character lottery, hex board | None (hardcoded) |
-| `/tools/nukes/` | Target picker, fallout tracker | None (hardcoded) |
-| `/developers/api/` | Live tool testing | `tools.moddable.games/api/tools` |
+These pages are interactive widgets powered by live data and compute. They do NOT belong in a static site generator. moddable-tools serves them — either as full pages at tools.moddable.games or as embeddable iframes that moddable-web can include.
+
+| Page | Current location | Moves to |
+|------|-----------------|----------|
+| `/tools/chess/` | moddable-website | moddable-tools (engine SDK + live API) |
+| `/tools/ti/` | moddable-website | moddable-tools (data from rules API) |
+| `/tools/oracles/` | moddable-website | moddable-tools (data from rules API) |
+| `/tools/dice/` | moddable-website | moddable-tools (engine SDK for dice systems) |
+| `/tools/decks/` | moddable-website | moddable-tools (engine SDK for deck logic) |
+| `/tools/talisman/` | moddable-website | moddable-tools (data from rules API) |
+| `/tools/nukes/` | moddable-website | moddable-tools (data from rules API) |
+| `/developers/api/` | moddable-website | moddable-tools (live tool testing) |
+
+**What moddable-web does for tools:** Renders a static `/tools/` hub page listing all available tools with descriptions (pulled from tools API at build time). Each tool links to or embeds the live version from tools.moddable.games. The hub is marketing; the tools themselves are compute.
+
+See moddable-tools/SPEC.md for the full tools implementation plan.
 
 ### Tier 5: Home page — 1 page
 Complex hero, featured content, multiple sections.
