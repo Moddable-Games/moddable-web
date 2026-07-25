@@ -149,10 +149,11 @@
   <div class="mg-container">
     <h2 class="mg-heading-xl">{{heading}}</h2>
     <div class="{{grid}}">
-      {{#each items}}{{#if href}}<a href="{{href}}" class="mg-card mg-lift"{{#if external}} target="_blank" rel="noopener"{{/if}}>
+      {{#each items}}{{#if href}}<a href="{{href}}" class="mg-card mg-lift"{{#if external}} target="_blank" rel="noopener"{{/if}}{{#if accent}} style="border-top:3px solid {{accent}};text-decoration:none"{{/if}}>
         {{#if category}}<div class="mg-card__eyebrow" style="color: {{category_color}}">{{category}}</div>{{/if}}
         <h3 class="mg-card__title">{{title}}</h3>
         <p class="mg-card__body">{{body}}</p>
+        {{#if accent}}<span class="mg-card__link" style="color:{{accent}}">Explore &rarr;</span>{{/if}}
       </a>{{/if}}{{#unless href}}<div class="mg-card">
         {{#if category}}<div class="mg-card__eyebrow" style="color: {{category_color}}">{{category}}</div>{{/if}}
         <h3 class="mg-card__title">{{title}}</h3>

@@ -2085,7 +2085,7 @@
       },
       {
         "type": "community",
-        "bg": "light",
+        "bg": "white mg-section--border-top",
         "heading": "Built on this engine",
         "heading_class": "mg-heading-xl",
         "grid": "mg-grid-2",
