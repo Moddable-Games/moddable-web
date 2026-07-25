@@ -1,4 +1,4 @@
-Contrary to popular belief, Monopoly was not born as a celebration of capitalism. In 1903, Lizzie Magie launched [*The Landlord's Game*](https://rules.moddable.games/dist/landlords-game/) to educate and expose the dangers of income inequality and unchecked monopolies. In 1935, Charles Darrow sold a slightly modified version to Parker Brothers, which eventually evolved into the Monopoly we know today, published globally by Hasbro; who have been printing money ever since.
+<p class="lede">Contrary to popular belief, Monopoly was not born as a celebration of capitalism. In 1903, Lizzie Magie launched <a href="https://rules.moddable.games/dist/landlords-game/" target="_blank" rel="noopener"><em>The Landlord's Game</em></a> to educate and expose the dangers of income inequality and unchecked monopolies. In 1935, Charles Darrow sold a slightly modified version to Parker Brothers, which eventually evolved into the Monopoly we know today, published globally by Hasbro; who have been printing money ever since.</p>
 
 With over 275 million copies sold across more than 100 countries, translated into over 45 languages with over 200 licensed and localised editions, Monopoly is not only the most popular board game released in the last 100 years, but is also one of the most frequently modified and has more variations than Barbie has outfits.
 
@@ -14,7 +14,10 @@ Monopoly mods unlock a world of possibilities, from subtle adjustments to comple
 - **New structures** — introduce new types of buildings with new consequences
 - **Variant rules** — subtle tweaks and event-driven twists can bring new life
 
-[![Ultimate Monopoly board layout showing expanded game modifications](/img/news/monopolising-modified-variations.png)](https://github.com/nberktumer/Ultimate-Monopoly-Game)
+<figure>
+  <a href="https://github.com/nberktumer/Ultimate-Monopoly-Game" target="_blank" rel="noopener"><img src="/img/news/monopolising-modified-variations.png" alt="Ultimate Monopoly board layout showing expanded game modifications" loading="lazy"></a>
+  <figcaption>Ultimate Monopoly: the community's most ambitious modification. MIT-licensed.</figcaption>
+</figure>
 
 ## The official editions
 

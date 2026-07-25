@@ -1,4 +1,4 @@
-**Catan** is popular. By some accounts, the most popular game of the modern era. A gateway game that has sold over 45 million copies and introduced countless families to a life of board games beyond Monopoly. Online versions are making millions despite it also being freely available in various forms. Catan is one of the most pirated board games on the planet, with several of the largest online marketplaces selling more unoriginal copies than officially authorised ones.
+<p class="lede"><strong>Catan</strong> is popular. By some accounts, the most popular game of the modern era. A gateway game that has sold over 45 million copies and introduced countless families to a life of board games beyond Monopoly. Online versions are making millions despite it also being freely available in various forms. Catan is one of the most pirated board games on the planet, with several of the largest online marketplaces selling more unoriginal copies than officially authorised ones.</p>
 
 Moddable.Games does not have this problem. In fact, we encourage it.
 
@@ -8,7 +8,10 @@ We are designing [open-source games](/news/open-sourcing-tabletop-games/), freel
 
 Nukes uses hex tiles as its board. Catan uses hex tiles as its board. Nukes uses generic tokens (no unique pieces). Catan ships with generic wooden settlements and roads, but you could also use pieces from [Checkers](https://rules.moddable.games/dist/draughts/), [Go](https://rules.moddable.games/dist/go/) or Draughts.
 
-**The overlap** — The standard Catan base game contains 19 hex tiles across 5 terrain types and a pile of uniform wooden pieces. Nukes needs hex tiles across multiple biomes and two sets of generic tokens. The components overlap almost perfectly.
+<div class="prose-callout">
+  <strong>The overlap</strong>
+  The standard Catan base game contains 19 hex tiles across 5 terrain types and a pile of uniform wooden pieces. Nukes needs hex tiles across multiple biomes and two sets of generic tokens. The components overlap almost perfectly.
+</div>
 
 Your first standalone game can be played tonight with a box you already own.
 
@@ -60,6 +63,9 @@ Where Nukes sits in the lineage of deterministic strategy:
 
 You do not need a Catan set. Nukes is live at [nukes.moddable.games](https://nukes.moddable.games) with the full board, online multiplayer, and async play. Built on our open-source [Hexmaps engine](/engines/moddable-hexmaps/).
 
-![Nukes online game interface showing hex board with units](/img/news/nukes-online.png)
+<figure>
+  <a href="https://nukes.moddable.games" target="_blank" rel="noopener"><img src="/img/news/nukes-online.png" alt="Nukes online game interface showing hex board with units" loading="lazy"></a>
+  <figcaption>nukes.moddable.games. Free to play, create a room and go.</figcaption>
+</figure>
 
 For the 45 million of you who already own a copy of Catan: you also own Nukes now, so please help us let the other forty-four million, nine hundred and ninety-nine thousand, nine hundred and ninety-nine people know.

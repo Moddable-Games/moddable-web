@@ -1,4 +1,4 @@
-A long time ago on a silky road far, far away, somewhere between ancient India, Persia and the somewhat contentious corridors of history, a new tabletop game was born. Not just any game, but one that upon completing its thousand-year journey along the Silk Road and into Europe would eventually be gentrified into the most popular of games that remain today.
+<p class="lede">A long time ago on a silky road far, far away, somewhere between ancient India, Persia and the somewhat contentious corridors of history, a new tabletop game was born. Not just any game, but one that upon completing its thousand-year journey along the Silk Road and into Europe would eventually be gentrified into the most popular of games that remain today.</p>
 
 Chess is a battlefield with sixty-four squares that has been the playground of kings, warriors, nerds and world champions alike. It is a billion-dollar industry today, but its earliest roots can be found in India, where it grew from *Chaturanga* around the 6th century. The four divisions represented by its name were infantry, cavalry, elephants and chariots. In its earliest form over a thousand years ago the game could be modified to support four players, with some historians claiming that this version may have been the original.
 
@@ -38,10 +38,17 @@ Because for all its prestige, chess can get... well, a little square. Over the y
 
 These are not obscure thought experiments. They are played competitively, published in books, and coded into engines. Chess has always been modified. The version we play today is simply the mod that won.
 
-[![Grand Chess (10x10) running in the Moddable Chess Engine](/img/engine-chess-screenshot.png)](https://chess.moddable.games/play/?variant=grand)
+<figure class="breakout">
+  <a href="https://chess.moddable.games/play/?variant=grand" target="_blank" rel="noopener">
+    <img src="/img/engine-chess-screenshot.png" alt="Grand Chess (10x10) running in the Moddable Chess Engine" loading="lazy">
+  </a>
+  <figcaption>Grand Chess on a 10x10 board. One of 70+ variants playable at chess.moddable.games.</figcaption>
+</figure>
 
-**74 variants and counting**
-Our [Moddable Chess Engine](/engines/moddable-chess/) hosts 74 playable variants, from Fischer Random to Atomic Chess. Each one a new chapter in chess's 1,500-year modding history.
+<div class="prose-callout">
+  <strong>74 variants and counting</strong>
+  Our <a href="/engines/moddable-chess/">Moddable Chess Engine</a> hosts 74 playable variants, from Fischer Random to Atomic Chess. Each one a new chapter in chess's 1,500-year modding history.
+</div>
 
 ## Why this matters to us
 

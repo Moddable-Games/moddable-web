@@ -75,6 +75,7 @@ def markdown_to_html(text):
     lines = text.split('\n')
     html_parts = []
     i = 0
+    first_para = True
 
     while i < len(lines):
         line = lines[i]
@@ -82,6 +83,18 @@ def markdown_to_html(text):
         # Blank line
         if not line.strip():
             i += 1
+            continue
+
+        # HTML block passthrough (lines starting with < that aren't closing tags)
+        if line.strip().startswith('<') and not line.strip().startswith('</'):
+            html_block = []
+            while i < len(lines) and lines[i].strip():
+                html_block.append(lines[i])
+                i += 1
+            html_parts.append('\n'.join(html_block))
+            # If the block is a <p class="lede">, count it as first para
+            if html_block[0].strip().startswith('<p class="lede"'):
+                first_para = False
             continue
 
         # Code block
@@ -159,12 +172,17 @@ def markdown_to_html(text):
                 and not re.match(r'^---+\s*$', lines[i]) \
                 and not re.match(r'^[\-\*]\s', lines[i]) \
                 and not re.match(r'^\d+\.\s', lines[i]) \
-                and not re.match(r'^!\[', lines[i]):
+                and not re.match(r'^!\[', lines[i]) \
+                and not (lines[i].strip().startswith('<') and not lines[i].strip().startswith('</')):
             para_lines.append(lines[i])
             i += 1
         if para_lines:
             text_content = ' '.join(para_lines)
-            html_parts.append(f'<p>{inline_format(text_content)}</p>')
+            if first_para:
+                html_parts.append(f'<p class="lede">{inline_format(text_content)}</p>')
+                first_para = False
+            else:
+                html_parts.append(f'<p>{inline_format(text_content)}</p>')
 
     return '\n'.join(html_parts)
 

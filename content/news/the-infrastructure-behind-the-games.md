@@ -1,4 +1,4 @@
-The future of tabletop gaming is not bound by cardboard and plastic. We believe that board gaming will never reach its full potential if held back by physical boards. The modern tabletop community is growing faster than ever, yet the tools that power creativity, collaboration and global play remain limited in their scope or overflowing with complexities. Physical board games are beautiful, tactile and social, but they are also constrained by their components and environment, which can often limit the creativity that goes into games.
+<p class="lede">The future of tabletop gaming is not bound by cardboard and plastic. We believe that board gaming will never reach its full potential if held back by physical boards. The modern tabletop community is growing faster than ever, yet the tools that power creativity, collaboration and global play remain limited in their scope or overflowing with complexities. Physical board games are beautiful, tactile and social, but they are also constrained by their components and environment, which can often limit the creativity that goes into games.</p>
 
 So, we are building a bridge.
 
@@ -25,7 +25,10 @@ We want to be able to build moddable games, and for those games to be easily mod
 
 Each game registers through `HexApp.registerGame` with its own terrain palette, generation rules, and editor controls. The engine handles coordinate math, rendering, sidebar UI, and embed bridging. The game plugin handles flavour.
 
-[![Hexmaps engine rendering a Nukes game board](/img/news/nukes-online.png)](https://hex.moddable.games)
+<figure>
+  <a href="https://hex.moddable.games" target="_blank" rel="noopener"><img src="/img/news/nukes-online.png" alt="Hexmaps engine rendering a Nukes game board" loading="lazy"></a>
+  <figcaption>Hexmaps renders Nukes online, in the rulebook PDF, and on this site.</figcaption>
+</figure>
 
 ## Moddable Chess Engine
 
@@ -33,7 +36,10 @@ While Hexmaps powers our spatial games, [MCE](/engines/moddable-chess/) powers e
 
 [Dungeon Chess](/mods/dungeon-chess/) is the most extreme consumer. Four factions, 24 units, terrain hazards, special abilities, and AI opponents, all running on the same engine as Fischer Random and Atomic Chess. It needed everything: custom rendering, terrain, capture interception, multi-step turns. The engine had to become a platform, not a library.
 
-[![Dungeon Chess board running on the Moddable Chess Engine](/img/news/the-infrastructure-behind-the-games.jpg)](https://chess.moddable.games)
+<figure>
+  <a href="https://chess.moddable.games" target="_blank" rel="noopener"><img src="/img/news/the-infrastructure-behind-the-games.jpg" alt="Dungeon Chess board running on the Moddable Chess Engine" loading="lazy"></a>
+  <figcaption>Dungeon Chess: four factions, 24 units, and AI on one shared engine.</figcaption>
+</figure>
 
 ## Moddable Rules
 
@@ -56,7 +62,9 @@ Together they proved that one engine can host everything from a five-line rule t
 
 This means designing something new and open, whilst also building a business around it. For designers, this means rapid prototyping on hex-based games of any scale. For players, it means completely new types of shared experiences. For the games themselves, it means a platform and community, not just a product.
 
-**Build on our engines**
-Both engines are MIT-licensed. Fork them, embed them, build your own game on top. No permission needed. Game rules are CC BY-SA, so you can remix any of our published content and release your own version. If you can write a JSON config and a few lines of JavaScript, you can ship a playable variant today.
+<div class="prose-callout">
+  <strong>Build on our engines</strong>
+  Both engines are MIT-licensed. Fork them, embed them, build your own game on top. No permission needed. Game rules are CC BY-SA, so you can remix any of our published content and release your own version. If you can write a JSON config and a few lines of JavaScript, you can ship a playable variant today.
+</div>
 
 Three engines. One philosophy. The rules define the game. The engines make it playable. The platform makes it shareable. Everything is open, everything connects, and everything is designed to be taken apart by someone with a better idea. If you're building a hex game, a chess variant, or something we've not imagined yet, the infrastructure is here and waiting. [Come build with us.](/community/)

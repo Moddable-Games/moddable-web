@@ -1,4 +1,4 @@
-If chess was designed today, how would it differ? It's a question that's occupied a decade of research, several prototypes and can only be answered after first understanding where deterministic strategy games come from.
+<p class="lede">If chess was designed today, how would it differ? It's a question that's occupied a decade of research, several prototypes and can only be answered after first understanding where deterministic strategy games come from.</p>
 
 Three classical games define the space:
 
@@ -14,7 +14,10 @@ Chess's opening theory is so deeply mapped that grandmasters routinely play 15-2
 
 The game has become, in large part, a game of memorization rather than strategy. That is not a criticism of chess. It is an observation about what happens to any game played on the same board a billion times. Even with 70+ [variants](https://chess.moddable.games):
 
-![Moddable Chess Engine showing Grand Chess variant on a 10x10 board](/img/engine-chess-screenshot.png)
+<figure>
+  <a href="https://chess.moddable.games" target="_blank" rel="noopener"><img src="/img/engine-chess-screenshot.png" alt="Moddable Chess Engine showing Grand Chess variant on a 10x10 board" loading="lazy"></a>
+  <figcaption>70+ variants on one engine. What if you changed everything else?</figcaption>
+</figure>
 
 ## Hexagons and infinite setups
 
@@ -32,7 +35,14 @@ Modern board games have trended toward increasing complexity and cost. Hundreds 
 
 Go proved the same point differently: two piece types, one placement rule, infinite depth. Any modern reimagining must honour that accessibility while expanding the strategic canvas. Fewer unique components with more emergent complexity. Simple rules, yet infinite expression. This defined our scope:
 
-**Design constraints** — A simple system that allows for any number of players. A modular board with endless possibilities. As few unique components as possible.
+<div class="prose-callout">
+  <strong>Design constraints</strong>
+  <ul>
+    <li>A simple system that allows for any number of players</li>
+    <li>A modular board with endless possibilities</li>
+    <li>As few unique components as possible</li>
+  </ul>
+</div>
 
 ## The game we built
 
@@ -40,6 +50,9 @@ The result of that decade of thinking is [Nukes](/games/nukes/): a deterministic
 
 Where chess has 7 distinct piece types and 10^40 possible games, Nukes has 2 component types and effectively infinite possibilities. Go achieves 10^800 positions with a 19x19 grid, whereas Nukes matches that scope with just 44 modular hex tiles.
 
-![Nukes game board showing hex tiles and token positions](/img/news/nukes-online.png)
+<figure>
+  <a href="https://nukes.moddable.games" target="_blank" rel="noopener"><img src="/img/news/nukes-online.png" alt="Nukes game board showing hex tiles and token positions" loading="lazy"></a>
+  <figcaption>44 hex tiles &amp; zero dice. Playable at nukes.moddable.games.</figcaption>
+</figure>
 
 The philosophy behind it: modular boards, emergent strategy and [open-source rules](/news/open-sourcing-tabletop-games/). It has become the foundation of everything we publish. Read the full story in [Nuking Catan](/news/nuking-catan/), where we explain how 45 million people already own the board.

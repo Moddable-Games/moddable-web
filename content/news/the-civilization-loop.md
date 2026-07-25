@@ -1,4 +1,4 @@
-In 1980, a RAF radio instructor in Wales published a board game that invented the technology tree. Eleven years later, a video game studio in Maryland turned that idea into the most influential strategy franchise in computing history. Then, inevitably, the video game became a board game again. This is the story of the Civilization loop: board to screen to board, and what it tells us about the membrane between physical and digital games.
+<p class="lede">In 1980, a RAF radio instructor in Wales published a board game that invented the technology tree. Eleven years later, a video game studio in Maryland turned that idea into the most influential strategy franchise in computing history. Then, inevitably, the video game became a board game again. This is the story of the Civilization loop: board to screen to board, and what it tells us about the membrane between physical and digital games.</p>
 
 ## Wales, 1974
 
@@ -10,7 +10,10 @@ His target was Diplomacy. He hated it.
 
 Where Diplomacy rewarded betrayal, Tresham wanted a game where victory came through cultural and technological progress. The result was *Civilization*, published by Hartland Trefoil in 1980, picked up by Avalon Hill for the US market in 1981. It seated up to seven players, ran four to eight hours, and contained a mechanic that had never existed in any game before: the technology tree.
 
-**The technology tree** — A branching structure where acquiring one advance unlocks access to others, creating cascading strategic choices. Now a staple of every strategy game ever made, from *Age of Empires* to *Stellaris*. Tresham says its creation was "largely spontaneous."
+<div class="prose-callout">
+  <strong>The technology tree</strong>
+  A branching structure where acquiring one advance unlocks access to others, creating cascading strategic choices. Now a staple of every strategy game ever made, from <em>Age of Empires</em> to <em>Stellaris</em>. Tresham says its creation was "largely spontaneous."
+</div>
 
 ## The digital leap
 
@@ -24,7 +27,7 @@ Meier has consistently played down the influence of Tresham's game on his own de
 
 > "I am sure that all sorts of people like to think that they had far more to do with the origination of this game system than I did. They can think what they like. Before 1950 there wasn't a game called Civilization, and now there is."
 
-## The detour
+## The detour Tresham hates
 
 The same year Meier's game launched, Avalon Hill released [*Advanced Civilization*](https://boardgamegeek.com/boardgame/177/advanced-civilization): a major overhaul of the original board game, developed without Tresham's involvement. More cards, more civilisations, more complexity.
 
@@ -43,13 +46,16 @@ The video game franchise grew so large that it spawned its own board game adapta
 - **2002** — Drover's board game adapts the video game back to cardboard
 - **2010** — Fantasy Flight's version completes the full loop
 
-By 2010, the loop was complete. A board game inspired a video game that inspired a board game. The mechanics had mutated at each crossing: the tech tree grew from a dozen advances to hundreds, the map shifted from static trade routes to procedurally generated continents, the victory conditions multiplied. Each medium shaped the idea differently. The core, the cascading unlock structure that Tresham sketched in a Welsh barracks, remained recognisable throughout.
+By 2010, the loop was complete. A board game inspired a video game that inspired a board game. The mechanics had mutated at each crossing: the tech tree grew from a dozen advances to hundreds, the map shifted from static trade routes to procedurally generated continents, the victory conditions multiplied. Each medium shaped the idea differently. But the core, the cascading unlock structure that Tresham sketched in a Welsh barracks, remained recognisable throughout.
 
-## The return
+## The return of the original
 
 In 2018, [Gibsons republished](https://www.gibsonsgames.co.uk/products/civilization) Tresham's original *Civilization*. Unchanged. Same rules, updated art. The first time it had been widely available in decades. At the launch, Tresham said:
 
-![The 2018 Gibsons edition of Civilization laid out with board, cards, tokens and box](/img/news/civilization-gibsons-2018.jpg)
+<figure>
+  <img src="/img/news/civilization-gibsons-2018.jpg" alt="The 2018 Gibsons edition of Civilization laid out with board, cards, tokens and box" loading="lazy">
+  <figcaption>The 2018 Gibsons reprint. Same rules Tresham designed in 1980, updated art, back in print after decades. <span class="attribution"><a href="https://rlyehreviews.blogspot.com/2018/09/1980-civilisation.html" target="_blank" rel="noopener">Reviews from R'lyeh</a></span></figcaption>
+</figure>
 
 > "Come back in 200 years' time and you will find, somewhere, somehow, people playing this game far better than either of us can now."
 

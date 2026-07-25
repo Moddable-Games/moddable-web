@@ -1,4 +1,4 @@
-As the year comes to an end, something in the air starts to shift. Beyond the weather and our seasonal tastes in music. Homes become louder. Tables fuller and schedules slower. Whether around a Christmas roast or during the candle-lit evenings of Hanukkah, families gather not just to exchange gifts, but to reconnect through rituals and play.
+<p class="lede">As the year comes to an end, something in the air starts to shift. Beyond the weather and our seasonal tastes in music. Homes become louder. Tables fuller and schedules slower. Whether around a Christmas roast or during the candle-lit evenings of Hanukkah, families gather not just to exchange gifts, but to reconnect through rituals and play.</p>
 
 Pagans connect at Yule time, Wiccans find solace in the Winter Solstice and the Hindu spend 5 days honouring Ganesh. Increasingly, December rituals also provide opportunities for playing games.
 
@@ -26,7 +26,12 @@ Some families replay the same game every year or pit the same teams against each
 
 These stories resurface every year and act as ancestral anchors in time. Even publishers lean into it. Every Christmas, Games Workshop releases a free [Blood Bowl Holiday Special](https://assets.warhammer-community.com/blood-bowl-holiday-special-24-ejmzpo8h4t-nzlosrw1hl.pdf) featuring Da Red Gobbo: a goblin revolutionary with a Santa hat, special seasonal rules, and a limited edition miniature that sells out within hours. Carcassonne takes it further with [The 4 Seasons](https://wikicarpedia.com/car/The_4_Seasons): a set of landscape tiles that transform the familiar French countryside into snow-covered villages, frozen rivers and autumn forests. It is modification as tradition, baked into the calendar by the publishers themselves.
 
-[![Carcassonne 4 Seasons winter expansion tiles showing snow-covered landscapes](/img/news/carcassonne-winter-tiles.png)](https://wikicarpedia.com/car/The_4_Seasons)
+<figure class="breakout">
+  <a href="https://wikicarpedia.com/car/The_4_Seasons" target="_blank" rel="noopener">
+    <img src="/img/news/carcassonne-winter-tiles.png" alt="Carcassonne 4 Seasons winter expansion tiles showing snow-covered landscapes" loading="lazy">
+  </a>
+  <figcaption>Carcassonne's 4 Seasons expansion. The same game, transformed by the calendar.</figcaption>
+</figure>
 
 This is [house rules in action](/news/the-house-always-wins/): families and publishers alike building versions of games that only exist for a few weeks each year.
 
@@ -34,7 +39,9 @@ This is [house rules in action](/news/the-house-always-wins/): families and publ
 
 We spend most of our year on screens, yet during the holidays, people instinctively reach for something tactile. Cards, dice, and boards sprawling with wooden tokens. There is something grounding about physical components in a season so saturated by digital noise. Touch matters, almost as much as shared eye contact and the sound of dice hitting the table.
 
-**The gift of modification**
-If you are looking for something different this season, every game in our [library](/mods/) is free to download, print, and bring to the table. No purchases required beyond the base game you likely already own.
+<div class="prose-callout">
+  <strong>The gift of modification</strong>
+  If you are looking for something different this season, every game in our <a href="/mods/">library</a> is free to download, print, and bring to the table. No purchases required beyond the base game you likely already own.
+</div>
 
 Whether you celebrate Christmas, Hanukkah or simply the gift of being together, we hope you find moments around a table that feel unhurried. From all of us at Moddable, warm wishes for a restful season we hope is filled with meaningful play.

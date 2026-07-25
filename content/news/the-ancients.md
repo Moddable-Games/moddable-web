@@ -1,4 +1,4 @@
-There's a phrase that floats around modern board gaming circles: the "cult of the new." It captures that familiar cycle of chasing the latest release, driven by curiosity, hype and just enough FOMO to keep shelves perpetually full and wallets continuously empty. Yet for all the attention we give to what's new, we rarely pause to consider what has already endured. Long before the absurdities of Gloomhaven's component count, before Catan was considered the ultimate gateway and even before Chess, humans were already designing games that would outlast entire civilisations.
+<p class="lede">There's a phrase that floats around modern board gaming circles: the "cult of the new." It captures that familiar cycle of chasing the latest release, driven by curiosity, hype and just enough FOMO to keep shelves perpetually full and wallets continuously empty. Yet for all the attention we give to what's new, we rarely pause to consider what has already endured. Long before the absurdities of Gloomhaven's component count, before Catan was considered the ultimate gateway and even before Chess, humans were already designing games that would outlast entire civilisations.</p>
 
 ## Games older than history
 
@@ -11,13 +11,24 @@ These are not relics. They are living systems, still played daily by millions of
 - **Ashtapada** (~2,600 years) — grid movement that eventually became Chess
 - **[Chess](https://rules.moddable.games/dist/moddable-chess/)** (~1,500 years) — unique pieces, the template for deterministic strategy
 
-![Animated Go game showing stones being placed move by move](/img/news/go-board-animated.gif)
+<figure class="figure-compact">
+  <a href="https://commons.wikimedia.org/wiki/File:Go-board-animated.gif" target="_blank" rel="noopener">
+    <img src="/img/news/go-board-animated.gif" alt="Animated Go game showing stones being placed move by move" loading="lazy">
+  </a>
+  <figcaption>Two piece types, one rule, 4,000 years. <span class="attribution">Katpatuka, CC BY-SA 3.0</span></figcaption>
+</figure>
 
 ## Ancient origins
 
 Many of the mechanics we celebrate in modern design are not new inventions, but are rather rediscoveries rebroadcasted. Grid-based movement comes from Ashtapada. Area control and emergent complexity from Go, a game whose simple rules generate strategic depth that continues to challenge both humans and machines. Race mechanics and probability management from [The Royal Game of Ur](https://rules.moddable.games/dist/royal-ur/) and [Backgammon](https://rules.moddable.games/dist/backgammon/). Pattern-building from [Nine Men's Morris](https://rules.moddable.games/dist/morris/) and [Checkers](https://rules.moddable.games/dist/draughts/), both relying on forming structures and gradually constraining an opponent's options. Resource optimisation from Mancala's endless variants as worker placement origins.
 
 These ancient systems were solving the same design problems we wrestle with today: how to make decisions meaningful, how to balance skill against chance, and how to keep players engaged across repeated plays. The same problems we explored in [Conquering the Constraints of Chess](/news/conquering-the-constrains-of-chess/).
+
+<figure class="video-embed">
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/WZskjLq040I" title="Tom Scott vs Irving Finkel: The Royal Game of Ur" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  </div>
+</figure>
 
 ## Games as cultural fabric
 
@@ -35,7 +46,10 @@ The games that endured for millennia had no intellectual property protections. N
 
 They were, in the truest sense, moddable. Long before that word existed. Players recreated them from memory, carved boards from whatever materials were at hand, taught them to children who taught them to their own children. This is the same [open-source principle](/news/open-sourcing-tabletop-games/) we are building on today.
 
-**Longevity beats novelty** — Community-driven adaptation (the kind that spread Mancala across an entire continent without a single publisher) creates persistence that no marketing budget can replicate.
+<div class="prose-callout">
+  <strong>Longevity beats novelty</strong>
+  Community-driven adaptation (the kind that spread Mancala across an entire continent without a single publisher) creates persistence that no marketing budget can replicate.
+</div>
 
 ## Evolution over replacement
 

@@ -1,4 +1,4 @@
-There's a distinct group of people, often found playtesting in board game cafes on a Sunday behind closed doors, who don't just play games. They tinker, tailor and say lore. Modders no longer represent slicksters on mopeds, but rather those that make meaningful modifications to existing games or actively contribute towards the creation of new ones in a group setting.
+<p class="lede">There's a distinct group of people, often found playtesting in board game cafes on a Sunday behind closed doors, who don't just play games. They tinker, tailor and say lore. Modders no longer represent slicksters on mopeds, but rather those that make meaningful modifications to existing games or actively contribute towards the creation of new ones in a group setting.</p>
 
 ## A quiet revolution
 
@@ -14,7 +14,12 @@ The types of mods people create fall into recognisable categories:
 - **Reskins** apply new themes to existing mechanics
 - **Conversions** keep the components but rebuild the rules
 
-![Three Moddable mods showing Conversion, Reskin, and Rebalance categories](/img/news/mod-categories-cards.png)
+<figure class="breakout">
+  <a href="/mods/">
+    <img src="/img/news/mod-categories-cards.png" alt="Three Moddable mods showing Conversion, Reskin, and Rebalance categories" loading="lazy">
+  </a>
+  <figcaption>One taxonomy, three approaches. Each mod in the library wears its category.</figcaption>
+</figure>
 
 ## Centuries of play
 
@@ -22,7 +27,10 @@ The earliest recorded board game modifications often involved shifting rules to 
 
 More recently, games like Twilight Imperium, Catan, and Carcassonne have developed thriving modding ecosystems. Communities have created new resource systems, scenario-based maps, alternate trading, scoring, and campaign-style progression.
 
-**It's not new** — Fan-made tiles, rebalanced factions, and print-and-play expansions have existed on forums and BGG for decades. What's new is treating this as a first-class activity rather than a fringe hobby.
+<div class="prose-callout">
+  <strong>It's not new</strong>
+  Fan-made tiles, rebalanced factions, and print-and-play expansions have existed on forums and BGG for decades. What's new is treating this as a first-class activity rather than a fringe hobby.
+</div>
 
 ## Players as collaborators
 

@@ -1,4 +1,4 @@
-**Should board games be open source?** It's a slightly uncomfortable question. Board games are traditionally built on tightly protected intellectual property. Rules are copyrighted. Artwork is owned. Trademarks are guarded, and for good reason. Publishing is risky. The margins are incredibly thin and creative labour deserves protection.
+<p class="lede"><strong>Should board games be open source?</strong> It's a slightly uncomfortable question. Board games are traditionally built on tightly protected intellectual property. Rules are copyrighted. Artwork is owned. Trademarks are guarded, and for good reason. Publishing is risky. The margins are incredibly thin and creative labour deserves protection.</p>
 
 Herein lies the paradox: the best of games are those that players mod anyway. They rebalance factions. They create essential expansions and rewrite rulebooks for extra clarity. They sometimes even build digital implementations, and almost always, they improve the system. The question is not whether games evolve. It is whether the industry should acknowledge it.
 
@@ -13,7 +13,12 @@ In software, open-source means access to the code that makes a product work. For
 
 Not a free-for-all. Structured openness. The distinction matters and is often missed. A publisher might open their rules but keep artwork proprietary. They might release digital assets but retain manufacturing exclusivity. It is a spectrum, not a switch.
 
-![Dungeon Chess open-source rulebook showing structured sections and faction data](/img/news/open-source-rulebook.png)
+<figure class="breakout">
+  <a href="https://rules.moddable.games/dist/dungeon-chess/" target="_blank" rel="noopener">
+    <img src="/img/news/open-source-rulebook.png" alt="Dungeon Chess open-source rulebook showing structured sections and faction data" loading="lazy">
+  </a>
+  <figcaption>Every rulebook is forkable. Dungeon Chess rules, free to read, remix, and redistribute.</figcaption>
+</figure>
 
 This is not a static PDF. The [Dungeon Chess](/mods/dungeon-chess/) rulebook is written in markdown, version-controlled in Git, and compiled into both the formatted web page above and the data that powers the [online game itself](https://chess.moddable.games). When a rule changes in the source file, the website updates, the game engine synchronises, and every player sees the same version. One source of truth, multiple outputs. The rulebook is not documentation about the game. It is the game.
 
@@ -37,7 +42,10 @@ The question isn't whether to open everything or lock it all down. It is which l
 
 The ShareAlike clause is what holds it together. Modders can sell their work, build entire businesses on top of our rules, and create whatever they imagine. The only requirement is that derivatives stay open too. Every modification flows back into the ecosystem. The more people build, the more everyone benefits.
 
-**What this means for creators** — Take our rules. Use our engines. Download our templates. Make something new. Sell it if you want. The only thing you cannot do is close the door behind you. Everything you create remains available for the next person to build on, just as ours was available to you.
+<div class="prose-callout">
+  <strong>What this means for creators</strong>
+  Take our rules. Use our engines. Download our templates. Make something new. Sell it if you want. The only thing you cannot do is close the door behind you. Everything you create remains available for the next person to build on, just as ours was available to you.
+</div>
 
 ## What we believe
 

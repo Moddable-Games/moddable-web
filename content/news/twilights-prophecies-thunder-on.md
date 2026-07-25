@@ -1,4 +1,4 @@
-A good board game should not only engage the table in what everyone is doing, but more importantly, who is doing what with whom, when and why. A great game not only entertains the imagination, but also inspires creation. Few games embody this as well as *Twilight Imperium*. Within some circles it is an urban myth. To others it is inconceivable that such a game could even exist.
+<p class="lede">A good board game should not only engage the table in what everyone is doing, but more importantly, who is doing what with whom, when and why. A great game not only entertains the imagination, but also inspires creation. Few games embody this as well as <em>Twilight Imperium</em>. Within some circles it is an urban myth. To others it is inconceivable that such a game could even exist.</p>
 
 Taking between ten to twenty hours to play, even for the most seasoned of players, with game lengths easily doubling if containing newbies. The game is so fabled for its length that it eventually becomes a physical endurance test as you pass into the tenth hour of play. In its thirty years of mythic existence and extreme length, only 6 players have ever been able to sit at the table at one time.
 
@@ -44,9 +44,16 @@ Despite its fabled length, the Moddable team play as frequently as possible. Ove
 4. **Hyper Factions** — 100-point mercenary builder for custom species
 5. **Hyper Agendas** — blind voting with influence cards
 
-**Built on Hexmaps**
-Our [TI4 tools](/tools/ti/) (faction picker, objectives tracker, and agenda voter) are powered by the same [Hexmaps engine](/engines/moddable-hexmaps/) that runs Nukes and Talisman Worlds. Galaxy generation, tile adjacency, and player positioning all share infrastructure.
+<div class="prose-callout">
+  <strong>Built on Hexmaps</strong>
+  Our <a href="/tools/ti/">TI4 tools</a> (faction picker, objectives tracker, and agenda voter) are powered by the same <a href="/engines/moddable-hexmaps/">Hexmaps engine</a> that runs Nukes and Talisman Worlds. Galaxy generation, tile adjacency, and player positioning all share infrastructure.
+</div>
 
-[![Hyper Imperium galaxy rendered in Moddable Hexmaps](/img/news/hyper-imperium-hexmap.png)](https://hex.moddable.games/generate/?game=twilight&style=artistic&layout=hyper)
+<figure class="breakout">
+  <a href="https://hex.moddable.games/generate/?game=twilight&amp;style=artistic&amp;layout=hyper" target="_blank" rel="noopener">
+    <img src="/img/news/hyper-imperium-hexmap.png" alt="Hyper Imperium galaxy rendered in Moddable Hexmaps" loading="lazy">
+  </a>
+  <figcaption>The Hyper Imperium map running in our Hexmaps engine.</figcaption>
+</figure>
 
 Hyper Imperium is in active development. [Follow our progress on Discord](/community/) or [download the current ruleset](/mods/hyper-imperium/) from the mods library.

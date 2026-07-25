@@ -1,4 +1,4 @@
-Most people think that the art of board game design begins and ends with the box. After all, the cover pulls you in, sets the tone and maybe even sells the game in a crowded store or otherwise doom-filled social media feed. However, once the lid comes off, something far more important takes over, and most gamers don't even realise it.
+<p class="lede">Most people think that the art of board game design begins and ends with the box. After all, the cover pulls you in, sets the tone and maybe even sells the game in a crowded store or otherwise doom-filled social media feed. However, once the lid comes off, something far more important takes over, and most gamers don't even realise it.</p>
 
 Think about the first time you unboxed *Catan*. The box art is iconic, but what really defines the experience are the tiles, the numbers, the resource cards and how clearly everything communicates what you can and cannot do. Consider *Carcassonne*, where the visual language of the tiles is the game itself. Roads, cities, and fields are not just art, they are rules embedded in design. Then you have something like *Gloomhaven*, where the sheer complexity of the system lives or dies by how well information is structured, not just illustrated. Even sprawling experiences like *Twilight Imperium* rely less on spectacle and more on clarity to keep players engaged across an entire day's worth of play.
 
@@ -16,13 +16,21 @@ The box art may open the door, but it's the inside determining whether players s
 
 They are the visualisers. Creating characters, environments and thematic identity. They give a game its emotional pull. Its mood and a sense of place. However, in a moddable or expandable system, their role doesn't stop at a single cohesive vision. It extends into creating assets that can evolve: tiles that can be reskinned, factions that can be reinterpreted, and visual systems that remain readable even when new content is introduced by others.
 
-**Art as foundation** — In an open ecosystem, art is not static. It is a foundation others can build upon. Every asset needs to work in its original context and in contexts that do not exist yet.
+<div class="prose-callout">
+  <strong>Art as foundation</strong>
+  In an open ecosystem, art is not static. It is a foundation others can build upon. Every asset needs to work in its original context and in contexts that do not exist yet.
+</div>
 
 ## The graphic designer
 
 Closely tied to this is the graphic designer, a role that is often misunderstood and routinely undervalued. Where the artist creates beauty, the graphic designer creates clarity. Every icon and every font choice. Every layout decision determines how quickly a player understands the game. In titles like *Catan*, resource symbols are instantly recognisable. In *Carcassonne*, the distinction between city and field is never ambiguous. That's not accidental. It's design thinking applied to play. Without it, even the most beautiful games can quickly become quite frustrating.
 
-![Baristasaurus card design showing how large ingredient icons on order cards relate to smaller icons on ingredient cards](/img/news/baristasaurus-cards.png)
+<figure class="breakout">
+  <a href="/team/iqbal/">
+    <img src="/img/news/baristasaurus-cards.png" alt="Baristasaurus card design showing how large ingredient icons on order cards relate to smaller icons on ingredient cards" loading="lazy">
+  </a>
+  <figcaption>Iconography at two scales. Large on ingredients, small on orders.</figcaption>
+</figure>
 
 ## The rulebook editor
 
@@ -38,6 +46,7 @@ Beyond these roles sits something less defined, yet increasingly important: the 
 
 There are communities of creators. The modders, contributors and players who take what exists and push it further. They design new tiles, rebalance systems, create alternative art and sometimes even redefine the way a game is played. If you've ever seen the [countless versions of *Monopoly*](/news/monopolising-modified-variations/) played across households, you've already seen this in action. The difference now is that what was once informal and local can become structured, shared and scalable.
 
-> "The future of board games isn't just about what's inside the box. It's about who gets to shape what comes next."
+> "The future of board games isn't just about what's inside the box.
+> It's about who gets to shape what comes next."
 
 If you're an artist, illustrator, graphic designer, rulebook editor, or someone who simply enjoys shaping how systems are experienced, there's a place for you here. [Join our community](/community/) and engage with our team.

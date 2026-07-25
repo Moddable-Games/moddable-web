@@ -1,4 +1,4 @@
-*Talisman* looks harmless enough: A colourful fantasy board with wizards, warriors, and countless encounters on their quest for the Crown of Command. Beneath the whimsy lies one of the most unpredictable, polarising and enduring fantasy board games ever made. Reminiscent of Monopoly's brutal outcomes, there can be only one that ultimately remains. Yet for over forty years; Talisman has enchanted, infuriated and inspired players, spinning them around the exact same board and towards the ever consistent sequence of inner regions to reach the always predictable ending.
+<p class="lede"><em>Talisman</em> looks harmless enough: A colourful fantasy board with wizards, warriors, and countless encounters on their quest for the Crown of Command. Beneath the whimsy lies one of the most unpredictable, polarising and enduring fantasy board games ever made. Reminiscent of Monopoly's brutal outcomes, there can be only one that ultimately remains. Yet for over forty years; Talisman has enchanted, infuriated and inspired players, spinning them around the exact same board and towards the ever consistent sequence of inner regions to reach the always predictable ending.</p>
 
 ## Origin story
 
@@ -22,7 +22,14 @@ Across these incarnations, Talisman has sold over 800,000 copies and still draws
 
 One reason Talisman survives generation after generation is its mod-friendly nature. The base game is a playground for tinkerers, artists and creators. Like Monopoly it has been re-licensed for both Batman and Harry Potter variations; yet its biggest flaw might also be one of its defining features.
 
-> "Talisman doesn't survive because it's balanced. It survives because it's moddable."
+<figure class="video-embed">
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/bEamDEdy9N8" title="Talisman gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  </div>
+</figure>
+
+> "Talisman doesn't survive because it's balanced.
+> It survives because it's moddable."
 
 This is the same principle that keeps [ancient games alive for millennia](/news/the-ancients/): depth through simplicity, longevity through adaptability. The games that communities invest in are the games that [welcome modification](/news/making-mods-matter/).
 
@@ -30,7 +37,10 @@ This is the same principle that keeps [ancient games alive for millennia](/news/
 
 The infamous board has remained the same for nearly half a century. Three regions that spiral inwards towards the path of peril. Players are like cattle as they move around the board. The spiral draws you inward, step by step, with no escape. It is thematically brilliant: a literal quest towards destiny, but mechanically cruel and somewhat predictable. For such a rich game filled with countless characters and events, the monotony of the same things being in the same place every time seems like a missed opportunity.
 
-**The Hexmaps solution** — Replace the fixed spiral with a modular hex grid. Every game generates a unique geography. The regions still exist (outer, middle, inner) but their shape, connections, and dangers shift every session.
+<div class="prose-callout">
+  <strong>The Hexmaps solution</strong>
+  Replace the fixed spiral with a modular hex grid. Every game generates a unique geography. The regions still exist (outer, middle, inner) but their shape, connections, and dangers shift every session.
+</div>
 
 This is precisely what [Talisman Worlds](/mods/talisman-worlds/) addresses. Built on our [Hexmaps engine](/engines/moddable-hexmaps/), it replaces the static board with 61 hexagonal tiles across four concentric rings plus a hidden ending. Every game generates a different board layout, with Dungeon expansion support included.
 
