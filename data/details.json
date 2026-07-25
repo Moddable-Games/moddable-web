@@ -142,7 +142,8 @@
         "href": "/mods/nukes-fallout/",
         "source": "Moddable.Games"
       }
-    ]
+    ],
+    "lede": "Cold-war territory control on a hex map. Return hostages to move \u2014 but every return reinforces your enemy. Build bases, convert isotopes, and threaten nuclear annihilation. Designed to be modded from day one."
   },
   "mongo": {
     "slug": "planet-mongo",
@@ -305,7 +306,8 @@
         "desc": "King Jugrid leads the Land of Lionmen. Lowest starting resources (50 coins) but desert tiles worth 4 VP. Must control tiles producing 20 energy."
       }
     ],
-    "community": []
+    "community": [],
+    "lede": "Hex-based territory control set in the Flash Gordon universe. 127 hex tiles, 8 asymmetric factions, hidden simultaneous orders, and a central commodity market. Designed to combine the best of Twilight Imperium and Game of Thrones: The Board Game, with deeper bluffing and trade."
   },
   "endless-skies": {
     "slug": "endless-skies",
@@ -468,7 +470,8 @@
         "desc": "Organic-tech faction from Ka'ch'chrai. Solid start (1M) with biological ship systems. Remnant + Wanderer tech. Alien and strange."
       }
     ],
-    "community": []
+    "community": [],
+    "lede": "4X space exploration with worker placement and fleet management. Command asymmetric factions across a hex-tile galaxy, placing crew in ship rooms and diplomats in space ports. Based on the open-source video game Endless Sky."
   },
   "dungeon-chess": {
     "slug": "dungeon-chess",
@@ -618,7 +621,8 @@
           "Custom maps via data.js fork"
         ]
       }
-    ]
+    ],
+    "lede": "Chess reimagined as an asymmetric dungeon skirmish. Four factions on modular boards with unique abilities, XP drafting, and environmental hazards. Powered by the Moddable Chess Engine."
   },
   "talisman-worlds": {
     "slug": "talisman-worlds",
@@ -742,7 +746,8 @@
         "name": "Warlock Quests",
         "desc": "D20 quest table replacing original warlock cave. Add quests, change rewards, or tie them to specific tile encounters."
       }
-    ]
+    ],
+    "lede": "Replaces the Talisman game boards with 61 hexagonal tiles arranged in concentric rings. Every session lays out differently. Built for Talisman 4th Edition (revised)."
   },
   "econopoly": {
     "slug": "econopoly",
@@ -892,7 +897,8 @@
           "Standard 2d6"
         ]
       }
-    ]
+    ],
+    "lede": "Transforms Monopoly into a euro-game with resource collection, blind auctions, and victory point scoring. Choose to move, trade, or build each turn. No more player elimination marathons."
   },
   "hyper-imperium": {
     "slug": "hyper-imperium",
@@ -1016,7 +1022,8 @@
         "name": "Undiscovered Deck",
         "desc": "One card per system tile, drawn when exploring. Controls board generation, hyperlane placement, and lost-in-hyperspace mechanics."
       }
-    ]
+    ],
+    "lede": "Five modular rule changes for Twilight Imperium 4e + Prophecy of Kings. 3D exploration via hidden systems, free trading with promissory notes, shared secret objectives, custom factions, and blind agenda voting."
   },
   "moddable-chess": {
     "slug": "moddable-chess",
@@ -1221,7 +1228,8 @@
         "body": "Four boards in a 2\u00d72 grid. Pieces transfer between boards at shared edges. Team or free-for-all.",
         "stats": "4 players \u00b7 60\u201390 min \u00b7 12+"
       }
-    ]
+    ],
+    "lede": "74 playable variants. Five AI difficulties. Three consumer apps. The most modded game in history finally gets an open-source home."
   },
   "nukes-siege": {
     "slug": "nukes-siege",
@@ -1314,7 +1322,8 @@
         "desc": "Every unit you take in combat becomes a hostage you can return on future turns. Combat is now both offensive and economic."
       }
     ],
-    "community": []
+    "community": [],
+    "lede": "Total conversion of the hostage mechanic. Start with your own tokens in reserve and recruit by returning them to occupied regions. Enemy hostages only arrive once combat starts."
   },
   "nukes-asymmetric-powers": {
     "slug": "nukes-asymmetric-powers",
@@ -1407,7 +1416,8 @@
         "desc": "Standard Nukes underneath. The power card changes one rule for you specifically \u2014 not a house rule, an asymmetry."
       }
     ],
-    "community": []
+    "community": [],
+    "lede": "Each player draws one Power Card at setup. No two players hold the same card. Standard Nukes underneath \u2014 Covert Network, Arms Industry, or Airborne Corps on top."
   },
   "nukes-fallout": {
     "slug": "nukes-fallout",
@@ -1500,7 +1510,8 @@
         "desc": "Spread cannot convert city tiles. Cities can still be destroyed by direct nuke or Meltdown \u2014 they just don't become Biohazard from adjacency."
       }
     ],
-    "community": []
+    "community": [],
+    "lede": "Biohazard tiles spread each round. Every nuclear strike leaves a growing contamination zone. City tiles are immune to spread. Win before the map runs out."
   },
   "moddable-hexmaps": {
     "slug": "moddable-hexmaps",
@@ -1659,6 +1670,7 @@
         "accent": "#3a9928"
       }
     ],
-    "communityLabel": "Consumers using the hex engine."
+    "communityLabel": "Consumers using the hex engine.",
+    "lede": "Hex map generation for any game. Multiple render styles, seeded randomisation, JSON import and export. One engine shared across every hex-based game in the ecosystem."
   }
 }

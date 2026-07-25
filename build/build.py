@@ -710,20 +710,8 @@ def build_site():
                 'buttons': engine_cta_btns if engine_cta_btns else None,
             }
 
-        # Lede text from games.json desc or mods.json body
-        lede = ''
-        if page_type == 'game':
-            game_item = next((g for g in games if g.get('path', '').strip('/').split('/')[-1] == slug), None)
-            if game_item:
-                lede = game_item.get('desc', '')
-        elif page_type == 'mod':
-            mod_item = next((m for m in mods if m.get('path', '').strip('/').split('/')[-1] == slug), None)
-            if mod_item:
-                lede = mod_item.get('body', '')
-        elif page_type == 'engine':
-            eng_item = next((e for e in engines if e.get('slug') == slug), None)
-            if eng_item:
-                lede = eng_item.get('tagline', '')
+        # Lede text from details.json (sourced from original HTML pages)
+        lede = detail_data.get('lede', '')
 
         # Build the detail object for template
         detail = {
