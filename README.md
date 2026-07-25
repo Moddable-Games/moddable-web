@@ -205,8 +205,14 @@ The goal is to move from client-rendered to server-built while changing as littl
 ## Changelog
 
 #### 2026-07-25
-- Phase 3 complete: 45 pages total (was 15)
-- Detail pages: 7 mods, 3 games, 2 engines, 4 team members (data-driven ordered sections)
+- Tool sub-pages: 7 per-game tool page shells built (ti, talisman, nukes, dice, decks, chess, oracles)
+- New template: tools-page.html handles 3 layout variants (card-based, tabbed, duo) via data flags
+- tools-pages.json: per-page config (slug, CSS/JS, jumpnav, tool cards, engine bands)
+- Per-game CSS copied from original site (9 files)
+- Heroes + meta entries for all 7 tool sub-pages
+- 52 pages total, 12 templates
+- GitHub issue #2: complete inventory of 48 interactive mount points awaiting moddable-tools JS
+- Phase 3 complete: detail pages (7 mods, 3 games, 2 engines, 4 team members)
 - News articles: 14 pages from markdown with HTML passthrough (callouts, figures, video embeds)
 - Markdown converter with lede detection, HTML block passthrough, heading ID generation
 - counts.json: single-source dynamic numbers (tool count, variant count, etc.) substituted at build time
