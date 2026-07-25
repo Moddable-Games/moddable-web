@@ -15,6 +15,9 @@ BUILD_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATES_DIR = os.path.join(BUILD_DIR, 'templates')
 DATA_DIR = os.path.join(ROOT, 'data')
 
+CONTENT_DIR = os.path.join(ROOT, 'content')
+
+
 def read_file(path):
     with open(path, 'r', encoding='utf-8') as f:
         return f.read()
@@ -32,6 +35,130 @@ def get_version():
     if os.path.exists(vpath):
         return read_file(vpath).strip()
     return '0.1.0'
+
+
+# ─── Markdown Converter ────────────────────────────────────────────────────
+
+def slugify(text):
+    """Convert heading text to a URL-friendly ID."""
+    s = text.lower().strip()
+    s = re.sub(r'[^\w\s-]', '', s)
+    s = re.sub(r'[\s]+', '-', s)
+    return s.strip('-')
+
+
+def markdown_to_html(text):
+    """Convert markdown to HTML. Zero dependencies."""
+    lines = text.split('\n')
+    html_parts = []
+    i = 0
+
+    while i < len(lines):
+        line = lines[i]
+
+        # Blank line
+        if not line.strip():
+            i += 1
+            continue
+
+        # Code block
+        if line.strip().startswith('```'):
+            lang = line.strip()[3:].strip()
+            code_lines = []
+            i += 1
+            while i < len(lines) and not lines[i].strip().startswith('```'):
+                code_lines.append(lines[i])
+                i += 1
+            i += 1  # skip closing ```
+            code = '\n'.join(code_lines)
+            code = code.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+            lang_class = f' class="language-{lang}"' if lang else ''
+            html_parts.append(f'<pre><code{lang_class}>{code}</code></pre>')
+            continue
+
+        # Heading
+        if line.startswith('#'):
+            match = re.match(r'^(#{1,6})\s+(.+)$', line)
+            if match:
+                level = len(match.group(1))
+                heading_text = match.group(2).strip()
+                heading_id = slugify(heading_text)
+                html_parts.append(f'<h{level} id="{heading_id}">{inline_format(heading_text)}</h{level}>')
+                i += 1
+                continue
+
+        # Horizontal rule
+        if re.match(r'^---+\s*$', line):
+            html_parts.append('<hr>')
+            i += 1
+            continue
+
+        # Blockquote
+        if line.startswith('>'):
+            bq_lines = []
+            while i < len(lines) and lines[i].startswith('>'):
+                bq_lines.append(lines[i][1:].strip() if len(lines[i]) > 1 else '')
+                i += 1
+            bq_text = ' '.join(l for l in bq_lines if l)
+            html_parts.append(f'<blockquote><p>{inline_format(bq_text)}</p></blockquote>')
+            continue
+
+        # Unordered list
+        if re.match(r'^[\-\*]\s', line):
+            items = []
+            while i < len(lines) and re.match(r'^[\-\*]\s', lines[i]):
+                items.append(lines[i][2:].strip())
+                i += 1
+            html_parts.append('<ul>' + ''.join(f'<li>{inline_format(it)}</li>' for it in items) + '</ul>')
+            continue
+
+        # Ordered list
+        if re.match(r'^\d+\.\s', line):
+            items = []
+            while i < len(lines) and re.match(r'^\d+\.\s', lines[i]):
+                items.append(re.sub(r'^\d+\.\s', '', lines[i]).strip())
+                i += 1
+            html_parts.append('<ol>' + ''.join(f'<li>{inline_format(it)}</li>' for it in items) + '</ol>')
+            continue
+
+        # Image (standalone line)
+        img_match = re.match(r'^!\[([^\]]*)\]\(([^)]+)\)\s*$', line)
+        if img_match:
+            alt, src = img_match.group(1), img_match.group(2)
+            html_parts.append(f'<img src="{src}" alt="{alt}" loading="lazy">')
+            i += 1
+            continue
+
+        # Paragraph (collect consecutive non-blank, non-special lines)
+        para_lines = []
+        while i < len(lines) and lines[i].strip() and not lines[i].startswith('#') \
+                and not lines[i].startswith('>') and not lines[i].startswith('```') \
+                and not re.match(r'^---+\s*$', lines[i]) \
+                and not re.match(r'^[\-\*]\s', lines[i]) \
+                and not re.match(r'^\d+\.\s', lines[i]) \
+                and not re.match(r'^!\[', lines[i]):
+            para_lines.append(lines[i])
+            i += 1
+        if para_lines:
+            text_content = ' '.join(para_lines)
+            html_parts.append(f'<p>{inline_format(text_content)}</p>')
+
+    return '\n'.join(html_parts)
+
+
+def inline_format(text):
+    """Handle inline markdown: bold, italic, code, links, images."""
+    # Inline images
+    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img src="\2" alt="\1" loading="lazy">', text)
+    # Links
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
+    # Bold
+    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+    # Italic
+    text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+    # Inline code
+    text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+    return text
 
 
 # ─── Template Engine ────────────────────────────────────────────────────────
@@ -458,6 +585,367 @@ def build_site():
     ctx = make_context('team', 'About', ['team'])
     ctx['team'] = team_members
     build('team-index', ctx, 'team/index.html')
+
+    # ─── Tier 3: Detail pages (games, engines, mods) ──────────────────
+    details_raw = data.get('details', {})
+
+    def resolve_href(href):
+        """Convert rules: prefixes to full URLs."""
+        if href.startswith('rules:'):
+            return f'https://rules.moddable.games/{href[6:]}/'
+        return href
+
+    def prepare_detail_context(detail_key, detail_data, page_type, nav_active):
+        """Prepare a detail page context from raw detail data."""
+        slug = detail_data.get('slug', detail_key)
+        accent = detail_data.get('accent', 'blue')
+        accent_color = ACCENT_COLORS.get(accent, '#0c4f8d')
+        colors = detail_data.get('colors', {})
+
+        # Determine back link and category tag
+        if page_type == 'game':
+            back_href = '/games/'
+            back_label = 'All games'
+            tag_category = 'Original'
+            tag_license = 'CC BY-NC-SA'
+            og_prefix = 'games'
+        elif page_type == 'engine':
+            back_href = '/engines/'
+            back_label = 'All engines'
+            tag_category = 'Engine'
+            tag_license = 'Open source'
+            og_prefix = 'engines'
+        else:
+            back_href = '/mods/'
+            back_label = 'All mods'
+            # Use category from mods.json if available
+            mod_item = next((m for m in mods if m.get('path', '').strip('/').split('/')[-1] == slug), None)
+            tag_category = mod_item.get('category', 'Mod') if mod_item else 'Mod'
+            tag_license = 'CC BY-NC-SA'
+            og_prefix = 'mods'
+
+        # Extract version from stats
+        tag_version = ''
+        for stat in detail_data.get('stats', []):
+            if isinstance(stat, list) and len(stat) >= 2:
+                if stat[0].lower() in ('version', 'engine', 'updated'):
+                    if stat[0].lower() in ('version', 'engine'):
+                        tag_version = stat[1]
+
+        # Prepare stats as objects for template
+        stats_list = []
+        for stat in detail_data.get('stats', []):
+            if isinstance(stat, list) and len(stat) >= 2:
+                stats_list.append({'label': stat[0], 'value': stat[1]})
+
+        # Prepare hero buttons
+        hero_buttons = []
+        for btn_data in detail_data.get('buttons', {}).get('hero', []):
+            if isinstance(btn_data, list) and len(btn_data) >= 3:
+                href = resolve_href(btn_data[1])
+                external = href.startswith('http')
+                hero_buttons.append({
+                    'label': btn_data[0],
+                    'href': href,
+                    'style': btn_data[2],
+                    'external': external,
+                })
+
+        # Prepare steps with accent color
+        steps = []
+        for step in detail_data.get('steps', []):
+            steps.append({**step, 'eyebrow_color': accent})
+
+        # Prepare variants
+        variants = []
+        for v in detail_data.get('variants', []):
+            v_accent = v.get('accent', accent)
+            featured = bool(v.get('accent') and v.get('accent') != accent)
+            link_label = 'Learn more →' if v.get('href') else ''
+            variants.append({**v, 'eyebrow_color': v_accent, 'featured': featured, 'link_label': link_label})
+
+        # Prepare hooks with accent color
+        hooks = []
+        for h in detail_data.get('hooks', []):
+            hooks.append({**h, 'accent_color': accent_color})
+
+        # Prepare components
+        components = []
+        for comp in detail_data.get('components', []):
+            components.append({
+                'kind': comp['kind'],
+                'kind_upper': comp['kind'].upper(),
+                'eyebrow_color': accent,
+                'list': comp['list'],
+            })
+
+        # Prepare community mods
+        community = []
+        for c in detail_data.get('community', []):
+            cat_color = CATEGORY_COLORS.get(c.get('category'), '#0c4f8d')
+            community.append({**c, 'category_color': cat_color, 'external': False})
+
+        # Dark center section (for engines or games with special center)
+        dark_center = None
+        features = detail_data.get('features')
+        if features:
+            # Engine features section
+            engine_cta_btns = []
+            for btn_data in detail_data.get('buttons', {}).get('extra', {}).get('engine-cta', []):
+                if isinstance(btn_data, list) and len(btn_data) >= 3:
+                    href = resolve_href(btn_data[1])
+                    engine_cta_btns.append({
+                        'label': btn_data[0],
+                        'href': href,
+                        'style': btn_data[2],
+                        'external': href.startswith('http'),
+                    })
+            dark_center = {
+                'eyebrow': 'CAPABILITIES',
+                'eyebrow_color': 'glow',
+                'heading': 'Play any variant. Build your own',
+                'body': '',
+                'bloom': colors.get('bloom', ''),
+                'pills': features,
+                'buttons': engine_cta_btns if engine_cta_btns else None,
+            }
+
+        # Lede text from games.json desc or mods.json body
+        lede = ''
+        if page_type == 'game':
+            game_item = next((g for g in games if g.get('path', '').strip('/').split('/')[-1] == slug), None)
+            if game_item:
+                lede = game_item.get('desc', '')
+        elif page_type == 'mod':
+            mod_item = next((m for m in mods if m.get('path', '').strip('/').split('/')[-1] == slug), None)
+            if mod_item:
+                lede = mod_item.get('body', '')
+        elif page_type == 'engine':
+            eng_item = next((e for e in engines if e.get('slug') == slug), None)
+            if eng_item:
+                lede = eng_item.get('tagline', '')
+
+        # Build the detail object for template
+        detail = {
+            'title': detail_data.get('title', ''),
+            'slug': slug,
+            'accent': accent,
+            'accent_color': accent_color,
+            'heroImage': detail_data.get('heroImage', ''),
+            'colors_gradient': colors.get('gradient', ''),
+            'colors_hexGrid': colors.get('hexGrid', ''),
+            'colors_textColor': colors.get('textColor', ''),
+            'colors_textShadow': colors.get('textShadow', ''),
+            'colors_bloom': colors.get('bloom', ''),
+            'back_href': back_href,
+            'back_label': back_label,
+            'tag_category': tag_category,
+            'tag_license': tag_license,
+            'tag_version': tag_version,
+            'lede': lede,
+            'hero_buttons': hero_buttons if hero_buttons else None,
+            'stats': stats_list if stats_list else None,
+            'steps': steps if steps else None,
+            'steps_heading': 'How it plays',
+            'variants': variants if variants else None,
+            'variants_heading': 'Supported variants',
+            'eyebrow_color': accent,
+            'hooks': hooks if hooks else None,
+            'hooks_eyebrow': 'CORE MECHANICS' if page_type == 'game' else 'MOD HOOKS',
+            'hooks_heading': 'Simple components. Emergent complexity' if page_type == 'game' else 'What you can change',
+            'hooks_body': '',
+            'factions': detail_data.get('factions') if detail_data.get('factions') else None,
+            'factions_eyebrow': 'FACTIONS' if detail_data.get('factions') else '',
+            'factions_heading': 'Choose your faction' if detail_data.get('factions') else '',
+            'components': components if components else None,
+            'components_eyebrow': 'COMPONENTS',
+            'components_heading': 'What you need',
+            'community': community if community else None,
+            'community_heading': detail_data.get('communityLabel', f'Community mods for {detail_data.get("title", "")}'),
+            'dark_center': dark_center,
+        }
+
+        # Build output path
+        output_path = f'{og_prefix}/{slug}/index.html'
+
+        # CSS bundle
+        page_css_id = f'{og_prefix}-{slug}'
+        css_bundle = bundle_css(page_css_id, ['detail', 'cards'])
+
+        # Meta
+        page_meta = {
+            'title': detail_data.get('title', ''),
+            'description': lede[:160] if lede else detail_data.get('title', ''),
+            'url': f'https://moddable.games/{og_prefix}/{slug}/',
+            'image': f'https://moddable.games/img/og/{og_prefix}-{slug}.png',
+        }
+
+        nav = mark_nav_active(nav_raw, nav_active)
+        ctx = {
+            'version': version,
+            'nav': nav,
+            'year': '2026',
+            'site_name': 'Moddable.Games',
+            'site_url': 'https://moddable.games',
+            'page_id': page_css_id,
+            'meta': page_meta,
+            'hero': {},
+            'css_bundle': css_bundle,
+            'detail': detail,
+        }
+        return ctx, output_path
+
+    # Map detail keys to page types and slugs
+    GAME_KEYS = {'nukes': 'nukes', 'mongo': 'planet-mongo', 'endless-skies': 'endless-skies'}
+    ENGINE_KEYS = {'moddable-chess': 'moddable-chess', 'moddable-hexmaps': 'moddable-hexmaps'}
+    MOD_SLUGS = set()
+    for mod in mods:
+        path = mod.get('path', '')
+        if path:
+            MOD_SLUGS.add(path.strip('/').split('/')[-1])
+
+    for key, detail_data in details_raw.items():
+        slug = detail_data.get('slug', key)
+        if key in GAME_KEYS:
+            ctx, output_path = prepare_detail_context(key, detail_data, 'game', 'Games')
+            build('detail', ctx, output_path)
+        elif key in ENGINE_KEYS:
+            ctx, output_path = prepare_detail_context(key, detail_data, 'engine', 'Engines')
+            build('detail', ctx, output_path)
+        elif slug in MOD_SLUGS:
+            ctx, output_path = prepare_detail_context(key, detail_data, 'mod', 'Mods')
+            build('detail', ctx, output_path)
+
+    # ─── Team detail pages ─────────────────────────────────────────────
+    team_detail_labels = {
+        'back': 'Back to team',
+        'posts_heading': '',  # Set per-member
+        'connect': 'Connect',
+        'team': 'Team',
+    }
+    for member in team_members:
+        member_handle = member.get('handle', member.get('slug', ''))
+        if not member_handle:
+            continue
+
+        # Filter posts by this member
+        member_posts = [p for p in news_items if p.get('author') == member.get('name')]
+
+        # Other team members
+        teammates = [m for m in team_members if m.get('handle') != member_handle]
+
+        # Labels
+        first_name = member.get('name', '').split(' ')[0]
+        labels = {**team_detail_labels, 'posts_heading': f'Posts by {first_name}'}
+
+        # CSS bundle
+        td_css_id = f'team-{member_handle}'
+        css_bundle = bundle_css(td_css_id, ['team-detail'])
+
+        # Meta
+        page_meta = {
+            'title': member.get('name', ''),
+            'description': member.get('bio', ''),
+            'url': f'https://moddable.games/team/{member_handle}/',
+            'image': f'https://moddable.games/img/og/team-{member_handle}.png',
+        }
+
+        nav = mark_nav_active(nav_raw, 'About')
+        td_ctx = {
+            'version': version,
+            'nav': nav,
+            'year': '2026',
+            'site_name': 'Moddable.Games',
+            'site_url': 'https://moddable.games',
+            'page_id': td_css_id,
+            'meta': page_meta,
+            'hero': {},
+            'css_bundle': css_bundle,
+            'member': member,
+            'posts': member_posts if member_posts else None,
+            'teammates': teammates,
+            'labels': labels,
+        }
+        build('team-detail', td_ctx, f'team/{member_handle}/index.html')
+
+    # ─── News article pages ──────────────────────────────────────────────
+    from urllib.parse import quote as url_quote
+    article_labels = news_labels
+    content_news_dir = os.path.join(CONTENT_DIR, 'news')
+    if os.path.isdir(content_news_dir):
+        for post in news_items:
+            slug = post.get('slug', '')
+            if not slug:
+                continue
+            md_path = os.path.join(content_news_dir, f'{slug}.md')
+            if not os.path.exists(md_path):
+                continue
+
+            md_text = read_file(md_path)
+            article_html = markdown_to_html(md_text)
+
+            # Author info from team
+            author_member = next((m for m in team_members if m.get('slug') == post.get('teamSlug')), None)
+            author_gradient = ''
+            author_img = ''
+            if author_member:
+                author_gradient = f"linear-gradient(135deg, {author_member.get('color', '#0c4f8d')}, #0a0d2a)"
+                author_img = author_member.get('img', '')
+
+            # Share URLs
+            canonical = f"https://moddable.games/news/{slug}/"
+            encoded_url = url_quote(canonical, safe='')
+            encoded_title = url_quote(f"{post.get('title', '')} — Moddable.Games", safe='')
+            share_x = f"https://x.com/intent/tweet?url={encoded_url}&text={encoded_title}"
+            share_fb = f"https://www.facebook.com/sharer/sharer.php?u={encoded_url}"
+            share_li = f"https://www.linkedin.com/sharing/share-offsite/?url={encoded_url}"
+
+            # Related posts (3 with most tag overlap)
+            post_tags = set(post.get('tags', []))
+            scored = []
+            for p in news_items:
+                if p.get('slug') == slug:
+                    continue
+                overlap = len(post_tags & set(p.get('tags', [])))
+                scored.append((overlap, p))
+            scored.sort(key=lambda x: -x[0])
+            related = [p for _, p in scored[:3]]
+
+            # CSS bundle
+            art_css_id = f'news-{slug}'
+            css_bundle = bundle_css(art_css_id, ['article', 'cards'])
+
+            # Meta
+            page_meta = {
+                'title': post.get('title', ''),
+                'description': post.get('excerpt', post.get('lede', ''))[:160],
+                'url': canonical,
+                'image': f"https://moddable.games/img/og/news-{slug}.png",
+            }
+
+            nav = mark_nav_active(nav_raw, 'News')
+            art_ctx = {
+                'version': version,
+                'nav': nav,
+                'year': '2026',
+                'site_name': 'Moddable.Games',
+                'site_url': 'https://moddable.games',
+                'page_id': art_css_id,
+                'meta': page_meta,
+                'hero': {},
+                'css_bundle': css_bundle,
+                'article_html': article_html,
+                'author_gradient': author_gradient,
+                'author_img': author_img,
+                'canonical_url': canonical,
+                'share_x': share_x,
+                'share_fb': share_fb,
+                'share_li': share_li,
+                'related': related if related else None,
+                'labels': article_labels,
+            }
+            art_ctx.update(post)
+            build('article', art_ctx, f'news/{slug}/index.html')
 
     # ─── Home page ──────────────────────────────────────────────────────
     home_data = data.get('home', {})

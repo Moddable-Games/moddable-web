@@ -1,0 +1,94 @@
+{{>_head}}
+{{>_navbar}}
+
+<section class="post-header">
+  <img src="/img/news/{{img}}" alt="" class="post-header__img">
+  <div class="post-header__bloom"></div>
+  <div class="post-header__inner">
+    <a href="/news/" class="post-header__back">&larr; {{labels.back_label}}</a>
+    <div class="post-header__tags">
+      <span class="post-header__cat">{{category}}</span>
+      <span class="post-header__meta">{{date}} &middot; {{readTime}}</span>
+    </div>
+    <h1 class="post-header__title">{{{heroTitle}}}</h1>
+    <p class="post-header__lede">{{lede}}</p>
+  </div>
+</section>
+
+<section class="post-body">
+  <div class="post-layout">
+    <aside class="post-rail" id="left-rail">
+      <div class="post-author-card">
+        <a class="post-author-card__avatar" href="/team/{{teamSlug}}/" style="background:{{author_gradient}}">
+          {{#if author_img}}<img src="/img/team/{{author_img}}" alt="{{author}}" class="post-author-card__img">{{/if}}
+        </a>
+        <div class="post-author-card__info">
+          <div class="post-author-card__name">{{author}}</div>
+          <div class="post-author-card__role">{{authorHandle}}</div>
+        </div>
+        {{#if teamSlug}}<a href="/team/{{teamSlug}}/" class="post-author-card__link">View profile &rarr;</a>{{/if}}
+      </div>
+      <div class="post-rail__eyebrow post-rail__eyebrow--green">{{labels.share_heading}}</div>
+      <div class="post-share-btns">
+        <a href="{{share_x}}" target="_blank" rel="noopener" class="post-share-btn" aria-label="Share on X" title="Share on X">&#120143;</a>
+        <a href="{{share_fb}}" target="_blank" rel="noopener" class="post-share-btn" aria-label="Share on Facebook" title="Share on Facebook">f</a>
+        <a href="{{share_li}}" target="_blank" rel="noopener" class="post-share-btn" aria-label="Share on LinkedIn" title="Share on LinkedIn">in</a>
+        <button class="post-share-btn" aria-label="Copy link" title="Copy link" data-copy="{{canonical_url}}">&#9112;</button>
+      </div>
+    </aside>
+    <article class="prose">
+      {{{article_html}}}
+    </article>
+    <aside class="post-rail" id="right-rail">
+      {{#if toc}}
+      <div class="post-rail__eyebrow">{{labels.toc_heading}}</div>
+      <ul class="post-toc" id="toc-list">
+        {{#each toc}}
+        <li class="post-toc__item{{#if @first}} post-toc__item--active{{/if}}">
+          <a href="#{{id}}" class="post-toc__link{{#if @first}} post-toc__link--active{{else}} post-toc__link--inactive{{/if}}">{{label}}</a>
+        </li>
+        {{/each}}
+      </ul>
+      {{/if}}
+      {{#if tags}}
+      <div class="post-rail__topics">
+        <div class="post-rail__eyebrow">{{labels.topics_heading}}</div>
+        <ul class="post-rail__tags">
+          {{#each tags}}
+          <li><a href="/news/#topic={{this}}" class="post-rail__tag">{{this}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+      {{#if modCard}}
+      <div class="post-mod-card">
+        <div class="post-mod-card__eyebrow">{{modCard.eyebrow}}</div>
+        <div class="post-mod-card__title">{{modCard.title}}</div>
+        <div class="post-mod-card__version">{{modCard.version}}</div>
+        <a href="{{modCard.href}}" class="mg-btn mg-btn--red post-mod-card__dl">{{modCard.btnLabel}}</a>
+      </div>
+      {{/if}}
+    </aside>
+  </div>
+</section>
+
+{{#if related}}
+<section class="post-more">
+  <div class="post-more__inner">
+    <h2 class="post-more__heading">{{labels.more_heading}}</h2>
+    <div class="post-more__grid">
+      {{#each related}}
+      <a href="/news/{{slug}}/" class="post-more-card">
+        <div class="post-more-card__cover" style="background:linear-gradient(135deg,#0a0d2a 0%,{{cover}} 100%)">
+          {{#if img}}<img src="/img/news/{{img}}" alt="" class="post-more-card__img" loading="lazy">{{/if}}
+        </div>
+        <div class="post-more-card__meta">{{category}} &middot; {{date}}</div>
+        <h3 class="post-more-card__title">{{title}}</h3>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</section>
+{{/if}}
+
+{{>_foot}}

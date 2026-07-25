@@ -6,22 +6,22 @@
       "heading": "Moddable logos",
       "items": [
         {
-          "src": "/press/logos/moddable-logo.png",
+          "src": "/img/press/logos/moddable-logo.png",
           "label": "Full logo (colour)",
           "bg": "#fff"
         },
         {
-          "src": "/press/logos/moddable-logo-white.png",
+          "src": "/img/press/logos/moddable-logo-white.png",
           "label": "Full logo (white)",
           "bg": "#0a0d2a"
         },
         {
-          "src": "/press/logos/moddable-logo-black.png",
+          "src": "/img/press/logos/moddable-logo-black.png",
           "label": "Full logo (black)",
           "bg": "#f5f4ef"
         },
         {
-          "src": "/press/logos/moddable-chess-cube.svg",
+          "src": "/img/press/logos/moddable-chess-cube.svg",
           "label": "Chess engine mark",
           "bg": "#fff"
         }
@@ -32,19 +32,19 @@
       "heading": "Screenshots",
       "items": [
         {
-          "src": "/press/screenshots/chess-online.png",
+          "src": "/img/press/screenshots/chess-online.png",
           "label": "Moddable Chess \u2014 Grand Chess variant"
         },
         {
-          "src": "/press/screenshots/hexmaps-online.png",
+          "src": "/img/press/screenshots/hexmaps-online.png",
           "label": "Moddable Hexmaps \u2014 Nukes map"
         },
         {
-          "src": "/press/screenshots/dungeon-chess-board.png",
+          "src": "/img/press/screenshots/dungeon-chess-board.png",
           "label": "Dungeon Chess \u2014 4-player board"
         },
         {
-          "src": "/press/screenshots/nukes-online.png",
+          "src": "/img/press/screenshots/nukes-online.png",
           "label": "Nukes \u2014 online hex map"
         }
       ]
@@ -119,42 +119,42 @@
       "heading": "Game logos",
       "items": [
         {
-          "src": "/press/logos/nukes-logo.png",
+          "src": "/img/press/logos/nukes-logo.png",
           "label": "Nukes",
           "bg": "#fff"
         },
         {
-          "src": "/press/logos/mongo-logo.png",
+          "src": "/img/press/logos/mongo-logo.png",
           "label": "Planet Mongo",
           "bg": "#fff"
         },
         {
-          "src": "/press/logos/endless-skies-logo.png",
+          "src": "/img/press/logos/endless-skies-logo.png",
           "label": "Endless Skies",
           "bg": "#fff"
         },
         {
-          "src": "/press/logos/dungeon-chess-black.png",
+          "src": "/img/press/logos/dungeon-chess-black.png",
           "label": "Dungeon Chess (black)",
           "bg": "#fff"
         },
         {
-          "src": "/press/logos/dungeon-chess-white.png",
+          "src": "/img/press/logos/dungeon-chess-white.png",
           "label": "Dungeon Chess (white)",
           "bg": "#0a0d2a"
         },
         {
-          "src": "/press/logos/hyper-imperium-logo.png",
+          "src": "/img/press/logos/hyper-imperium-logo.png",
           "label": "Hyper Imperium",
           "bg": "#fff"
         },
         {
-          "src": "/press/logos/econopoly-logo.png",
+          "src": "/img/press/logos/econopoly-logo.png",
           "label": "Econopoly",
           "bg": "#fff"
         },
         {
-          "src": "/press/logos/talisman-worlds-logo.png",
+          "src": "/img/press/logos/talisman-worlds-logo.png",
           "label": "Talisman Worlds",
           "bg": "#fff"
         }

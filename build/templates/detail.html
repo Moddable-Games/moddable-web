@@ -1,0 +1,148 @@
+{{>_head}}
+{{>_navbar}}
+
+<section class="game-hero">
+  <div class="game-hero__gradient" style="background: {{{detail.colors_gradient}}}"></div>
+  {{#if detail.colors_bloom}}<div class="game-hero__bloom" style="background: {{{detail.colors_bloom}}}"></div>{{/if}}
+  <div class="game-hero__hex" style="background-image: url('/img/{{detail.colors_hexGrid}}')"></div>
+  <div class="game-hero__fade"></div>
+  <div class="game-hero__inner">
+    <div class="game-hero__text">
+      <a href="{{detail.back_href}}" class="game-hero__back">&larr; {{detail.back_label}}</a>
+      <div class="game-hero__tags">
+        {{#if detail.tag_category}}<span class="game-hero__tag" style="background: {{detail.accent_color}}">{{detail.tag_category}}</span>{{/if}}
+        {{#if detail.tag_license}}<span class="game-hero__tag--outline">{{detail.tag_license}}</span>{{/if}}
+        {{#if detail.tag_version}}<span class="game-hero__version" style="color: {{detail.colors_textColor}}">{{detail.tag_version}}</span>{{/if}}
+      </div>
+      <h1 class="game-hero__title" style="text-shadow: {{detail.colors_textShadow}}">{{detail.title}}</h1>
+      {{#if detail.lede}}<p class="game-hero__lede">{{{detail.lede}}}</p>{{/if}}
+      {{#if detail.hero_buttons}}<div class="game-hero__btns">
+        {{#each detail.hero_buttons}}<a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>{{/each}}
+      </div>{{/if}}
+    </div>
+    {{#if detail.heroImage}}<img src="{{detail.heroImage}}" alt="{{detail.title}}" class="game-hero__logo">{{/if}}
+  </div>
+</section>
+
+{{#if detail.stats}}<section class="stats-bar">
+  <div class="stats-bar__inner">
+    {{#each detail.stats}}{{#unless @first}}<span class="stats-row__divider"></span>{{/unless}}<div class="stats-row__item">
+      <span class="stats-row__label">{{label}}</span>
+      <span class="stats-row__value">{{value}}</span>
+    </div>{{/each}}
+  </div>
+</section>{{/if}}
+
+{{#if detail.steps}}<section class="mg-section mg-section--light">
+  <div class="mg-container">
+    <h2 class="mg-heading-xl">{{detail.steps_heading}}</h2>
+    <div class="mg-grid-4">
+      {{#each detail.steps}}<article class="mg-card">
+        <div class="mg-card__eyebrow mg-eyebrow--{{eyebrow_color}}">{{n}}</div>
+        <h3 class="mg-card__title">{{title}}</h3>
+        <p class="mg-card__body">{{body}}</p>
+        {{#if href}}<a href="{{href}}" class="mg-card__link">{{link_label}}</a>{{/if}}
+      </article>{{/each}}
+    </div>
+  </div>
+</section>{{/if}}
+
+{{#if detail.variants}}<section class="mg-section mg-section--light">
+  <div class="mg-container">
+    <h2 class="mg-heading-xl">{{detail.variants_heading}}</h2>
+    <div class="mg-grid-3">
+      {{#each detail.variants}}<article class="mg-card{{#if featured}} mg-card--featured{{/if}}">
+        <div class="mg-card__eyebrow mg-eyebrow--{{eyebrow_color}}">{{n}}</div>
+        <h3 class="mg-card__title">{{title}}</h3>
+        <p class="mg-card__body">{{body}}</p>
+        {{#if href}}<a href="{{href}}" class="mg-card__link">{{link_label}}</a>{{/if}}
+      </article>{{/each}}
+    </div>
+  </div>
+</section>{{/if}}
+
+{{#if detail.dark_center}}<section class="mg-dark-center">
+  {{#if detail.dark_center.bloom}}<div class="mg-dark-center__bloom" style="background: {{{detail.dark_center.bloom}}}"></div>{{/if}}
+  <div class="mg-dark-center__inner">
+    {{#if detail.dark_center.eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{detail.dark_center.eyebrow_color}}">{{detail.dark_center.eyebrow}}</div>{{/if}}
+    <h2 class="mg-dark-center__heading">{{{detail.dark_center.heading}}}</h2>
+    {{#if detail.dark_center.body}}<p class="mg-dark-center__body">{{{detail.dark_center.body}}}</p>{{/if}}
+    {{#if detail.dark_center.pills}}<div class="mg-dark-center__pills">
+      {{#each detail.dark_center.pills}}<span class="mg-dark-center__pill">{{this}}</span>{{/each}}
+    </div>{{/if}}
+    {{#if detail.dark_center.buttons}}<div class="mg-dark-center__cta">
+      {{#each detail.dark_center.buttons}}<a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>{{/each}}
+    </div>{{/if}}
+  </div>
+</section>{{/if}}
+
+{{#if detail.hooks}}<section class="mg-section mg-section--light">
+  <div class="mg-container">
+    <div class="mg-eyebrow mg-eyebrow--{{detail.eyebrow_color}}">{{detail.hooks_eyebrow}}</div>
+    <h2 class="mg-heading-lg">{{detail.hooks_heading}}</h2>
+    {{#if detail.hooks_body}}<p class="mg-body-sub">{{detail.hooks_body}}</p>{{/if}}
+    <div class="mg-grid-2">
+      {{#each detail.hooks}}<div class="mg-card mg-card--light mg-card--row">
+        <div class="mg-card__icon" style="background: {{accent_color}}">&#x25C8;</div>
+        <div>
+          <div class="mg-card__mono-title" style="color: {{accent_color}}">{{name}}</div>
+          <div class="mg-card__desc">{{desc}}</div>
+        </div>
+      </div>{{/each}}
+    </div>
+  </div>
+</section>{{/if}}
+
+{{#if detail.factions}}<section class="mg-section mg-section--white">
+  <div class="mg-container">
+    <div class="mg-eyebrow mg-eyebrow--{{detail.eyebrow_color}}">{{detail.factions_eyebrow}}</div>
+    <h2 class="mg-heading-lg">{{detail.factions_heading}}</h2>
+    <div class="mg-grid-2">
+      {{#each detail.factions}}<div class="mg-card mg-card--light mg-card--row">
+        <div class="mg-card__icon" style="background: {{accent}}">{{icon}}</div>
+        <div>
+          <div class="mg-card__mono-title" style="color: {{accent}}">{{name}}</div>
+          <div class="mg-card__desc">{{desc}}</div>
+        </div>
+      </div>{{/each}}
+    </div>
+  </div>
+</section>{{/if}}
+
+{{#if detail.components}}<section class="mg-section mg-section--light">
+  <div class="mg-container">
+    <div class="mg-eyebrow mg-eyebrow--{{detail.eyebrow_color}}">{{detail.components_eyebrow}}</div>
+    <h2 class="mg-heading-lg">{{detail.components_heading}}</h2>
+    <div class="mg-grid-3">
+      {{#each detail.components}}<div class="mg-card">
+        <div class="mg-card__eyebrow mg-eyebrow--{{eyebrow_color}}">{{kind_upper}}</div>
+        <ul class="component-list">
+          {{#each list}}<li class="component-list__item">
+            <span class="component-list__bullet"></span>{{this}}
+          </li>{{/each}}
+        </ul>
+      </div>{{/each}}
+    </div>
+  </div>
+</section>{{/if}}
+
+{{#if detail.community}}<section class="mg-section mg-section--light">
+  <div class="mg-container">
+    <h2 class="mg-heading-lg">{{detail.community_heading}}</h2>
+    <div class="mg-grid-3">
+      {{#each detail.community}}{{#if href}}<a href="{{href}}" class="mg-card mg-lift"{{#if external}} target="_blank" rel="noopener"{{/if}}>
+        <div class="mg-card__eyebrow" style="color: {{category_color}}">{{category}}</div>
+        <h3 class="mg-card__title">{{title}}</h3>
+        <p class="mg-card__body">{{body}}</p>
+        <span class="mg-card__link">{{stats}}</span>
+      </a>{{/if}}{{#unless href}}<div class="mg-card">
+        <div class="mg-card__eyebrow" style="color: {{category_color}}">{{category}}</div>
+        <h3 class="mg-card__title">{{title}}</h3>
+        <p class="mg-card__body">{{body}}</p>
+        <span class="mg-card__link">{{stats}}</span>
+      </div>{{/unless}}{{/each}}
+    </div>
+  </div>
+</section>{{/if}}
+
+{{>_foot}}

@@ -1,0 +1,62 @@
+{{>_head}}
+{{>_navbar}}
+
+<section class="td-hero">
+  <div class="td-hero__glow-clip">
+    <div class="td-hero__glow" style="background: {{member.color}}"></div>
+  </div>
+  <div class="td-hero__inner">
+    <a href="/team/" class="td-hero__back">&larr; {{labels.back}}</a>
+    <div class="td-hero__text">
+      <h1 class="td-hero__name">{{member.name}}</h1>
+      <div class="td-hero__role">{{member.role}}</div>
+    </div>
+    <div class="td-hero__avatar">
+      <img src="/img/team/{{member.img}}" alt="{{member.name}}">
+    </div>
+  </div>
+</section>
+
+<div class="td-body">
+  <div class="td-body__inner">
+    <div class="td-content">
+      <p class="td-bio">{{member.longBio}}</p>
+      {{#if posts}}<div class="td-posts">
+        <h2 class="td-posts__heading">{{labels.posts_heading}}</h2>
+        <div class="td-posts__list">
+          {{#each posts}}<a href="/news/{{slug}}/" class="td-post-card">
+            <span class="td-post-card__date">{{date}}</span>
+            <div>
+              <div class="td-post-card__title">{{title}}</div>
+              <div class="td-post-card__cat">{{category}}</div>
+            </div>
+          </a>{{/each}}
+        </div>
+      </div>{{/if}}
+    </div>
+    <div class="td-sidebar">
+      {{#if member.socials}}<div class="td-sidebar__card">
+        <div class="td-sidebar__card-title">{{labels.connect}}</div>
+        <div class="td-sidebar__socials">
+          {{#each member.socials}}<a href="{{href}}" class="td-sidebar__social" target="_blank" rel="noopener">{{{icon}}}</a>{{/each}}
+        </div>
+      </div>{{/if}}
+      <div class="td-sidebar__card">
+        <div class="td-sidebar__card-title">{{labels.team}}</div>
+        <div class="td-sidebar__teammates">
+          {{#each teammates}}<a href="/team/{{handle}}/" class="td-sidebar__teammate">
+            <div class="td-sidebar__teammate-avatar">
+              <img src="/img/team/{{img}}" alt="{{name}}" loading="lazy">
+            </div>
+            <div>
+              <div class="td-sidebar__teammate-name">{{name}}</div>
+              <div class="td-sidebar__teammate-role">{{role}}</div>
+            </div>
+          </a>{{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{>_foot}}

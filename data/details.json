@@ -1,0 +1,1664 @@
+{
+  "nukes": {
+    "slug": "nukes",
+    "title": "Nukes",
+    "accent": "red",
+    "heroImage": "/img/nukes-logo.png",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#2a0a0a 0%,#3a0d0d 40%,#000 100%)",
+      "hexGrid": "hex-grid-red.svg",
+      "textColor": "#e63232",
+      "textShadow": "0 0 8px rgba(230,50,50,0.5)",
+      "bloom": "radial-gradient(ellipse,rgba(209,26,26,0.35) 0%,transparent 65%)"
+    },
+    "stats": [
+      [
+        "Players",
+        "2\u20133"
+      ],
+      [
+        "Time",
+        "45+ min"
+      ],
+      [
+        "Age",
+        "12+"
+      ],
+      [
+        "Components",
+        "44 hex tiles \u00b7 75 tokens"
+      ],
+      [
+        "Designer",
+        "Team Moddable"
+      ],
+      [
+        "Status",
+        "Live"
+      ],
+      [
+        "Updated",
+        "Jun 2026"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Play Online",
+          "https://nukes.moddable.games/",
+          "red"
+        ],
+        [
+          "Read Rules",
+          "rules:nukes",
+          "outline-dark"
+        ],
+        [
+          "Generate Map",
+          "https://hex.moddable.games/generate/?game=nukes",
+          "outline-dark"
+        ]
+      ],
+      "cta": [
+        [
+          "Read Rules",
+          "rules:nukes",
+          "red"
+        ],
+        [
+          "See Tools",
+          "/tools/nukes/",
+          "outline-dark"
+        ]
+      ]
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Build the board",
+        "body": "Draft 37 hex tiles across six biomes \u2014 fields, forests, mountains, water, deserts, and cities. Place your city at the edge, deploy 4 starting units, and take your opponents\u2019 tokens as hostages."
+      },
+      {
+        "n": "02",
+        "title": "Return hostages to move",
+        "body": "Each turn, return 1\u20133 of your opponents\u2019 tokens to their forces on the board. Each return earns you one move \u2014 but directly reinforces the enemy. This tension is the engine of the game."
+      },
+      {
+        "n": "03",
+        "title": "Move and attack",
+        "body": "Infantry chains through same-biome terrain. Artillery jumps over occupied regions. Airborne drops exactly two hexes away and can slingshot through friendly bases. Attack by moving into enemy territory with superior strength."
+      },
+      {
+        "n": "04",
+        "title": "Threaten annihilation",
+        "body": "Build bases (4+ units), convert tokens into isotopes, and launch nuclear strikes that destroy everything in the target hex and all six surrounding hexes. Or trigger a Meltdown by overloading an enemy base."
+      }
+    ],
+    "hooks": [
+      {
+        "name": "Fluid units",
+        "desc": "Token count determines unit type. One token is Infantry, two is Artillery, three is Airborne, four or more is a Base. This changes constantly as tokens move and merge."
+      },
+      {
+        "name": "Hostage economy",
+        "desc": "Your opponent\u2019s tokens are your fuel. Return them to move \u2014 but every return grows their forces. Run out and your city is destroyed."
+      },
+      {
+        "name": "Terrain & biomes",
+        "desc": "Six biome types with movement and safety restrictions. Infantry dies in water alone. Artillery can\u2019t attack from forests. Mountains block Airborne without Base support."
+      },
+      {
+        "name": "Nuclear strikes",
+        "desc": "Launch from a Base, jump over occupied hexes like Artillery. Blast radius: target hex becomes Biohazard, all units in target + 6 surrounding hexes destroyed immediately."
+      }
+    ],
+    "communityLabel": "Augmented Mods by The House",
+    "communitySubmit": false,
+    "community": [
+      {
+        "category": "Conversion",
+        "baseGame": "Nukes",
+        "title": "Nukes: Siege",
+        "body": "Total conversion of the hostage mechanic. Start with your own tokens in reserve; recruit them by returning to occupied regions. Enemy hostages only arrive through combat.",
+        "stats": "2 players \u00b7 90 min \u00b7 14+",
+        "href": "/mods/nukes-siege/",
+        "source": "Moddable.Games"
+      },
+      {
+        "category": "Rebalance",
+        "baseGame": "Nukes",
+        "title": "Nukes: Asymmetric Powers",
+        "body": "Each player draws one Power Card at setup \u2014 Covert Network, Arms Industry, or Airborne Corps. No two players hold the same card. Standard Nukes underneath, explicit asymmetry on top.",
+        "stats": "2\u20133 players \u00b7 60 min \u00b7 12+",
+        "href": "/mods/nukes-asymmetric-powers/",
+        "source": "Moddable.Games"
+      },
+      {
+        "category": "Reskin",
+        "baseGame": "Nukes",
+        "title": "Nukes: Fallout",
+        "body": "Biohazard tiles spread each round. Every nuclear strike leaves a growing contamination zone. City tiles are immune to spread. Win before the map runs out.",
+        "stats": "2\u20133 players \u00b7 60 min \u00b7 12+",
+        "href": "/mods/nukes-fallout/",
+        "source": "Moddable.Games"
+      }
+    ]
+  },
+  "mongo": {
+    "slug": "planet-mongo",
+    "title": "Planet Mongo",
+    "accent": "green",
+    "heroImage": "/img/mongo-logo.png",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#0a2a10 0%,#0d3a15 40%,#000 100%)",
+      "hexGrid": "hex-grid-green.svg",
+      "textColor": "#4eb735",
+      "textShadow": "0 0 8px rgba(78,183,53,0.5)",
+      "bloom": "radial-gradient(ellipse,rgba(58,153,40,0.25) 0%,transparent 65%)"
+    },
+    "stats": [
+      [
+        "Players",
+        "2\u20138"
+      ],
+      [
+        "Time",
+        "120+ min"
+      ],
+      [
+        "Age",
+        "14+"
+      ],
+      [
+        "Components",
+        "127 hex tiles \u00b7 800 units"
+      ],
+      [
+        "Factions",
+        "8"
+      ],
+      [
+        "Status",
+        "In development"
+      ],
+      [
+        "Version",
+        "v0.9.2"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Generate Map",
+          "https://hex.moddable.games/generate/?game=mongo",
+          "green"
+        ],
+        [
+          "View on GitHub",
+          "https://github.com/Moddable-Games/moddable-rules/tree/main/games/mongo",
+          "outline-dark"
+        ]
+      ],
+      "cta": [],
+      "extra": {
+        "playtest-btns": [
+          [
+            "Generate Map",
+            "https://hex.moddable.games/generate/?game=mongo",
+            "green"
+          ],
+          [
+            "View on GitHub",
+            "https://github.com/Moddable-Games/moddable-rules/tree/main/games/mongo",
+            "outline-dark"
+          ]
+        ]
+      }
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Pick your initiative",
+        "body": "Pay to place council members on the initiative matrix. Choose Attack, Build, Trade, or Defend priorities for the round. Higher slots cost more but let you act first."
+      },
+      {
+        "n": "02",
+        "title": "Place orders secretly",
+        "body": "Give each tile with units a face-down order token: Defend, Disrupt, Move, or Bolster. All orders are revealed simultaneously."
+      },
+      {
+        "n": "03",
+        "title": "Resolve by initiative",
+        "body": "Take turns resolving one order at a time. Move units, harvest commodities, build structures, or disrupt neighbours. Pass early to earn bonus income."
+      },
+      {
+        "n": "04",
+        "title": "Fight for contested tiles",
+        "body": "Any tile with multiple factions resolves combat on the fight board. Hidden stacks, supporter alignment, blind and revealed retreats, morale stakes."
+      }
+    ],
+    "hooks": [
+      {
+        "name": "Hidden orders",
+        "desc": "All movement is planned secretly, then revealed at once. Defend counters Disrupt, Disrupt counters Bolster. Every round is a mind game."
+      },
+      {
+        "name": "Initiative matrix",
+        "desc": "A 4x4 grid of priorities and slot costs. Higher initiative picks first but pays more. Trade rows earn coins instead of spending them."
+      },
+      {
+        "name": "Central market",
+        "desc": "Eight commodities (Ice, Water, Food, Wood, Stone, Metal, Energy, Gems) with dynamic pricing. Sell during the Action phase or spend to build."
+      },
+      {
+        "name": "Fight board",
+        "desc": "Multi-faction combat with combat zones, supporter alignment, and dice-based resolution. Retreats cost morale. Losing all units pays morale to survivors."
+      }
+    ],
+    "factions": [
+      {
+        "name": "Magneticans",
+        "accent": "#8b5cf6",
+        "icon": "\u26a1",
+        "desc": "Ming the Merciless rules the Magnetic Mountains. Highest science, lowest defense. Starts with 6 innovation cards and a 10-card limit."
+      },
+      {
+        "name": "Arborians",
+        "accent": "#22c55e",
+        "icon": "\ud83c\udf32",
+        "desc": "Prince Barin leads the Forest Kingdom. Highest population and defense, lowest science. Must build every available structure to win."
+      },
+      {
+        "name": "Coralians",
+        "accent": "#06b6d4",
+        "icon": "\ud83c\udf0a",
+        "desc": "Queen Undina commands the Undersea Kingdom. Wealthiest faction with the most biome diversity. Starts with 175 coins and 8 submerged tiles."
+      },
+      {
+        "name": "Frigians",
+        "accent": "#a5b4fc",
+        "icon": "\u2744",
+        "desc": "Queen Fria controls the Ice Kingdom. 22 glacial tiles to place. Must reach highest influence to score. VP from sheer territorial coverage."
+      },
+      {
+        "name": "Volcanians",
+        "accent": "#ef4444",
+        "icon": "\ud83c\udf0b",
+        "desc": "Desert Hawk rules the Firelands. Strong military, low culture. Starts wealthy but must hoard 100 ice to trigger their objective."
+      },
+      {
+        "name": "Tropicans",
+        "accent": "#f59e0b",
+        "icon": "\ud83c\udf34",
+        "desc": "Queen Desira leads the Jungle Kingdom. Highest wealth rank, jungle tiles worth 5 VP each. Must collect 50 gems to win."
+      },
+      {
+        "name": "Hawkmen",
+        "accent": "#60a5fa",
+        "icon": "\ud83e\udd85",
+        "desc": "Prince Vultan soars from Sky City. Lowest innovation limit (2 cards) but 36 oceanic tiles. Must control two tiles of each major biome."
+      },
+      {
+        "name": "Lionmen",
+        "accent": "#d97706",
+        "icon": "\ud83e\udd81",
+        "desc": "King Jugrid leads the Land of Lionmen. Lowest starting resources (50 coins) but desert tiles worth 4 VP. Must control tiles producing 20 energy."
+      }
+    ],
+    "community": []
+  },
+  "endless-skies": {
+    "slug": "endless-skies",
+    "title": "Endless Skies",
+    "accent": "blue",
+    "heroImage": "/img/endless-skies-logo.png",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#0a0d2a 0%,#1a3680 45%,#000 100%)",
+      "hexGrid": "hex-grid-blue.svg",
+      "textColor": "#6fb5ff",
+      "textShadow": "0 0 8px rgba(111,181,255,0.5)",
+      "bloom": null
+    },
+    "stats": [
+      [
+        "Players",
+        "2\u20138"
+      ],
+      [
+        "Time",
+        "TBD"
+      ],
+      [
+        "Age",
+        "14+"
+      ],
+      [
+        "Components",
+        "113 hex tiles \u00b7 128 ships"
+      ],
+      [
+        "Factions",
+        "8"
+      ],
+      [
+        "Status",
+        "In development"
+      ],
+      [
+        "Version",
+        "v0.4.0"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Generate Map",
+          "https://hex.moddable.games/generate/?game=endless-skies",
+          "blue"
+        ],
+        [
+          "View on GitHub",
+          "https://github.com/Moddable-Games/moddable-rules/tree/main/games/endless-skies",
+          "outline-dark"
+        ]
+      ],
+      "cta": [],
+      "extra": {
+        "dev-btns": [
+          [
+            "Generate Map",
+            "https://hex.moddable.games/generate/?game=endless-skies",
+            "blue"
+          ],
+          [
+            "View on GitHub",
+            "https://github.com/Moddable-Games/moddable-rules/tree/main/games/endless-skies",
+            "outline-dark"
+          ]
+        ]
+      }
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Place diplomats",
+        "body": "In initiative order, place diplomat meeples in space port rooms to gain resources, buy ships, trade commodities, or trigger special actions."
+      },
+      {
+        "n": "02",
+        "title": "Activate crew",
+        "body": "Move rookie and legend meeples to ship rooms: Bridge, Engine Room, Battlestations, or Storage Bay. Each room activates different abilities for the round."
+      },
+      {
+        "n": "03",
+        "title": "Resolve events",
+        "body": "Move asteroids and wormholes, resolve conflicts between factions, check for destroyed ships, and refresh for the next round."
+      },
+      {
+        "n": "04",
+        "title": "Complete contracts",
+        "body": "Score victory points by fulfilling public contracts (visible to all) and private missions (secret). First to trigger the endgame forces a final scoring round."
+      }
+    ],
+    "hooks": [
+      {
+        "name": "Worker placement",
+        "desc": "Crew in ship rooms (Bridge, Engine Room, Battlestations, Storage Bay) activate movement, combat, repair, and upgrade abilities. Legends have enhanced versions."
+      },
+      {
+        "name": "Wormhole network",
+        "desc": "Four wormhole types (C, M, Y, K) connect distant systems at varying range costs. Semi-random placement means every game has a different galactic topology."
+      },
+      {
+        "name": "Dynamic asteroids",
+        "desc": "112 asteroid tokens shift each event phase based on event cards. They block movement, can be mined for discoveries, and may destroy ships that fail to evade."
+      },
+      {
+        "name": "5 tech trees",
+        "desc": "Human, Core, Coalition, Remnant, and Wanderer technology. Each faction starts with access to specific trees. Trade and diplomacy unlock cross-faction tech."
+      }
+    ],
+    "factions": [
+      {
+        "name": "Republic",
+        "accent": "#60a5fa",
+        "icon": "\ud83c\udf0d",
+        "desc": "Near Earth faction based in Sol. Balanced starting credits (500K fixed). Access to Human technology. The generalist choice."
+      },
+      {
+        "name": "Alphas",
+        "accent": "#a5b4fc",
+        "icon": "\u2b50",
+        "desc": "Far North faction from Prime. Credits scale by player count (300K/player). Human + Core tech access. Stronger in larger games."
+      },
+      {
+        "name": "Syndicate",
+        "accent": "#f59e0b",
+        "icon": "\ud83d\udcb0",
+        "desc": "The Core faction from Markab. Richest start (2M fixed) with Human + Core tech. Economic powerhouse with expensive ships."
+      },
+      {
+        "name": "Free Worlds",
+        "accent": "#22c55e",
+        "icon": "\ud83c\udf3e",
+        "desc": "Dirt Belt faction from Alkaid. Credits scale modestly (200K/player). Human + Coalition tech. The underdog coalition."
+      },
+      {
+        "name": "Pirates",
+        "accent": "#ef4444",
+        "icon": "\u2620",
+        "desc": "Rim dwellers with no fixed home. Lowest start (100K/player) but access to ANY technology currently in play. Scavengers and opportunists."
+      },
+      {
+        "name": "Remnant",
+        "accent": "#8b5cf6",
+        "icon": "\ud83d\udd2e",
+        "desc": "Ember Wastes faction from Arculus. Strong start (1M) with exclusive Remnant + Wanderer ancient tech. Isolated but powerful."
+      },
+      {
+        "name": "Coalition",
+        "accent": "#06b6d4",
+        "icon": "\ud83d\udd4a",
+        "desc": "Paradise faction from Talita. Wealthy (1.5M) with defensive specialisation. Coalition + Human tech. Diplomatic strength."
+      },
+      {
+        "name": "Wanderers",
+        "accent": "#10b981",
+        "icon": "\ud83e\uddec",
+        "desc": "Organic-tech faction from Ka'ch'chrai. Solid start (1M) with biological ship systems. Remnant + Wanderer tech. Alien and strange."
+      }
+    ],
+    "community": []
+  },
+  "dungeon-chess": {
+    "slug": "dungeon-chess",
+    "title": "Dungeon Chess",
+    "accent": "red",
+    "heroImage": "/img/dungeon-chess/03_logo_all_white.png",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#1f0a0a 0%,#2a0d0d 40%,#000 100%)",
+      "hexGrid": "hex-grid-red.svg",
+      "textColor": "#ff4444",
+      "textShadow": "0 0 8px rgba(209,26,26,0.5)",
+      "bloom": null
+    },
+    "stats": [
+      [
+        "Players",
+        "2\u20134"
+      ],
+      [
+        "Time",
+        "30\u2013120 min"
+      ],
+      [
+        "Age",
+        "12+"
+      ],
+      [
+        "Factions",
+        "4"
+      ],
+      [
+        "Units",
+        "24"
+      ],
+      [
+        "Status",
+        "Live"
+      ],
+      [
+        "Updated",
+        "Jun 2026"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Read Rules",
+          "rules:dungeon-chess",
+          "green"
+        ],
+        [
+          "Play Online",
+          "https://dungeon.moddable.games",
+          "outline-dark"
+        ]
+      ],
+      "cta": []
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Choose your faction",
+        "body": "Humans, Undead, Demonics, or Greenskins. Each has 6 unique unit types with different costs, movements, and special abilities."
+      },
+      {
+        "n": "02",
+        "title": "Draft your warband",
+        "body": "Spend 75 XP to build your team. Must include a King and at least one Pawn. Every point is a tactical commitment \u2014 no two warbands are alike."
+      },
+      {
+        "n": "03",
+        "title": "Deploy and battle",
+        "body": "Place your units in your spawn zone, then take turns moving one piece. Capture enemies by moving onto their square. Terrain matters \u2014 water blocks, gaps divide, corridors create chokepoints."
+      },
+      {
+        "n": "04",
+        "title": "Capture the King",
+        "body": "The game ends the moment a King is captured. Protect yours, hunt theirs. Check forces a response \u2014 but there's no stalemate here."
+      }
+    ],
+    "factions": [
+      {
+        "name": "Humans",
+        "accent": "#c0c8d0",
+        "icon": "\u2694",
+        "desc": "Balanced generalists. Archers attack across gaps, the Wizard splits movement and attack, and the Princess slides like a bishop."
+      },
+      {
+        "name": "Undead",
+        "accent": "#6b4fa0",
+        "icon": "\ud83d\udc80",
+        "desc": "Movement trickery. Wraiths phase through gaps, the Vampire reverses move/attack axes, and the Warlock attacks diagonally at range."
+      },
+      {
+        "name": "Demonics",
+        "accent": "#d11a1a",
+        "icon": "\ud83d\udd25",
+        "desc": "Devastating firepower. Kobolds and Iron Golems use cannon attacks \u2014 sliding through a screen piece to strike at range. The Red Dragon attacks as a knight."
+      },
+      {
+        "name": "Greenskins",
+        "accent": "#3a9928",
+        "icon": "\ud83d\udc7a",
+        "desc": "Brute force. Goblins and Ogres bring cannon attacks like Demonics, while the Shaman commands full queen movement. The Warlord strikes as a knight."
+      }
+    ],
+    "hooks": [
+      {
+        "name": "data.js \u2192 UNITS",
+        "desc": "24 unit definitions with type, faction, XP cost, and cannon behaviour. Add new units, rebalance costs, or create a fifth faction."
+      },
+      {
+        "name": "data.js \u2192 MAPS",
+        "desc": "Board layouts as grid arrays \u2014 walls, water, gaps, and spawn zones. Add new maps or reshape existing dungeons."
+      },
+      {
+        "name": "data.js \u2192 SP_INFO",
+        "desc": "Faction metadata \u2014 names, accent colours, descriptions. Rename factions, change themes, or add asymmetric flavour text."
+      },
+      {
+        "name": "state.js \u2192 XP budget",
+        "desc": "Draft budget and AI draft logic. Change the 75 XP cap, adjust AI weighting, or add draft constraints per faction."
+      }
+    ],
+    "components": [
+      {
+        "kind": "Required",
+        "list": [
+          "Modern web browser (Chrome, Firefox, Safari, Edge)",
+          "2\u20134 players (local hotseat or vs AI)",
+          "30\u2013120 minutes depending on map size"
+        ]
+      },
+      {
+        "kind": "Included",
+        "list": [
+          "4 factions with 24 unique units",
+          "3 dungeon maps (Compact, Standard, Four-Player)",
+          "AI opponents with configurable draft logic"
+        ]
+      },
+      {
+        "kind": "Optional",
+        "list": [
+          "Second screen for spectating",
+          "Printable unit reference cards (PDF)",
+          "Custom maps via data.js fork"
+        ]
+      }
+    ]
+  },
+  "talisman-worlds": {
+    "slug": "talisman-worlds",
+    "title": "Talisman Worlds",
+    "accent": "blue",
+    "heroImage": "/img/talisman-worlds-logo.png",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#0a0d2a 0%,#0c2e5a 40%,#000 100%)",
+      "hexGrid": "hex-grid-blue.svg",
+      "textColor": "#6fb5ff",
+      "textShadow": "0 0 8px rgba(111,181,255,0.5)",
+      "bloom": "radial-gradient(ellipse,rgba(12,79,141,0.35) 0%,transparent 65%)"
+    },
+    "stats": [
+      [
+        "Players",
+        "2\u20136"
+      ],
+      [
+        "Time",
+        "90 min"
+      ],
+      [
+        "Age",
+        "13+"
+      ],
+      [
+        "Tiles",
+        "61 hex"
+      ],
+      [
+        "Version",
+        "v0.3.0"
+      ],
+      [
+        "Status",
+        "In development"
+      ],
+      [
+        "Updated",
+        "Jun 2026"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Read Rules",
+          "rules:talisman-worlds",
+          "blue"
+        ],
+        [
+          "Hex Generator",
+          "https://hex.moddable.games/generate/?game=talisman",
+          "outline-dark"
+        ]
+      ],
+      "cta": []
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Build the board",
+        "body": "Deal 61 hexagonal tiles into four concentric rings around a hidden ending tile. Every game gets a completely different map from the same set of tiles."
+      },
+      {
+        "n": "02",
+        "title": "Move by region",
+        "body": "Roll D4 in the outer ring, D3 in the river and middle regions, or move one adjacent tile in the inner ring. Region boundaries create natural chokepoints."
+      },
+      {
+        "n": "03",
+        "title": "Encounter tiles",
+        "body": "Land on tiles to draw cards, visit shops, fight monsters, or trigger special encounters. All original Talisman 4e adventure cards work unchanged."
+      },
+      {
+        "n": "04",
+        "title": "Reach the ending",
+        "body": "Navigate inward through the sentinel, portal of power, and valley of fire. Discard a talisman to reveal the hidden ending tile and face its challenge."
+      }
+    ],
+    "factions": [
+      {
+        "name": "Outer Ring (24 tiles)",
+        "accent": "#3a9928",
+        "icon": "\ud83c\udf0d",
+        "desc": "City, Village, Tavern, Chapel, Forest, Graveyard, Crags, and draw-card fields. Roll D4 for movement. Access middle region only via the Sentinel."
+      },
+      {
+        "name": "River Ring (18 tiles)",
+        "accent": "#0c8dd1",
+        "icon": "\ud83c\udf0a",
+        "desc": "10 water tiles (need a raft to cross), 4 deserts (need a water bottle), plus the Oasis and Hidden Valley. Roll D3 for movement."
+      },
+      {
+        "name": "Middle Ring (12 tiles)",
+        "accent": "#b08d2d",
+        "icon": "\u2694\ufe0f",
+        "desc": "Portal of Power, Warlock's Cave, Temple, Castle, Black Knight, and Chasm. Roll D3 for movement. Access inner region via Portal of Power."
+      },
+      {
+        "name": "Inner Ring (6 tiles)",
+        "accent": "#7c3aed",
+        "icon": "\ud83d\udc80",
+        "desc": "Valley of Fire, Crypt, Death, Werewolf's Den, Mines, and Vampire's Tower. Move one adjacent tile only. Discard a talisman at Valley of Fire to reach the ending."
+      }
+    ],
+    "hooks": [
+      {
+        "name": "Tile definitions",
+        "desc": "61 tiles across 5 regions with encounter types, draw counts, and movement restrictions. Add new tiles, swap regions, or create themed sets."
+      },
+      {
+        "name": "Ending tiles",
+        "desc": "8 interchangeable ending scenarios (Crown of Command, Battle Royale, Dragon King, etc.). Design new endings or rebalance existing ones."
+      },
+      {
+        "name": "Movement rules",
+        "desc": "Per-region dice (D4/D3/adjacent), access restrictions, and river/desert crossing rules. Change the pacing or add new traversal mechanics."
+      },
+      {
+        "name": "Warlock Quests",
+        "desc": "D20 quest table replacing original warlock cave. Add quests, change rewards, or tie them to specific tile encounters."
+      }
+    ]
+  },
+  "econopoly": {
+    "slug": "econopoly",
+    "title": "Econopoly",
+    "accent": "green",
+    "heroImage": "/img/econopoly-logo.png",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#0a1f0a 0%,#0d2a0d 40%,#000 100%)",
+      "hexGrid": "hex-grid-green.svg",
+      "textColor": "#4db83a",
+      "textShadow": "0 0 8px rgba(58,153,40,0.5)",
+      "bloom": null
+    },
+    "stats": [
+      [
+        "Players",
+        "2\u20136"
+      ],
+      [
+        "Time",
+        "60 min"
+      ],
+      [
+        "Age",
+        "10+"
+      ],
+      [
+        "Cards",
+        "108"
+      ],
+      [
+        "Version",
+        "v0.2.0"
+      ],
+      [
+        "Status",
+        "In development"
+      ],
+      [
+        "Updated",
+        "Jun 2026"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Read Rules",
+          "rules:econopoly",
+          "green"
+        ],
+        [
+          "GitHub",
+          "https://github.com/Moddable-Games/moddable-rules",
+          "outline-dark"
+        ]
+      ],
+      "cta": []
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Choose your action",
+        "body": "On your turn you may either move, trade, or build. Not all three. Every turn becomes a meaningful decision instead of a passive dice-roll loop."
+      },
+      {
+        "n": "02",
+        "title": "Collect resources",
+        "body": "Land on Chance to draw from the Resource Deck. Combine resources into linked sets (pairs, triplets, groups) to score victory points at train stations."
+      },
+      {
+        "n": "03",
+        "title": "React to events",
+        "body": "Three active Event cards change the rules each game. Crisis events wipe cash or hotels. Contract events reward specific strategies with VP."
+      },
+      {
+        "n": "04",
+        "title": "Score victory points",
+        "body": "Game ends when someone goes bankrupt or a deck empties. Most VP wins. No player elimination, no two-hour death spirals."
+      }
+    ],
+    "factions": [
+      {
+        "name": "Financial (Diamonds)",
+        "accent": "#0c8dd1",
+        "icon": "\ud83d\udcb0",
+        "desc": "Stock market events, mortgage contracts, and cash-crisis scenarios. Rewards players who manipulate the economy."
+      },
+      {
+        "name": "Transportation (Clubs)",
+        "accent": "#14161c",
+        "icon": "\ud83d\ude82",
+        "desc": "Train station modifiers, delivery contracts, and movement bonuses. Controls how resources flow across the board."
+      },
+      {
+        "name": "Residential (Hearts)",
+        "accent": "#d11a1a",
+        "icon": "\ud83c\udfe0",
+        "desc": "Town hall rules, jail modifiers, and housing contracts. Rewards players who build strategically."
+      },
+      {
+        "name": "Construction (Spades)",
+        "accent": "#3a9928",
+        "icon": "\ud83d\udea7",
+        "desc": "Planning permissions, building contracts, and hotel bonuses. Controls what can be built and how."
+      }
+    ],
+    "hooks": [
+      {
+        "name": "Event Deck (54 cards)",
+        "desc": "Four suits of events (Financial, Transport, Residential, Construction) plus crisis cards and jokers. Rebalance, add themed events, or create expansion packs."
+      },
+      {
+        "name": "Resource Deck (52 cards)",
+        "desc": "Four resource types with linked-set scoring rules. Change set requirements, add new resource types, or adjust point values."
+      },
+      {
+        "name": "Linked Resources",
+        "desc": "Scoring combos from pairs to organised groups. Modify what combinations score, their VP values, and station exchange rules."
+      },
+      {
+        "name": "Train Station rules",
+        "desc": "Pay-to-ride and delivery mechanics replace standard rent. Change costs, add new station actions, or link to events."
+      }
+    ],
+    "components": [
+      {
+        "kind": "Required",
+        "list": [
+          "Monopoly base game (any edition)",
+          "Standard property cards and money",
+          "All player tokens and dice"
+        ]
+      },
+      {
+        "kind": "Printable",
+        "list": [
+          "Event deck \u2014 54 cards (PDF, included)",
+          "Resource deck \u2014 52 cards (PDF, included)",
+          "Victory point reference card"
+        ]
+      },
+      {
+        "kind": "House",
+        "list": [
+          "Pen, paper, and envelope for blind bids",
+          "Tokens for victory point tracking",
+          "Standard 2d6"
+        ]
+      }
+    ]
+  },
+  "hyper-imperium": {
+    "slug": "hyper-imperium",
+    "title": "Hyper Imperium",
+    "accent": "green",
+    "heroImage": "/img/hyper-imperium-logo.png",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#0a1f0a 0%,#0d2a0d 40%,#000 100%)",
+      "hexGrid": "hex-grid-green.svg",
+      "textColor": "#4db83a",
+      "textShadow": "0 0 8px rgba(58,153,40,0.5)",
+      "bloom": null
+    },
+    "stats": [
+      [
+        "Players",
+        "4\u20136"
+      ],
+      [
+        "Time",
+        "4\u20136 hr"
+      ],
+      [
+        "Age",
+        "14+"
+      ],
+      [
+        "Modules",
+        "5"
+      ],
+      [
+        "Version",
+        "v0.7.0"
+      ],
+      [
+        "Status",
+        "In development"
+      ],
+      [
+        "Updated",
+        "Jun 2026"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Read Rules",
+          "rules:hyper-imperium",
+          "green"
+        ],
+        [
+          "TI4 Tools",
+          "/tools/ti/",
+          "outline-dark"
+        ]
+      ],
+      "cta": []
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Explore blind systems",
+        "body": "Systems start hidden. Move into unknown space to draw from the Undiscovered Deck, or explore from a distance and receive a commodity instead."
+      },
+      {
+        "n": "02",
+        "title": "Trade freely",
+        "body": "Trade anything with anyone, as long as both parties hold each other's promissory notes. Forced note exchange at setup ensures everyone can trade from round one."
+      },
+      {
+        "n": "03",
+        "title": "Score shared secrets",
+        "body": "When you score a secret objective (worth 2 VP), it becomes a public objective anyone can score. At least one extra VP opportunity opens every round."
+      },
+      {
+        "n": "04",
+        "title": "Vote blind on agendas",
+        "body": "Draw influence cards from the Influence Deck instead of spending planet influence directly. The Speaker plays personal agendas and draws from the Discussion Deck."
+      }
+    ],
+    "factions": [
+      {
+        "name": "The Remnant",
+        "accent": "#7c3aed",
+        "icon": "\ud83d\udd73\ufe0f",
+        "desc": "Emerged from hyperspace millennia ago. 3 planets, high commodities, flagship moves through hyperlanes. Infantry with cannon attacks."
+      },
+      {
+        "name": "The Wanderers",
+        "accent": "#0c8dd1",
+        "icon": "\ud83e\udd85",
+        "desc": "Bird-like nomads worshipping a giant wormhole. 1 planet, tech-focused. Flagship creates the Yamma Wormhole. Agent explores systems."
+      },
+      {
+        "name": "Mercenary Factions",
+        "accent": "#b08d2d",
+        "icon": "\u2699\ufe0f",
+        "desc": "Build your own faction from scratch with 100 points. Choose planets, commodities, tech, flagship abilities, leaders, and unit upgrades."
+      },
+      {
+        "name": "The Five Hypers",
+        "accent": "#3a9928",
+        "icon": "\u26a1",
+        "desc": "Five modular rule changes playable in any combination: Movement, Trades, Objectives, Factions, and Agendas. Mix and match per session."
+      }
+    ],
+    "hooks": [
+      {
+        "name": "Faction Builder (100 pts)",
+        "desc": "Full point-buy system for custom factions: planets, commodities, tech, flagship, mech, leaders, promissory note, and unit upgrades."
+      },
+      {
+        "name": "Discussion Deck (6 cards)",
+        "desc": "Controls whether additional agendas fire each round. Rewrite cards to change political pacing or add new speaker dilemmas."
+      },
+      {
+        "name": "Personal Agenda Deck",
+        "desc": "Hidden agenda topics that can be traded, played by the speaker, or drawn from the deck. Add new agenda effects or rebalance existing ones."
+      },
+      {
+        "name": "Undiscovered Deck",
+        "desc": "One card per system tile, drawn when exploring. Controls board generation, hyperlane placement, and lost-in-hyperspace mechanics."
+      }
+    ]
+  },
+  "moddable-chess": {
+    "slug": "moddable-chess",
+    "title": "Moddable Chess",
+    "accent": "blue",
+    "heroImage": "/img/moddable-chess-cube.svg",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#0a0d2a 0%,#0c2e5a 40%,#000 100%)",
+      "hexGrid": "hex-grid-blue.svg",
+      "textColor": "#6fb5ff",
+      "textShadow": "0 0 8px rgba(111,181,255,0.5)",
+      "bloom": "radial-gradient(ellipse,rgba(12,79,141,0.35) 0%,transparent 65%)"
+    },
+    "stats": [
+      [
+        "Variants",
+        "70"
+      ],
+      [
+        "Players",
+        "2\u20136"
+      ],
+      [
+        "Status",
+        "Live"
+      ],
+      [
+        "Engine",
+        "v0.7.1"
+      ],
+      [
+        "Board types",
+        "4\u00d78 to 12\u00d78"
+      ],
+      [
+        "Updated",
+        "Jun 2026"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Play now",
+          "https://chess.moddable.games/play/",
+          "blue"
+        ],
+        [
+          "Browse variants",
+          "#variants-grid",
+          "outline-dark"
+        ]
+      ],
+      "cta": [],
+      "extra": {
+        "engine-cta": [
+          [
+            "Try the engine",
+            "https://chess.moddable.games/",
+            "blue"
+          ],
+          [
+            "View on GitHub",
+            "https://github.com/Moddable-Games/moddable-chess",
+            "outline-dark"
+          ]
+        ]
+      }
+    },
+    "variants": [
+      {
+        "n": "01",
+        "title": "Standard + Classics",
+        "body": "Regular chess plus Fischer Random, No Castling, and Torpedo \u2014 familiar rules with one twist each."
+      },
+      {
+        "n": "02",
+        "title": "Alternate Win Conditions",
+        "body": "King of the Hill, Three-Check, Racing Kings, Extinction \u2014 different paths to victory."
+      },
+      {
+        "n": "03",
+        "title": "Chaos Variants",
+        "body": "Atomic, Duck Chess, Fog of War, Horde, Rifle \u2014 explosive mechanics that shatter standard strategy."
+      },
+      {
+        "n": "04",
+        "title": "Big Boards",
+        "body": "Capablanca (10\u00d78), Grand (10\u00d710), Courier (12\u00d78) \u2014 wider boards with fairy pieces. Plus Breakthrough on 7\u00d77."
+      },
+      {
+        "n": "05",
+        "title": "Asymmetric",
+        "body": "Maharaja & Sepoys, Antichess, Marseillais \u2014 unequal forces or unequal turns. Mind-bending."
+      },
+      {
+        "n": "06",
+        "title": "Dungeon Chess",
+        "body": "Our most ambitious variant \u2014 four asymmetric factions, XP drafting, cannon mechanics, and modular dungeon boards. A total conversion of chess.",
+        "href": "/mods/dungeon-chess/",
+        "accent": "green"
+      }
+    ],
+    "features": [
+      "Private sessions",
+      "Cross-device",
+      "Async play"
+    ],
+    "hooks": [
+      {
+        "name": "board.lua",
+        "desc": "Board geometry \u2014 square, hex, or anything. Define the grid, valid positions, and rendering rules."
+      },
+      {
+        "name": "pieces.yaml",
+        "desc": "Every piece type with movement patterns, capture rules, and promotion conditions. Add new pieces or modify existing ones."
+      },
+      {
+        "name": "variants.yaml",
+        "desc": "The variant registry. Combine a board, piece set, and win condition to define a new way to play."
+      },
+      {
+        "name": "ai.lua",
+        "desc": "Bot behavior for each variant. The teaching engine learns from every game played \u2014 human or bot."
+      }
+    ],
+    "communityLabel": "Supported variants.",
+    "community": [
+      {
+        "category": "Conversion",
+        "baseGame": "Chess",
+        "title": "Fog of War Chess",
+        "body": "Players see only squares their pieces can move to. No checks, no checkmates \u2014 capture the king to win. Invented 1989.",
+        "stats": "2 players \u00b7 20\u201340 min \u00b7 10+"
+      },
+      {
+        "category": "Reskin",
+        "baseGame": "Chess",
+        "title": "4-Player Chess",
+        "body": "Four armies on a cross-shaped board. Free-for-all or 2v2 teams. The de facto standard for multiplayer chess.",
+        "stats": "4 players \u00b7 30 min \u00b7 10+"
+      },
+      {
+        "category": "Conversion",
+        "baseGame": "Chess",
+        "title": "Hexagonal Chess (Glinski)",
+        "body": "91 hexagonal cells, 9 pawns per side, bishops on three cell colours. W\u0142adys\u0142aw Gli\u0144ski, 1936.",
+        "stats": "2 players \u00b7 30\u201360 min \u00b7 12+"
+      },
+      {
+        "category": "Conversion",
+        "baseGame": "Chess",
+        "title": "Alice Chess",
+        "body": "Two boards, one army. Pieces transfer to the other board after each move. Conceived by V.R. Parton, 1953.",
+        "stats": "2 players \u00b7 30\u201345 min \u00b7 12+"
+      },
+      {
+        "category": "Conversion",
+        "baseGame": "Chess",
+        "title": "Capablanca Chess",
+        "body": "10\u00d78 board with two new pieces: Archbishop (bishop+knight) and Chancellor (rook+knight). Jos\u00e9 Capablanca, 1920s.",
+        "stats": "2 players \u00b7 45\u201390 min \u00b7 12+"
+      },
+      {
+        "category": "Conversion",
+        "baseGame": "Chess",
+        "title": "Courier Chess",
+        "body": "Medieval 12\u00d78 variant with 24 pieces per side including couriers and sages. Documented since 1202.",
+        "stats": "2 players \u00b7 60\u201390 min \u00b7 14+"
+      },
+      {
+        "category": "Conversion",
+        "baseGame": "Chess",
+        "title": "Omega Chess",
+        "body": "10\u00d710 board plus corner squares. Adds Champion (knight+king area) and Wizard (camel+ferz). Daniel MacDonald, 1992.",
+        "stats": "2 players \u00b7 45\u201390 min \u00b7 12+"
+      },
+      {
+        "category": "Conversion",
+        "baseGame": "Chess",
+        "title": "Grand Chess",
+        "body": "10\u00d710 board with Archbishop and Chancellor. No castling, pawns promote on rank 8 or 9. Christian Freeling, 1984.",
+        "stats": "2 players \u00b7 45\u201375 min \u00b7 12+"
+      },
+      {
+        "category": "Conversion",
+        "baseGame": "Chess",
+        "title": "XiangQi (Chinese Chess)",
+        "body": "9\u00d710 board with river and palace. Cannons capture by jumping, generals face off across the board. Over 1000 years old.",
+        "stats": "2 players \u00b7 30\u201360 min \u00b7 10+"
+      },
+      {
+        "category": "Reskin",
+        "baseGame": "Chess",
+        "title": "3-Board Chess",
+        "body": "Three standard boards side by side. Pieces can move between boards along shared edges. Multiplayer spatial chaos.",
+        "stats": "3 players \u00b7 45\u201360 min \u00b7 12+"
+      },
+      {
+        "category": "Reskin",
+        "baseGame": "Chess",
+        "title": "4-Board Chess",
+        "body": "Four boards in a 2\u00d72 grid. Pieces transfer between boards at shared edges. Team or free-for-all.",
+        "stats": "4 players \u00b7 60\u201390 min \u00b7 12+"
+      }
+    ]
+  },
+  "nukes-siege": {
+    "slug": "nukes-siege",
+    "title": "Nukes: Siege",
+    "accent": "red",
+    "heroImage": "/img/nukes-logo.png",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#2a0a0a 0%,#3a0d0d 40%,#000 100%)",
+      "hexGrid": "hex-grid-red.svg",
+      "textColor": "#e63232",
+      "textShadow": "0 0 8px rgba(230,50,50,0.5)",
+      "bloom": "radial-gradient(ellipse,rgba(209,26,26,0.35) 0%,transparent 65%)"
+    },
+    "stats": [
+      [
+        "Players",
+        "2"
+      ],
+      [
+        "Time",
+        "90 min"
+      ],
+      [
+        "Age",
+        "14+"
+      ],
+      [
+        "Base game",
+        "Nukes"
+      ],
+      [
+        "Designer",
+        "The House"
+      ],
+      [
+        "Version",
+        "v1.0.0"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Read Rules",
+          "rules:nukes/variants/siege",
+          "red"
+        ],
+        [
+          "View Nukes",
+          "/games/nukes/",
+          "outline-dark"
+        ]
+      ],
+      "cta": [
+        [
+          "View Nukes \u2192",
+          "/games/nukes/",
+          "outline-dark"
+        ]
+      ]
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Deploy from reserve",
+        "body": "Return 1\u20133 of your own tokens from your off-board supply onto regions where you already have units. Each return earns one move. Your city starts with 4 units; your supply starts with 21."
+      },
+      {
+        "n": "02",
+        "title": "Build through combat",
+        "body": "The only way to get hostages is to capture them mid-game. Win combat with excess strength and take enemy units into your supply for future turns."
+      },
+      {
+        "n": "03",
+        "title": "Two economies emerge",
+        "body": "Your own supply tokens fuel early expansion. Enemy hostages, once captured, fuel rapid strikes. Both follow the same return-to-move mechanic but come from different places."
+      },
+      {
+        "n": "04",
+        "title": "The endgame is familiar",
+        "body": "Bases, isotopes, nuclear strikes, and Meltdowns all work identically to standard Nukes. Siege changes how you get there, not what you're fighting over."
+      }
+    ],
+    "hooks": [
+      {
+        "name": "Own supply \u2192 own moves",
+        "desc": "Return your own tokens to build your force. The hostage economy only activates once you've won combat and taken enemy units."
+      },
+      {
+        "name": "Capture to escalate",
+        "desc": "Every unit you take in combat becomes a hostage you can return on future turns. Combat is now both offensive and economic."
+      }
+    ],
+    "community": []
+  },
+  "nukes-asymmetric-powers": {
+    "slug": "nukes-asymmetric-powers",
+    "title": "Nukes: Asymmetric Powers",
+    "accent": "green",
+    "heroImage": "/img/nukes-logo.png",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#0a2a0a 0%,#0d3a0d 40%,#000 100%)",
+      "hexGrid": "hex-grid-green.svg",
+      "textColor": "#4eb735",
+      "textShadow": "0 0 8px rgba(78,183,53,0.5)",
+      "bloom": "radial-gradient(ellipse,rgba(58,153,40,0.25) 0%,transparent 65%)"
+    },
+    "stats": [
+      [
+        "Players",
+        "2\u20133"
+      ],
+      [
+        "Time",
+        "60 min"
+      ],
+      [
+        "Age",
+        "12+"
+      ],
+      [
+        "Base game",
+        "Nukes"
+      ],
+      [
+        "Designer",
+        "The House"
+      ],
+      [
+        "Version",
+        "v1.0.0"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Read Rules",
+          "rules:nukes/variants/asymmetric-powers",
+          "green"
+        ],
+        [
+          "View Nukes",
+          "/games/nukes/",
+          "outline-dark"
+        ]
+      ],
+      "cta": [
+        [
+          "View Nukes \u2192",
+          "/games/nukes/",
+          "outline-dark"
+        ]
+      ]
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Draw your power",
+        "body": "Before setup, each player draws a Power Card. Reveal simultaneously. Powers are public from that point on."
+      },
+      {
+        "n": "02",
+        "title": "Play standard Nukes",
+        "body": "The hostage economy, fluid platoons, biome rules, and nuclear mechanics are identical to the base game."
+      },
+      {
+        "n": "03",
+        "title": "Exploit your asymmetry",
+        "body": "Covert Network enables aggressive repositioning of enemy forces. Arms Industry enables faster nuclear escalation. Airborne Corps enables longer slingshot chains and harder-to-predict troop movements."
+      },
+      {
+        "n": "04",
+        "title": "Read your opponents",
+        "body": "Knowing their power changes how you play. An Arms Industry opponent needs to be pressured before their isotope count grows. A Covert Network opponent threatens to strand your units in hostile terrain."
+      }
+    ],
+    "hooks": [
+      {
+        "name": "One power per player",
+        "desc": "Covert Network, Arms Industry, or Airborne Corps. Draw blind at setup. All three remain public once revealed."
+      },
+      {
+        "name": "Same rules, different leverage",
+        "desc": "Standard Nukes underneath. The power card changes one rule for you specifically \u2014 not a house rule, an asymmetry."
+      }
+    ],
+    "community": []
+  },
+  "nukes-fallout": {
+    "slug": "nukes-fallout",
+    "title": "Nukes: Fallout",
+    "accent": "blue",
+    "heroImage": "/img/nukes-logo.png",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#0a0d2a 0%,#0c2e5a 40%,#000 100%)",
+      "hexGrid": "hex-grid-blue.svg",
+      "textColor": "#6fb5ff",
+      "textShadow": "0 0 8px rgba(111,181,255,0.5)",
+      "bloom": "radial-gradient(ellipse,rgba(12,79,141,0.35) 0%,transparent 65%)"
+    },
+    "stats": [
+      [
+        "Players",
+        "2\u20133"
+      ],
+      [
+        "Time",
+        "60 min"
+      ],
+      [
+        "Age",
+        "12+"
+      ],
+      [
+        "Base game",
+        "Nukes"
+      ],
+      [
+        "Designer",
+        "The House"
+      ],
+      [
+        "Version",
+        "v1.0.0"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "Read Rules",
+          "rules:nukes/variants/fallout",
+          "blue"
+        ],
+        [
+          "View Nukes",
+          "/games/nukes/",
+          "outline-dark"
+        ]
+      ],
+      "cta": [
+        [
+          "View Nukes \u2192",
+          "/games/nukes/",
+          "outline-dark"
+        ]
+      ]
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "The board degrades",
+        "body": "Every nuclear strike or Meltdown creates a Biohazard that will spread each round. The map shrinks from the sites of past violence."
+      },
+      {
+        "n": "02",
+        "title": "Early nukes poison the centre",
+        "body": "Launching nuclear strikes on contested central territory in mid-game may cut off your own movement corridors by late game."
+      },
+      {
+        "n": "03",
+        "title": "Territory becomes precious",
+        "body": "As Biohazard zones spread, viable regions for Infantry chaining, Artillery jumping, and Airborne landing shrink. Late game forces confrontations neither player planned."
+      },
+      {
+        "n": "04",
+        "title": "Win before the map does",
+        "body": "City destruction remains the win condition. But a long game of attrition now ends with both armies squeezed into an ever-smaller safe zone."
+      }
+    ],
+    "hooks": [
+      {
+        "name": "Biohazard spreads",
+        "desc": "Each round, every existing Biohazard tile converts one adjacent non-city tile. The first player chooses direction. Newly converted tiles don't spread until next round."
+      },
+      {
+        "name": "City tiles are immune",
+        "desc": "Spread cannot convert city tiles. Cities can still be destroyed by direct nuke or Meltdown \u2014 they just don't become Biohazard from adjacency."
+      }
+    ],
+    "community": []
+  },
+  "moddable-hexmaps": {
+    "slug": "moddable-hexmaps",
+    "title": "Moddable Hexmaps",
+    "accent": "green",
+    "heroImage": "/img/moddable-hexmaps-cube.svg",
+    "colors": {
+      "gradient": "linear-gradient(180deg,#0a0d2a 0%,#1a4a20 40%,#000 100%)",
+      "hexGrid": "hex-grid-green.svg",
+      "textColor": "#3a9928",
+      "textShadow": "",
+      "bloom": "radial-gradient(ellipse,rgba(58,153,40,0.35) 0%,transparent 65%)"
+    },
+    "stats": [
+      [
+        "Games",
+        "6"
+      ],
+      [
+        "Renderer",
+        "Canvas"
+      ],
+      [
+        "Styles",
+        "4"
+      ],
+      [
+        "Consumers",
+        "4"
+      ],
+      [
+        "Engine",
+        "v0.5.1"
+      ],
+      [
+        "Status",
+        "Live"
+      ]
+    ],
+    "buttons": {
+      "hero": [
+        [
+          "hex.moddable.games",
+          "https://hex.moddable.games/",
+          "green"
+        ],
+        [
+          "GitHub",
+          "https://github.com/Moddable-Games/moddable-hexmaps",
+          "outline-dark"
+        ]
+      ],
+      "cta": [
+        [
+          "Try Engine",
+          "https://hex.moddable.games/generate/",
+          "green"
+        ],
+        [
+          "Read Docs",
+          "https://hex.moddable.games/docs/",
+          "outline-dark"
+        ]
+      ]
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Nukes",
+        "body": "Cold-war hex maps with land, sea, and contested territories. Three superpowers carving up the world.",
+        "href": "/games/nukes/"
+      },
+      {
+        "n": "02",
+        "title": "Talisman Worlds",
+        "body": "Fantasy adventure on hex terrain. Inner, middle, and outer rings with terrain-specific encounters.",
+        "href": "/mods/talisman-worlds/"
+      },
+      {
+        "n": "03",
+        "title": "Colony",
+        "body": "Resource extraction on alien worlds. Procedural hex terrain with biomes, hazards, and contested mining sites.",
+        "href": "https://hex.moddable.games/generate/?game=colony"
+      },
+      {
+        "n": "04",
+        "title": "Twilight Imperium",
+        "body": "Galactic hex maps from the TI4 tile pool. Balanced placement for competitive play.",
+        "href": "/tools/ti/"
+      },
+      {
+        "n": "05",
+        "title": "Endless Skies",
+        "body": "Cooperative airship exploration across procedurally generated sky islands and floating territories.",
+        "href": "/games/endless-skies/"
+      },
+      {
+        "n": "06",
+        "title": "Planet Mongo",
+        "body": "Fast-paced faction battles on a shared hex world. Seeded terrain with resource nodes and contested borders.",
+        "href": "/games/planet-mongo/"
+      }
+    ],
+    "features": [
+      "Canvas renderer",
+      "Seeded RNG",
+      "JSON export",
+      "Editor mode",
+      "URL sharing"
+    ],
+    "variants": [
+      {
+        "n": "CLASSIC",
+        "title": "Classic",
+        "body": "Flat-colour hexes with clean borders. Fast to render, easy to read at any zoom level."
+      },
+      {
+        "n": "KENNEY",
+        "title": "Kenney",
+        "body": "Tile sprites from the Kenney asset pack. Crisp pixel art with consistent proportions."
+      },
+      {
+        "n": "ARTISTIC",
+        "title": "Artistic",
+        "body": "Hand-painted tile textures for each terrain type. Immersive and richly detailed."
+      },
+      {
+        "n": "REALISTIC",
+        "title": "Realistic",
+        "body": "Photo-based terrain tiles. High-fidelity rendering for presentation and export."
+      }
+    ],
+    "community": [
+      {
+        "title": "Nukes",
+        "body": "Cold-war territory control on a hex map. Hostages fuel your moves but reinforce your enemy.",
+        "href": "/games/nukes/",
+        "accent": "#d11a1a"
+      },
+      {
+        "title": "Colony",
+        "body": "Resource extraction on alien worlds. Procedural terrain with biomes, hazards, and contested mining sites.",
+        "href": "https://hex.moddable.games/generate/?game=colony",
+        "accent": "#3a9928"
+      },
+      {
+        "title": "TI4 Map Generator",
+        "body": "Balanced galactic hex maps from the full Twilight Imperium tile pool.",
+        "href": "/tools/ti/",
+        "accent": "#0c4f8d"
+      },
+      {
+        "title": "Talisman Tools",
+        "body": "Fantasy hex board generator with inner, middle, and outer ring terrain.",
+        "href": "/tools/talisman/",
+        "accent": "#3a9928"
+      }
+    ],
+    "communityLabel": "Consumers using the hex engine."
+  }
+}

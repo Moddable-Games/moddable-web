@@ -3,18 +3,19 @@ CLAUDE.md
 .DS_Store
 
 # Generated output (built by Cloudflare Pages on deploy)
-index.html
-404.html
-about/
-community/
-developers/
-engines/
-games/
-mods/
-news/
-press/
-submit/
-subscribe/
-team/
-tools/
+/index.html
+/404.html
+/about/
+/community/
+/developers/
+/engines/
+/games/
+/mods/
+/news/
+/press/
+/submit/
+/subscribe/
+/team/
+/tools/
 css/page-*.css
+build/__pycache__/

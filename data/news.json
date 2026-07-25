@@ -4,7 +4,12 @@
     "read_article": "Read the article",
     "hot_topics": "HOT TOPICS",
     "archive": "ARCHIVE",
-    "search_placeholder": "Search the archive..."
+    "search_placeholder": "Search the archive...",
+    "back_label": "All posts",
+    "toc_heading": "IN THIS POST",
+    "share_heading": "SHARE",
+    "topics_heading": "TOPICS",
+    "more_heading": "More from the archive"
   },
   "items": [
     {
