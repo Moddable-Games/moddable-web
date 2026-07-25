@@ -33,72 +33,33 @@
   </div>
 </section>{{/if}}
 
-{{#if detail.steps}}<section class="mg-section mg-section--light">
+{{#each detail.sections}}
+{{#if type "steps"}}
+<section class="mg-section mg-section--{{bg}}">
   <div class="mg-container">
-    <h2 class="mg-heading-xl">{{detail.steps_heading}}</h2>
-    <div class="mg-grid-4">
-      {{#each detail.steps}}<article class="mg-card">
+    {{#if eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{eyebrow_color}}{{#if centered}} mg-text-center{{/if}}">{{eyebrow}}</div>{{/if}}
+    <h2 class="{{heading_class}}{{#if centered}} mg-text-center{{/if}}">{{heading}}</h2>
+    {{#if sub}}<p class="mg-body-sub{{#if centered}} mg-text-center{{/if}}">{{sub}}</p>{{/if}}
+    <div class="{{grid}}">
+      {{#each items}}<article class="mg-card">
         <div class="mg-card__eyebrow mg-eyebrow--{{eyebrow_color}}">{{n}}</div>
         <h3 class="mg-card__title">{{title}}</h3>
         <p class="mg-card__body">{{body}}</p>
-        {{#if href}}<a href="{{href}}" class="mg-card__link">{{link_label}}</a>{{/if}}
+        {{#if href}}<a href="{{href}}" class="mg-card__link"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{link_label}}</a>{{/if}}
       </article>{{/each}}
     </div>
   </div>
-</section>{{/if}}
+</section>
+{{/if}}
 
-{{#if detail.variants}}<section class="mg-section mg-section--light">
+{{#if type "factions"}}
+<section class="mg-section mg-section--{{bg}}">
   <div class="mg-container">
-    <h2 class="mg-heading-xl">{{detail.variants_heading}}</h2>
-    <div class="mg-grid-3">
-      {{#each detail.variants}}<article class="mg-card{{#if featured}} mg-card--featured{{/if}}">
-        <div class="mg-card__eyebrow mg-eyebrow--{{eyebrow_color}}">{{n}}</div>
-        <h3 class="mg-card__title">{{title}}</h3>
-        <p class="mg-card__body">{{body}}</p>
-        {{#if href}}<a href="{{href}}" class="mg-card__link">{{link_label}}</a>{{/if}}
-      </article>{{/each}}
-    </div>
-  </div>
-</section>{{/if}}
-
-{{#if detail.dark_center}}<section class="mg-dark-center">
-  {{#if detail.dark_center.bloom}}<div class="mg-dark-center__bloom" style="background: {{{detail.dark_center.bloom}}}"></div>{{/if}}
-  <div class="mg-dark-center__inner">
-    {{#if detail.dark_center.eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{detail.dark_center.eyebrow_color}}">{{detail.dark_center.eyebrow}}</div>{{/if}}
-    <h2 class="mg-dark-center__heading">{{{detail.dark_center.heading}}}</h2>
-    {{#if detail.dark_center.body}}<p class="mg-dark-center__body">{{{detail.dark_center.body}}}</p>{{/if}}
-    {{#if detail.dark_center.pills}}<div class="mg-dark-center__pills">
-      {{#each detail.dark_center.pills}}<span class="mg-dark-center__pill">{{this}}</span>{{/each}}
-    </div>{{/if}}
-    {{#if detail.dark_center.buttons}}<div class="mg-dark-center__cta">
-      {{#each detail.dark_center.buttons}}<a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>{{/each}}
-    </div>{{/if}}
-  </div>
-</section>{{/if}}
-
-{{#if detail.hooks}}<section class="mg-section mg-section--light">
-  <div class="mg-container">
-    <div class="mg-eyebrow mg-eyebrow--{{detail.eyebrow_color}}">{{detail.hooks_eyebrow}}</div>
-    <h2 class="mg-heading-lg">{{detail.hooks_heading}}</h2>
-    {{#if detail.hooks_body}}<p class="mg-body-sub">{{detail.hooks_body}}</p>{{/if}}
-    <div class="mg-grid-2">
-      {{#each detail.hooks}}<div class="mg-card mg-card--light mg-card--row">
-        <div class="mg-card__icon" style="background: {{accent_color}}">&#x25C8;</div>
-        <div>
-          <div class="mg-card__mono-title" style="color: {{accent_color}}">{{name}}</div>
-          <div class="mg-card__desc">{{desc}}</div>
-        </div>
-      </div>{{/each}}
-    </div>
-  </div>
-</section>{{/if}}
-
-{{#if detail.factions}}<section class="mg-section mg-section--white">
-  <div class="mg-container">
-    <div class="mg-eyebrow mg-eyebrow--{{detail.eyebrow_color}}">{{detail.factions_eyebrow}}</div>
-    <h2 class="mg-heading-lg">{{detail.factions_heading}}</h2>
-    <div class="mg-grid-2">
-      {{#each detail.factions}}<div class="mg-card mg-card--light mg-card--row">
+    {{#if eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{eyebrow_color}}">{{eyebrow}}</div>{{/if}}
+    <h2 class="mg-heading-lg">{{heading}}</h2>
+    {{#if sub}}<p class="mg-body-sub">{{sub}}</p>{{/if}}
+    <div class="{{grid}}">
+      {{#each items}}<div class="mg-card mg-card--light mg-card--row">
         <div class="mg-card__icon" style="background: {{accent}}">{{icon}}</div>
         <div>
           <div class="mg-card__mono-title" style="color: {{accent}}">{{name}}</div>
@@ -107,14 +68,53 @@
       </div>{{/each}}
     </div>
   </div>
-</section>{{/if}}
+</section>
+{{/if}}
 
-{{#if detail.components}}<section class="mg-section mg-section--light">
+{{#if type "hooks"}}
+<section class="mg-section mg-section--{{bg}}">
   <div class="mg-container">
-    <div class="mg-eyebrow mg-eyebrow--{{detail.eyebrow_color}}">{{detail.components_eyebrow}}</div>
-    <h2 class="mg-heading-lg">{{detail.components_heading}}</h2>
-    <div class="mg-grid-3">
-      {{#each detail.components}}<div class="mg-card">
+    {{#if eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{eyebrow_color}}">{{eyebrow}}</div>{{/if}}
+    <h2 class="mg-heading-lg">{{heading}}</h2>
+    {{#if sub}}<p class="mg-body-sub">{{sub}}</p>{{/if}}
+    <div class="{{grid}}">
+      {{#each items}}<div class="mg-card mg-card--light mg-card--row">
+        <div class="mg-card__icon" style="background: {{accent_color}}">&#x25C8;</div>
+        <div>
+          <div class="mg-card__mono-title" style="color: {{accent_color}}">{{name}}</div>
+          <div class="mg-card__desc">{{desc}}</div>
+        </div>
+      </div>{{/each}}
+    </div>
+  </div>
+</section>
+{{/if}}
+
+{{#if type "variants"}}
+<section class="mg-section mg-section--{{bg}}">
+  <div class="mg-container">
+    {{#if eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{eyebrow_color}}">{{eyebrow}}</div>{{/if}}
+    <h2 class="mg-heading-xl">{{{heading}}}</h2>
+    {{#if sub}}<p class="mg-body-sub">{{sub}}</p>{{/if}}
+    <div class="{{grid}}">
+      {{#each items}}<article class="mg-card{{#if featured}} mg-card--featured{{/if}}">
+        <div class="mg-card__eyebrow mg-eyebrow--{{eyebrow_color}}">{{n}}</div>
+        <h3 class="mg-card__title">{{title}}</h3>
+        <p class="mg-card__body">{{body}}</p>
+        {{#if href}}<a href="{{href}}" class="mg-card__link"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{link_label}}</a>{{/if}}
+      </article>{{/each}}
+    </div>
+  </div>
+</section>
+{{/if}}
+
+{{#if type "components"}}
+<section class="mg-section mg-section--{{bg}}">
+  <div class="mg-container">
+    {{#if eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{eyebrow_color}}">{{eyebrow}}</div>{{/if}}
+    <h2 class="mg-heading-xl">{{heading}}</h2>
+    <div class="{{grid}}">
+      {{#each items}}<div class="mg-card">
         <div class="mg-card__eyebrow mg-eyebrow--{{eyebrow_color}}">{{kind_upper}}</div>
         <ul class="component-list">
           {{#each list}}<li class="component-list__item">
@@ -124,25 +124,57 @@
       </div>{{/each}}
     </div>
   </div>
-</section>{{/if}}
+</section>
+{{/if}}
 
-{{#if detail.community}}<section class="mg-section mg-section--light">
+{{#if type "dark_center"}}
+<section class="mg-dark-center">
+  {{#if bloom}}<div class="mg-dark-center__bloom" style="background: {{{bloom}}}"></div>{{/if}}
+  <div class="mg-dark-center__inner">
+    {{#if eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{eyebrow_color}}">{{eyebrow}}</div>{{/if}}
+    <h2 class="mg-dark-center__heading">{{{heading}}}</h2>
+    {{#if body}}<p class="mg-dark-center__body">{{{body}}}</p>{{/if}}
+    {{#if pills}}<div class="mg-dark-center__pills">
+      {{#each pills}}<span class="mg-dark-center__pill">{{this}}</span>{{/each}}
+    </div>{{/if}}
+    {{#if buttons}}<div class="mg-dark-center__cta">
+      {{#each buttons}}<a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>{{/each}}
+    </div>{{/if}}
+  </div>
+</section>
+{{/if}}
+
+{{#if type "community"}}
+<section class="mg-section mg-section--{{bg}}">
   <div class="mg-container">
-    <h2 class="mg-heading-lg">{{detail.community_heading}}</h2>
-    <div class="mg-grid-3">
-      {{#each detail.community}}{{#if href}}<a href="{{href}}" class="mg-card mg-lift"{{#if external}} target="_blank" rel="noopener"{{/if}}>
-        <div class="mg-card__eyebrow" style="color: {{category_color}}">{{category}}</div>
+    <h2 class="mg-heading-xl">{{heading}}</h2>
+    <div class="{{grid}}">
+      {{#each items}}{{#if href}}<a href="{{href}}" class="mg-card mg-lift"{{#if external}} target="_blank" rel="noopener"{{/if}}>
+        {{#if category}}<div class="mg-card__eyebrow" style="color: {{category_color}}">{{category}}</div>{{/if}}
         <h3 class="mg-card__title">{{title}}</h3>
         <p class="mg-card__body">{{body}}</p>
-        <span class="mg-card__link">{{stats}}</span>
       </a>{{/if}}{{#unless href}}<div class="mg-card">
-        <div class="mg-card__eyebrow" style="color: {{category_color}}">{{category}}</div>
+        {{#if category}}<div class="mg-card__eyebrow" style="color: {{category_color}}">{{category}}</div>{{/if}}
         <h3 class="mg-card__title">{{title}}</h3>
         <p class="mg-card__body">{{body}}</p>
-        <span class="mg-card__link">{{stats}}</span>
       </div>{{/unless}}{{/each}}
     </div>
   </div>
-</section>{{/if}}
+</section>
+{{/if}}
+
+{{#if type "embed"}}
+<section class="mg-section mg-section--{{bg}}">
+  <div class="mg-container">
+    {{#if eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{eyebrow_color}}{{#if centered}} mg-text-center{{/if}}">{{eyebrow}}</div>{{/if}}
+    <h2 class="mg-heading-lg{{#if centered}} mg-text-center{{/if}}">{{heading}}</h2>
+    {{#if sub}}<p class="mg-body-sub{{#if centered}} mg-text-center{{/if}}">{{sub}}</p>{{/if}}
+    <div class="hexmap-embed hexmap-embed--flush">
+      <div class="hexmap-embed__placeholder">{{placeholder}}</div>
+    </div>
+  </div>
+</section>
+{{/if}}
+{{/each}}
 
 {{>_foot}}

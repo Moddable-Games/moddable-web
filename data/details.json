@@ -143,7 +143,44 @@
         "source": "Moddable.Games"
       }
     ],
-    "lede": "Cold-war territory control on a hex map. Return hostages to move \u2014 but every return reinforces your enemy. Build bases, convert isotopes, and threaten nuclear annihilation. Designed to be modded from day one."
+    "lede": "Cold-war territory control on a hex map. Return hostages to move \u2014 but every return reinforces your enemy. Build bases, convert isotopes, and threaten nuclear annihilation. Designed to be modded from day one.",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "How it plays",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "dark_center",
+        "eyebrow": "NUCLEAR STRIKES",
+        "heading": "Launch from a Base. Destroy everything",
+        "body": "Any base can launch. Any region can burn. The threat is the weapon. Use it once and the table knows you'll use it again.",
+        "bloom": "radial-gradient(ellipse,rgba(209,26,26,0.35) 0%,transparent 65%)"
+      },
+      {
+        "type": "hooks",
+        "bg": "white",
+        "eyebrow": "CORE MECHANICS",
+        "heading": "Simple components. Emergent complexity",
+        "heading_class": "mg-heading-lg",
+        "sub": "44 hex tiles and 75 tokens \u2014 no miniatures, no dice, no hidden information.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "community",
+        "bg": "light",
+        "heading": "Augmented Mods by The House",
+        "heading_class": "mg-heading-xl",
+        "grid": "mg-grid-3",
+        "centered": false
+      }
+    ]
   },
   "mongo": {
     "slug": "planet-mongo",
@@ -307,7 +344,53 @@
       }
     ],
     "community": [],
-    "lede": "Hex-based territory control set in the Flash Gordon universe. 127 hex tiles, 8 asymmetric factions, hidden simultaneous orders, and a central commodity market. Designed to combine the best of Twilight Imperium and Game of Thrones: The Board Game, with deeper bluffing and trade."
+    "lede": "Hex-based territory control set in the Flash Gordon universe. 127 hex tiles, 8 asymmetric factions, hidden simultaneous orders, and a central commodity market. Designed to combine the best of Twilight Imperium and Game of Thrones: The Board Game, with deeper bluffing and trade.",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "How it plays",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "dark_center",
+        "eyebrow": "IN DEVELOPMENT",
+        "heading": "Open design. Rules not yet published",
+        "body": "Planet Mongo is in active development. Designed in the open with the community.",
+        "bloom": "radial-gradient(ellipse,rgba(58,153,40,0.35) 0%,transparent 65%)",
+        "buttons": [
+          {
+            "label": "Follow on Discord",
+            "href": "/community/",
+            "style": "green"
+          }
+        ]
+      },
+      {
+        "type": "hooks",
+        "bg": "white",
+        "eyebrow": "CORE MECHANICS",
+        "heading": "Simultaneous orders. Hidden stacks. Dynamic economy",
+        "heading_class": "mg-heading-lg",
+        "sub": "Four interlocking systems drive every round of Planet Mongo.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "factions",
+        "bg": "light",
+        "eyebrow": "FACTIONS",
+        "heading": "Eight rulers. Eight regions. Eight ways to win",
+        "heading_class": "mg-heading-lg",
+        "sub": "Each faction has a unique objective, starting position, VP formula, and stat distribution across 8 axes: Wealth, Population, Military, Science, Culture, Morale, Defense, and Biomes.",
+        "grid": "mg-grid-2",
+        "centered": false
+      }
+    ]
   },
   "endless-skies": {
     "slug": "endless-skies",
@@ -471,7 +554,53 @@
       }
     ],
     "community": [],
-    "lede": "4X space exploration with worker placement and fleet management. Command asymmetric factions across a hex-tile galaxy, placing crew in ship rooms and diplomats in space ports. Based on the open-source video game Endless Sky."
+    "lede": "4X space exploration with worker placement and fleet management. Command asymmetric factions across a hex-tile galaxy, placing crew in ship rooms and diplomats in space ports. Based on the open-source video game Endless Sky.",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "How it plays",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "dark_center",
+        "eyebrow": "IN DEVELOPMENT",
+        "heading": "Open design. Rules not yet published",
+        "body": "Endless Skies is in active development. Following the same open process as Nukes.",
+        "bloom": "radial-gradient(ellipse,rgba(12,79,141,0.35) 0%,transparent 65%)",
+        "buttons": [
+          {
+            "label": "Follow on Discord",
+            "href": "/community/",
+            "style": "blue"
+          }
+        ]
+      },
+      {
+        "type": "hooks",
+        "bg": "white",
+        "eyebrow": "CORE MECHANICS",
+        "heading": "Worker placement meets 4X exploration",
+        "heading_class": "mg-heading-lg",
+        "sub": "Four interlocking systems drive every round of Endless Skies.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "factions",
+        "bg": "light",
+        "eyebrow": "FACTIONS",
+        "heading": "Eight factions. Five tech trees. Asymmetric starts",
+        "heading_class": "mg-heading-lg",
+        "sub": "Each faction has unique starting credits, technology access, and strategic pressure. Some scale with player count, others have fixed wealth regardless of game size.",
+        "grid": "mg-grid-2",
+        "centered": false
+      }
+    ]
   },
   "dungeon-chess": {
     "slug": "dungeon-chess",
@@ -622,7 +751,49 @@
         ]
       }
     ],
-    "lede": "Chess reimagined as an asymmetric dungeon skirmish. Four factions on modular boards with unique abilities, XP drafting, and environmental hazards. Powered by the Moddable Chess Engine."
+    "lede": "Chess reimagined as an asymmetric dungeon skirmish. Four factions on modular boards with unique abilities, XP drafting, and environmental hazards. Powered by the Moddable Chess Engine.",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "How it plays",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "factions",
+        "bg": "white",
+        "eyebrow": "THE FACTIONS",
+        "heading": "Four factions. Zero symmetry",
+        "heading_class": "mg-heading-lg",
+        "sub": "Each faction brings unique units with different costs, movements, and special abilities. No two warbands play the same.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "components",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "What you'll need",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-3",
+        "centered": false
+      },
+      {
+        "type": "hooks",
+        "bg": "white",
+        "eyebrow": "MOD HOOKS",
+        "heading": "Fork the dungeon. Rewrite the rules",
+        "heading_class": "mg-heading-lg",
+        "sub": "Every game constant lives in plain JS objects you can fork and edit.",
+        "grid": "mg-grid-2",
+        "centered": false
+      }
+    ]
   },
   "talisman-worlds": {
     "slug": "talisman-worlds",
@@ -747,7 +918,49 @@
         "desc": "D20 quest table replacing original warlock cave. Add quests, change rewards, or tie them to specific tile encounters."
       }
     ],
-    "lede": "Replaces the Talisman game boards with 61 hexagonal tiles arranged in concentric rings. Every session lays out differently. Built for Talisman 4th Edition (revised)."
+    "lede": "Replaces the Talisman game boards with 61 hexagonal tiles arranged in concentric rings. Every session lays out differently. Built for Talisman 4th Edition (revised).",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "How it plays",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "factions",
+        "bg": "white",
+        "eyebrow": "THE BOARD",
+        "heading": "Four rings. One hidden ending",
+        "heading_class": "mg-heading-lg",
+        "sub": "Each ring has its own movement rules, tile types, and access restrictions. Navigate inward to reach the ending.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "embed",
+        "bg": "light",
+        "eyebrow": "GENERATE",
+        "heading": "A new board every session",
+        "heading_class": "mg-heading-lg",
+        "sub": "Powered by Moddable Hexmaps. Click hexes to reassign terrain rings.",
+        "centered": true,
+        "placeholder": "Hexmap generator embed (powered by moddable-engine)"
+      },
+      {
+        "type": "hooks",
+        "bg": "white",
+        "eyebrow": "MOD HOOKS",
+        "heading": "Remix the world. Rewrite the journey",
+        "heading_class": "mg-heading-lg",
+        "sub": "Every tile, ending, and movement rule is defined in the rulebook and hex generator.",
+        "grid": "mg-grid-2",
+        "centered": false
+      }
+    ]
   },
   "econopoly": {
     "slug": "econopoly",
@@ -898,7 +1111,49 @@
         ]
       }
     ],
-    "lede": "Transforms Monopoly into a euro-game with resource collection, blind auctions, and victory point scoring. Choose to move, trade, or build each turn. No more player elimination marathons."
+    "lede": "Transforms Monopoly into a euro-game with resource collection, blind auctions, and victory point scoring. Choose to move, trade, or build each turn. No more player elimination marathons.",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "How it plays",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "factions",
+        "bg": "white",
+        "eyebrow": "THE DECKS",
+        "heading": "Four suits. Two decks. Infinite sessions",
+        "heading_class": "mg-heading-lg",
+        "sub": "Events change the rules mid-game. Resources combine into scoring sets. Every suit has a distinct strategic flavour.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "components",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "What you'll need",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-3",
+        "centered": false
+      },
+      {
+        "type": "hooks",
+        "bg": "white",
+        "eyebrow": "MOD HOOKS",
+        "heading": "Rewrite the economy. Redesign the decks",
+        "heading_class": "mg-heading-lg",
+        "sub": "Every card, scoring rule, and station mechanic is defined in the rulebook.",
+        "grid": "mg-grid-2",
+        "centered": false
+      }
+    ]
   },
   "hyper-imperium": {
     "slug": "hyper-imperium",
@@ -1023,7 +1278,49 @@
         "desc": "One card per system tile, drawn when exploring. Controls board generation, hyperlane placement, and lost-in-hyperspace mechanics."
       }
     ],
-    "lede": "Five modular rule changes for Twilight Imperium 4e + Prophecy of Kings. 3D exploration via hidden systems, free trading with promissory notes, shared secret objectives, custom factions, and blind agenda voting."
+    "lede": "Five modular rule changes for Twilight Imperium 4e + Prophecy of Kings. 3D exploration via hidden systems, free trading with promissory notes, shared secret objectives, custom factions, and blind agenda voting.",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "How it plays",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "factions",
+        "bg": "white",
+        "eyebrow": "FACTIONS & MODULES",
+        "heading": "Two new factions. One faction builder",
+        "heading_class": "mg-heading-lg",
+        "sub": "Play the pre-built Remnant or Wanderers, build a custom faction from 100 points, or mix any combination of the five Hyper modules.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "embed",
+        "bg": "light",
+        "eyebrow": "GENERATE",
+        "heading": "Explore the galaxy",
+        "heading_class": "mg-heading-lg",
+        "sub": "Generate Hyper Imperium maps with the extra outer ring. Powered by Moddable Hexmaps.",
+        "centered": true,
+        "placeholder": "Hexmap generator embed (powered by moddable-engine)"
+      },
+      {
+        "type": "hooks",
+        "bg": "white",
+        "eyebrow": "MOD HOOKS",
+        "heading": "Design your own faction. Rewrite the agendas",
+        "heading_class": "mg-heading-lg",
+        "sub": "Every deck, faction ability, and point-buy option is defined in the rulebook.",
+        "grid": "mg-grid-2",
+        "centered": false
+      }
+    ]
   },
   "moddable-chess": {
     "slug": "moddable-chess",
@@ -1229,7 +1526,44 @@
         "stats": "4 players \u00b7 60\u201390 min \u00b7 12+"
       }
     ],
-    "lede": "74 playable variants. Five AI difficulties. Three consumer apps. The most modded game in history finally gets an open-source home."
+    "lede": "74 playable variants. Five AI difficulties. Three consumer apps. The most modded game in history finally gets an open-source home.",
+    "sections": [
+      {
+        "type": "variants",
+        "bg": "light",
+        "eyebrow": "SUPPORTED VARIANTS",
+        "heading": "74 variants. Six categories. One engine",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-3",
+        "centered": false
+      },
+      {
+        "type": "dark_center",
+        "eyebrow": "THE ONLINE ENGINE",
+        "eyebrow_color": "glow",
+        "heading": "Play anywhere.<br>Continue everywhere",
+        "body": "Create private sessions. Hand off mid-game between phone, tablet, and laptop. Pause a session in May, finish it in October. The board waits."
+      },
+      {
+        "type": "hooks",
+        "bg": "light",
+        "eyebrow": "EMBED API",
+        "heading": "Embed in your own project",
+        "heading_class": "mg-heading-lg",
+        "sub": "One iframe. Full game board. Theme-aware, responsive, touch-ready.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "community",
+        "bg": "white",
+        "heading": "Supported variants.",
+        "heading_class": "mg-heading-xl",
+        "grid": "mg-grid-2",
+        "centered": false
+      }
+    ]
   },
   "nukes-siege": {
     "slug": "nukes-siege",
@@ -1323,7 +1657,42 @@
       }
     ],
     "community": [],
-    "lede": "Total conversion of the hostage mechanic. Start with your own tokens in reserve and recruit by returning them to occupied regions. Enemy hostages only arrive once combat starts."
+    "lede": "Total conversion of the hostage mechanic. Start with your own tokens in reserve and recruit by returning them to occupied regions. Enemy hostages only arrive once combat starts.",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "How it plays",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "hooks",
+        "bg": "white",
+        "eyebrow": "WHAT CHANGES",
+        "heading": "Earn your hostages. Don\u2019t start with them",
+        "heading_class": "mg-heading-lg",
+        "sub": "Standard Nukes hands you leverage from turn one. Siege makes you earn it. The hostage economy still runs \u2014 you just have to build the supply yourself before you can spend it.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "dark_center",
+        "eyebrow": "BASE GAME",
+        "heading": "Plays with Nukes",
+        "body": "This mod requires the base game. All standard Nukes rules apply underneath.",
+        "buttons": [
+          {
+            "label": "View Nukes",
+            "href": "/games/nukes/",
+            "style": "outline-dark"
+          }
+        ]
+      }
+    ]
   },
   "nukes-asymmetric-powers": {
     "slug": "nukes-asymmetric-powers",
@@ -1417,7 +1786,42 @@
       }
     ],
     "community": [],
-    "lede": "Each player draws one Power Card at setup. No two players hold the same card. Standard Nukes underneath \u2014 Covert Network, Arms Industry, or Airborne Corps on top."
+    "lede": "Each player draws one Power Card at setup. No two players hold the same card. Standard Nukes underneath \u2014 Covert Network, Arms Industry, or Airborne Corps on top.",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "How it plays",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "hooks",
+        "bg": "white",
+        "eyebrow": "WHAT CHANGES",
+        "heading": "Same board. Same tokens. Different rules for each player",
+        "heading_class": "mg-heading-lg",
+        "sub": "Nukes is already asymmetric in practice. Asymmetric Powers makes it explicit.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "dark_center",
+        "eyebrow": "BASE GAME",
+        "heading": "Plays with Nukes",
+        "body": "This mod requires the base game. All standard Nukes rules apply underneath.",
+        "buttons": [
+          {
+            "label": "View Nukes",
+            "href": "/games/nukes/",
+            "style": "outline-dark"
+          }
+        ]
+      }
+    ]
   },
   "nukes-fallout": {
     "slug": "nukes-fallout",
@@ -1511,7 +1915,42 @@
       }
     ],
     "community": [],
-    "lede": "Biohazard tiles spread each round. Every nuclear strike leaves a growing contamination zone. City tiles are immune to spread. Win before the map runs out."
+    "lede": "Biohazard tiles spread each round. Every nuclear strike leaves a growing contamination zone. City tiles are immune to spread. Win before the map runs out.",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "",
+        "heading": "How it plays",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "hooks",
+        "bg": "white",
+        "eyebrow": "WHAT CHANGES",
+        "heading": "A nuke ends the battle. Fallout ends the war",
+        "heading_class": "mg-heading-lg",
+        "sub": "Play fast or play into the poison.",
+        "grid": "mg-grid-2",
+        "centered": false
+      },
+      {
+        "type": "dark_center",
+        "eyebrow": "BASE GAME",
+        "heading": "Plays with Nukes",
+        "body": "This mod requires the base game. All standard Nukes rules apply underneath.",
+        "buttons": [
+          {
+            "label": "View Nukes",
+            "href": "/games/nukes/",
+            "style": "outline-dark"
+          }
+        ]
+      }
+    ]
   },
   "moddable-hexmaps": {
     "slug": "moddable-hexmaps",
@@ -1671,6 +2110,43 @@
       }
     ],
     "communityLabel": "Consumers using the hex engine.",
-    "lede": "Hex map generation for any game. Multiple render styles, seeded randomisation, JSON import and export. One engine shared across every hex-based game in the ecosystem."
+    "lede": "Hex map generation for any game. Multiple render styles, seeded randomisation, JSON import and export. One engine shared across every hex-based game in the ecosystem.",
+    "sections": [
+      {
+        "type": "steps",
+        "bg": "light",
+        "eyebrow": "SUPPORTED GAMES",
+        "heading": "Six games. One hex engine",
+        "heading_class": "mg-heading-xl",
+        "sub": "",
+        "grid": "mg-grid-3",
+        "centered": false
+      },
+      {
+        "type": "dark_center",
+        "eyebrow": "CAPABILITIES",
+        "eyebrow_color": "glow",
+        "heading": "Generate. Edit. Share",
+        "body": "Seeded randomisation, JSON import/export, editor mode, and URL sharing. One engine for every hex-based game in the ecosystem."
+      },
+      {
+        "type": "variants",
+        "bg": "light",
+        "eyebrow": "RENDER STYLES",
+        "heading": "Four styles. Same data",
+        "heading_class": "mg-heading-lg",
+        "sub": "Swap the visual layer without changing the underlying map. Pick the style that fits your game.",
+        "grid": "mg-grid-4",
+        "centered": false
+      },
+      {
+        "type": "community",
+        "bg": "light",
+        "heading": "Built on this engine",
+        "heading_class": "mg-heading-xl",
+        "grid": "mg-grid-2",
+        "centered": false
+      }
+    ]
   }
 }

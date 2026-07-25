@@ -713,6 +713,43 @@ def build_site():
         # Lede text from details.json (sourced from original HTML pages)
         lede = detail_data.get('lede', '')
 
+        # Build sections array for template — each section carries its own items
+        data_map = {
+            'steps': steps,
+            'variants': variants,
+            'hooks': hooks,
+            'factions': detail_data.get('factions'),
+            'components': components,
+            'community': community,
+        }
+        template_sections = []
+        for sec in detail_data.get('sections', []):
+            sec_copy = dict(sec)
+            sec_type = sec_copy.get('type', '')
+            # Inject items from data
+            if sec_type in data_map and data_map[sec_type]:
+                sec_copy['items'] = data_map[sec_type]
+            # Inject eyebrow_color from accent
+            if 'eyebrow_color' not in sec_copy:
+                sec_copy['eyebrow_color'] = accent
+            # Inject accent_color for hooks/steps items
+            if sec_type in ('hooks', 'steps', 'variants', 'components'):
+                if sec_copy.get('items'):
+                    for item in sec_copy['items']:
+                        if 'eyebrow_color' not in item:
+                            item['eyebrow_color'] = accent
+                        if 'accent_color' not in item:
+                            item['accent_color'] = accent_color
+            # Dark center: merge features/pills/buttons from old logic
+            if sec_type == 'dark_center':
+                if not sec_copy.get('pills') and features:
+                    sec_copy['pills'] = features
+                if not sec_copy.get('buttons') and dark_center and dark_center.get('buttons'):
+                    sec_copy['buttons'] = dark_center['buttons']
+                if not sec_copy.get('bloom'):
+                    sec_copy['bloom'] = colors.get('bloom', '')
+            template_sections.append(sec_copy)
+
         # Build the detail object for template
         detail = {
             'title': detail_data.get('title', ''),
@@ -733,24 +770,7 @@ def build_site():
             'lede': lede,
             'hero_buttons': hero_buttons if hero_buttons else None,
             'stats': stats_list if stats_list else None,
-            'steps': steps if steps else None,
-            'steps_heading': 'How it plays',
-            'variants': variants if variants else None,
-            'variants_heading': 'Supported variants',
-            'eyebrow_color': accent,
-            'hooks': hooks if hooks else None,
-            'hooks_eyebrow': 'CORE MECHANICS' if page_type == 'game' else 'MOD HOOKS',
-            'hooks_heading': 'Simple components. Emergent complexity' if page_type == 'game' else 'What you can change',
-            'hooks_body': '',
-            'factions': detail_data.get('factions') if detail_data.get('factions') else None,
-            'factions_eyebrow': 'FACTIONS' if detail_data.get('factions') else '',
-            'factions_heading': 'Choose your faction' if detail_data.get('factions') else '',
-            'components': components if components else None,
-            'components_eyebrow': 'COMPONENTS',
-            'components_heading': 'What you need',
-            'community': community if community else None,
-            'community_heading': detail_data.get('communityLabel', f'Community mods for {detail_data.get("title", "")}'),
-            'dark_center': dark_center,
+            'sections': template_sections,
         }
 
         # Build output path
