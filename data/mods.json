@@ -52,46 +52,6 @@
       "logo": "img/econopoly-logo.png"
     },
     {
-      "category": "Rebalance",
-      "baseGame": "Draughts",
-      "title": "Turkish Draughts",
-      "body": "Orthogonal movement on an 8x8 board replaces the diagonal play of standard draughts. Mandatory captures, majority rule, and immediate removal create sharp tactical puzzles. World Championships held since 2014.",
-      "stats": "2 players \u00b7 30 min \u00b7 8+",
-      "path": "/mods/turkish-draughts/",
-      "source": "Wikipedia (CC-BY-SA)",
-      "logo": "img/moddable-cube-logo.png"
-    },
-    {
-      "category": "Conversion",
-      "baseGame": "Draughts",
-      "title": "Lasca",
-      "body": "Emanuel Lasker's 1911 column checkers. Captured pieces stack beneath the captor instead of leaving the board. All 22 pieces stay in play for the entire game. Ownership shifts as columns change hands.",
-      "stats": "2 players \u00b7 30 min \u00b7 10+",
-      "path": "/mods/lasca/",
-      "source": "Wikipedia + Lasker 1911 (CC-BY-SA)",
-      "logo": "img/moddable-cube-logo.png"
-    },
-    {
-      "category": "Reskin",
-      "baseGame": "Go",
-      "title": "Toroidal Go",
-      "body": "Standard Go played on a board where edges wrap around horizontally and vertically. No corners, no edges, no joseki. Every group floats. Active tournament community since 2012 with 1,400+ recorded games.",
-      "stats": "2 players \u00b7 45 min \u00b7 10+",
-      "path": "/mods/toroidal-go/",
-      "source": "Sensei's Library (OPL 1.0)",
-      "logo": "img/moddable-cube-logo.png"
-    },
-    {
-      "category": "Conversion",
-      "baseGame": "Go",
-      "title": "Phantom Go",
-      "body": "Fog-of-war Go. Players cannot see opponent stones. A referee mediates all moves and announces captures. Deduction replaces reading. Played on 9x9 or 13x13 boards.",
-      "stats": "2 players + referee \u00b7 30 min \u00b7 12+",
-      "path": "/mods/phantom-go/",
-      "source": "Sensei's Library (OPL 1.0)",
-      "logo": "img/moddable-cube-logo.png"
-    },
-    {
       "category": "Conversion",
       "baseGame": "Nukes",
       "title": "Nukes: Siege",
