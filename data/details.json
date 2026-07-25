@@ -1334,18 +1334,19 @@
       "textShadow": "0 0 8px rgba(111,181,255,0.5)",
       "bloom": "radial-gradient(ellipse,rgba(12,79,141,0.35) 0%,transparent 65%)"
     },
+    "lede": "74 playable variants. Five AI difficulties. Three consumer apps. The most modded game in history finally gets an open-source home.",
     "stats": [
       [
         "Variants",
         "70"
       ],
       [
-        "Players",
-        "2\u20136"
+        "AI Difficulties",
+        "5"
       ],
       [
-        "Status",
-        "Live"
+        "Consumers",
+        "3"
       ],
       [
         "Engine",
@@ -1353,41 +1354,27 @@
       ],
       [
         "Board types",
-        "4\u00d78 to 12\u00d78"
+        "Square \u00b7 4\u00d78 to 12\u00d78"
       ],
       [
-        "Updated",
-        "Jun 2026"
+        "Status",
+        "Live"
       ]
     ],
     "buttons": {
       "hero": [
         [
-          "Play now",
-          "https://chess.moddable.games/play/",
+          "chess.moddable.games",
+          "https://chess.moddable.games/",
           "blue"
         ],
         [
-          "Browse variants",
-          "#variants-grid",
+          "GitHub",
+          "https://github.com/Moddable-Games/moddable-chess",
           "outline-dark"
         ]
       ],
-      "cta": [],
-      "extra": {
-        "engine-cta": [
-          [
-            "Try the engine",
-            "https://chess.moddable.games/",
-            "blue"
-          ],
-          [
-            "View on GitHub",
-            "https://github.com/Moddable-Games/moddable-chess",
-            "outline-dark"
-          ]
-        ]
-      }
+      "cta": []
     },
     "variants": [
       {
@@ -1419,120 +1406,48 @@
         "n": "06",
         "title": "Dungeon Chess",
         "body": "Our most ambitious variant \u2014 four asymmetric factions, XP drafting, cannon mechanics, and modular dungeon boards. A total conversion of chess.",
-        "href": "/mods/dungeon-chess/",
-        "accent": "green"
+        "href": "/mods/dungeon-chess/"
       }
     ],
     "features": [
-      "Private sessions",
-      "Cross-device",
-      "Async play"
+      "Embed API",
+      "Consumer APIs",
+      "AI + Opening books",
+      "Game controller",
+      "Developer guides",
+      "Touch/mobile"
     ],
     "hooks": [
       {
-        "name": "board.lua",
-        "desc": "Board geometry \u2014 square, hex, or anything. Define the grid, valid positions, and rendering rules."
+        "name": "Embed via iframe",
+        "desc": "Drop a single iframe into any page. Control variant, theme, difficulty, and layout via URL params. Responsive and touch-ready."
       },
       {
-        "name": "pieces.yaml",
-        "desc": "Every piece type with movement patterns, capture rules, and promotion conditions. Add new pieces or modify existing ones."
-      },
-      {
-        "name": "variants.yaml",
-        "desc": "The variant registry. Combine a board, piece set, and win condition to define a new way to play."
-      },
-      {
-        "name": "ai.lua",
-        "desc": "Bot behavior for each variant. The teaching engine learns from every game played \u2014 human or bot."
+        "name": "postMessage control",
+        "desc": "Switch variants, change themes, and reset games without reloading the iframe. Send typed messages to the embed window."
       }
     ],
-    "communityLabel": "Supported variants.",
     "community": [
       {
-        "category": "Conversion",
-        "baseGame": "Chess",
-        "title": "Fog of War Chess",
-        "body": "Players see only squares their pieces can move to. No checks, no checkmates \u2014 capture the king to win. Invented 1989.",
-        "stats": "2 players \u00b7 20\u201340 min \u00b7 10+"
+        "title": "Dungeon Chess",
+        "body": "Asymmetric fantasy strategy on modular dungeon boards. Four factions, 24 units, XP drafting.",
+        "href": "/mods/dungeon-chess/",
+        "accent": "#d11a1a"
       },
       {
-        "category": "Reskin",
-        "baseGame": "Chess",
-        "title": "4-Player Chess",
-        "body": "Four armies on a cross-shaped board. Free-for-all or 2v2 teams. The de facto standard for multiplayer chess.",
-        "stats": "4 players \u00b7 30 min \u00b7 10+"
-      },
-      {
-        "category": "Conversion",
-        "baseGame": "Chess",
-        "title": "Hexagonal Chess (Glinski)",
-        "body": "91 hexagonal cells, 9 pawns per side, bishops on three cell colours. W\u0142adys\u0142aw Gli\u0144ski, 1936.",
-        "stats": "2 players \u00b7 30\u201360 min \u00b7 12+"
-      },
-      {
-        "category": "Conversion",
-        "baseGame": "Chess",
-        "title": "Alice Chess",
-        "body": "Two boards, one army. Pieces transfer to the other board after each move. Conceived by V.R. Parton, 1953.",
-        "stats": "2 players \u00b7 30\u201345 min \u00b7 12+"
-      },
-      {
-        "category": "Conversion",
-        "baseGame": "Chess",
-        "title": "Capablanca Chess",
-        "body": "10\u00d78 board with two new pieces: Archbishop (bishop+knight) and Chancellor (rook+knight). Jos\u00e9 Capablanca, 1920s.",
-        "stats": "2 players \u00b7 45\u201390 min \u00b7 12+"
-      },
-      {
-        "category": "Conversion",
-        "baseGame": "Chess",
-        "title": "Courier Chess",
-        "body": "Medieval 12\u00d78 variant with 24 pieces per side including couriers and sages. Documented since 1202.",
-        "stats": "2 players \u00b7 60\u201390 min \u00b7 14+"
-      },
-      {
-        "category": "Conversion",
-        "baseGame": "Chess",
-        "title": "Omega Chess",
-        "body": "10\u00d710 board plus corner squares. Adds Champion (knight+king area) and Wizard (camel+ferz). Daniel MacDonald, 1992.",
-        "stats": "2 players \u00b7 45\u201390 min \u00b7 12+"
-      },
-      {
-        "category": "Conversion",
-        "baseGame": "Chess",
-        "title": "Grand Chess",
-        "body": "10\u00d710 board with Archbishop and Chancellor. No castling, pawns promote on rank 8 or 9. Christian Freeling, 1984.",
-        "stats": "2 players \u00b7 45\u201375 min \u00b7 12+"
-      },
-      {
-        "category": "Conversion",
-        "baseGame": "Chess",
-        "title": "XiangQi (Chinese Chess)",
-        "body": "9\u00d710 board with river and palace. Cannons capture by jumping, generals face off across the board. Over 1000 years old.",
-        "stats": "2 players \u00b7 30\u201360 min \u00b7 10+"
-      },
-      {
-        "category": "Reskin",
-        "baseGame": "Chess",
-        "title": "3-Board Chess",
-        "body": "Three standard boards side by side. Pieces can move between boards along shared edges. Multiplayer spatial chaos.",
-        "stats": "3 players \u00b7 45\u201360 min \u00b7 12+"
-      },
-      {
-        "category": "Reskin",
-        "baseGame": "Chess",
-        "title": "4-Board Chess",
-        "body": "Four boards in a 2\u00d72 grid. Pieces transfer between boards at shared edges. Team or free-for-all.",
-        "stats": "4 players \u00b7 60\u201390 min \u00b7 12+"
+        "title": "Chess Variant Loader",
+        "body": "Pick, preview, and play any of 74 variants from the browser. Rules reference and match launcher.",
+        "href": "/tools/chess/",
+        "accent": "#0c4f8d"
       }
     ],
-    "lede": "74 playable variants. Five AI difficulties. Three consumer apps. The most modded game in history finally gets an open-source home.",
+    "communityLabel": "Built on this engine",
     "sections": [
       {
         "type": "variants",
         "bg": "light",
         "eyebrow": "SUPPORTED VARIANTS",
-        "heading": "74 variants. Six categories. One engine",
+        "heading": "70 variants. Six categories. One engine",
         "heading_class": "mg-heading-xl",
         "sub": "",
         "grid": "mg-grid-3",
@@ -1543,7 +1458,21 @@
         "eyebrow": "THE ONLINE ENGINE",
         "eyebrow_color": "glow",
         "heading": "Play anywhere.<br>Continue everywhere",
-        "body": "Create private sessions. Hand off mid-game between phone, tablet, and laptop. Pause a session in May, finish it in October. The board waits."
+        "body": "Create private sessions. Hand off mid-game between phone, tablet, and laptop. Pause a session in May, finish it in October. The board waits.",
+        "buttons": [
+          {
+            "label": "Try Engine",
+            "href": "https://chess.moddable.games/play/",
+            "style": "blue",
+            "external": true
+          },
+          {
+            "label": "Read Docs",
+            "href": "https://chess.moddable.games/docs/",
+            "style": "outline-dark",
+            "external": true
+          }
+        ]
       },
       {
         "type": "hooks",
@@ -1558,7 +1487,7 @@
       {
         "type": "community",
         "bg": "white",
-        "heading": "Supported variants.",
+        "heading": "Built on this engine",
         "heading_class": "mg-heading-xl",
         "grid": "mg-grid-2",
         "centered": false
@@ -2086,7 +2015,7 @@
     "community": [
       {
         "title": "Nukes",
-        "body": "Cold-war territory control on a hex map. Hostages fuel your moves but reinforce your enemy.",
+        "body": "Cold-war territory control on a hex map. Hostages fuel your moves but reinforce your enemy. Build bases, convert isotopes, threaten nuclear strikes.",
         "href": "/games/nukes/",
         "accent": "#d11a1a"
       },
@@ -2094,7 +2023,8 @@
         "title": "Colony",
         "body": "Resource extraction on alien worlds. Procedural terrain with biomes, hazards, and contested mining sites.",
         "href": "https://hex.moddable.games/generate/?game=colony",
-        "accent": "#3a9928"
+        "accent": "#3a9928",
+        "external": true
       },
       {
         "title": "TI4 Map Generator",
@@ -2127,7 +2057,21 @@
         "eyebrow": "CAPABILITIES",
         "eyebrow_color": "glow",
         "heading": "Generate. Edit. Share",
-        "body": "Every map is deterministic from a seed. Share a 6-character code and anyone gets the same board. Edit terrain in-browser, export as JSON, import into your own tools."
+        "body": "Every map is deterministic from a seed. Share a 6-character code and anyone gets the same board. Edit terrain in-browser, export as JSON, import into your own tools.",
+        "buttons": [
+          {
+            "label": "Try Engine",
+            "href": "https://hex.moddable.games/generate/",
+            "style": "green",
+            "external": true
+          },
+          {
+            "label": "Read Docs",
+            "href": "https://hex.moddable.games/docs/",
+            "style": "outline-dark",
+            "external": true
+          }
+        ]
       },
       {
         "type": "variants",
