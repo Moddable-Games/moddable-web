@@ -11,7 +11,7 @@
   <div id="hero-wash"></div>
   <div id="hero-content" class="hero-anim">
     <div class="mg-eyebrow mg-eyebrow--glow">{{home.hero.eyebrow}}</div>
-    <h1 class="home-hero__title"><span class="hero-word">{{home.hero.title_prefix}}</span> <span class="hero-word" id="hero-typewriter">games</span><br><span class="hero-word">{{home.hero.title_suffix}}</span></h1>
+    <h1 class="home-hero__title"><span class="hero-word">{{home.hero.title_prefix}}</span> <span class="hero-word" id="hero-typewriter" data-words="{{home.hero.typewriter_words_str}}">{{home.hero.typewriter_default}}</span><br><span class="hero-word">{{home.hero.title_suffix}}</span></h1>
     <div id="hero-lower">
       <div id="hero-lower__text">
         <p class="home-hero__lede">{{home.hero.lede}}</p>
@@ -33,7 +33,7 @@
         <h2 class="home-gallery__heading">{{home.gallery.heading}}</h2>
       </div>
       <div id="gallery-filters" class="home-gallery__filters">
-        <button class="filter-btn filter-btn--active">All</button>
+        <button class="filter-btn filter-btn--active">{{home.gallery.filter_all}}</button>
       </div>
     </div>
     <div id="gallery-grid" class="mg-grid-3 mg-grid-auto" data-stagger>
@@ -97,6 +97,7 @@
       </div>
       <div class="stats-row">
         {{#each home.featured.stats}}
+        {{#unless @first}}<span class="stats-row__divider"></span>{{/unless}}
         <div class="stats-row__item">
           <span class="stats-row__label">{{label}}</span>
           <span class="stats-row__value">{{value}}</span>
@@ -165,7 +166,7 @@
         </div>
         <h3 class="news-card__title">{{title}}</h3>
         <p class="news-card__body">{{excerpt}}</p>
-        <span class="news-card__more">Read more &rarr;</span>
+        <span class="news-card__more">{{home.news_row.read_more}} &rarr;</span>
       </a>
       {{/each}}
     </div>

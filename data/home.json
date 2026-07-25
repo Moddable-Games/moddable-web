@@ -13,6 +13,7 @@
   "gallery": {
     "eyebrow": "THE LIBRARY",
     "heading": "Browse our collection or pick a game you own",
+    "filter_all": "All",
     "cta_label": "View full library",
     "cta_href": "/mods/"
   },
@@ -73,6 +74,7 @@
   },
   "news_row": {
     "heading": "From the table",
+    "read_more": "Read more",
     "cta_label": "All posts",
     "cta_href": "/news/",
     "count": 3

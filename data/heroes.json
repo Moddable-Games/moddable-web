@@ -5,7 +5,8 @@
     "hexColor": "blue",
     "eyebrow": "ABOUT MODDABLE",
     "title": "The <em>workshop</em> behind the rules",
-    "lede": "Designers, modders, and rule-tinkerers reshaping the boards already on your shelf."
+    "lede": "Designers, modders, and rule-tinkerers reshaping the boards already on your shelf.",
+    "feature": "cube-about"
   },
   "roadmap": {
     "section": "roadmap",
@@ -21,7 +22,11 @@
     "hexColor": "blue",
     "eyebrow": "COMMUNITY",
     "title": "Join the table.",
-    "lede": "Designers, playtesters, and rule-tinkerers building open-source board games together."
+    "lede": "Designers, playtesters, and rule-tinkerers building open-source board games together.",
+    "buttons": [
+      { "label": "Join Discord", "href": "https://discord.gg/VhsVGNq6Za", "style": "primary", "external": true },
+      { "label": "Submit Mod", "href": "/submit/", "style": "outline-dark" }
+    ]
   },
   "press": {
     "section": "press",
@@ -36,32 +41,34 @@
     "tier": 2,
     "hexColor": "blue",
     "eyebrow": "THE TEAM",
-    "title": "Four people, one table.",
-    "lede": "Meet the people building Moddable.Games."
+    "title": "Who's making this happen.",
+    "lede": "Four humans building games, engines, and community tools."
   },
   "subscribe": {
-    "section": "community",
+    "section": "subscribe",
     "tier": 2,
     "hexColor": "blue",
-    "eyebrow": "SUBSCRIBE",
+    "eyebrow": "NEWSLETTER",
     "title": "Stay in the loop.",
-    "lede": "Updates on new mods, games, and tools. No spam, unsubscribe anytime."
+    "lede": "Crowdfunding updates, playtest invites, and new game announcements. No spam."
   },
   "submit": {
     "section": "submit",
     "tier": 2,
-    "hexColor": "green",
-    "eyebrow": "CONTRIBUTE",
-    "title": "Submit your mod.",
-    "lede": "Got a house rule that changes everything? Share it with the community."
+    "hexColor": "red",
+    "eyebrow": "SUBMIT A MOD",
+    "title": "Ship your rules",
+    "lede": "Tell us about your mod. If it works at the table, we publish it."
   },
   "developers": {
     "section": "developers",
-    "tier": 2,
-    "hexColor": "blue",
-    "eyebrow": "FOR DEVELOPERS",
-    "title": "Build on our engines.",
-    "lede": "APIs, SDKs, and embeddable tools for game developers."
+    "tier": 1,
+    "hexColor": "purple",
+    "eyebrow": "DEVELOPERS",
+    "title": "Board game engines as <em>AI</em> tools",
+    "lede": "56 callable tools across seven namespaces. Connect from any MCP client, call via REST, or build bots for Telegram, Slack, and Discord.",
+    "feature": "svg",
+    "feature_src": "/img/hero/feature-developers.svg"
   },
   "mods": {
     "section": "mods",
@@ -69,7 +76,8 @@
     "hexColor": "red",
     "eyebrow": "THE LIBRARY",
     "title": "Open <em>mods</em> for the boxes on your shelf",
-    "lede": "Rulebook patches for the games gathering dust on your shelves. Filter, search, or browse."
+    "lede": "Rulebook patches for the games gathering dust on your shelves. Filter, search, or browse.",
+    "feature": "morph-mods"
   },
   "games": {
     "section": "games",
@@ -77,7 +85,9 @@
     "hexColor": "amber",
     "eyebrow": "ORIGINAL GAMES",
     "title": "Three <em>games</em>, all moddable",
-    "lede": "Original tabletop games designed to be forked and rewritten."
+    "lede": "Original tabletop games designed to be forked and rewritten.",
+    "feature": "svg",
+    "feature_src": "/img/hero/feature-games.svg"
   },
   "engines": {
     "section": "engines",
@@ -85,7 +95,8 @@
     "hexColor": "cyan",
     "eyebrow": "OPEN SOURCE",
     "title": "The <em>foundations</em> games are built on",
-    "lede": "Engines anyone can embed, extend, or fork. Powering games and tools across our ecosystem."
+    "lede": "Engines anyone can embed, extend, or fork. Powering games and tools across our ecosystem.",
+    "feature": "cube-engines"
   },
   "news": {
     "section": "news",
@@ -93,15 +104,18 @@
     "hexColor": "magenta",
     "eyebrow": "NEWS & UPDATES",
     "title": "Signals from the <em>forge</em>, no noise",
-    "lede": "Essays, announcements, and build logs. Written by humans, for humans."
+    "lede": "Essays, announcements, and build logs. Written by humans, for humans.",
+    "feature": "svg",
+    "feature_src": "/img/hero/feature-news.svg"
   },
   "tools": {
     "section": "tools",
     "tier": 1,
     "hexColor": "green",
-    "eyebrow": "GAME TOOLS",
-    "title": "Digital tools for <em>tabletop</em> play",
-    "lede": "Dice rollers, deck builders, map generators, and more. All free, all open."
+    "eyebrow": "FREE TOOLS",
+    "title": "The <em>toys</em> we built to help at your table",
+    "lede": "Dice rollers, name generators, scoreboards, and combat calculators. No account needed.",
+    "feature": "dice"
   },
   "404": {
     "section": "about",

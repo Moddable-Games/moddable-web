@@ -68,6 +68,7 @@
   color: #fff;
   border-radius: 20px;
   padding: 56px 40px;
+  margin-top: 56px;
 }
 .dev-cta-card__heading {
   font-family: var(--mg-font-display);

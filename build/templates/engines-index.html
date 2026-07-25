@@ -33,10 +33,19 @@
       {{/each}}
     </div>
 
+    {{#if engines_cta}}
     <div class="engines-cta" data-reveal="up">
-      <a href="https://github.com/Moddable-Games" class="mg-btn mg-btn--primary" target="_blank" rel="noopener">View GitHub</a>
-      <a href="/about/roadmap/" class="mg-btn mg-btn--outline-dark">See Roadmap</a>
+      <div class="engines-cta__inner">
+        <h2 class="engines-cta__heading">{{engines_cta.heading}}</h2>
+        <p class="engines-cta__body">{{engines_cta.body}}</p>
+        <div>
+          {{#each engines_cta.buttons}}
+          <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+          {{/each}}
+        </div>
+      </div>
     </div>
+    {{/if}}
   </div>
 </section>
 

@@ -8,6 +8,7 @@
   <div class="{{page_id}}-layout">
     <div class="{{page_id}}-content">
       {{#each sections}}
+      {{#if eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{eyebrow_color}}">{{eyebrow}}</div>{{/if}}
       {{#if type "text"}}<div>{{{html}}}</div>{{/if}}
       {{#if type "prose"}}<div class="{{page_id}}-prose">{{>_section-prose}}</div>{{/if}}
       {{#if type "stats"}}{{>_section-stats}}{{/if}}
@@ -24,6 +25,7 @@
       {{#if type "swatches"}}{{>_section-swatches}}{{/if}}
       {{#if type "game-logos"}}{{>_section-game-logos}}{{/if}}
       {{#if type "cta"}}{{>_section-cta}}{{/if}}
+      {{#if type "form"}}{{>_section-form}}{{/if}}
       {{/each}}
     </div>
     <aside class="{{page_id}}-sidebar">
@@ -35,16 +37,114 @@
     </aside>
   </div>
 </section>
+{{#if below_layout}}
+{{#each below_layout}}
+{{#if type "benefits"}}
+<section class="sub-benefits">
+  <div class="mg-container">
+    <div class="sub-benefits__grid" id="benefits-grid">
+      {{#each items}}
+      <div class="sub-benefit-card">
+        <div class="sub-benefit-card__dot" style="background:{{color}}"></div>
+        <div class="sub-benefit-card__title">{{title}}</div>
+        <div class="sub-benefit-card__body">{{body}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+{{/if}}
+{{#if type "vision"}}
+<section class="roadmap-vision">
+  <div class="roadmap-vision__inner">
+    <h2 class="roadmap-vision__title">{{title}}</h2>
+    <p class="roadmap-vision__lede">{{lede}}</p>
+    <div class="roadmap-vision__grid">
+      {{#each items}}
+      <div class="vision-card">
+        <div class="vision-number" style="color:{{color}}">{{num}}</div>
+        <div class="vision-label">{{label}}</div>
+        <div class="vision-title">{{title}}</div>
+        <div class="vision-body">{{body}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+{{/if}}
+{{/each}}
+{{/if}}
 {{/if}}
 
 {{#unless has_sidebar}}
-<section class="{{page_id}}-main">
+{{#if flush}}
+{{#each sections}}
+{{#if type "submit-form"}}
+<div class="submit-steps">
+  <div class="submit-steps__inner">
+    {{#each steps}}
+    <div class="step-tab{{#if @first}} step-tab--active{{/if}}{{#unless @first}} step-tab--inactive{{/unless}}">
+      <span class="step-tab__num{{#if @first}} step-tab__num--active{{/if}}">{{number}}</span>
+      <span class="step-tab__label">{{label}}</span>
+    </div>
+    {{/each}}
+  </div>
+</div>
+<div class="submit-form" id="submit-form">
+  <div class="submit-form__inner">
+    <div class="submit-form__fields">
+      <div class="field-wrap">
+        <label class="field-label">{{fields.title.label}}<span class="field-label__required">*</span></label>
+        <span class="field-hint">{{fields.title.hint}}</span>
+        <input type="text" class="field-input" placeholder="{{fields.title.placeholder}}">
+      </div>
+      <div class="field-wrap">
+        <label class="field-label">{{fields.base_game.label}}<span class="field-label__required">*</span></label>
+        <span class="field-hint">{{fields.base_game.hint}}</span>
+        <input type="text" class="field-input" placeholder="{{fields.base_game.placeholder}}">
+      </div>
+      <div class="field-wrap">
+        <label class="field-label">{{fields.category.label}}<span class="field-label__required">*</span></label>
+        <span class="field-hint">{{fields.category.hint}}</span>
+        <div class="cat-grid">
+          {{#each fields.category.options}}
+          <button class="cat-btn" type="button">
+            <span class="cat-btn__title">{{title}}</span>
+            <span class="cat-btn__desc">{{desc}}</span>
+          </button>
+          {{/each}}
+        </div>
+      </div>
+      <div class="field-wrap">
+        <label class="field-label">{{fields.stats.label}}<span class="field-label__required">*</span></label>
+        <span class="field-hint">{{fields.stats.hint}}</span>
+        <input type="text" class="field-input" placeholder="{{fields.stats.placeholder}}">
+      </div>
+      <div class="field-wrap">
+        <label class="field-label">{{fields.description.label}}<span class="field-label__required">*</span></label>
+        <span class="field-hint">{{fields.description.hint}}</span>
+        <textarea class="field-input" placeholder="{{fields.description.placeholder}}" rows="4"></textarea>
+      </div>
+    </div>
+    <div class="submit-form__nav">
+      <button class="mg-btn mg-btn--dark" type="button">{{fields.next_label}} &rarr;</button>
+    </div>
+  </div>
+</div>
+{{/if}}
+{{/each}}
+{{/if}}
+{{#unless flush}}
+<section class="{{page_id}}-main mg-section--tight mg-section--light">
   <div class="mg-container">
     {{#each sections}}
+    {{#if eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{eyebrow_color}}">{{eyebrow}}</div>{{/if}}
+    {{#if heading}}<h2 class="mg-heading-lg">{{heading}}</h2>{{/if}}
     {{#if type "text"}}<div>{{{html}}}</div>{{/if}}
     {{#if type "prose"}}<div class="{{page_id}}-prose">{{>_section-prose}}</div>{{/if}}
     {{#if type "stats"}}{{>_section-stats}}{{/if}}
     {{#if type "channels"}}{{>_section-channels}}{{/if}}
+    {{#if type "house"}}{{>_section-house}}{{/if}}
     {{#if type "featured"}}{{>_section-featured}}{{/if}}
     {{#if type "activity"}}{{>_section-activity}}{{/if}}
     {{#if type "members"}}{{>_section-members}}{{/if}}
@@ -57,6 +157,7 @@
     {{/each}}
   </div>
 </section>
+{{/unless}}
 {{/unless}}
 </div>
 

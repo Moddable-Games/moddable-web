@@ -1,35 +1,61 @@
-[
-  {
-    "title": "Nukes",
-    "accent": "red",
-    "status": "Open alpha · Live",
-    "desc": "Cold-war territory control on a hex map. Hostages fuel your moves but reinforce your enemy. Build bases, convert isotopes, and threaten nuclear strikes.",
-    "players": "2–3",
-    "time": "45+ min",
-    "path": "/games/nukes/",
-    "rulebook": "nukes",
-    "logo": "/img/nukes-logo.png"
+{
+  "items": [
+    {
+      "title": "Nukes",
+      "accent": "red",
+      "status": "Open alpha · Live",
+      "desc": "Cold-war territory control on a hex map. Hostages fuel your moves but reinforce your enemy. Build bases, convert isotopes, and threaten nuclear strikes.",
+      "players": "2–3",
+      "time": "45+ min",
+      "path": "/games/nukes/",
+      "rulebook": "nukes",
+      "logo": "/img/nukes-logo.png"
+    },
+    {
+      "title": "Planet Mongo",
+      "accent": "green",
+      "status": "In development · V0.9.2",
+      "desc": "Hex-based territory control in the Flash Gordon universe. Eight factions fight for dominance across 127 hexagonal tiles with hidden orders, bluffing, and a dynamic central market.",
+      "players": "2–8",
+      "time": "120+ min",
+      "path": "/games/planet-mongo/",
+      "rulebook": "mongo",
+      "logo": "/img/mongo-logo.png"
+    },
+    {
+      "title": "Endless Skies",
+      "accent": "blue",
+      "status": "In development · V0.4.0",
+      "desc": "4X space exploration with worker placement and fleet management. Eight asymmetric factions compete across a hex-tile galaxy, placing crew in ship rooms and diplomats in space ports to complete contracts for victory points.",
+      "players": "2–8",
+      "time": "TBD",
+      "path": "/games/endless-skies/",
+      "rulebook": "endless-skies",
+      "logo": "/img/endless-skies-logo.png"
+    }
+  ],
+  "rules_section": {
+    "eyebrow": "THE RULEBOOK LIBRARY",
+    "heading": "Every rule in a git repo",
+    "body": "24 game families, 147 variants, printable PDFs, and board diagrams. All under open licences. Fork a rulebook, write a variant, or just read the rules before game night.",
+    "stats": [
+      { "value": "20", "label": "Game Families" },
+      { "value": "135", "label": "Variants" },
+      { "value": "CC BY-SA", "label": "Licence" },
+      { "value": "PDF + Web", "label": "Formats" }
+    ],
+    "buttons": [
+      { "label": "Browse Rulebooks", "href": "https://rules.moddable.games/", "style": "primary", "external": true },
+      { "label": "View on GitHub", "href": "https://github.com/Moddable-Games/moddable-rules", "style": "outline-dark", "external": true }
+    ]
   },
-  {
-    "title": "Planet Mongo",
-    "accent": "green",
-    "status": "In development · V0.9.2",
-    "desc": "Hex-based territory control in the Flash Gordon universe. Eight factions fight for dominance across 127 hexagonal tiles with hidden orders, bluffing, and a dynamic central market.",
-    "players": "2–8",
-    "time": "120+ min",
-    "path": "/games/planet-mongo/",
-    "rulebook": "mongo",
-    "logo": "/img/mongo-logo.png"
-  },
-  {
-    "title": "Endless Skies",
-    "accent": "blue",
-    "status": "In development · V0.4.0",
-    "desc": "4X space exploration with worker placement and fleet management. Eight asymmetric factions compete across a hex-tile galaxy, placing crew in ship rooms and diplomats in space ports to complete contracts for victory points.",
-    "players": "2–8",
-    "time": "TBD",
-    "path": "/games/endless-skies/",
-    "rulebook": "endless-skies",
-    "logo": "/img/endless-skies-logo.png"
+  "cta": {
+    "eyebrow": "WHAT'S NEXT",
+    "heading": "More games on the horizon. All open source",
+    "body": "Every game ships with moddable files, version-controlled rules, and community hooks. Built on engines you can embed, extend, or fork.",
+    "buttons": [
+      { "label": "Explore Engines", "href": "/engines/", "style": "blue" },
+      { "label": "See Roadmap", "href": "/about/roadmap/", "style": "outline-dark" }
+    ]
   }
-]
+}

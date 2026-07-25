@@ -1,24 +1,31 @@
 {
   "has_sidebar": false,
+  "flush": true,
   "sections": [
     {
-      "type": "prose",
-      "lede": "We accept mods for any board game. Your mod will be reviewed by the team and, if approved, published to the library with full credit.",
-      "blocks": [
-        {
-          "heading": "What we look for",
-          "paragraphs": [
-            "A clear base game (the original game your mod patches), playtest evidence (at least 3 sessions), a PDF rulebook or rules document, and player count, time estimate, and age rating."
+      "type": "submit-form",
+      "steps": [
+        { "number": "1", "label": "The basics" },
+        { "number": "2", "label": "The rules" },
+        { "number": "3", "label": "Submit" }
+      ],
+      "fields": {
+        "title": { "label": "Mod title", "placeholder": "e.g. Talisman Worlds", "hint": "What's it called?", "required": true },
+        "base_game": { "label": "Base game", "placeholder": "e.g. Talisman 4e (revised)", "hint": "Which published game does your mod use?", "required": true },
+        "category": {
+          "label": "Mod category",
+          "hint": "Pick the one that fits best.",
+          "required": true,
+          "options": [
+            { "title": "Reskin", "desc": "Same rules, new theme or board layout." },
+            { "title": "Rebalance", "desc": "Same theme, tuned rules — pacing, fairness, length." },
+            { "title": "Conversion", "desc": "New rules, new theme, components only." }
           ]
         },
-        {
-          "heading": "How to submit",
-          "paragraphs": [
-            "Email your mod to submit@moddable.games with your rulebook attached. Include a one-paragraph description and your playtesting notes.",
-            "Alternatively, open a pull request on our rules repository with your rulebook in markdown format."
-          ]
-        }
-      ]
+        "stats": { "label": "Player count & time", "placeholder": "3–5 players · 45 min · 12+", "hint": "Mono format, e.g. 3-5 players · 45 min · 12+", "required": true },
+        "description": { "label": "Pitch it in two sentences", "placeholder": "Replaces the standard Monopoly board with a fully functional Euro-game economy. No bankruptcy, just resource management and victory points.", "hint": "What does your mod do and why should someone play it?", "required": true },
+        "next_label": "Next: the rules"
+      }
     }
   ]
 }

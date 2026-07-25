@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="240" height="240">
+<style>
+.doc-body { fill: none; stroke: #e11d89; stroke-width: 1.2; opacity: 0.7; }
+.doc-fold { fill: rgba(225,29,137,0.15); stroke: #e11d89; stroke-width: 1.2; }
+.doc-line { stroke: #e11d89; stroke-width: 1.5; stroke-linecap: round; opacity: 0; animation: lineIn 3s ease-out infinite; }
+.doc-line:nth-child(5) { animation-delay: 0.3s; }
+.doc-line:nth-child(6) { animation-delay: 0.6s; }
+.doc-line:nth-child(7) { animation-delay: 0.9s; }
+.doc-line:nth-child(8) { animation-delay: 1.2s; }
+.doc-line:nth-child(9) { animation-delay: 1.5s; }
+.doc-headline { stroke: #e11d89; stroke-width: 2.5; stroke-linecap: round; opacity: 0; animation: lineIn 3s ease-out infinite; }
+@keyframes lineIn { 0% { opacity: 0; stroke-dashoffset: 40; } 15% { opacity: 0.8; stroke-dashoffset: 0; } 70% { opacity: 0.8; } 100% { opacity: 0; } }
+.doc-cursor { fill: #e11d89; opacity: 0; animation: cursorBlink 1s step-end infinite; }
+@keyframes cursorBlink { 0%, 50% { opacity: 0.9; } 51%, 100% { opacity: 0; } }
+.doc-float { animation: docFloat 6s ease-in-out infinite; }
+@keyframes docFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-6px) rotate(1.5deg); } }
+@media (prefers-reduced-motion: reduce) { .doc-line, .doc-headline, .doc-cursor, .doc-float { animation: none; opacity: 0.7; } }
+</style>
+<g class="doc-float"><rect class="doc-body" x="15" y="10" width="60" height="80" rx="4"/><polygon class="doc-fold" points="55,10 75,10 75,30 55,30"/><polygon class="doc-fold" points="55,10 75,30 55,30" style="fill:rgba(225,29,137,0.08)"/><line class="doc-headline" x1="24" y1="40" x2="52" y2="40" stroke-dasharray="28"/><line class="doc-line" x1="24" y1="50" x2="66" y2="50" stroke-dasharray="42"/><line class="doc-line" x1="24" y1="57" x2="58" y2="57" stroke-dasharray="34"/><line class="doc-line" x1="24" y1="64" x2="62" y2="64" stroke-dasharray="38"/><line class="doc-line" x1="24" y1="71" x2="50" y2="71" stroke-dasharray="26"/><line class="doc-line" x1="24" y1="78" x2="56" y2="78" stroke-dasharray="32"/><rect class="doc-cursor" x="56" y="77" width="2" height="4" rx="1"/></g><g class="doc-float" style="animation-delay:-3s"><rect class="doc-body" x="30" y="25" width="60" height="80" rx="4" opacity="0.3"/></g>
+</svg>

@@ -1,4 +1,4 @@
-<section class="mg-hero mg-hero--tier{{hero.tier}} mg-hero--{{hero.section}}">
+<section class="mg-hero mg-hero--tier{{hero.tier}} mg-hero--{{hero.section}}{{#if hero.feature}} mg-hero--has-feature{{/if}}">
   <div class="mg-hero__gradient"></div>
   {{#if hero.tier1}}
   <div class="mg-hero__land"></div>
@@ -13,7 +13,63 @@
       <div class="mg-hero__eyebrow">{{hero.eyebrow}}</div>
       <h1 class="mg-hero__title">{{{hero.title}}}</h1>
       <p class="mg-hero__lede">{{hero.lede}}</p>
-      {{{hero_buttons}}}
+      {{#if hero.buttons}}
+      <div class="mg-hero__btns">
+        {{#each hero.buttons}}
+        <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+        {{/each}}
+      </div>
+      {{/if}}
     </div>
+    {{#if hero.feature}}
+    <div class="mg-hero__feature">
+      {{#if hero.feature "svg"}}
+      <object type="image/svg+xml" data="{{hero.feature_src}}" aria-hidden="true"></object>
+      {{/if}}
+      {{#if hero.feature "morph-mods"}}
+      <div class="mods-anim-wrap">
+        <div class="mods-morph">
+          <div class="mods-morph__glow"></div>
+          <div class="mods-morph__ring mods-morph__ring--3"></div>
+          <div class="mods-morph__ring mods-morph__ring--2"></div>
+          <div class="mods-morph__ring mods-morph__ring--1"></div>
+          <div class="mods-morph__shape"></div>
+        </div>
+      </div>
+      {{/if}}
+      {{#if hero.feature "cube-engines"}}
+      <div class="hero-obj engines-cube">
+        <div class="hero-obj__face hero-obj__face--front"><img src="/img/hero/gear.svg" alt="" class="engines-face-icon"></div>
+        <div class="hero-obj__face hero-obj__face--back"><img src="/img/hero/gear.svg" alt="" class="engines-face-icon"></div>
+        <div class="hero-obj__face hero-obj__face--left"><img src="/img/hero/gear.svg" alt="" class="engines-face-icon"></div>
+        <div class="hero-obj__face hero-obj__face--right"><img src="/img/hero/gear.svg" alt="" class="engines-face-icon"></div>
+        <div class="hero-obj__face hero-obj__face--top"><img src="/img/hero/gear.svg" alt="" class="engines-face-icon"></div>
+        <div class="hero-obj__face hero-obj__face--bottom"><img src="/img/hero/gear.svg" alt="" class="engines-face-icon"></div>
+      </div>
+      {{/if}}
+      {{#if hero.feature "cube-about"}}
+      <div class="hero-obj about-cube">
+        <div class="hero-obj__face hero-obj__face--front"><div class="cube-face-fill cube-face-fill--red"></div></div>
+        <div class="hero-obj__face hero-obj__face--back"><div class="cube-face-fill cube-face-fill--green"></div></div>
+        <div class="hero-obj__face hero-obj__face--left"><div class="cube-face-fill cube-face-fill--blue"></div></div>
+        <div class="hero-obj__face hero-obj__face--right"><div class="cube-face-fill cube-face-fill--red"></div></div>
+        <div class="hero-obj__face hero-obj__face--top"><div class="cube-face-fill cube-face-fill--green"></div></div>
+        <div class="hero-obj__face hero-obj__face--bottom"><div class="cube-face-fill cube-face-fill--blue"></div></div>
+      </div>
+      {{/if}}
+      {{#if hero.feature "dice"}}
+      <div class="tools-hero__dice">
+        <div class="dice3d">
+          <div class="dice3d__face dice3d__face--front"><span class="pip"></span></div>
+          <div class="dice3d__face dice3d__face--back"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+          <div class="dice3d__face dice3d__face--top"><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+          <div class="dice3d__face dice3d__face--bottom"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+          <div class="dice3d__face dice3d__face--right"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+          <div class="dice3d__face dice3d__face--left"><span class="pip"></span><span class="pip"></span></div>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+    {{/if}}
   </div>
 </section>

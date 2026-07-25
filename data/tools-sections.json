@@ -1,0 +1,54 @@
+{
+  "intro": "Interactive tools for tabletop gaming. Each tool runs in your browser and is powered by the Moddable engine.",
+  "jumpnav": [
+    { "label": "Rules Lookup", "href": "#section-rules", "accent": "red" },
+    { "label": "Game Night", "href": "#section-game-night", "accent": "blue" },
+    { "label": "Planning", "href": "#section-planning", "accent": "green" },
+    { "label": "Per-Game", "href": "#section-per-game", "accent": "purple" }
+  ],
+  "featured": {
+    "id": "rules",
+    "eyebrow": "RULES LOOKUP",
+    "title": "Look it up",
+    "desc": "Search across all published rulebooks. Find the exact rule mid-game, no page-flipping.",
+    "accent": "red"
+  },
+  "sections": [
+    {
+      "key": "game-night",
+      "heading": "Game Night",
+      "sub": "Tools you reach for at the table.",
+      "accent": "blue",
+      "tools": [
+        { "id": "timer", "eyebrow": "TURN TIMER", "title": "Time's up", "desc": "Per-player countdown timer with cumulative stats." },
+        { "id": "initiative", "eyebrow": "INITIATIVE TRACKER", "title": "Who goes next", "desc": "Turn order tracker with initiative rolls." },
+        { "id": "roles", "eyebrow": "ROLE DISTRIBUTOR", "title": "Who are you, really?", "desc": "Assign hidden roles for social deduction games. Tap-to-reveal, no app needed." },
+        { "id": "seating", "eyebrow": "SEATING RANDOMIZER", "title": "Take your seats", "desc": "Random player seating around the table." },
+        { "id": "name-gen", "eyebrow": "NAME GENERATOR", "title": "Name your character", "desc": "Works for any hex-tile explorer, faction leader, or rule-bending rogue." }
+      ]
+    },
+    {
+      "key": "planning",
+      "heading": "Planning",
+      "sub": "Setup, tracking, and between-game prep.",
+      "accent": "green",
+      "tools": [
+        { "id": "score", "eyebrow": "SCORE TRACKER", "title": "Keep the count", "desc": "Tracks up to 6 players. Good for Catan VP, TI4 objectives, anything with points." },
+        { "id": "resources", "eyebrow": "RESOURCE DASHBOARD", "title": "Track the economy", "desc": "Multi-resource bank per player with trade logging. Built for Econopoly, Nukes, TI4." },
+        { "id": "bag-tracker", "eyebrow": "BAG TRACKER", "title": "What's left?", "desc": "Track drawn tiles/cards. See remaining odds. Presets for Catan, Carcassonne, Scrabble." }
+      ]
+    }
+  ],
+  "per_game_heading": "Per-Game Tools",
+  "per_game_sub": "Dedicated tools built for specific games.",
+  "open_tools_label": "Open tools",
+  "per_game": [
+    { "title": "Twilight Imperium", "sub": "Galaxy generator, Faction picker, Objective tracker, Agenda voter", "color": "#0c4f8d", "href": "/tools/ti/" },
+    { "title": "Talisman Worlds", "sub": "Hex board generator, Character lottery, Encounter draw", "color": "#5d2a8a", "href": "/tools/talisman/" },
+    { "title": "Nukes", "sub": "Hex map generator, Combat calculator, Hostage tracker, Unit reference", "color": "#d11a1a", "href": "/tools/nukes/" },
+    { "title": "Dice Lab", "sub": "Dice roller, Battle simulator, Risk, TI4, Axis & Allies, X-Wing, Blood Bowl, Memoir '44", "color": "#d11a1a", "href": "/tools/dice/" },
+    { "title": "Card Deck Builder", "sub": "Design, Shuffle, Deal — custom decks for any game", "color": "#3a9928", "href": "/tools/decks/" },
+    { "title": "Chess Variants", "sub": "74 variants, Rules reference, Match setup", "color": "#0c4f8d", "href": "/tools/chess/" },
+    { "title": "Oracles & RPG Library", "sub": "Scene Forge, RPG Browser, Encounter Builder — 10 systems, 3000+ entities", "color": "#6fb5ff", "href": "/tools/oracles/" }
+  ]
+}

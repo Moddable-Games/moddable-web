@@ -1,19 +1,38 @@
 {
-  "has_sidebar": false,
+  "has_sidebar": true,
   "sections": [
-    {
-      "type": "prose",
-      "lede": "Get notified when we release new mods, launch games, or ship tools. One email per month, unsubscribe anytime.",
-      "blocks": []
-    },
     {
       "type": "form",
       "action": "https://moddable-website.neuroware.workers.dev/api/subscribe",
       "method": "POST",
-      "fields": [
-        { "type": "email", "name": "email", "placeholder": "your@email.com", "required": true }
-      ],
-      "submit_label": "Subscribe"
+      "email_placeholder": "your@email.com",
+      "checks": ["Game launches", "Playtest invites", "Community news", "Mod releases"],
+      "submit_label": "Subscribe",
+      "error_message": "Something went wrong. Please try again.",
+      "success_heading": "You're in.",
+      "success_body": "Check your inbox for a confirmation link. Welcome to the table."
+    }
+  ],
+  "sidebar": [
+    {
+      "type": "links",
+      "title": "Elsewhere",
+      "items": [
+        { "label": "Discord", "sub": "Join Community", "href": "/community/", "color": "#d11a1a" },
+        { "label": "News", "sub": "Read Latest", "href": "/news/", "color": "#3a9928" },
+        { "label": "About", "sub": "Our story", "href": "/about/", "color": "#0c4f8d" }
+      ]
+    }
+  ],
+  "below_layout": [
+    {
+      "type": "benefits",
+      "items": [
+        { "title": "One per milestone", "body": "We only send when something actually ships. A game, a playtest, a crowdfund launch.", "color": "#3a9928" },
+        { "title": "Playtest priority", "body": "Subscribers get early access to closed playtests before Discord announcements.", "color": "#0c4f8d" },
+        { "title": "Crowdfund alerts", "body": "First to know when a Kickstarter or Gamefound goes live. Early-bird pricing links.", "color": "#d11a1a" },
+        { "title": "Unsubscribe any time", "body": "One click, no questions. We don't sell data or share lists.", "color": "#14161c" }
+      ]
     }
   ]
 }

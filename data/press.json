@@ -5,76 +5,201 @@
       "type": "logos",
       "heading": "Moddable logos",
       "items": [
-        { "src": "/press/logos/moddable-logo.png", "label": "Full logo (colour)", "bg": "#fff" },
-        { "src": "/press/logos/moddable-logo-white.png", "label": "Full logo (white)", "bg": "#0a0d2a" },
-        { "src": "/press/logos/moddable-logo-black.png", "label": "Full logo (black)", "bg": "#f5f4ef" },
-        { "src": "/press/logos/moddable-chess-cube.svg", "label": "Chess engine mark", "bg": "#fff" }
+        {
+          "src": "/press/logos/moddable-logo.png",
+          "label": "Full logo (colour)",
+          "bg": "#fff"
+        },
+        {
+          "src": "/press/logos/moddable-logo-white.png",
+          "label": "Full logo (white)",
+          "bg": "#0a0d2a"
+        },
+        {
+          "src": "/press/logos/moddable-logo-black.png",
+          "label": "Full logo (black)",
+          "bg": "#f5f4ef"
+        },
+        {
+          "src": "/press/logos/moddable-chess-cube.svg",
+          "label": "Chess engine mark",
+          "bg": "#fff"
+        }
       ]
     },
     {
       "type": "screenshots",
       "heading": "Screenshots",
       "items": [
-        { "src": "/press/screenshots/chess-online.png", "label": "Moddable Chess — Grand Chess variant" },
-        { "src": "/press/screenshots/hexmaps-online.png", "label": "Moddable Hexmaps — Nukes map" },
-        { "src": "/press/screenshots/dungeon-chess-board.png", "label": "Dungeon Chess — 4-player board" },
-        { "src": "/press/screenshots/nukes-online.png", "label": "Nukes — online hex map" }
+        {
+          "src": "/press/screenshots/chess-online.png",
+          "label": "Moddable Chess \u2014 Grand Chess variant"
+        },
+        {
+          "src": "/press/screenshots/hexmaps-online.png",
+          "label": "Moddable Hexmaps \u2014 Nukes map"
+        },
+        {
+          "src": "/press/screenshots/dungeon-chess-board.png",
+          "label": "Dungeon Chess \u2014 4-player board"
+        },
+        {
+          "src": "/press/screenshots/nukes-online.png",
+          "label": "Nukes \u2014 online hex map"
+        }
       ]
     },
     {
       "type": "downloads",
       "heading": "Documents",
       "items": [
-        { "label": "Press Release", "meta": "Markdown", "href": "/press/documents/press-release.md", "color": "#d11a1a" },
-        { "label": "Company Backgrounder", "meta": "Markdown", "href": "/press/documents/company-backgrounder.md", "color": "#0c4f8d" },
-        { "label": "Fact Sheet", "meta": "Markdown", "href": "/press/documents/fact-sheet.md", "color": "#3a9928" }
+        {
+          "label": "Press Release",
+          "meta": "Markdown",
+          "href": "/press/documents/press-release.md",
+          "color": "#d11a1a",
+          "icon": "MD"
+        },
+        {
+          "label": "Company Backgrounder",
+          "meta": "Markdown",
+          "href": "/press/documents/company-backgrounder.md",
+          "color": "#0c4f8d",
+          "icon": "MD"
+        },
+        {
+          "label": "Fact Sheet",
+          "meta": "Markdown",
+          "href": "/press/documents/fact-sheet.md",
+          "color": "#3a9928",
+          "icon": "MD"
+        }
       ]
     },
     {
       "type": "swatches",
       "heading": "Brand colours",
       "items": [
-        { "name": "Red", "hex": "#d11a1a" },
-        { "name": "Green", "hex": "#3a9928" },
-        { "name": "Blue", "hex": "#0c4f8d" },
-        { "name": "Deep", "hex": "#0a0d2a" },
-        { "name": "Mid", "hex": "#1a3680" },
-        { "name": "Glow", "hex": "#6fb5ff" },
-        { "name": "Canvas", "hex": "#f5f4ef" },
-        { "name": "Ink", "hex": "#14161c" }
+        {
+          "name": "Red",
+          "hex": "#d11a1a"
+        },
+        {
+          "name": "Green",
+          "hex": "#3a9928"
+        },
+        {
+          "name": "Blue",
+          "hex": "#0c4f8d"
+        },
+        {
+          "name": "Deep",
+          "hex": "#0a0d2a"
+        },
+        {
+          "name": "Mid",
+          "hex": "#1a3680"
+        },
+        {
+          "name": "Glow",
+          "hex": "#6fb5ff"
+        },
+        {
+          "name": "Canvas",
+          "hex": "#f5f4ef"
+        },
+        {
+          "name": "Ink",
+          "hex": "#14161c"
+        }
       ]
     },
     {
       "type": "logos",
       "heading": "Game logos",
       "items": [
-        { "src": "/press/logos/nukes-logo.png", "label": "Nukes", "bg": "#fff" },
-        { "src": "/press/logos/mongo-logo.png", "label": "Planet Mongo", "bg": "#fff" },
-        { "src": "/press/logos/endless-skies-logo.png", "label": "Endless Skies", "bg": "#fff" },
-        { "src": "/press/logos/dungeon-chess-black.png", "label": "Dungeon Chess (black)", "bg": "#fff" },
-        { "src": "/press/logos/dungeon-chess-white.png", "label": "Dungeon Chess (white)", "bg": "#0a0d2a" },
-        { "src": "/press/logos/hyper-imperium-logo.png", "label": "Hyper Imperium", "bg": "#fff" },
-        { "src": "/press/logos/econopoly-logo.png", "label": "Econopoly", "bg": "#fff" },
-        { "src": "/press/logos/talisman-worlds-logo.png", "label": "Talisman Worlds", "bg": "#fff" }
+        {
+          "src": "/press/logos/nukes-logo.png",
+          "label": "Nukes",
+          "bg": "#fff"
+        },
+        {
+          "src": "/press/logos/mongo-logo.png",
+          "label": "Planet Mongo",
+          "bg": "#fff"
+        },
+        {
+          "src": "/press/logos/endless-skies-logo.png",
+          "label": "Endless Skies",
+          "bg": "#fff"
+        },
+        {
+          "src": "/press/logos/dungeon-chess-black.png",
+          "label": "Dungeon Chess (black)",
+          "bg": "#fff"
+        },
+        {
+          "src": "/press/logos/dungeon-chess-white.png",
+          "label": "Dungeon Chess (white)",
+          "bg": "#0a0d2a"
+        },
+        {
+          "src": "/press/logos/hyper-imperium-logo.png",
+          "label": "Hyper Imperium",
+          "bg": "#fff"
+        },
+        {
+          "src": "/press/logos/econopoly-logo.png",
+          "label": "Econopoly",
+          "bg": "#fff"
+        },
+        {
+          "src": "/press/logos/talisman-worlds-logo.png",
+          "label": "Talisman Worlds",
+          "bg": "#fff"
+        }
       ]
     }
   ],
   "sidebar": [
     {
       "type": "contact",
-      "email": "press@moddable.games"
+      "email": "press@moddable.games",
+      "copy_label": "Copy email",
+      "copied_label": "Copied"
     },
     {
       "type": "facts",
       "title": "Quick facts",
       "items": [
-        { "label": "Founded", "value": "2024, Kuala Lumpur" },
-        { "label": "Incorporated", "value": "2025, UK" },
-        { "label": "Team", "value": "4 people" },
-        { "label": "Games", "value": "3 original" },
-        { "label": "Mods", "value": "10 published" },
-        { "label": "Engines", "value": "2 open-source" },
-        { "label": "License", "value": "MIT" }
+        {
+          "label": "Founded",
+          "value": "2024, Kuala Lumpur"
+        },
+        {
+          "label": "Incorporated",
+          "value": "2025, UK"
+        },
+        {
+          "label": "Team",
+          "value": "4 people"
+        },
+        {
+          "label": "Games",
+          "value": "3 original"
+        },
+        {
+          "label": "Mods",
+          "value": "10 published"
+        },
+        {
+          "label": "Engines",
+          "value": "2 open-source"
+        },
+        {
+          "label": "License",
+          "value": "MIT"
+        }
       ]
     }
   ]

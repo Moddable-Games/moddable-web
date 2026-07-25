@@ -5,9 +5,37 @@
 <section class="news-main" id="main-content">
   <div class="news-layout">
     <div class="news-content">
+      <div class="news-mobile-search">
+        <span class="news-mobile-search__icon">&#x1F50D;</span>
+        <input type="text" class="news-mobile-search__input" placeholder="{{labels.search_placeholder}}" id="news-mobile-search">
+      </div>
+
+      {{#if featured}}
+      <div class="news-featured" id="news-featured">
+        <a href="/news/{{featured.slug}}/" class="news-featured-card">
+          <div class="news-cover--big" style="background:linear-gradient(135deg, #0a0d2a 0%, {{featured.cover}} 100%)">
+            {{#if featured.img}}<img src="/img/news/{{featured.img}}" alt="" class="news-cover__img" loading="lazy">{{/if}}
+          </div>
+          <div>
+            <div class="news-featured-card__meta">
+              <span class="news-featured-card__badge">{{labels.featured_badge}}</span>
+              <span class="news-featured-card__date">{{featured.date}}</span>
+            </div>
+            <h2 class="news-featured-card__title">{{featured.title}}</h2>
+            <p class="news-featured-card__excerpt">{{featured.excerpt}}</p>
+            <span class="news-featured-card__link">{{labels.read_article}} &rarr;</span>
+          </div>
+        </a>
+      </div>
+      {{/if}}
+
+      <div class="news-results-bar" id="news-results-bar" style="display:none">
+        <span class="news-results-bar__text" id="news-results-text"></span>
+        <a href="#" class="news-results-bar__clear" id="news-results-clear">&#8592; Show all posts</a>
+      </div>
       <div id="posts-grid" class="news-posts-grid">
-        {{#each news}}
-        <a href="/news/{{slug}}/" class="news-grid-card">
+        {{#each grid_news}}
+        <a href="/news/{{slug}}/" class="news-grid-card" data-tags="{{tags_str}}" data-date="{{date}}">
           <div class="news-cover" style="background:linear-gradient(135deg, #0a0d2a 0%, {{cover}} 100%)">
             {{#if img}}<img src="/img/news/{{img}}" alt="" class="news-cover__img" loading="lazy">{{/if}}
           </div>
@@ -22,6 +50,41 @@
         {{/each}}
       </div>
     </div>
+
+    <aside class="news-sidebar">
+      <div class="news-search-wrap">
+        <span class="news-search-wrap__icon">&#x1F50D;</span>
+        <input type="text" class="news-search-wrap__input" placeholder="{{labels.search_placeholder}}" id="news-search">
+      </div>
+
+      {{#if topics}}
+      <div>
+        <div class="mg-eyebrow mg-eyebrow--blue">{{labels.hot_topics}}</div>
+        <ul class="news-topic-list">
+          {{#each topics}}
+          <li><a href="#topic={{name}}" class="news-topic-list__link" data-topic="{{name}}">
+            <span class="news-topic-list__name">{{name}}</span>
+            <span class="news-topic-list__count">{{count}}</span>
+          </a></li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+
+      {{#if archive}}
+      <div>
+        <div class="mg-eyebrow mg-eyebrow--blue">{{labels.archive}}</div>
+        <ul class="news-archive-list">
+          {{#each archive}}
+          <li><a href="#month={{month}}" class="news-archive-list__link" data-month="{{month}}">
+            <span>{{month}}</span>
+            <span class="news-archive-list__count">{{count}}</span>
+          </a></li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+    </aside>
   </div>
 </section>
 

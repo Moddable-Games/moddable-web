@@ -4,20 +4,36 @@
     {
       "type": "timeline",
       "items": [
-        { "quarter": "Q3 2026", "text": "Nukes: first 500-unit print run ships", "color": "#d11a1a" },
-        { "quarter": "Q3 2026", "text": "Moddable Chess: 74 variants playable online", "color": "#3a9928" },
-        { "quarter": "Q4 2026", "text": "Dungeon Chess: crowdfunding campaign live", "color": "#14161c" },
-        { "quarter": "Q1 2027", "text": "Marketplace beta: creators upload + sell mods", "color": "#0c4f8d" },
-        { "quarter": "Q2 2027", "text": "Planet Mongo: multiplayer playtest online", "color": "#0c4f8d" },
-        { "quarter": "Q3 2027", "text": "Print-on-demand pipeline live", "color": "#0c4f8d" }
-      ]
-    },
-    {
-      "type": "vision",
-      "items": [
-        { "num": "01", "label": "ENGINE", "title": "Host any hex-based game online.", "body": "A universal runtime for hex-grid games with drag pieces, resolved rules, and live spectating.", "color": "#3a9928" },
-        { "num": "02", "label": "MARKETPLACE", "title": "Designers sell mods and expansions.", "body": "Upload your creation, set a price or go free, and reach thousands of players instantly.", "color": "#0c4f8d" },
-        { "num": "03", "label": "COMMUNITY", "title": "Players find groups and run tournaments.", "body": "Matchmaking, leaderboards, and event scheduling built into the platform.", "color": "#d11a1a" }
+        {
+          "quarter": "Q3 2026",
+          "text": "Nukes: first 500-unit print run ships",
+          "color": "#d11a1a"
+        },
+        {
+          "quarter": "Q3 2026",
+          "text": "Moddable Chess: 74 variants playable online",
+          "color": "#3a9928"
+        },
+        {
+          "quarter": "Q4 2026",
+          "text": "Dungeon Chess: crowdfunding campaign live",
+          "color": "#14161c"
+        },
+        {
+          "quarter": "Q1 2027",
+          "text": "Marketplace beta: creators upload + sell mods",
+          "color": "#0c4f8d"
+        },
+        {
+          "quarter": "Q2 2027",
+          "text": "Planet Mongo: multiplayer playtest online",
+          "color": "#0c4f8d"
+        },
+        {
+          "quarter": "Q3 2027",
+          "text": "Print-on-demand pipeline live",
+          "color": "#0c4f8d"
+        }
       ]
     }
   ],
@@ -26,11 +42,66 @@
       "type": "links",
       "title": "Related",
       "items": [
-        { "label": "About Moddable", "sub": "Our story and philosophy", "href": "/about/", "color": "#0c4f8d" },
-        { "label": "Team", "sub": "The people behind it", "href": "/team/", "color": "#3a9928" },
-        { "label": "Community", "sub": "Join Discord", "href": "/community/", "color": "#d11a1a" },
-        { "label": "Engines", "sub": "Chess + Hexmaps SDKs", "href": "/engines/", "color": "#14161c" },
-        { "label": "Press Kit", "sub": "Logos and assets", "href": "/press/", "color": "#0c4f8d" }
+        {
+          "label": "About Moddable",
+          "sub": "Our story and philosophy",
+          "href": "/about/",
+          "color": "#0c4f8d"
+        },
+        {
+          "label": "Team",
+          "sub": "The people behind it",
+          "href": "/team/",
+          "color": "#3a9928"
+        },
+        {
+          "label": "Community",
+          "sub": "Join Discord",
+          "href": "/community/",
+          "color": "#d11a1a"
+        },
+        {
+          "label": "Engines",
+          "sub": "Chess + Hexmaps SDKs",
+          "href": "/engines/",
+          "color": "#14161c"
+        },
+        {
+          "label": "Press Kit",
+          "sub": "Logos and assets",
+          "href": "/press/",
+          "color": "#0c4f8d"
+        }
+      ]
+    }
+  ],
+  "below_layout": [
+    {
+      "type": "vision",
+      "title": "The bigger picture",
+      "lede": "Where the milestones above are leading us.",
+      "items": [
+        {
+          "num": "01",
+          "label": "ENGINE",
+          "title": "Host any hex-based game online.",
+          "body": "A universal runtime for hex-grid games with drag pieces, resolved rules, and live spectating.",
+          "color": "#3a9928"
+        },
+        {
+          "num": "02",
+          "label": "MARKETPLACE",
+          "title": "Designers sell mods and expansions.",
+          "body": "Upload your creation, set a price or go free, and reach thousands of players instantly.",
+          "color": "#0c4f8d"
+        },
+        {
+          "num": "03",
+          "label": "COMMUNITY",
+          "title": "Players find groups and run tournaments.",
+          "body": "Matchmaking, leaderboards, and event scheduling built into the platform.",
+          "color": "#d11a1a"
+        }
       ]
     }
   ]

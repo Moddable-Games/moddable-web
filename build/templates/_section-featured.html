@@ -1,8 +1,16 @@
-{{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
 <div class="featured-grid">
   {{#each items}}
   <a class="featured-card" href="{{url}}" target="_blank" rel="noopener">
-    <div class="featured-card__thumb"></div>
+    {{#if thumb}}
+    <div class="featured-card__thumb" style="background-image:url('{{thumb}}');background-size:cover;background-position:center">
+      <div class="featured-card__play"></div>
+    </div>
+    {{/if}}
+    {{#if thumb_gradient}}
+    <div class="featured-card__thumb" style="background:{{thumb_gradient}}">
+      <img src="/img/moddable-cube.svg" alt="" class="featured-card__cube">
+    </div>
+    {{/if}}
     <div class="featured-card__body">
       <div class="featured-card__source">{{source}}</div>
       <div class="featured-card__title">{{title}}</div>

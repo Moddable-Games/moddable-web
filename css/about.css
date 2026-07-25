@@ -11,17 +11,16 @@ body { background: #f5f4ef; }
 .about-sidebar__card { background: #fff; border: 1px solid var(--mg-hairline-light); border-radius: 16px; padding: 20px; }
 .about-sidebar__card-title { font-family: var(--mg-font-display); font-weight: 600; font-size: 15px; color: var(--mg-ink); margin: 0 0 12px; }
 .about-sidebar__links { display: flex; flex-direction: column; gap: 10px; }
+.about-sidebar__link { display: flex; align-items: center; gap: 12px; padding: 14px; background: var(--mg-canvas-light); border: 1px solid var(--mg-hairline-light); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color 150ms; }
+.about-sidebar__link:hover { border-color: var(--mg-ink); }
+.about-sidebar__link-dot { width: 28px; height: 28px; border-radius: 6px; flex: none; }
+.about-sidebar__link-label { font-family: var(--mg-font-display); font-weight: 600; font-size: 14px; color: var(--mg-ink); }
+.about-sidebar__link-sub { font-family: var(--mg-font-mono); font-size: 11px; color: var(--mg-stone); }
 
-.about-link { display: flex; align-items: center; gap: 12px; padding: 14px; background: var(--mg-canvas-light); border: 1px solid var(--mg-hairline-light); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color 150ms; }
-.about-link:hover { border-color: var(--mg-ink); }
-.about-link__icon { width: 28px; height: 28px; border-radius: 6px; flex: none; }
-.about-link__label { font-family: var(--mg-font-display); font-weight: 600; font-size: 14px; color: var(--mg-ink); }
-.about-link__sub { font-family: var(--mg-font-mono); font-size: 11px; color: var(--mg-stone); }
-
-.about-stat { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--mg-hairline-light); }
-.about-stat:last-child { border-bottom: none; }
-.about-stat__label { font-family: var(--mg-font-body); font-size: 13px; color: var(--mg-mute); }
-.about-stat__value { font-family: var(--mg-font-mono); font-size: 13px; font-weight: 600; color: var(--mg-ink); }
+.about-sidebar-stat { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--mg-hairline-light); }
+.about-sidebar-stat:last-child { border-bottom: none; }
+.about-sidebar-stat__label { font-family: var(--mg-font-body); font-size: 13px; color: var(--mg-mute); }
+.about-sidebar-stat__value { font-family: var(--mg-font-mono); font-size: 13px; font-weight: 600; color: var(--mg-ink); }
 
 @media (max-width: 900px) {
   .about-layout { grid-template-columns: 1fr; }

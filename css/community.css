@@ -1,6 +1,7 @@
 body { background: #f5f4ef; }
 .community-section { padding: 72px 32px 96px; }
 .community-section__inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 72px; }
+.community-main .community-cta { margin-top: 72px; }
 
 /* Stats row */
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }

@@ -6,19 +6,19 @@
   <div class="mods-filter__inner">
     <div class="mods-filter__bar">
       <div class="mods-filter__search-wrap">
-        <input id="search-input" type="search" placeholder="Search mods or a base game…" class="mods-filter__search">
+        <input id="search-input" type="search" placeholder="{{mods_labels.search_placeholder}}" class="mods-filter__search">
         <span class="mods-filter__search-icon">&#8981;</span>
       </div>
       <div id="cat-filters" class="mods-filter__cats">
-        <button class="mods-filter__btn mods-filter__btn--active">All</button>
-        <button class="mods-filter__btn">Conversion</button>
-        <button class="mods-filter__btn">Rebalance</button>
-        <button class="mods-filter__btn">Reskin</button>
+        <button class="mods-filter__btn mods-filter__btn--active">{{mods_labels.filter_all}}</button>
+        {{#each mods_categories}}
+        <button class="mods-filter__btn">{{this}}</button>
+        {{/each}}
       </div>
     </div>
     <div class="mods-filter__meta">
       <div class="mods-filter__count">{{mod_count}} MODS</div>
-      <div class="mods-filter__sort">Sorted by base game</div>
+      <div class="mods-filter__sort">{{mods_labels.sorted_by}}</div>
     </div>
     <div id="mods-grid" class="mg-grid-auto" data-stagger>
       {{#each mods}}
@@ -36,10 +36,20 @@
           <h3 class="mod-card__title">{{title}}</h3>
           <p class="mod-card__body">{{body}}</p>
           <div class="mod-card__stats">{{stats}}{{#if source}} <span class="mod-card__source">via {{source}}</span>{{/if}}</div>
-          <a href="{{path}}" class="mod-card__link" style="color:{{category_color}}">View the rules <span aria-hidden="true">&rarr;</span></a>
+          <a href="{{path}}" class="mod-card__link" style="color:{{category_color}}">{{mods_labels.view_rules}} <span aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
       {{/each}}
+      {{#if mods_submit_cta}}
+      <a href="{{mods_submit_cta.href}}" class="mods-submit-cta mg-lift" data-reveal="up">
+        <div class="mods-submit-cta__inner">
+          <div class="mg-eyebrow mg-eyebrow--green">{{mods_submit_cta.eyebrow}}</div>
+          <h3 class="mods-submit-cta__title">{{mods_submit_cta.title}}</h3>
+          <p class="mods-submit-cta__body">{{mods_submit_cta.body}}</p>
+          <span class="mods-submit-cta__btn">{{mods_submit_cta.button_label}} &rarr;</span>
+        </div>
+      </a>
+      {{/if}}
     </div>
   </div>
 </section>

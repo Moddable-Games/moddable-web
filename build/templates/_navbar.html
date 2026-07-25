@@ -1,8 +1,8 @@
 <div class="mg-navbar">
-  <header role="banner" aria-label="Site header" class="mg-navbar__header">
-    <a href="#main-content" class="mg-skip-link">Skip to content</a>
+  <header role="banner" aria-label="{{nav.labels.search_site}}" class="mg-navbar__header">
+    <a href="#main-content" class="mg-skip-link">{{nav.labels.skip_to_content}}</a>
     <a href="/" class="mg-navbar__logo-link">
-      <img src="/img/moddable-logo-white.png" alt="Moddable Games" class="mg-navbar__logo-img">
+      <img src="/img/moddable-logo-white.png" alt="{{nav.labels.logo_alt}}" class="mg-navbar__logo-img">
     </a>
     <nav aria-label="Main navigation" class="mg-navbar__nav">
       {{#each nav.items}}
@@ -21,13 +21,13 @@
       {{/each}}
     </nav>
     <div class="mg-navbar__right">
-      <a href="/community/" class="mg-navbar__discord">DISCORD</a>
-      <button class="mg-search-trigger" aria-label="Search the site">
+      <a href="/community/" class="mg-navbar__discord">{{nav.labels.discord}}</a>
+      <button class="mg-search-trigger" aria-label="{{nav.labels.search_site}}">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </button>
-      <a href="/submit/" class="mg-btn mg-btn--primary mg-btn--sm">MOD A GAME</a>
+      <a href="/submit/" class="mg-btn mg-btn--primary mg-btn--sm">{{nav.labels.mod_a_game}}</a>
     </div>
-    <button class="mg-navbar__hamburger" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <button class="mg-navbar__hamburger" aria-label="{{nav.labels.menu}}" aria-expanded="false">&#9776;</button>
   </header>
   <div class="mg-navbar__drawer">
     <nav aria-label="Main navigation" class="mg-navbar__drawer-nav">

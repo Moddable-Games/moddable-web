@@ -1,4 +1,16 @@
-{{#if heading}}<h2 class="mg-heading-md">{{heading}}</h2>{{/if}}
+{{#if card_style "destination"}}
+<div class="dev-landing__grid" data-stagger>
+  {{#each items}}
+  <a href="{{href}}" class="dev-dest-card dev-dest-card--{{accent}}"{{#if external}} target="_blank" rel="noopener"{{/if}} data-reveal="up">
+    <div class="dev-dest-card__stat">{{stat}}</div>
+    <h3 class="dev-dest-card__title">{{title}}</h3>
+    <p class="dev-dest-card__body">{{body}}</p>
+    <span class="dev-dest-card__arrow">&rarr;</span>
+  </a>
+  {{/each}}
+</div>
+{{/if}}
+{{#unless card_style}}
 <div class="dev-grid" data-stagger>
   {{#each items}}
   <div class="dev-card" data-reveal="up">
@@ -9,3 +21,4 @@
   </div>
   {{/each}}
 </div>
+{{/unless}}

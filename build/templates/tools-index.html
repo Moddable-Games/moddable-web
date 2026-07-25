@@ -2,45 +2,67 @@
 {{>_navbar}}
 {{>_hero}}
 
-<section class="tools-main" id="main-content">
+<nav class="tools-jumpnav">
+  <div class="tools-jumpnav__inner">
+    {{#each tools_sections.jumpnav}}
+    <a href="{{href}}" class="tools-jumpnav__link tools-jumpnav__link--{{accent}}">{{label}}</a>
+    {{/each}}
+  </div>
+</nav>
+
+<section class="tools-main mg-section--tight mg-section--light" id="main-content">
   <div class="mg-container">
-    <p class="tools-intro">Interactive tools for tabletop gaming. Each tool runs in your browser and is powered by the Moddable engine.</p>
-    <div class="tools-grid" data-stagger>
-      <a href="/tools/ti/" class="tool-card" data-reveal="up">
-        <div class="tool-card__icon" style="background:#d11a1a">TI</div>
-        <h3 class="tool-card__title">Twilight Imperium</h3>
-        <p class="tool-card__desc">Draft factions, track objectives, manage score and agendas for TI4.</p>
-      </a>
-      <a href="/tools/talisman/" class="tool-card" data-reveal="up">
-        <div class="tool-card__icon" style="background:#3a9928">TAL</div>
-        <h3 class="tool-card__title">Talisman</h3>
-        <p class="tool-card__desc">Character sheet, encounter roller, and adventure tracker.</p>
-      </a>
-      <a href="/tools/nukes/" class="tool-card" data-reveal="up">
-        <div class="tool-card__icon" style="background:#0c4f8d">NK</div>
-        <h3 class="tool-card__title">Nukes</h3>
-        <p class="tool-card__desc">Map setup, turn tracker, and combat resolver for Nukes.</p>
-      </a>
-      <a href="/tools/dice/" class="tool-card" data-reveal="up">
-        <div class="tool-card__icon" style="background:#e8a91a">D6</div>
-        <h3 class="tool-card__title">Dice Roller</h3>
-        <p class="tool-card__desc">Roll any combination of dice with history and statistics.</p>
-      </a>
-      <a href="/tools/decks/" class="tool-card" data-reveal="up">
-        <div class="tool-card__icon" style="background:#8b5cf6">DK</div>
-        <h3 class="tool-card__title">Decks</h3>
-        <p class="tool-card__desc">Draw, shuffle, and manage card decks for any game.</p>
-      </a>
-      <a href="/tools/chess/" class="tool-card" data-reveal="up">
-        <div class="tool-card__icon" style="background:#06b6d4">CH</div>
-        <h3 class="tool-card__title">Chess Variants</h3>
-        <p class="tool-card__desc">Play 74 chess variants with AI opponents.</p>
-      </a>
-      <a href="/tools/oracles/" class="tool-card" data-reveal="up">
-        <div class="tool-card__icon" style="background:#e11d89">OR</div>
-        <h3 class="tool-card__title">Oracles</h3>
-        <p class="tool-card__desc">Random scene, NPC, and encounter generators for solo and GM play.</p>
-      </a>
+    <div id="tools-grid" class="tools-grid">
+
+      {{#if tools_sections.featured}}
+      <div class="tool-card tool-card--featured" id="section-{{tools_sections.featured.id}}">
+        <div class="tool-card__header">
+          <div class="tool-card__accent tool-card__accent--{{tools_sections.featured.accent}}"></div>
+          <div>
+            <div class="tool-card__eyebrow tool-card__eyebrow--{{tools_sections.featured.accent}}">{{tools_sections.featured.eyebrow}}</div>
+            <h3 class="tool-card__title">{{tools_sections.featured.title}}</h3>
+            <p class="tool-card__desc">{{tools_sections.featured.desc}}</p>
+          </div>
+        </div>
+        <div class="tool-card__body" id="{{tools_sections.featured.id}}-body"></div>
+      </div>
+      {{/if}}
+
+      {{#each tools_sections.sections}}
+      <div class="tools-section-header" id="section-{{key}}">
+        <h2 class="tools-section__heading tools-section__heading--{{accent}}">{{heading}}</h2>
+        <p class="tools-section__sub">{{sub}}</p>
+      </div>
+      {{#each tools}}
+      <div class="tool-card" id="tool-{{id}}">
+        <div class="tool-card__header">
+          <div class="tool-card__accent tool-card__accent--{{accent}}"></div>
+          <div>
+            <div class="tool-card__eyebrow tool-card__eyebrow--{{accent}}">{{eyebrow}}</div>
+            <h3 class="tool-card__title">{{title}}</h3>
+            <p class="tool-card__desc">{{desc}}</p>
+          </div>
+        </div>
+        <div class="tool-card__body" id="{{id}}-body"></div>
+      </div>
+      {{/each}}
+      {{/each}}
+
+      <div class="tools-section-header" id="section-per-game">
+        <h2 class="tools-section__heading tools-section__heading--purple">{{tools_sections.per_game_heading}}</h2>
+        <p class="tools-section__sub">{{tools_sections.per_game_sub}}</p>
+      </div>
+      <div class="mg-grid-3" id="mod-tools-grid">
+        {{#each tools_sections.per_game}}
+        <a href="{{href}}" class="mod-tool-card">
+          <div class="mod-tool-card__bar" style="background:{{color}}"></div>
+          <div class="mod-tool-card__title">{{title}}</div>
+          <div class="mod-tool-card__sub">{{sub}}</div>
+          <div class="mod-tool-card__cta" style="color:{{color}}">{{tools_sections.open_tools_label}} &rarr;</div>
+        </a>
+        {{/each}}
+      </div>
+
     </div>
   </div>
 </section>

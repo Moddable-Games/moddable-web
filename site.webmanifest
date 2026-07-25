@@ -1,0 +1,13 @@
+{
+  "name": "Moddable.Games",
+  "short_name": "Moddable",
+  "description": "Rulebook mods for existing board games, plus original games designed to be modded.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0d2a",
+  "theme_color": "#0a0d2a",
+  "icons": [
+    { "src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

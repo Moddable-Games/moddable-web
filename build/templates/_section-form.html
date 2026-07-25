@@ -1,6 +1,17 @@
-<form class="subscribe-form" action="{{action}}" method="{{method}}">
-  {{#each fields}}
-  <input type="{{type}}" name="{{name}}" placeholder="{{placeholder}}" class="subscribe-form__input"{{#if required}} required{{/if}}>
-  {{/each}}
-  <button type="submit" class="mg-btn mg-btn--primary">{{submit_label}}</button>
-</form>
+<div class="sub-form" id="sub-form">
+  <div class="sub-form__email-row">
+    <input type="email" class="sub-form__email" placeholder="{{email_placeholder}}" required>
+  </div>
+  {{#if checks}}
+  <div class="sub-form__checks">
+    {{#each checks}}
+    <label class="sub-form__check"><input type="checkbox" checked>{{this}}</label>
+    {{/each}}
+  </div>
+  {{/if}}
+  <button class="mg-btn mg-btn--green sub-form__submit">{{submit_label}}</button>
+</div>
+<div class="sub-success" id="sub-success">
+  <h2 class="sub-success__heading">{{success_heading}}</h2>
+  <p class="sub-success__body">{{success_body}}</p>
+</div>

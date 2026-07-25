@@ -1,5 +1,24 @@
-<div class="community-cta">
-  {{#each buttons}}
-  <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
-  {{/each}}
+{{#if style "dark"}}
+<div class="dev-cta-card" data-reveal="up">
+  {{#if cta_eyebrow}}<div class="mg-eyebrow">{{cta_eyebrow}}</div>{{/if}}
+  <h2 class="dev-cta-card__heading">{{cta_heading}}</h2>
+  <p class="dev-cta-card__body">{{cta_body}}</p>
+  <div class="dev-cta-card__btns">
+    {{#each buttons}}
+    <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+    {{/each}}
+  </div>
 </div>
+{{/if}}
+{{#unless style}}
+<div class="community-cta" data-reveal="up">
+  {{#if cta_eyebrow}}<div class="mg-eyebrow mg-eyebrow--{{cta_eyebrow_color}}">{{cta_eyebrow}}</div>{{/if}}
+  {{#if cta_heading}}<h3 class="community-cta__heading">{{cta_heading}}</h3>{{/if}}
+  {{#if cta_body}}<p class="community-cta__body">{{cta_body}}</p>{{/if}}
+  <div class="community-cta__btns">
+    {{#each buttons}}
+    <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
+    {{/each}}
+  </div>
+</div>
+{{/unless}}

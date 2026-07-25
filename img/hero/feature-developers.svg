@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="240" height="240">
+<style>
+.doc-body { fill: none; stroke: #8b5cf6; stroke-width: 1.2; opacity: 0.7; }
+.doc-line { stroke: #8b5cf6; stroke-width: 1.5; stroke-linecap: round; opacity: 0; animation: lineIn 3s ease-out infinite; }
+.doc-line:nth-child(4) { animation-delay: 0.2s; }
+.doc-line:nth-child(5) { animation-delay: 0.4s; }
+.doc-line:nth-child(6) { animation-delay: 0.6s; }
+.doc-line:nth-child(7) { animation-delay: 0.8s; }
+@keyframes lineIn { 0% { opacity: 0; stroke-dashoffset: 40; } 15% { opacity: 0.8; stroke-dashoffset: 0; } 70% { opacity: 0.8; } 100% { opacity: 0; } }
+.dev-bracket { fill: #8b5cf6; font-family: monospace; font-weight: 700; opacity: 0.9; }
+.doc-cursor { fill: #8b5cf6; animation: cursorBlink 1s step-end infinite; }
+@keyframes cursorBlink { 0%, 50% { opacity: 0.9; } 51%, 100% { opacity: 0; } }
+.doc-float { animation: docFloat 6s ease-in-out infinite; }
+@keyframes docFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-6px) rotate(1.5deg); } }
+@media (prefers-reduced-motion: reduce) { .doc-line, .doc-cursor, .doc-float { animation: none; opacity: 0.7; } }
+</style>
+<g class="doc-float"><rect class="doc-body" x="12" y="12" width="76" height="56" rx="4"/><text class="dev-bracket" x="20" y="40" font-size="22">&lt;/&gt;</text><line class="doc-line" x1="48" y1="30" x2="78" y2="30" stroke-dasharray="30"/><line class="doc-line" x1="48" y1="38" x2="72" y2="38" stroke-dasharray="24"/><line class="doc-line" x1="48" y1="46" x2="76" y2="46" stroke-dasharray="28"/><line class="doc-line" x1="48" y1="54" x2="66" y2="54" stroke-dasharray="18"/><rect class="doc-cursor" x="66" y="52" width="2" height="5" rx="1"/></g><g class="doc-float" style="animation-delay:-2.5s"><rect class="doc-body" x="22" y="72" width="56" height="36" rx="3" opacity="0.25"/><line class="doc-line" x1="30" y1="82" x2="60" y2="82" stroke-dasharray="30" opacity="0.4"/><line class="doc-line" x1="30" y1="90" x2="52" y2="90" stroke-dasharray="22" opacity="0.4"/><line class="doc-line" x1="30" y1="98" x2="56" y2="98" stroke-dasharray="26" opacity="0.4"/></g>
+</svg>

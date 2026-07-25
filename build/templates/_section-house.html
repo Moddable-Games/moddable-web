@@ -1,0 +1,11 @@
+<p class="house-intro">{{{intro}}}</p>
+<div class="house-commands">
+  {{#each groups}}
+  <div class="house-commands__group{{#if accent}} house-commands__group--{{accent}}{{/if}}">
+    <h3 class="house-commands__heading">{{name}}</h3>
+    {{#each commands}}
+    <div class="house-cmd"><code>{{cmd}}</code><span>{{desc}}</span></div>
+    {{/each}}
+  </div>
+  {{/each}}
+</div>

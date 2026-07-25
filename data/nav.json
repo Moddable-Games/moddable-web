@@ -1,4 +1,12 @@
 {
+  "labels": {
+    "skip_to_content": "Skip to content",
+    "search_site": "Search the site",
+    "menu": "Menu",
+    "discord": "DISCORD",
+    "mod_a_game": "MOD A GAME",
+    "logo_alt": "Moddable Games"
+  },
   "items": [
     {
       "id": "Mods",

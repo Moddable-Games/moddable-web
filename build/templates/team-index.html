@@ -2,20 +2,27 @@
 {{>_navbar}}
 {{>_hero}}
 
-<section class="team-main" id="main-content">
-  <div class="mg-container">
-    <div class="team-grid" data-stagger>
-      {{#each team}}
-      <a href="/team/{{slug}}/" class="team-card mg-lift" data-reveal="up">
-        <div class="team-card__avatar" style="background:{{color}}">
-          <img src="/img/team/{{img}}" alt="{{name}}" class="team-card__avatar-img">
+<section class="team-section" id="main-content">
+  <div class="team-grid" data-stagger>
+    {{#each team}}
+    <div class="team-card" data-reveal="up">
+      <a href="/team/{{slug}}/" class="team-card__link">
+        <div class="card-avatar" style="--avatar-bg:{{color}}">
+          <img src="/img/team/{{img}}" alt="{{name}}" class="img-breakout">
         </div>
         <h3 class="team-card__name">{{name}}</h3>
         <div class="team-card__role">{{role}}</div>
         <p class="team-card__bio">{{bio}}</p>
       </a>
-      {{/each}}
+      {{#if socials}}
+      <div class="team-card__socials">
+        {{#each socials}}
+        <a href="{{href}}" class="team-card__social" target="_blank" rel="noopener" aria-label="{{platform}}">{{{icon}}}</a>
+        {{/each}}
+      </div>
+      {{/if}}
     </div>
+    {{/each}}
   </div>
 </section>
 
