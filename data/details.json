@@ -158,8 +158,8 @@
       {
         "type": "dark_center",
         "eyebrow": "NUCLEAR STRIKES",
-        "heading": "Launch from a Base. Destroy everything",
-        "body": "Any base can launch. Any region can burn. The threat is the weapon. Use it once and the table knows you'll use it again.",
+        "heading": "Launch from a Base.<br>Destroy everything",
+        "body": "Convert units into isotopes. Launch from any Base. Jump over occupied hexes like Artillery. The target hex becomes permanent Biohazard \u2014 all units in the target and all six surrounding hexes are destroyed immediately. Including your own.",
         "bloom": "radial-gradient(ellipse,rgba(209,26,26,0.35) 0%,transparent 65%)"
       },
       {
@@ -360,7 +360,7 @@
         "type": "dark_center",
         "eyebrow": "IN DEVELOPMENT",
         "heading": "Open design. Rules not yet published",
-        "body": "Planet Mongo is in active development. Designed in the open with the community.",
+        "body": "Planet Mongo is being designed in the open. Factions, unit stats, and the initiative matrix are defined. Innovation cards, event decks, and victory conditions are still being finalised through playtesting. The hex map generator is live now.",
         "bloom": "radial-gradient(ellipse,rgba(58,153,40,0.35) 0%,transparent 65%)",
         "buttons": [
           {
@@ -570,7 +570,7 @@
         "type": "dark_center",
         "eyebrow": "IN DEVELOPMENT",
         "heading": "Open design. Rules not yet published",
-        "body": "Endless Skies is in active development. Following the same open process as Nukes.",
+        "body": "Endless Skies is being designed in the open. Factions, ship rooms, and the wormhole network are defined. Tech trees, contract decks, and scoring are still being refined through playtesting. The hex map generator is live now.",
         "bloom": "radial-gradient(ellipse,rgba(12,79,141,0.35) 0%,transparent 65%)",
         "buttons": [
           {
@@ -2127,7 +2127,7 @@
         "eyebrow": "CAPABILITIES",
         "eyebrow_color": "glow",
         "heading": "Generate. Edit. Share",
-        "body": "Seeded randomisation, JSON import/export, editor mode, and URL sharing. One engine for every hex-based game in the ecosystem."
+        "body": "Every map is deterministic from a seed. Share a 6-character code and anyone gets the same board. Edit terrain in-browser, export as JSON, import into your own tools."
       },
       {
         "type": "variants",
