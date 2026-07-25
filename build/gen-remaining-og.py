@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""Generate OG images for remaining template pages (hubs, utility, chess)."""
+"""Generate OG images for remaining template pages (hubs, utility, chess).
+Reads titles and descriptions from data/heroes.json and data/meta.json."""
 
-import os
+import json, os
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+
+heroes = json.load(open('data/heroes.json'))
+meta = json.load(open('data/meta.json'))
 
 WIDTH, HEIGHT = 1200, 630
 BG = (10, 13, 42)
@@ -75,22 +79,37 @@ def save(img, path):
     print(f'  → {path} ({os.path.getsize(path)//1024}KB)')
 
 
+def strip_html(text):
+    """Remove HTML tags from hero titles."""
+    import re
+    return re.sub(r'<[^>]+>', '', text)
+
+
+def hero_text(page_id):
+    """Get eyebrow, title, subtitle from heroes/meta data."""
+    h = heroes.get(page_id, {})
+    m = meta.get(page_id, {})
+    eyebrow = h.get('eyebrow', page_id.upper())
+    title = strip_html(h.get('title', m.get('title', page_id.title())))
+    subtitle = m.get('description', h.get('lede', ''))[:80]
+    return eyebrow, title, subtitle
+
+
 def gen_about():
     img = base_image()
-    # Large logo centred-right (same approach as press but different text)
     logo_src = Image.open('img/moddable-logo-white.png').convert('RGBA')
     lh = 70
     lw = int(logo_src.width * lh / logo_src.height)
     logo = logo_src.resize((lw, lh), Image.LANCZOS)
     layer = Image.new('RGBA', (WIDTH, HEIGHT), (0, 0, 0, 0))
-    # Centre in right zone with 80px margin on right
     zone_left = 560
     zone_right = WIDTH - 80
     lx = (zone_left + zone_right) // 2 - lw // 2
     ly = (HEIGHT - lh) // 2
     layer.paste(logo, (lx, ly), logo)
     img = Image.alpha_composite(img, layer)
-    add_text(img, 'MODDABLE.GAMES', 'About', 'The workshop behind the mods', accent=ABOUT)
+    eyebrow, title, subtitle = hero_text('about')
+    add_text(img, eyebrow, title, subtitle, accent=ABOUT)
     save(img, 'img/og/about.png')
 
 
@@ -104,12 +123,13 @@ def gen_roadmap():
     # Main vertical line
     draw.line([(tx, y_start), (tx, y_end)], fill=(*GLOW_BLUE, 80), width=3)
     # Milestones
-    milestones = [
-        ('Q1 2026', 'Site Launch', True),
-        ('Q2 2026', 'Online Engine', True),
-        ('Q3 2026', 'Public API', False),
-        ('Q4 2026', 'Mobile App', False),
-    ]
+    roadmap_data = json.load(open('data/roadmap.json'))
+    timeline_items = []
+    for s in roadmap_data.get('sections', []):
+        if s.get('type') == 'timeline':
+            timeline_items = s.get('items', [])
+            break
+    milestones = [(it.get('quarter', ''), it.get('text', '')[:20], it.get('color', '') != '') for it in timeline_items[:4]]
     spacing = (y_end - y_start) // (len(milestones) - 1)
     for i, (date, label, done) in enumerate(milestones):
         my = y_start + i * spacing
@@ -126,7 +146,8 @@ def gen_roadmap():
         # Label right of line
         draw.text((tx + 24, my - 8), label,
                   fill=(220, 225, 235, 220 if done else 120), font=load_font(15, done))
-    add_text(img, 'MODDABLE.GAMES', 'Roadmap', 'Where we are headed', accent=ABOUT)
+    eyebrow, title, subtitle = hero_text('roadmap')
+    add_text(img, eyebrow, title, subtitle, accent=ABOUT)
     save(img, 'img/og/about-roadmap.png')
 
 
@@ -151,7 +172,8 @@ def gen_community():
     font_big = load_font(120, True)
     draw.text((zone_cx - 80, 240), '15', fill=(111, 181, 255, 70), font=font_big)
     draw.text((zone_cx - 60, 370), 'MEMBERS', fill=(111, 181, 255, 45), font=load_font(18, True))
-    add_text(img, 'DISCORD', 'Join the Table', 'Rule-tinkerers and designers building mods together', accent=ABOUT)
+    eyebrow, title, subtitle = hero_text('community')
+    add_text(img, eyebrow, title, subtitle, accent=ABOUT)
     save(img, 'img/og/community.png')
 
 
@@ -174,7 +196,8 @@ def gen_news():
         layer = Image.new('RGBA', (WIDTH, HEIGHT), (0, 0, 0, 0))
         layer.paste(bordered, (cx, cy), bordered)
         img = Image.alpha_composite(img, layer)
-    add_text(img, 'NEWS', 'From the Table', 'Essays on modding, design and play', accent=NEWS)
+    eyebrow, title, subtitle = hero_text('news')
+    add_text(img, eyebrow, title, subtitle, accent=NEWS)
     save(img, 'img/og/news.png')
 
 
@@ -202,7 +225,8 @@ def gen_games():
         ly = (HEIGHT - lh) // 2
         layer.paste(logo, (lx, ly), logo)
         img = Image.alpha_composite(img, layer)
-    add_text(img, 'ORIGINALS', 'Our Games', '3 games designed to be modded', accent=GAMES)
+    eyebrow, title, subtitle = hero_text('games')
+    add_text(img, eyebrow, title, subtitle, accent=GAMES)
     save(img, 'img/og/games.png')
 
 
@@ -220,7 +244,8 @@ def gen_press():
     ly = (HEIGHT - lh) // 2
     layer.paste(logo, (lx, ly), logo)
     img = Image.alpha_composite(img, layer)
-    add_text(img, 'RESOURCES', 'Press Kit', 'Logos · Screenshots · Brand guidelines', accent=ABOUT)
+    eyebrow, title, subtitle = hero_text('press')
+    add_text(img, eyebrow, title, subtitle, accent=ABOUT)
     save(img, 'img/og/press.png')
 
 
@@ -232,7 +257,9 @@ def gen_submit():
     y_end = 480
     spacing = (y_end - y_start) // 2
     draw.line([(tx, y_start), (tx, y_end)], fill=(*MODS, 80), width=3)
-    steps = [('1', 'Describe your mod'), ('2', 'Upload the rules'), ('3', 'Publish & share')]
+    submit_data = json.load(open('data/submit.json'))
+    submit_steps = submit_data.get('sections', [{}])[0].get('steps', [])
+    steps = [(s.get('number', str(i+1)), s.get('label', '')) for i, s in enumerate(submit_steps)]
     for i, (num, label) in enumerate(steps):
         sy = y_start + i * spacing
         r = 18
@@ -240,7 +267,8 @@ def gen_submit():
         draw.text((tx - 6, sy - 10), num, fill=(255, 255, 255, 255), font=load_font(18, True))
         draw.text((tx + 32, sy - 9), label,
                   fill=(220, 225, 235, 220), font=load_font(16))
-    add_text(img, 'SUBMIT A MOD', 'Ship Your Rules', 'Share your rules with the table', accent=MODS)
+    eyebrow, title, subtitle = hero_text('submit')
+    add_text(img, eyebrow, title, subtitle, accent=MODS)
     save(img, 'img/og/submit.png')
 
 
@@ -252,15 +280,16 @@ def gen_subscribe():
                            radius=6, outline=(*GLOW_BLUE, 180), width=2)
     draw.line([(ex - 60, ey - 35), (ex, ey + 5), (ex + 60, ey - 35)],
               fill=(*GLOW_BLUE, 150), width=2)
-    add_text(img, 'NEWSLETTER', 'Stay in the Loop', 'Updates on mods, tools and releases', accent=GLOW_BLUE)
+    eyebrow, title, subtitle = hero_text('subscribe')
+    add_text(img, eyebrow, title, subtitle, accent=GLOW_BLUE)
     save(img, 'img/og/subscribe.png')
 
 
 def gen_team():
     img = base_image()
     # 4 team photos in 2x2 grid — generous spacing
-    photos = ['assets/team/mark.png', 'assets/team/kevin.png',
-              'assets/team/akmal.png', 'assets/team/iqbal.png']
+    photos = ['img/team/mark.png', 'img/team/kevin.png',
+              'img/team/akmal.png', 'img/team/iqbal.png']
     pw = 140
     gap = 24
     zone_left = 580
@@ -285,7 +314,8 @@ def gen_team():
         layer = Image.new('RGBA', (WIDTH, HEIGHT), (0, 0, 0, 0))
         layer.paste(photo, (lx, ly), photo)
         img = Image.alpha_composite(img, layer)
-    add_text(img, 'MODDABLE.GAMES', 'The Team', '4 humans making games moddable', accent=ABOUT)
+    eyebrow, title, subtitle = hero_text('team')
+    add_text(img, eyebrow, title, subtitle, accent=ABOUT)
     save(img, 'img/og/team.png')
 
 
@@ -311,7 +341,11 @@ def gen_chess_engine():
     )
     board_layer.putalpha(mask)
     img = Image.alpha_composite(img, board_layer)
-    add_text(img, 'ENGINE', 'Moddable Chess', '70 playable variants', accent=ENGINES)
+    details = json.load(open('data/details.json'))
+    chess = details.get('moddable-chess', {})
+    add_text(img, 'ENGINE', chess.get('title', 'Moddable Chess'),
+             f"{chess.get('stats', [['']])[0][1] if chess.get('stats') else ''} variants",
+             accent=ENGINES)
     save(img, 'img/og/engines-moddable-chess.png')
 
 
@@ -340,37 +374,51 @@ def gen_hexmaps_engine():
             alpha = int(30 + 70 * t)
             hd.polygon(pts, fill=None, outline=(6, 182, 212, alpha))
     img = Image.alpha_composite(img, hex_layer)
-    add_text(img, 'ENGINE', 'Moddable Hexmaps', 'Shared hex map engine for 6 games', accent=ENGINES)
+    hexmaps = details.get('moddable-hexmaps', {})
+    add_text(img, 'ENGINE', hexmaps.get('title', 'Moddable Hexmaps'),
+             f"Shared hex map engine for {hexmaps.get('stats', [['']])[0][1] if hexmaps.get('stats') else '6'} games",
+             accent=ENGINES)
     save(img, 'img/og/engines-moddable-hexmaps.png')
 
 
 def gen_mods():
     img = base_image(accent_color=MODS)
-    add_text(img, 'MODDABLE.GAMES', 'The Mod Library', 'Open-source rulebook mods for the games on your shelf', accent=MODS)
+    eyebrow, title, subtitle = hero_text('mods')
+    add_text(img, eyebrow, title, subtitle, accent=MODS)
     save(img, 'img/og/mods.png')
 
 
 def gen_engines():
     img = base_image(accent_color=ENGINES)
-    add_text(img, 'FOUNDATIONS', 'Engines', 'Moddable Chess and Moddable Hexmaps', accent=ENGINES)
+    eyebrow, title, subtitle = hero_text('engines')
+    add_text(img, eyebrow, title, subtitle, accent=ENGINES)
     save(img, 'img/og/engines.png')
 
 
 def gen_developers():
     img = base_image(accent_color=DEVELOPERS)
-    add_text(img, 'DEVELOPERS', 'Tools API', 'Board game engines as AI-callable tools', accent=DEVELOPERS)
+    eyebrow, title, subtitle = hero_text('developers')
+    add_text(img, eyebrow, title, subtitle, accent=DEVELOPERS)
     save(img, 'img/og/developers.png')
 
 
 def gen_developers_api():
     img = base_image(accent_color=DEVELOPERS)
-    add_text(img, 'TOOLS API', 'Connect and call', '16 tools via MCP protocol and REST', accent=DEVELOPERS)
+    m = meta.get('developers-api', {})
+    add_text(img, 'TOOLS API',
+             m.get('title', 'Connect and call'),
+             m.get('description', 'MCP protocol and REST API')[:80],
+             accent=DEVELOPERS)
     save(img, 'img/og/developers-api.png')
 
 
 def gen_developers_examples():
     img = base_image(accent_color=DEVELOPERS)
-    add_text(img, 'BUILD WITH IT', 'Examples', 'Bots, apps, and integrations', accent=DEVELOPERS)
+    m = meta.get('developers-examples', {})
+    add_text(img, 'BUILD WITH IT',
+             m.get('title', 'Examples'),
+             m.get('description', 'Bots, apps, and integrations')[:80],
+             accent=DEVELOPERS)
     save(img, 'img/og/developers-examples.png')
 
 
