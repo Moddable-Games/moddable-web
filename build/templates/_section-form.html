@@ -9,9 +9,11 @@
     {{/each}}
   </div>
   {{/if}}
-  <button class="mg-btn mg-btn--green sub-form__submit">{{submit_label}}</button>
+  <button class="mg-btn mg-btn--green sub-form__submit" data-action="{{action}}">{{submit_label}}</button>
+  <div class="sub-form__error" id="sub-error" hidden>{{error_message}}</div>
 </div>
 <div class="sub-success" id="sub-success">
-  <h2 class="sub-success__heading">{{success_heading}}</h2>
-  <p class="sub-success__body">{{success_body}}</p>
+  <div class="sub-success__icon">&#10003;</div>
+  <div class="sub-success__title">{{success_heading}}</div>
+  <p class="sub-success__text">{{success_body}}</p>
 </div>

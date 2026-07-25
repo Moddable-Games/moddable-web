@@ -4,27 +4,51 @@
   "sections": [
     {
       "type": "submit-form",
+      "action": "https://moddable-website.neuroware.workers.dev/api/submit",
       "steps": [
         { "number": "1", "label": "The basics" },
         { "number": "2", "label": "The rules" },
         { "number": "3", "label": "Submit" }
       ],
-      "fields": {
-        "title": { "label": "Mod title", "placeholder": "e.g. Talisman Worlds", "hint": "What's it called?", "required": true },
-        "base_game": { "label": "Base game", "placeholder": "e.g. Talisman 4e (revised)", "hint": "Which published game does your mod use?", "required": true },
-        "category": {
-          "label": "Mod category",
-          "hint": "Pick the one that fits best.",
-          "required": true,
-          "options": [
+      "step1": {
+        "fields": [
+          { "id": "mod-title", "key": "title", "label": "Mod title", "placeholder": "e.g. Talisman Worlds", "hint": "What's it called?", "required": true, "type": "text" },
+          { "id": "base-game", "key": "baseGame", "label": "Base game", "placeholder": "e.g. Talisman 4e (revised)", "hint": "Which published game does your mod use?", "required": true, "type": "text" },
+          { "id": "mod-category", "key": "category", "label": "Mod category", "hint": "Pick the one that fits best.", "required": true, "type": "category", "options": [
             { "title": "Reskin", "desc": "Same rules, new theme or board layout." },
             { "title": "Rebalance", "desc": "Same theme, tuned rules — pacing, fairness, length." },
             { "title": "Conversion", "desc": "New rules, new theme, components only." }
-          ]
-        },
-        "stats": { "label": "Player count & time", "placeholder": "3–5 players · 45 min · 12+", "hint": "Mono format, e.g. 3-5 players · 45 min · 12+", "required": true },
-        "description": { "label": "Pitch it in two sentences", "placeholder": "Replaces the standard Monopoly board with a fully functional Euro-game economy. No bankruptcy, just resource management and victory points.", "hint": "What does your mod do and why should someone play it?", "required": true },
+          ]},
+          { "id": "mod-stats", "key": "stats", "label": "Player count & time", "placeholder": "3–5 players · 45 min · 12+", "hint": "Mono format, e.g. 3-5 players · 45 min · 12+", "required": false, "type": "text" },
+          { "id": "mod-desc", "key": "desc", "label": "Pitch it in two sentences", "placeholder": "Replaces the standard Monopoly board with a fully functional Euro-game economy. No bankruptcy, just resource management and victory points.", "hint": "What does your mod do and why should someone play it?", "required": true, "type": "textarea" }
+        ],
         "next_label": "Next: the rules"
+      },
+      "step2": {
+        "fields": [
+          { "id": "rules-pdf", "key": "rulesPdf", "label": "Rules PDF", "hint": "The main rulebook. PDF only, under 20 MB.", "required": false, "type": "file", "accept": ".pdf" },
+          { "id": "pnp-pdf", "key": "pnp", "label": "Print-and-play pack", "hint": "Any printable components — tiles, cards, tokens.", "required": false, "type": "file", "accept": ".pdf" },
+          { "id": "version", "key": "version", "label": "Version", "hint": "Semantic versioning preferred.", "required": false, "type": "text", "placeholder": "v1.0.0" },
+          { "id": "designer", "key": "designer", "label": "Your handle", "hint": "How should we credit you?", "required": false, "type": "text", "placeholder": "@yourhandle" },
+          { "id": "mod-email", "key": "email", "label": "Your email", "hint": "So we can follow up on your submission.", "required": true, "type": "text", "placeholder": "you@example.com" }
+        ],
+        "back_label": "Back",
+        "next_label": "Next: submit"
+      },
+      "step3": {
+        "preview_eyebrow": "YOUR SUBMISSION",
+        "agree_label": "I confirm this mod is my own original work or that I have permission to share it. I understand it will be published openly under a Creative Commons licence unless otherwise agreed.",
+        "back_label": "Back",
+        "submit_label": "Submit mod"
+      },
+      "success": {
+        "eyebrow": "SUBMITTED",
+        "title": "The dice are cast",
+        "lede": "We'll review your submission and get back to you within a fortnight. Keep an eye on Discord for updates.",
+        "buttons": [
+          { "label": "Back to Library", "href": "/mods/", "style": "dark" },
+          { "label": "Join Discord", "href": "/community/", "style": "outline-light" }
+        ]
       }
     }
   ]

@@ -280,13 +280,119 @@
 
   // ─── Submit form steps ────────────────────────────────────────────
   function initSubmitSteps() {
-    var form = document.getElementById('submit-form');
-    if (!form) return;
-    var navBtn = form.querySelector('.submit-form__nav .mg-btn');
-    if (navBtn) {
-      navBtn.addEventListener('click', function() {
-        navBtn.textContent = 'Step 2 coming soon';
-        navBtn.disabled = true;
+    var formSection = document.querySelector('.submit-form[data-action]');
+    if (!formSection) return;
+    var apiUrl = formSection.getAttribute('data-action');
+    var formData = {};
+    var currentStep = 1;
+
+    function goStep(n) {
+      currentStep = n;
+      ['step-1','step-2','step-3','step-success'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.hidden = true;
+      });
+      var tabs = document.querySelectorAll('.step-tab');
+      tabs.forEach(function(t) { t.classList.remove('step-tab--active'); t.classList.add('step-tab--inactive'); });
+      document.querySelectorAll('.step-tab__num').forEach(function(s) { s.classList.remove('step-tab__num--active'); });
+
+      if (n === 'success') {
+        document.getElementById('step-success').hidden = false;
+        document.querySelector('.submit-steps').style.display = 'none';
+        return;
+      }
+      document.getElementById('step-' + n).hidden = false;
+      var tab = document.getElementById('step-' + n + '-tab');
+      if (tab) { tab.classList.add('step-tab--active'); tab.classList.remove('step-tab--inactive'); }
+      var num = document.getElementById('s' + n + '-num');
+      if (num) num.classList.add('step-tab__num--active');
+
+      if (n === 3) buildPreview();
+    }
+
+    function buildPreview() {
+      var p = document.getElementById('submit-preview');
+      p.innerHTML = '';
+      var eyebrow = document.createElement('div');
+      eyebrow.className = 'submit-preview__eyebrow';
+      eyebrow.textContent = 'YOUR SUBMISSION';
+      p.appendChild(eyebrow);
+      var rows = [['Title',formData.title||'—'],['Base game',formData.baseGame||'—'],['Category',formData.category||'—'],['Stats',formData.stats||'—'],['Designer',formData.designer||'—'],['Version',formData.version||'—']];
+      rows.forEach(function(pair) {
+        var row = document.createElement('div');
+        row.className = 'submit-preview__row';
+        var key = document.createElement('span');
+        key.className = 'submit-preview__key';
+        key.textContent = pair[0];
+        var val = document.createElement('span');
+        val.className = 'submit-preview__val';
+        val.textContent = pair[1];
+        row.appendChild(key);
+        row.appendChild(val);
+        p.appendChild(row);
+      });
+      if (formData.desc) {
+        var desc = document.createElement('div');
+        desc.className = 'submit-preview__desc';
+        desc.textContent = formData.desc;
+        p.appendChild(desc);
+      }
+    }
+
+    formSection.querySelectorAll('.field-input, .field-file').forEach(function(input) {
+      var key = input.getAttribute('data-key');
+      if (!key) return;
+      input.addEventListener('input', function() { formData[key] = input.value; });
+    });
+
+    formSection.querySelectorAll('.cat-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        formData.category = btn.getAttribute('data-value');
+        formSection.querySelectorAll('.cat-btn').forEach(function(b) {
+          b.style.background = '';
+          b.style.color = '';
+          b.style.borderColor = '';
+        });
+        btn.style.background = '#0c4f8d';
+        btn.style.color = '#fff';
+        btn.style.borderColor = '#0c4f8d';
+      });
+    });
+
+    formSection.querySelectorAll('.submit-next').forEach(function(btn) {
+      btn.addEventListener('click', function() { goStep(parseInt(btn.getAttribute('data-target'))); });
+    });
+    formSection.querySelectorAll('.submit-back').forEach(function(btn) {
+      btn.addEventListener('click', function() { goStep(parseInt(btn.getAttribute('data-target'))); });
+    });
+
+    var finalBtn = document.getElementById('submit-final');
+    if (finalBtn) {
+      finalBtn.addEventListener('click', function() {
+        if (!document.getElementById('agree-check').checked) {
+          alert('Please confirm the agreement first.');
+          return;
+        }
+        if (!formData.email || formData.email.indexOf('@') === -1) {
+          alert('Please provide a valid email address in step 2.');
+          return;
+        }
+        finalBtn.disabled = true;
+        finalBtn.textContent = 'Submitting...';
+        fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        }).then(function(r) {
+          if (!r.ok) throw new Error('Failed');
+          return r.json();
+        }).then(function() {
+          goStep('success');
+        }).catch(function() {
+          finalBtn.disabled = false;
+          finalBtn.textContent = 'Submit mod';
+          alert('Submission failed. Please check your connection and try again.');
+        });
       });
     }
   }
@@ -297,8 +403,10 @@
     if (!form) return;
     var emailInput = form.querySelector('.sub-form__email');
     var submitBtn = form.querySelector('.sub-form__submit');
+    var errorEl = document.getElementById('sub-error');
     var success = document.getElementById('sub-success');
     if (!submitBtn || !emailInput) return;
+    var apiUrl = submitBtn.getAttribute('data-action') || 'https://moddable-website.neuroware.workers.dev/api/subscribe';
 
     submitBtn.addEventListener('click', function() {
       var email = emailInput.value.trim();
@@ -309,7 +417,7 @@
       }
       submitBtn.disabled = true;
       submitBtn.textContent = 'Subscribing...';
-      fetch('https://moddable-website.neuroware.workers.dev/api/subscribe', {
+      fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email, source: 'subscribe-page' })
@@ -323,6 +431,7 @@
         submitBtn.disabled = false;
         submitBtn.textContent = 'Subscribe';
         emailInput.style.borderColor = '#d11a1a';
+        if (errorEl) errorEl.hidden = false;
       });
     });
   }

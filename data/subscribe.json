@@ -1,4 +1,5 @@
 {
+  "page_id": "sub",
   "has_sidebar": true,
   "sections": [
     {
@@ -10,7 +11,7 @@
       "submit_label": "Subscribe",
       "error_message": "Something went wrong. Please try again.",
       "success_heading": "You're in.",
-      "success_body": "Check your inbox for a confirmation link. Welcome to the table."
+      "success_body": "We'll email you when something ships. No spam, no filler."
     }
   ],
   "sidebar": [
@@ -27,6 +28,7 @@
   "below_layout": [
     {
       "type": "benefits",
+      "title": "What you'll get",
       "items": [
         { "title": "One per milestone", "body": "We only send when something actually ships. A game, a playtest, a crowdfund launch.", "color": "#3a9928" },
         { "title": "Playtest priority", "body": "Subscribers get early access to closed playtests before Discord announcements.", "color": "#0c4f8d" },

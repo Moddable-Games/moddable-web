@@ -27,8 +27,8 @@ textarea.field-input { resize:vertical;min-height:120px; }
 .submit-form { background:#f5f4ef;padding:56px 32px 96px; }
 .submit-form__inner { max-width:760px;margin:0 auto; }
 .submit-form__fields { display:flex;flex-direction:column;gap:24px; }
-.submit-form__nav { display:flex;justify-content:flex-end; }
-.submit-form__nav--between { display:flex;justify-content:space-between; }
+.submit-form__nav { display:flex;justify-content:flex-end;margin-top:32px; }
+.submit-form__nav--between { display:flex;justify-content:space-between;margin-top:32px; }
 
 /* Step 3 */
 .submit-preview { background:#fff;border:1px solid #e6e3d8;border-radius:16px;padding:28px;margin-bottom:32px; }

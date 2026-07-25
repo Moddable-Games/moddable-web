@@ -41,7 +41,8 @@
 {{#each below_layout}}
 {{#if type "benefits"}}
 <section class="sub-benefits">
-  <div class="mg-container">
+  <div class="sub-benefits__inner">
+    {{#if title}}<h2 class="sub-benefits__title">{{title}}</h2>{{/if}}
     <div class="sub-benefits__grid" id="benefits-grid">
       {{#each items}}
       <div class="sub-benefit-card">
@@ -83,54 +84,82 @@
 <div class="submit-steps">
   <div class="submit-steps__inner">
     {{#each steps}}
-    <div class="step-tab{{#if @first}} step-tab--active{{/if}}{{#unless @first}} step-tab--inactive{{/unless}}">
-      <span class="step-tab__num{{#if @first}} step-tab__num--active{{/if}}">{{number}}</span>
+    <div id="step-{{number}}-tab" class="step-tab{{#if @first}} step-tab--active{{/if}}{{#unless @first}} step-tab--inactive{{/unless}}">
+      <span id="s{{number}}-num" class="step-tab__num{{#if @first}} step-tab__num--active{{/if}}">{{number}}</span>
       <span class="step-tab__label">{{label}}</span>
     </div>
     {{/each}}
   </div>
 </div>
-<div class="submit-form" id="submit-form">
+<section class="submit-form" data-action="{{action}}">
   <div class="submit-form__inner">
-    <div class="submit-form__fields">
-      <div class="field-wrap">
-        <label class="field-label">{{fields.title.label}}<span class="field-label__required">*</span></label>
-        <span class="field-hint">{{fields.title.hint}}</span>
-        <input type="text" class="field-input" placeholder="{{fields.title.placeholder}}">
+    <div id="step-1">
+      <div class="submit-form__fields">
+        {{#each step1.fields}}
+        <div class="field-wrap">
+          <label for="{{id}}" class="field-label">{{label}}{{#if required}}<span class="field-label__required">*</span>{{/if}}</label>
+          {{#if hint}}<span class="field-hint">{{hint}}</span>{{/if}}
+          {{#if type "text"}}<input type="text" id="{{id}}" data-key="{{key}}" class="field-input" placeholder="{{placeholder}}">{{/if}}
+          {{#if type "textarea"}}<textarea id="{{id}}" data-key="{{key}}" class="field-input" placeholder="{{placeholder}}" rows="4"></textarea>{{/if}}
+          {{#if type "file"}}<input type="file" id="{{id}}" data-key="{{key}}" class="field-file" accept="{{accept}}">{{/if}}
+          {{#if type "category"}}
+          <div class="cat-grid">
+            {{#each options}}
+            <button class="cat-btn" type="button" data-value="{{title}}">
+              <span class="cat-btn__title">{{title}}</span>
+              <span class="cat-btn__desc">{{desc}}</span>
+            </button>
+            {{/each}}
+          </div>
+          {{/if}}
+        </div>
+        {{/each}}
       </div>
-      <div class="field-wrap">
-        <label class="field-label">{{fields.base_game.label}}<span class="field-label__required">*</span></label>
-        <span class="field-hint">{{fields.base_game.hint}}</span>
-        <input type="text" class="field-input" placeholder="{{fields.base_game.placeholder}}">
+      <div class="submit-form__nav">
+        <button class="mg-btn mg-btn--dark submit-next" data-target="2" type="button">{{step1.next_label}} &rarr;</button>
       </div>
-      <div class="field-wrap">
-        <label class="field-label">{{fields.category.label}}<span class="field-label__required">*</span></label>
-        <span class="field-hint">{{fields.category.hint}}</span>
-        <div class="cat-grid">
-          {{#each fields.category.options}}
-          <button class="cat-btn" type="button">
-            <span class="cat-btn__title">{{title}}</span>
-            <span class="cat-btn__desc">{{desc}}</span>
-          </button>
+    </div>
+    <div id="step-2" hidden>
+      <div class="submit-form__fields">
+        {{#each step2.fields}}
+        <div class="field-wrap">
+          <label for="{{id}}" class="field-label">{{label}}{{#if required}}<span class="field-label__required">*</span>{{/if}}</label>
+          {{#if hint}}<span class="field-hint">{{hint}}</span>{{/if}}
+          {{#if type "text"}}<input type="text" id="{{id}}" data-key="{{key}}" class="field-input" placeholder="{{placeholder}}">{{/if}}
+          {{#if type "file"}}<input type="file" id="{{id}}" data-key="{{key}}" class="field-file" accept="{{accept}}">{{/if}}
+        </div>
+        {{/each}}
+      </div>
+      <div class="submit-form__nav--between">
+        <button class="mg-btn mg-btn--outline-light submit-back" data-target="1" type="button">&larr; {{step2.back_label}}</button>
+        <button class="mg-btn mg-btn--dark submit-next" data-target="3" type="button">{{step2.next_label}} &rarr;</button>
+      </div>
+    </div>
+    <div id="step-3" hidden>
+      <div id="submit-preview" class="submit-preview"></div>
+      <div class="submit-agree">
+        <input type="checkbox" id="agree-check" class="submit-agree__checkbox">
+        <label for="agree-check" class="submit-agree__label">{{step3.agree_label}}</label>
+      </div>
+      <div class="submit-form__nav--between">
+        <button class="mg-btn mg-btn--outline-light submit-back" data-target="2" type="button">&larr; {{step3.back_label}}</button>
+        <button class="mg-btn mg-btn--green" id="submit-final" type="button">{{step3.submit_label}}</button>
+      </div>
+    </div>
+    <div id="step-success" hidden>
+      <div class="submit-success">
+        <div class="submit-success__eyebrow">{{success.eyebrow}}</div>
+        <h2 class="submit-success__title">{{success.title}}</h2>
+        <p class="submit-success__lede">{{success.lede}}</p>
+        <div class="submit-success__btns">
+          {{#each success.buttons}}
+          <a href="{{href}}" class="mg-btn mg-btn--{{style}}">{{label}}</a>
           {{/each}}
         </div>
       </div>
-      <div class="field-wrap">
-        <label class="field-label">{{fields.stats.label}}<span class="field-label__required">*</span></label>
-        <span class="field-hint">{{fields.stats.hint}}</span>
-        <input type="text" class="field-input" placeholder="{{fields.stats.placeholder}}">
-      </div>
-      <div class="field-wrap">
-        <label class="field-label">{{fields.description.label}}<span class="field-label__required">*</span></label>
-        <span class="field-hint">{{fields.description.hint}}</span>
-        <textarea class="field-input" placeholder="{{fields.description.placeholder}}" rows="4"></textarea>
-      </div>
-    </div>
-    <div class="submit-form__nav">
-      <button class="mg-btn mg-btn--dark" type="button">{{fields.next_label}} &rarr;</button>
     </div>
   </div>
-</div>
+</section>
 {{/if}}
 {{/each}}
 {{/if}}

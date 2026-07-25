@@ -12,6 +12,7 @@ body { background: #f5f4ef; }
 .sub-form__check { display: flex; align-items: center; gap: 10px; font-family: var(--mg-font-body); font-size: 14px; color: var(--mg-ink); cursor: pointer; }
 .sub-form__check input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--mg-green); cursor: pointer; }
 .sub-form__submit { width: 100%; }
+.sub-form__error { font-family: var(--mg-font-body); font-size: 14px; color: #d11a1a; margin-top: 12px; text-align: center; }
 
 .sub-success { text-align: center; padding: 32px; display: none; }
 .sub-success--show { display: block; }
