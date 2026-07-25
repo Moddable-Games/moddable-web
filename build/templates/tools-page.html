@@ -1,0 +1,86 @@
+{{>_head}}
+{{>_navbar}}
+{{>_hero}}
+
+{{#if tool_page.jumpnav}}
+<nav class="tools-jumpnav">
+  <div class="tools-jumpnav__inner">
+    {{#each tool_page.jumpnav}}
+    <a href="{{href}}" class="tools-jumpnav__link{{#if accent}} tools-jumpnav__link--{{accent}}{{/if}}">{{label}}</a>
+    {{/each}}
+  </div>
+</nav>
+{{/if}}
+
+{{#if tool_page.tabbed}}
+<section class="{{tool_page.section_class}}">
+  <div class="{{tool_page.section_inner_class}}">
+    <nav class="{{tool_page.tabs_class}}" id="{{tool_page.tabs_id}}"></nav>
+    <div class="{{tool_page.panel_class}}" id="{{tool_page.panel_id}}"></div>
+  </div>
+</section>
+{{/if}}
+
+{{#unless tool_page.tabbed}}
+<section class="tools-body">
+  <div class="tools-body__inner tools-body__inner--{{tool_page.body_width}}">
+
+    {{#if tool_page.duo_layout}}
+    <div class="chess-duo">
+    {{/if}}
+
+    {{#each tool_page.tools}}
+    <div class="tool-card{{#if body_class}} {{body_class}}{{/if}}" id="{{id}}">
+      <div class="tool-card__header">
+        <div class="tool-card__accent tool-card__accent--{{accent}}"></div>
+        <div>
+          <div class="tool-card__eyebrow tool-card__eyebrow--{{accent}}">{{eyebrow}}</div>
+          <h3 class="tool-card__title">{{title}}</h3>
+          {{#if desc}}<p class="tool-card__desc">{{desc}}</p>{{/if}}
+        </div>
+      </div>
+      {{#if extra_controls}}
+      <div class="hexmap-embed__controls" id="hexmap-controls"></div>
+      {{/if}}
+      <div id="{{body_id}}"></div>
+      {{#if extra_controls}}
+      <div class="hexmap-embed__actions" id="hexmap-actions"></div>
+      {{/if}}
+    </div>
+    {{/each}}
+
+    {{#if tool_page.duo_layout}}
+    </div>
+    {{/if}}
+
+  </div>
+</section>
+{{/unless}}
+
+{{#if tool_page.engine_band}}
+<section class="{{tool_page.engine_band.class}}">
+  <div class="{{tool_page.engine_band.class}}__hex"></div>
+  <div class="{{tool_page.engine_band.class}}__inner">
+    <div class="mg-eyebrow mg-eyebrow--glow">{{tool_page.engine_band.eyebrow}}</div>
+    <h2 class="{{tool_page.engine_band.class}}__heading">{{tool_page.engine_band.heading}}</h2>
+    <p class="{{tool_page.engine_band.class}}__body">{{tool_page.engine_band.body}}</p>
+    <div class="{{tool_page.engine_band.class}}__grid">
+      {{#each tool_page.engine_band.usps}}
+      <div class="{{tool_page.engine_band.class}}__usp">
+        <span class="{{tool_page.engine_band.class}}__usp-num">{{{num}}}</span>
+        <span class="{{tool_page.engine_band.class}}__usp-label">{{label}}</span>
+      </div>
+      {{/each}}
+    </div>
+    <div class="{{tool_page.engine_band.class}}__btns" id="{{tool_page.engine_band.btns_id}}"></div>
+  </div>
+</section>
+{{/if}}
+
+{{>_footer}}
+{{#each tool_page.js_files}}
+<script type="module" src="/js/{{this}}?v={{version}}"></script>
+{{/each}}
+<script src="/js/mg-enhance.js?v={{version}}" defer></script>
+</body>
+</html>

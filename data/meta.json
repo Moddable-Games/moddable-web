@@ -77,6 +77,48 @@
     "url": "https://moddable.games/tools/",
     "image": "https://moddable.games/img/og/tools.png"
   },
+  "tools-ti": {
+    "title": "Twilight Imperium tools",
+    "description": "Twilight Imperium tools — faction picker, objective tracker, agenda voter.",
+    "url": "https://moddable.games/tools/ti/",
+    "image": "https://moddable.games/img/og/tools-ti.png"
+  },
+  "tools-talisman": {
+    "title": "Talisman tools",
+    "description": "Talisman Worlds tools — character lottery, hex board generator, encounter quick-draw.",
+    "url": "https://moddable.games/tools/talisman/",
+    "image": "https://moddable.games/img/og/tools-talisman.png"
+  },
+  "tools-nukes": {
+    "title": "Nukes tools",
+    "description": "Nukes game tools — hex map generator, combat calculator, and hostage tracker for the hex strategy game.",
+    "url": "https://moddable.games/tools/nukes/",
+    "image": "https://moddable.games/img/og/tools-nukes.png"
+  },
+  "tools-dice": {
+    "title": "Dice Lab",
+    "description": "Dice roller and battle simulator. Roll any dice, or simulate combat for Risk, TI4, Axis & Allies, X-Wing, Blood Bowl, and Memoir '44.",
+    "url": "https://moddable.games/tools/dice/",
+    "image": "https://moddable.games/img/og/tools-dice.png"
+  },
+  "tools-decks": {
+    "title": "Card Deck Builder",
+    "description": "Card deck builder — design, shuffle, and deal custom card decks for any tabletop game.",
+    "url": "https://moddable.games/tools/decks/",
+    "image": "https://moddable.games/img/og/tools-decks.png"
+  },
+  "tools-chess": {
+    "title": "Chess Variant Explorer",
+    "description": "{{counts.chess_variants}} chess variants with 5 AI difficulty levels. Play in-browser, solve puzzles, explore opening books.",
+    "url": "https://moddable.games/tools/chess/",
+    "image": "https://moddable.games/img/og/tools-chess.png"
+  },
+  "tools-oracles": {
+    "title": "Oracles",
+    "description": "RPG oracle tools for 10 systems: Starforged, Ironsworn, Maze Rats, Cairn, D&D 5e, Pathfinder, Dungeon World, Knave, BRP, Fate Core.",
+    "url": "https://moddable.games/tools/oracles/",
+    "image": "https://moddable.games/img/og/tools-oracles.png"
+  },
   "404": {
     "title": "Page Not Found",
     "description": "The page you are looking for does not exist.",

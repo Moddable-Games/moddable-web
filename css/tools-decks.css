@@ -1,0 +1,234 @@
+.tog-btn { width: 36px; height: 36px; border-radius: 9999px; cursor: pointer; font-family: var(--mg-font-mono); font-weight: 600; font-size: 13px; border: 1px solid var(--mg-hairline-light); transition: all 120ms; background: var(--mg-canvas-light); color: var(--mg-ink); }
+.tog-btn--active { background: var(--mg-ink); color: #fff; border-color: var(--mg-ink); }
+
+.decks-hero {
+  position: relative;
+  padding: 100px 24px 60px;
+  background: var(--mg-cosmic-deep);
+  overflow: hidden;
+}
+
+.decks-hero__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(58, 153, 40, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.decks-hero__inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.decks-hero__back {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}
+
+.decks-hero__back:hover {
+  color: #fff;
+}
+
+.decks-hero__eyebrow {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--mg-green);
+  margin-bottom: 16px;
+}
+
+.decks-hero__title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px;
+}
+
+.decks-hero__lede {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Body + cards now provided by tools.css */
+
+.deck-designer__controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.deck-designer__input {
+  flex: 1;
+  min-width: 140px;
+  padding: 10px 16px;
+  border: 1px solid var(--mg-hairline-light);
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  outline: none;
+  background: var(--mg-canvas-light);
+}
+
+.deck-designer__input:focus {
+  border-color: var(--mg-green);
+}
+
+.deck-designer__qty {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.deck-designer__qty-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--mg-hairline-light);
+  background: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deck-designer__qty-btn:hover {
+  background: var(--mg-canvas-light);
+}
+
+.deck-designer__qty-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.deck-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.deck-list__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  background: var(--mg-canvas-light);
+  font-size: 0.85rem;
+  border: 1px solid var(--mg-hairline-light);
+}
+
+.deck-list__item-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: var(--mg-green);
+}
+
+.deck-list__item-remove {
+  cursor: pointer;
+  color: #999;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.deck-list__item-remove:hover {
+  color: var(--mg-red);
+}
+
+.deck-total {
+  margin-top: 16px;
+  margin-bottom: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.deal-controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.deal-controls__group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.deal-controls__label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.deal-controls__btns {
+  display: flex;
+  gap: 4px;
+}
+
+.deal-hands {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.deal-hand {
+  border: 1px solid var(--mg-hairline-light);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--mg-canvas-light);
+}
+
+.deal-hand__title {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: var(--mg-ink);
+}
+
+.deal-hand__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.deal-hand__card {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  background: #fff;
+  border: 1px solid var(--mg-hairline-light);
+}
+
+.presets-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .deal-hands { grid-template-columns: 1fr; }
+}

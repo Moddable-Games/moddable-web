@@ -1,0 +1,498 @@
+/* Oracle Tools Page — matches dice/tools pattern */
+.oracle-body { padding: 48px 32px 96px; }
+.oracle-body__inner { max-width: 900px; margin: 0 auto; }
+
+/* Tabs — sticky pills, same as dice */
+.oracle-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 32px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e6e3d8;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  justify-content: center;
+  position: sticky;
+  top: 64px;
+  background: #f5f4ef;
+  z-index: 10;
+}
+.oracle-tabs::-webkit-scrollbar { display: none; }
+.oracle-tabs__btn {
+  font-family: var(--mg-font-body);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 7px 13px;
+  border-radius: 9999px;
+  border: 1px solid #e6e3d8;
+  background: #fff;
+  color: #14161c;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.oracle-tabs__btn:hover { border-color: #14161c; background: #fafaf7; }
+.oracle-tabs__btn--active { background: #14161c; color: #fff; border-color: #14161c; }
+.oracle-tabs__btn--active:hover { background: #2a2d34; color: #fff; }
+
+/* Panel card */
+.oracle-panel {
+  background: #fff;
+  border: 1px solid #e6e3d8;
+  border-radius: 20px;
+  padding: 40px;
+  min-height: 400px;
+}
+
+/* Section headers */
+.oracle-section-title {
+  font-family: var(--mg-font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #14161c;
+  margin: 0 0 6px;
+}
+.oracle-section-sub {
+  font-family: var(--mg-font-body);
+  font-size: 0.875rem;
+  color: #6b6e76;
+  margin: 0 0 24px;
+}
+
+/* Controls row */
+.oracle-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.oracle-select {
+  background: #fff;
+  border: 1px solid #e6e3d8;
+  border-radius: 9999px;
+  padding: 10px 16px;
+  color: #14161c;
+  font-family: var(--mg-font-body);
+  font-size: 0.875rem;
+  outline: none;
+  cursor: pointer;
+  min-width: 160px;
+}
+.oracle-select:focus { border-color: #14161c; }
+
+/* Region pills */
+.oracle-region-pills { display: flex; gap: 4px; }
+.oracle-region-pill {
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid #e6e3d8;
+  background: #fff;
+  color: #6b6e76;
+  font-family: var(--mg-font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.oracle-region-pill:hover { border-color: #14161c; color: #14161c; }
+.oracle-region-pill--active {
+  background: #14161c;
+  color: #fff;
+  border-color: #14161c;
+}
+
+/* Action buttons */
+.oracle-forge-btn {
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: none;
+  background: #14161c;
+  color: #fff;
+  font-family: var(--mg-font-display);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.oracle-forge-btn:hover { background: #2a2d34; }
+
+/* Result cards grid — fills full width regardless of count */
+.oracle-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.oracle-result-card {
+  flex: 1 1 0;
+  min-width: 120px;
+}
+.oracle-result-card {
+  background: #f5f4ef;
+  border: 1px solid #e6e3d8;
+  border-radius: 12px;
+  padding: 16px;
+  position: relative;
+}
+.oracle-result-card__label {
+  font-family: var(--mg-font-mono);
+  font-size: 0.65rem;
+  color: #6b6e76;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.oracle-result-card__value {
+  font-family: var(--mg-font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #14161c;
+  line-height: 1.3;
+}
+.oracle-result-card__roll {
+  font-family: var(--mg-font-mono);
+  font-size: 0.7rem;
+  color: #a0a3aa;
+  margin-top: 8px;
+}
+.oracle-result-card__reroll {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #e6e3d8;
+  background: #fff;
+  color: #6b6e76;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.oracle-result-card:hover .oracle-result-card__reroll { opacity: 1; }
+.oracle-result-card__reroll:hover { background: #f5f4ef; color: #14161c; }
+
+/* Narrative sentence */
+.oracle-narrative {
+  background: #f5f4ef;
+  border: 1px solid #e6e3d8;
+  border-left: 3px solid #14161c;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-top: 24px;
+  font-family: var(--mg-font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #14161c;
+  line-height: 1.6;
+}
+
+/* Ask the Oracle */
+.oracle-likelihood-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.oracle-likelihood-pill {
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1px solid #e6e3d8;
+  background: #fff;
+  color: #6b6e76;
+  font-family: var(--mg-font-body);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.oracle-likelihood-pill:hover { border-color: #14161c; color: #14161c; }
+.oracle-likelihood-pill--active {
+  background: #14161c;
+  color: #fff;
+  border-color: #14161c;
+}
+
+.oracle-question-input {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e6e3d8;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #14161c;
+  font-family: var(--mg-font-body);
+  font-size: 0.9rem;
+  outline: none;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+.oracle-question-input::placeholder { color: #a0a3aa; }
+.oracle-question-input:focus { border-color: #14161c; }
+
+.oracle-answer {
+  text-align: center;
+  padding: 40px 0 20px;
+}
+.oracle-answer__verdict {
+  font-family: var(--mg-font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.oracle-answer__verdict--yes,
+.oracle-answer__verdict--strong_yes { color: #3a9928; }
+.oracle-answer__verdict--no,
+.oracle-answer__verdict--strong_no { color: #d11a1a; }
+.oracle-answer__verdict--strong_yes { text-shadow: 0 0 20px rgba(58, 153, 40, 0.25); }
+.oracle-answer__verdict--strong_no { text-shadow: 0 0 20px rgba(209, 26, 26, 0.25); }
+
+.oracle-answer__roll {
+  font-family: var(--mg-font-mono);
+  font-size: 0.9rem;
+  color: #6b6e76;
+  margin-top: 12px;
+}
+.oracle-answer__twist {
+  font-family: var(--mg-font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d4a017;
+  margin-top: 12px;
+  animation: twist-pulse 1.5s ease-in-out;
+}
+@keyframes twist-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.oracle-answer__question {
+  font-family: var(--mg-font-body);
+  font-size: 0.85rem;
+  color: #6b6e76;
+  margin-top: 16px;
+  font-style: italic;
+}
+
+/* Thread Weaver */
+.oracle-thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.oracle-thread-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f5f4ef;
+  border: 1px solid #e6e3d8;
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.oracle-thread-item:hover,
+.oracle-thread-item--active { border-color: #14161c; }
+.oracle-thread-item__name {
+  font-family: var(--mg-font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #14161c;
+  flex: 1;
+}
+.oracle-thread-item__count {
+  font-family: var(--mg-font-mono);
+  font-size: 0.7rem;
+  color: #6b6e76;
+}
+.oracle-thread-item__remove {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #e6e3d8;
+  background: none;
+  color: #6b6e76;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.oracle-thread-item__remove:hover { color: #d11a1a; border-color: #d11a1a; }
+
+.oracle-thread-add {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.oracle-thread-add__input {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e6e3d8;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #14161c;
+  font-family: var(--mg-font-body);
+  font-size: 0.85rem;
+  outline: none;
+}
+.oracle-thread-add__input:focus { border-color: #14161c; }
+.oracle-thread-add__input::placeholder { color: #a0a3aa; }
+
+.oracle-thread-rolls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+.oracle-thread-roll {
+  border-left: 2px solid #e6e3d8;
+  padding: 8px 0 8px 16px;
+}
+.oracle-thread-roll__result {
+  font-family: var(--mg-font-display);
+  font-size: 0.9rem;
+  color: #14161c;
+}
+.oracle-thread-roll__meta {
+  font-family: var(--mg-font-mono);
+  font-size: 0.65rem;
+  color: #a0a3aa;
+  margin-top: 4px;
+}
+
+/* Empty state */
+.oracle-empty {
+  text-align: center;
+  padding: 60px 24px;
+  color: #6b6e76;
+  font-family: var(--mg-font-body);
+  font-size: 0.9rem;
+}
+
+/* Encounter Builder */
+.oracle-encounter-controls { margin-bottom: 24px; }
+.oracle-encounter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.oracle-encounter-field { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 100px; }
+.oracle-encounter-field__label {
+  font-family: var(--mg-font-mono);
+  font-size: 0.65rem;
+  color: #6b6e76;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.oracle-encounter-field__input {
+  background: #fff;
+  border: 1px solid #e6e3d8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #14161c;
+  font-family: var(--mg-font-body);
+  font-size: 0.875rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.oracle-encounter-field__input:focus { border-color: #14161c; }
+
+.oracle-encounter-results { margin-top: 24px; }
+
+.oracle-encounter-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.oracle-encounter-badge {
+  font-family: var(--mg-font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  color: #fff;
+}
+.oracle-encounter-badge--easy { background: #3a9928; }
+.oracle-encounter-badge--medium { background: #d4a017; }
+.oracle-encounter-badge--hard { background: #d46017; }
+.oracle-encounter-badge--deadly { background: #d11a1a; }
+.oracle-encounter-terrain {
+  font-family: var(--mg-font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #14161c;
+}
+.oracle-encounter-xp {
+  font-family: var(--mg-font-mono);
+  font-size: 0.75rem;
+  color: #6b6e76;
+}
+
+.oracle-encounter-loot {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e6e3d8;
+}
+.oracle-encounter-loot__title {
+  font-family: var(--mg-font-mono);
+  font-size: 0.7rem;
+  color: #6b6e76;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.oracle-encounter-loot__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+}
+.oracle-encounter-loot__name {
+  font-family: var(--mg-font-display);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #14161c;
+}
+.oracle-encounter-loot__rarity {
+  font-family: var(--mg-font-mono);
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid #e6e3d8;
+  color: #6b6e76;
+}
+.oracle-encounter-loot__rarity--common { color: #6b6e76; border-color: #e6e3d8; }
+.oracle-encounter-loot__rarity--uncommon { color: #3a9928; border-color: #3a9928; }
+.oracle-encounter-loot__rarity--rare { color: #0c4f8d; border-color: #0c4f8d; }
+.oracle-encounter-loot__rarity--very-rare { color: #7b5ea7; border-color: #7b5ea7; }
+.oracle-encounter-loot__rarity--legendary { color: #d4a017; border-color: #d4a017; }
+.oracle-encounter-loot__rarity--artifact { color: #d11a1a; border-color: #d11a1a; }
+
+/* RPG Library */
+.oracle-library-results { margin-top: 24px; }
+.oracle-library-results .oracle-results { flex-wrap: wrap; }
+.oracle-library-results .oracle-result-card { flex: 1 1 calc(33.33% - 12px); min-width: 180px; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .oracle-body { padding: 36px 20px 64px; }
+  .oracle-panel { padding: 24px; }
+  .oracle-results { flex-wrap: wrap; }
+  .oracle-results .oracle-result-card { flex: 1 1 calc(50% - 6px); min-width: 0; }
+  .oracle-controls { flex-direction: column; align-items: stretch; }
+  .oracle-select { min-width: 0; }
+  .oracle-answer__verdict { font-size: 2.5rem; }
+  .oracle-encounter-row { flex-direction: column; }
+  .oracle-encounter-field { min-width: 0; }
+}

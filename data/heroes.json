@@ -117,6 +117,62 @@
     "lede": "Dice rollers, name generators, scoreboards, and combat calculators. No account needed.",
     "feature": "dice"
   },
+  "tools-ti": {
+    "section": "tools",
+    "tier": 2,
+    "hexColor": "blue",
+    "eyebrow": "TWILIGHT IMPERIUM",
+    "title": "Galaxy maps, factions, objectives, agendas",
+    "lede": "Everything you need to run a TI4 session without leaving the browser."
+  },
+  "tools-talisman": {
+    "section": "tools",
+    "tier": 2,
+    "hexColor": "purple",
+    "eyebrow": "TALISMAN WORLDS",
+    "title": "Characters, hex boards, encounters",
+    "lede": "Character lottery, hex board generator, and encounter quick-draw for Talisman 4e."
+  },
+  "tools-nukes": {
+    "section": "tools",
+    "tier": 2,
+    "hexColor": "red",
+    "eyebrow": "NUKES",
+    "title": "Hex maps, combat, hostages, units",
+    "lede": "Map generator, strength calculator, hostage tracker, and unit reference for the hex strategy game."
+  },
+  "tools-dice": {
+    "section": "tools",
+    "tier": 2,
+    "hexColor": "green",
+    "eyebrow": "DICE LAB",
+    "title": "Roll any dice, simulate any battle",
+    "lede": "Dice roller and battle simulator. Risk, TI4, Axis & Allies, X-Wing, Blood Bowl, and Memoir '44."
+  },
+  "tools-decks": {
+    "section": "tools",
+    "tier": 2,
+    "hexColor": "green",
+    "eyebrow": "CARD DECK BUILDER",
+    "title": "Design, shuffle, and deal",
+    "lede": "Build custom card decks for any tabletop game. Load presets or design your own."
+  },
+  "tools-chess": {
+    "section": "tools",
+    "tier": 2,
+    "hexColor": "blue",
+    "eyebrow": "CHESS VARIANTS",
+    "title": "{{counts.chess_variants}} variants, 5 AI levels",
+    "lede": "Play in-browser, solve puzzles, explore opening books. All powered by the Moddable Chess Engine."
+  },
+  "tools-oracles": {
+    "section": "tools",
+    "tier": 2,
+    "hexColor": "blue",
+    "eyebrow": "ORACLES & RPG LIBRARY",
+    "title": "Scene Forge, RPG Browser, Encounter Builder",
+    "lede": "Narrative scene generation, oracle rolls, and encounter building for 10 tabletop RPG systems."
+  },
   "404": {
     "section": "about",
     "tier": 2,
