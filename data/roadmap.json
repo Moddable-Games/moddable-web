@@ -11,7 +11,7 @@
         },
         {
           "quarter": "Q3 2026",
-          "text": "Moddable Chess: 74 variants playable online",
+          "text": "Moddable Chess: {{counts.chess_variants}} variants playable online",
           "color": "#3a9928"
         },
         {

@@ -295,7 +295,7 @@
           "commands": [
             {
               "cmd": "/variants",
-              "desc": "Browse 70+ chess variants"
+              "desc": "Browse {{counts.chess_variants}}+ chess variants"
             },
             {
               "cmd": "/validate e2e4",

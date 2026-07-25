@@ -37,6 +37,29 @@ def get_version():
     return '0.1.0'
 
 
+# ─── Counts Substitution ──────────────────────────────────────────────────
+
+def load_counts():
+    """Load counts.json — single source of truth for all dynamic numbers."""
+    path = os.path.join(DATA_DIR, 'counts.json')
+    if os.path.exists(path):
+        return load_json(path)
+    return {}
+
+
+def substitute_counts(obj, counts):
+    """Recursively replace {{counts.X}} placeholders in string values."""
+    if isinstance(obj, str):
+        for key, val in counts.items():
+            obj = obj.replace('{{counts.' + key + '}}', val)
+        return obj
+    elif isinstance(obj, list):
+        return [substitute_counts(item, counts) for item in obj]
+    elif isinstance(obj, dict):
+        return {k: substitute_counts(v, counts) for k, v in obj.items()}
+    return obj
+
+
 # ─── Markdown Converter ────────────────────────────────────────────────────
 
 def slugify(text):
@@ -365,10 +388,12 @@ def html_escape(s):
 
 def load_all_data():
     data = {}
+    counts = load_counts()
     for f in os.listdir(DATA_DIR):
         if f.endswith('.json'):
             key = f[:-5]
-            data[key] = load_json(os.path.join(DATA_DIR, f))
+            raw = load_json(os.path.join(DATA_DIR, f))
+            data[key] = substitute_counts(raw, counts) if key != 'counts' else raw
     return data
 
 def bundle_css(page_id, css_files):

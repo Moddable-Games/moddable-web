@@ -7,9 +7,9 @@
       "items": [
         {
           "title": "Tools API",
-          "body": "56 tools for chess, hex maps, piece gallery, rules queries, RPG oracles (10 systems), entity browser, encounter building, classic game engines, and utilities. Connect in one command via MCP or call via REST.",
+          "body": "{{counts.tool_count}} tools for chess, hex maps, piece gallery, rules queries, RPG oracles (10 systems), entity browser, encounter building, classic game engines, and utilities. Connect in one command via MCP or call via REST.",
           "href": "/developers/api/",
-          "stat": "56 tools",
+          "stat": "{{counts.tool_count}} tools",
           "accent": "blue"
         },
         {

@@ -66,7 +66,7 @@
     "hexColor": "purple",
     "eyebrow": "DEVELOPERS",
     "title": "Board game engines as <em>AI</em> tools",
-    "lede": "56 callable tools across seven namespaces. Connect from any MCP client, call via REST, or build bots for Telegram, Slack, and Discord.",
+    "lede": "{{counts.tool_count}} callable tools across seven namespaces. Connect from any MCP client, call via REST, or build bots for Telegram, Slack, and Discord.",
     "feature": "svg",
     "feature_src": "/img/hero/feature-developers.svg"
   },

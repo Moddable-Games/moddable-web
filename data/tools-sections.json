@@ -48,7 +48,7 @@
     { "title": "Nukes", "sub": "Hex map generator, Combat calculator, Hostage tracker, Unit reference", "color": "#d11a1a", "href": "/tools/nukes/" },
     { "title": "Dice Lab", "sub": "Dice roller, Battle simulator, Risk, TI4, Axis & Allies, X-Wing, Blood Bowl, Memoir '44", "color": "#d11a1a", "href": "/tools/dice/" },
     { "title": "Card Deck Builder", "sub": "Design, Shuffle, Deal — custom decks for any game", "color": "#3a9928", "href": "/tools/decks/" },
-    { "title": "Chess Variants", "sub": "74 variants, Rules reference, Match setup", "color": "#0c4f8d", "href": "/tools/chess/" },
+    { "title": "Chess Variants", "sub": "{{counts.chess_variants}} variants, Rules reference, Match setup", "color": "#0c4f8d", "href": "/tools/chess/" },
     { "title": "Oracles & RPG Library", "sub": "Scene Forge, RPG Browser, Encounter Builder — 10 systems, 3000+ entities", "color": "#6fb5ff", "href": "/tools/oracles/" }
   ]
 }

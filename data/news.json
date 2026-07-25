@@ -116,7 +116,7 @@
       "modCard": {
         "eyebrow": "THE ENGINE",
         "title": "Moddable Chess",
-        "version": "v0.7.1 \u00b7 74 variants",
+        "version": "v0.7.1 \u00b7 {{counts.chess_variants}} variants",
         "href": "/engines/moddable-chess/",
         "btnLabel": "Try It"
       }
@@ -452,7 +452,7 @@
       ],
       "modCard": {
         "title": "Moddable Chess",
-        "version": "74 variants \u00b7 Play online",
+        "version": "{{counts.chess_variants}} variants \u00b7 Play online",
         "href": "/engines/moddable-chess/",
         "btnLabel": "Play Now",
         "eyebrow": "THE ENGINE"
@@ -690,7 +690,7 @@
       ],
       "modCard": {
         "title": "Moddable Chess",
-        "version": "74 variants \u00b7 Play online",
+        "version": "{{counts.chess_variants}} variants \u00b7 Play online",
         "href": "/engines/moddable-chess/",
         "btnLabel": "Play Now",
         "eyebrow": "THE ENGINE"

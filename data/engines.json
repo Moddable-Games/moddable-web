@@ -3,14 +3,14 @@
     {
       "slug": "moddable-chess",
       "title": "Moddable Chess",
-      "tagline": "74 chess variants. One modular engine.",
+      "tagline": "{{counts.chess_variants}} chess variants. One modular engine.",
       "accent": "blue",
       "url": "https://chess.moddable.games/",
       "repo": "https://github.com/Moddable-Games/moddable-chess",
       "logo": "/img/moddable-chess-cube.svg",
       "image": "/img/engine-chess-screenshot.png",
       "stats": [
-        { "value": "70", "label": "playable variants" },
+        { "value": "{{counts.chess_variants}}", "label": "playable variants" },
         { "value": "5", "label": "AI difficulties" },
         { "value": "3", "label": "consumer apps" }
       ],

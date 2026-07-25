@@ -1361,11 +1361,11 @@
       "textShadow": "0 0 8px rgba(111,181,255,0.5)",
       "bloom": "radial-gradient(ellipse,rgba(12,79,141,0.35) 0%,transparent 65%)"
     },
-    "lede": "74 playable variants. Five AI difficulties. Three consumer apps. The most modded game in history finally gets an open-source home.",
+    "lede": "{{counts.chess_variants}} playable variants. Five AI difficulties. Three consumer apps. The most modded game in history finally gets an open-source home.",
     "stats": [
       [
         "Variants",
-        "70"
+        "{{counts.chess_variants}}"
       ],
       [
         "AI Difficulties",
@@ -1463,7 +1463,7 @@
       },
       {
         "title": "Chess Variant Loader",
-        "body": "Pick, preview, and play any of 74 variants from the browser. Rules reference and match launcher.",
+        "body": "Pick, preview, and play any of {{counts.chess_variants}} variants from the browser. Rules reference and match launcher.",
         "href": "/tools/chess/",
         "accent": "#0c4f8d"
       }
@@ -1474,7 +1474,7 @@
         "type": "variants",
         "bg": "light",
         "eyebrow": "SUPPORTED VARIANTS",
-        "heading": "70 variants. Six categories. One engine",
+        "heading": "{{counts.chess_variants}} variants. Six categories. One engine",
         "heading_class": "mg-heading-xl",
         "sub": "",
         "grid": "mg-grid-3",
@@ -1923,7 +1923,7 @@
     "stats": [
       [
         "Games",
-        "6"
+        "{{counts.hex_games}}"
       ],
       [
         "Renderer",
