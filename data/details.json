@@ -160,11 +160,24 @@
         "eyebrow": "NUCLEAR STRIKES",
         "heading": "Launch from a Base.<br>Destroy everything",
         "body": "Convert units into isotopes. Launch from any Base. Jump over occupied hexes like Artillery. The target hex becomes permanent Biohazard \u2014 all units in the target and all six surrounding hexes are destroyed immediately. Including your own.",
-        "bloom": "radial-gradient(ellipse,rgba(209,26,26,0.35) 0%,transparent 65%)"
+        "bloom": "radial-gradient(ellipse,rgba(209,26,26,0.35) 0%,transparent 65%)",
+        "buttons": [
+          {
+            "label": "Read Rules",
+            "href": "https://rules.moddable.games/nukes/",
+            "style": "red",
+            "external": true
+          },
+          {
+            "label": "See Tools",
+            "href": "/tools/nukes/",
+            "style": "outline-dark"
+          }
+        ]
       },
       {
         "type": "hooks",
-        "bg": "white",
+        "bg": "light",
         "eyebrow": "CORE MECHANICS",
         "heading": "Simple components. Emergent complexity",
         "heading_class": "mg-heading-lg",
@@ -364,15 +377,22 @@
         "bloom": "radial-gradient(ellipse,rgba(58,153,40,0.35) 0%,transparent 65%)",
         "buttons": [
           {
-            "label": "Follow on Discord",
-            "href": "/community/",
-            "style": "green"
+            "label": "Generate Map",
+            "href": "https://hex.moddable.games/generate/?game=mongo",
+            "style": "green",
+            "external": true
+          },
+          {
+            "label": "View on GitHub",
+            "href": "https://github.com/Moddable-Games/moddable-rules/tree/main/games/mongo",
+            "style": "outline-dark",
+            "external": true
           }
         ]
       },
       {
         "type": "hooks",
-        "bg": "white",
+        "bg": "light",
         "eyebrow": "CORE MECHANICS",
         "heading": "Simultaneous orders. Hidden stacks. Dynamic economy",
         "heading_class": "mg-heading-lg",
@@ -382,7 +402,7 @@
       },
       {
         "type": "factions",
-        "bg": "light",
+        "bg": "white mg-section--border-top",
         "eyebrow": "FACTIONS",
         "heading": "Eight rulers. Eight regions. Eight ways to win",
         "heading_class": "mg-heading-lg",
@@ -574,15 +594,22 @@
         "bloom": "radial-gradient(ellipse,rgba(12,79,141,0.35) 0%,transparent 65%)",
         "buttons": [
           {
-            "label": "Follow on Discord",
-            "href": "/community/",
-            "style": "blue"
+            "label": "Generate Map",
+            "href": "https://hex.moddable.games/generate/?game=endless-skies",
+            "style": "blue",
+            "external": true
+          },
+          {
+            "label": "View on GitHub",
+            "href": "https://github.com/Moddable-Games/moddable-rules/tree/main/games/endless-skies",
+            "style": "outline-dark",
+            "external": true
           }
         ]
       },
       {
         "type": "hooks",
-        "bg": "white",
+        "bg": "dark",
         "eyebrow": "CORE MECHANICS",
         "heading": "Worker placement meets 4X exploration",
         "heading_class": "mg-heading-lg",

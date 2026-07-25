@@ -153,11 +153,13 @@
         {{#if category}}<div class="mg-card__eyebrow" style="color: {{category_color}}">{{category}}</div>{{/if}}
         <h3 class="mg-card__title">{{title}}</h3>
         <p class="mg-card__body">{{body}}</p>
-        {{#if accent}}<span class="mg-card__link" style="color:{{accent}}">Explore &rarr;</span>{{/if}}
+        {{#if stats}}<span class="mg-card__link">{{stats}}</span>{{/if}}
+        {{#if accent}}{{#unless category}}<span class="mg-card__link" style="color:{{accent}}">Explore &rarr;</span>{{/unless}}{{/if}}
       </a>{{/if}}{{#unless href}}<div class="mg-card">
         {{#if category}}<div class="mg-card__eyebrow" style="color: {{category_color}}">{{category}}</div>{{/if}}
         <h3 class="mg-card__title">{{title}}</h3>
         <p class="mg-card__body">{{body}}</p>
+        {{#if stats}}<span class="mg-card__link">{{stats}}</span>{{/if}}
       </div>{{/unless}}{{/each}}
     </div>
   </div>
