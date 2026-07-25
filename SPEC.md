@@ -127,51 +127,55 @@ That's it for build time. The interactive tool pages (Tier 4) still call the API
 
 ## Build phases
 
-### Phase 0: Infrastructure
-- [ ] `build/build.py` — template engine (substitute, loops, conditionals, partials)
-- [ ] `build/templates/_base.html` — document shell
-- [ ] `build/templates/_navbar.html` — static navbar partial
-- [ ] `build/templates/_footer.html` — static footer partial
-- [ ] `build/templates/_hero.html` — hero section partial
-- [ ] `css/` — copy all CSS from moddable-website unchanged
-- [ ] `js/mg-enhance.js` — thin UX JS (hamburger, parallax, reveal, search)
-- [ ] `data/nav.json` + `data/heroes.json` — extracted from current JS
-- [ ] Prove with `/about/` — visual comparison must be pixel-identical
+### Phase 0: Infrastructure ✓
+- [x] `build/build.py` — template engine (substitute, loops, conditionals, partials)
+- [x] `build/templates/_base.html` — document shell
+- [x] `build/templates/_navbar.html` — static navbar partial
+- [x] `build/templates/_footer.html` — static footer partial
+- [x] `build/templates/_hero.html` — hero section partial
+- [x] `css/` — copy all CSS from moddable-website unchanged
+- [x] `js/mg-enhance.js` — thin UX JS (hamburger, parallax, reveal, search)
+- [x] `data/nav.json` + `data/heroes.json` — extracted from current JS
+- [x] Prove with `/about/` — visual comparison must be pixel-identical
 
-### Phase 1: Tier 1 pages (14 pages)
-- [ ] Extract hardcoded content → JSON for each page
-- [ ] Write templates for: about, roadmap, community, press, team, team-detail, subscribe, submit, developers, examples, 404
-- [ ] Build generates all 14 pages
-- [ ] Visual diff: screenshot comparison vs live site
+### Phase 1: Tier 1 pages ✓
+- [x] Extract hardcoded content → JSON for each page
+- [x] Write templates for: about, roadmap, community, press, team, subscribe, submit, developers, 404
+- [x] Build generates all pages
+- [x] Visual diff: screenshot comparison vs live site
 
-### Phase 2: Tier 2 index pages (5 pages)
-- [ ] Templates for: mods-index, games-index, engines-index, news-index, tools-hub
-- [ ] Card partials: `_card-mod.html`, `_card-game.html`, `_card-news.html`
-- [ ] Filter/search JS preserved as enhancement (works without JS, enhanced with JS)
-- [ ] Extract tools-sections hardcoded data → JSON
+### Phase 2: Tier 2 index pages ✓
+- [x] Templates for: mods-index, games-index, engines-index, news-index, tools-hub
+- [x] Card partials via reusable section partials
+- [x] Filter/search JS preserved as enhancement (works without JS, enhanced with JS)
+- [x] Extract tools-sections hardcoded data → JSON
 
-### Phase 3: Tier 3 detail pages (28+ pages from templates)
-- [ ] Mod detail template (×11 pages from `data/mods.json`)
-- [ ] Game detail template (×3 pages from `data/games-content.json`)
-- [ ] Engine detail templates (chess, hexmaps)
-- [ ] News article template (×14 pages from `data/news.json` + article HTML bodies)
-- [ ] Build generates all detail pages from data
+### Phase 3: Detail pages ✓
+- [x] Detail template with data-driven ordered sections (×7 mods, ×3 games, ×2 engines)
+- [x] Team detail template (×4 members)
+- [x] News article template with markdown converter (×14 articles)
+- [x] Markdown system: content/news/*.md with HTML passthrough for callouts, figures, video
+- [x] counts.json for single-source dynamic numbers
+- [x] OG image generation scripts (data-driven)
+- [x] All images consolidated under img/
 
-### Phase 4: Tier 4 interactive tool pages (8 pages)
+### Phase 5: Home page ✓
+- [x] Extract home page data → `data/home.json`
+- [x] Home template with hero, featured sections, stats, news feed
+- [x] Hero animations via CSS + UX JS (not content JS)
+
+### Phase 4: Tool pages + Search (NEXT)
+- [ ] Cmd+K search overlay (local index + rules API)
 - [ ] Static content rendered in template (descriptions, headings, layouts)
 - [ ] Interactive widgets as standalone JS modules (not content renderers)
 - [ ] Tools that call `tools.moddable.games/api/call` keep that pattern (client-side fetch)
 - [ ] Tools with hardcoded data (dice, talisman, nukes): move data to JSON, render labels statically
-
-### Phase 5: Home page
-- [ ] Extract home page data → `data/home.json`
-- [ ] Home template with hero, featured sections, stats, news feed
-- [ ] Hero animations via CSS + UX JS (not content JS)
+- [ ] `/developers/api/` and `/developers/examples/` sub-pages
 
 ### Phase 6: Discovery files + deploy
 - [ ] Build generates: `robots.txt`, `sitemap.xml`, `llms.txt`, `.well-known/*`
 - [ ] `bump.sh` stamps version across all CSS/JS refs
-- [ ] GitHub Pages / Cloudflare Pages deploy config
+- [ ] Cloudflare Pages deploy config
 - [ ] Full visual regression: every page compared to live site
 
 ### Phase 7: Cutover

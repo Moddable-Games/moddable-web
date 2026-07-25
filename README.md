@@ -204,6 +204,18 @@ The goal is to move from client-rendered to server-built while changing as littl
 
 ## Changelog
 
+#### 2026-07-25
+- Phase 3 complete: 45 pages total (was 15)
+- Detail pages: 7 mods, 3 games, 2 engines, 4 team members (data-driven ordered sections)
+- News articles: 14 pages from markdown with HTML passthrough (callouts, figures, video embeds)
+- Markdown converter with lede detection, HTML block passthrough, heading ID generation
+- counts.json: single-source dynamic numbers (tool count, variant count, etc.) substituted at build time
+- Image consolidation: all assets under img/ (press, team, news, og, tools)
+- OG image generation scripts (Pillow-based, data-driven from heroes.json/meta.json)
+- Subscribe/submit pages fixed to match original (3-step form, benefits section, correct class prefixes)
+- Article template: 3-column layout with author card, TOC, share buttons, related posts
+- Detail template: fully section-driven (each page declares its own section order, types, headings)
+
 #### 2026-07-24
 - Phase 0-2 complete: SSG infrastructure, 15 pages built
 - Custom Python template engine with nested block support
