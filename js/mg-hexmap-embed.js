@@ -103,7 +103,7 @@ if (embedCard) {
     })
     if (currentSize) params.set('size', currentSize)
     if (currentLayout) params.set('players', parseInt(currentLayout))
-    params.set('bg', 'F8F9FC')
+    params.set('bg', 'FFFFFF')
     hexIframe.src = ENGINE_BASE + '?' + params.toString()
     hexIframe.className = 'hexmap-embed__iframe'
     hexIframe.style.width = '100%'
