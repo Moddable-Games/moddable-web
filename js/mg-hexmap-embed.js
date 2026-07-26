@@ -103,11 +103,11 @@ if (embedCard) {
     })
     if (currentSize) params.set('size', currentSize)
     if (currentLayout) params.set('players', parseInt(currentLayout))
+    params.set('bg', 'F8F9FC')
     hexIframe.src = ENGINE_BASE + '?' + params.toString()
     hexIframe.className = 'hexmap-embed__iframe'
     hexIframe.style.width = '100%'
-    hexIframe.style.aspectRatio = '1 / 1'
-    hexIframe.style.maxWidth = '560px'
+    hexIframe.style.aspectRatio = '4 / 3'
     hexIframe.style.border = 'none'
     hexIframe.style.borderRadius = '8px'
     hexIframe.setAttribute('title', 'Hex Map: ' + config.game)
