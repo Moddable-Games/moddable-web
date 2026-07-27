@@ -204,6 +204,15 @@ The goal is to move from client-rendered to server-built while changing as littl
 
 ## Changelog
 
+#### 2026-07-27
+- Slug rename: moddable-chess → chess across all data files and build scripts (closes #3)
+- Forms API updated: subscribe/submit now point at moddable-tools staging
+- Chess page TOOLS_API uses staging on localhost, production on deploy
+- Added mg-tools-common.js shared helper for tool page thin layers
+- Clarified architecture: moddable-web is a thin consumer only, no game logic or data
+- Created moddable-tools issues #13–#18 for embeddable widgets blocking remaining tool pages
+- Issue #2 updated with blocker status
+
 #### 2026-07-25
 - Tool sub-pages: 7 per-game tool page shells built (ti, talisman, nukes, dice, decks, chess, oracles)
 - New template: tools-page.html handles 3 layout variants (card-based, tabbed, duo) via data flags
