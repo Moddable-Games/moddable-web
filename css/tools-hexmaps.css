@@ -51,11 +51,15 @@
 }
 
 .hexmap-embed__controls {
+  margin-bottom: 16px;
+}
+
+.hexmap-embed__control-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 16px;
 }
 
 .hexmap-embed__control-group {
@@ -100,6 +104,20 @@
   background: #fff;
   display: block;
 }
+
+.hexmap-embed__btn {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 1px solid var(--mg-hairline-light);
+  background: #fff;
+  font-family: var(--mg-font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--mg-ink);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.hexmap-embed__btn:hover { border-color: var(--mg-ink); background: var(--mg-ink); color: #fff; }
 
 .hexmap-embed__actions {
   display: flex;

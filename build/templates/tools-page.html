@@ -57,6 +57,14 @@
 </section>
 {{/unless}}
 
+{{#if tool_page.embed_id}}
+<section class="tools-embed-section">
+  <div class="tools-embed-section__inner">
+    <div id="{{tool_page.embed_id}}"></div>
+  </div>
+</section>
+{{/if}}
+
 {{#if tool_page.engine_band}}
 <section class="{{tool_page.engine_band.class}}">
   <div class="{{tool_page.engine_band.class}}__hex"></div>

@@ -1,6 +1,4 @@
-const ENGINE_BASE = location.hostname === 'localhost'
-  ? '/MODDABLE/moddable-engine/play/'
-  : 'https://engine.moddable.games/play/'
+import { tools } from './mg-tools-common.js'
 
 const GAME_MAP = {
   'nukes-hexmap': { game: 'nukes', styles: ['artistic', 'classic', 'kenney'], sizes: [2, 3, 4, 5, 6], defaultSize: 4 },
@@ -11,6 +9,7 @@ const GAME_MAP = {
 const embedCard = document.querySelector('.hexmap-embed')
 if (embedCard) {
   const config = GAME_MAP[embedCard.id] || GAME_MAP['nukes-hexmap']
+
   const controlsEl = document.getElementById('hexmap-controls')
   const frameEl = document.getElementById('hexmap-frame-wrap')
   const actionsEl = document.getElementById('hexmap-actions')
@@ -18,22 +17,26 @@ if (embedCard) {
   let currentStyle = config.styles[0]
   let currentSize = config.defaultSize || null
   let currentLayout = config.defaultLayout || null
-  let hexIframe = null
 
-  function sendMessage(type, data = {}) {
-    if (hexIframe && hexIframe.contentWindow) {
-      hexIframe.contentWindow.postMessage({ type, ...data }, '*')
-    }
-  }
+  const params = { embed: '1', game: config.game, style: currentStyle, random: '1', bg: 'FFFFFF' }
+  if (currentSize) params.size = String(currentSize)
+  if (currentLayout) params.players = String(parseInt(currentLayout))
 
-  // Controls
+  const embed = tools.embed.play(frameEl, {
+    game: config.game,
+    params,
+    title: 'Hex Map: ' + config.game,
+    height: 500,
+  })
+  embed._ready = true
+
   if (controlsEl) {
     const controls = document.createElement('div')
     controls.className = 'hexmap-embed__control-row'
 
     if (config.styles.length > 1) {
       const styleSelect = document.createElement('select')
-      styleSelect.className = 'chess-explorer__select'
+      styleSelect.className = 'hexmap-embed__select'
       config.styles.forEach(s => {
         const opt = document.createElement('option')
         opt.value = s
@@ -43,14 +46,14 @@ if (embedCard) {
       })
       styleSelect.addEventListener('change', () => {
         currentStyle = styleSelect.value
-        sendMessage('hexmap:setStyle', { style: currentStyle })
+        embed._send({ type: 'hexmap:setStyle', style: currentStyle })
       })
       controls.appendChild(styleSelect)
     }
 
     if (config.sizes) {
       const sizeSelect = document.createElement('select')
-      sizeSelect.className = 'chess-explorer__select'
+      sizeSelect.className = 'hexmap-embed__select'
       config.sizes.forEach(s => {
         const opt = document.createElement('option')
         opt.value = s
@@ -60,14 +63,14 @@ if (embedCard) {
       })
       sizeSelect.addEventListener('change', () => {
         currentSize = parseInt(sizeSelect.value)
-        sendMessage('hexmap:regenerate', { size: currentSize, random: true })
+        embed._send({ type: 'hexmap:regenerate', size: currentSize, random: true })
       })
       controls.appendChild(sizeSelect)
     }
 
     if (config.layouts) {
       const layoutSelect = document.createElement('select')
-      layoutSelect.className = 'chess-explorer__select'
+      layoutSelect.className = 'hexmap-embed__select'
       config.layouts.forEach(l => {
         const opt = document.createElement('option')
         opt.value = l
@@ -77,54 +80,28 @@ if (embedCard) {
       })
       layoutSelect.addEventListener('change', () => {
         currentLayout = layoutSelect.value
-        const players = parseInt(currentLayout)
-        sendMessage('hexmap:regenerate', { players, random: true })
+        embed._send({ type: 'hexmap:regenerate', players: parseInt(currentLayout), random: true })
       })
       controls.appendChild(layoutSelect)
     }
 
     const regenBtn = document.createElement('button')
-    regenBtn.className = 'chess-explorer__btn'
+    regenBtn.className = 'hexmap-embed__btn'
     regenBtn.textContent = 'Regenerate'
-    regenBtn.addEventListener('click', () => sendMessage('hexmap:regenerate', { random: true }))
+    regenBtn.addEventListener('click', () => embed._send({ type: 'hexmap:regenerate', random: true }))
     controls.appendChild(regenBtn)
 
     controlsEl.appendChild(controls)
   }
 
-  // Iframe
-  if (frameEl) {
-    hexIframe = document.createElement('iframe')
-    const params = new URLSearchParams({
-      embed: '1',
-      game: config.game,
-      style: currentStyle,
-      random: '1',
-    })
-    if (currentSize) params.set('size', currentSize)
-    if (currentLayout) params.set('players', parseInt(currentLayout))
-    params.set('bg', 'FFFFFF')
-    hexIframe.src = ENGINE_BASE + '?' + params.toString()
-    hexIframe.className = 'hexmap-embed__iframe'
-    hexIframe.style.width = '100%'
-    hexIframe.style.aspectRatio = '4 / 3'
-    hexIframe.style.border = 'none'
-    hexIframe.style.borderRadius = '8px'
-    hexIframe.setAttribute('title', 'Hex Map: ' + config.game)
-    hexIframe.setAttribute('scrolling', 'no')
-    frameEl.appendChild(hexIframe)
-  }
-
-  // Actions
   if (actionsEl) {
     const exportBtn = document.createElement('button')
-    exportBtn.className = 'chess-explorer__btn'
+    exportBtn.className = 'hexmap-embed__btn'
     exportBtn.textContent = 'Export SVG'
-    exportBtn.addEventListener('click', () => sendMessage('hexmap:exportSvg'))
+    exportBtn.addEventListener('click', () => embed._send({ type: 'hexmap:exportSvg' }))
     actionsEl.appendChild(exportBtn)
   }
 
-  // Listen for responses
   window.addEventListener('message', (e) => {
     if (!e.data || typeof e.data.type !== 'string') return
     if (e.data.type === 'hexmap:svgData' && e.data.svg) {

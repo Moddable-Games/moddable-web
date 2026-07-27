@@ -1,14 +1,4 @@
-const ENGINE_BASE = location.hostname === 'localhost'
-  ? '/MODDABLE/moddable-engine/play/'
-  : 'https://engine.moddable.games/play/'
-
-const ENGINE_API = location.hostname === 'localhost'
-  ? '/MODDABLE/moddable-engine/api/'
-  : 'https://engine.moddable.games/api/'
-
-const TOOLS_API = location.hostname === 'localhost'
-  ? 'https://moddable-tools-staging.neuroware.workers.dev'
-  : 'https://tools.moddable.games'
+import { tools } from './mg-tools-common.js'
 
 const VARIANTS = [
   { key: 'standard', label: 'Standard', group: 'Classic' },
@@ -27,16 +17,11 @@ const VARIANTS = [
   { key: 'minichess', label: 'Minichess', group: 'Small Boards' },
 ]
 
+// --- Chess Explorer ---
+
 const body = document.getElementById('chess-explorer-body')
 if (body) {
   let currentVariant = 'standard'
-  let chessIframe = null
-
-  function sendMessage(type, data = {}) {
-    if (chessIframe && chessIframe.contentWindow) {
-      chessIframe.contentWindow.postMessage({ type, ...data }, '*')
-    }
-  }
 
   const controls = document.createElement('div')
   controls.className = 'chess-explorer__controls'
@@ -50,10 +35,6 @@ if (body) {
     if (v.key === currentVariant) opt.selected = true
     variantSelect.appendChild(opt)
   })
-  variantSelect.addEventListener('change', () => {
-    currentVariant = variantSelect.value
-    sendMessage('chess:setVariant', { variant: currentVariant })
-  })
   controls.appendChild(variantSelect)
 
   const diffSelect = document.createElement('select')
@@ -65,46 +46,46 @@ if (body) {
     if (d === 'medium') opt.selected = true
     diffSelect.appendChild(opt)
   })
-  diffSelect.addEventListener('change', () => {
-    sendMessage('chess:setDifficulty', { difficulty: diffSelect.value })
-  })
   controls.appendChild(diffSelect)
 
   const newBtn = document.createElement('button')
   newBtn.textContent = 'New Game'
   newBtn.className = 'chess-explorer__btn'
-  newBtn.addEventListener('click', () => sendMessage('chess:newGame'))
   controls.appendChild(newBtn)
 
   const undoBtn = document.createElement('button')
   undoBtn.textContent = 'Undo'
   undoBtn.className = 'chess-explorer__btn'
-  undoBtn.addEventListener('click', () => sendMessage('chess:undo'))
   controls.appendChild(undoBtn)
 
   const flipBtn = document.createElement('button')
   flipBtn.textContent = 'Flip'
   flipBtn.className = 'chess-explorer__btn'
-  flipBtn.addEventListener('click', () => sendMessage('chess:flip'))
   controls.appendChild(flipBtn)
 
   body.appendChild(controls)
 
   const wrap = document.createElement('div')
   wrap.className = 'chess-explorer__embed'
-
-  chessIframe = document.createElement('iframe')
-  chessIframe.src = ENGINE_BASE + '?variant=standard&embed=1'
-  chessIframe.className = 'chess-explorer__iframe'
-  chessIframe.style.aspectRatio = '1 / 1'
-  chessIframe.style.width = '100%'
-  chessIframe.style.maxWidth = '560px'
-  chessIframe.style.border = 'none'
-  chessIframe.style.borderRadius = '8px'
-  chessIframe.setAttribute('title', 'Play Chess')
-  chessIframe.setAttribute('scrolling', 'no')
-  wrap.appendChild(chessIframe)
   body.appendChild(wrap)
+
+  const embed = tools.embed.play(wrap, {
+    params: { variant: 'standard', embed: '1' },
+    title: 'Play Chess',
+    height: 560,
+  })
+  embed._ready = true
+
+  variantSelect.addEventListener('change', () => {
+    currentVariant = variantSelect.value
+    embed._send({ type: 'chess:setVariant', variant: currentVariant })
+  })
+  diffSelect.addEventListener('change', () => {
+    embed._send({ type: 'chess:setDifficulty', difficulty: diffSelect.value })
+  })
+  newBtn.addEventListener('click', () => embed._send({ type: 'chess:newGame' }))
+  undoBtn.addEventListener('click', () => embed._send({ type: 'chess:undo' }))
+  flipBtn.addEventListener('click', () => embed._send({ type: 'chess:flip' }))
 
   const statusBar = document.createElement('div')
   statusBar.className = 'chess-explorer__status'
@@ -146,7 +127,10 @@ if (puzzleBody) {
   async function initPuzzles() {
     puzzleBody.innerHTML = '<div class="chess-puzzle__loading">Loading puzzles...</div>'
     try {
-      const res = await fetch(ENGINE_API + 'puzzles/index.json')
+      const engineBase = location.hostname === 'localhost'
+        ? location.origin + '/MODDABLE/moddable-engine/api/'
+        : 'https://engine.moddable.games/api/'
+      const res = await fetch(engineBase + 'puzzles/index.json')
       const data = await res.json()
       allPuzzles = []
       if (data.standard) allPuzzles.push(...data.standard.map(p => ({ ...p, variant: p.variant || 'standard' })))
@@ -295,13 +279,8 @@ if (puzzleBody) {
     const p = filteredPuzzles[puzzleIdx]
     if (!p || svgCache[p.id]) return
     try {
-      const res = await fetch(TOOLS_API + '/api/call', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tool: 'chess_render_svg', args: { variant: p.variant, fen: p.fen } })
-      })
-      const json = await res.json()
-      const svg = (json.result || json).svg
+      const result = await tools.chess.renderSvg({ variant: p.variant, fen: p.fen })
+      const svg = (result.result || result).svg
       if (svg) {
         svgCache[p.id] = svg
         const boardEl = document.getElementById('puzzle-board')
@@ -317,13 +296,8 @@ if (puzzleBody) {
     if (!move) return
     const highlights = [move.slice(0, 2), move.slice(2, 4)]
     try {
-      const res = await fetch(TOOLS_API + '/api/call', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tool: 'chess_render_svg', args: { variant: p.variant, fen: p.fen, highlights } })
-      })
-      const json = await res.json()
-      const svg = (json.result || json).svg
+      const result = await tools.chess.renderSvg({ variant: p.variant, fen: p.fen, highlights })
+      const svg = (result.result || result).svg
       if (svg) {
         const boardEl = document.getElementById('puzzle-board')
         if (boardEl) boardEl.innerHTML = svg
@@ -338,8 +312,12 @@ if (puzzleBody) {
 
 const engineBtns = document.getElementById('engine-btns')
 if (engineBtns) {
+  const engineUrl = location.hostname === 'localhost'
+    ? '/MODDABLE/moddable-engine/'
+    : 'https://engine.moddable.games/'
+
   const playBtn = document.createElement('a')
-  playBtn.href = ENGINE_BASE.replace('/play/', '/')
+  playBtn.href = engineUrl
   playBtn.className = 'chess-engine-band__btn chess-engine-band__btn--primary'
   playBtn.textContent = 'Moddable Engine'
   playBtn.setAttribute('target', '_blank')

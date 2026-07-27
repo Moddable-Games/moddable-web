@@ -70,6 +70,8 @@ body { background: #f5f4ef; }
 .tools-body__inner { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
 .tools-body__inner--narrow { max-width: 900px; gap: 24px; }
 .tools-body__inner--wide { max-width: 1200px; gap: 24px; }
+.tools-embed-section { padding: 0 32px 88px; }
+.tools-embed-section__inner { max-width: 900px; margin: 0 auto; }
 .tools-grid { display: flex; flex-direction: column; gap: 20px; }
 .tools-section-header { margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--mg-hairline-light); scroll-margin-top: 128px; }
 .tools-section-header:first-child { margin-top: 0; padding-top: 0; border-top: none; scroll-margin-top: 128px; }

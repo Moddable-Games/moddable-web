@@ -3,15 +3,8 @@
     "slug": "ti",
     "title": "Twilight Imperium tools",
     "css_files": ["tools", "tools-ti", "tools-hexmaps", "tools-ti-dashboard", "cards"],
-    "js_files": ["mg-hexmap-embed.js", "mg-tools-ti-page.js", "mg-tools-ti-objectives.js"],
-    "jumpnav": [
-      { "label": "Dashboard", "href": "dashboard/", "accent": "blue" },
-      { "label": "Galaxy", "href": "#ti-galaxy", "accent": "" },
-      { "label": "Factions", "href": "#ti-factions", "accent": "blue" },
-      { "label": "Objectives", "href": "#ti-objectives", "accent": "green" },
-      { "label": "Agenda", "href": "#ti-agenda", "accent": "red" },
-      { "label": "Designer", "href": "factions/", "accent": "blue" }
-    ],
+    "js_files": ["mg-hexmap-embed.js", "mg-tools-ti-page.js"],
+    "jumpnav": [],
     "tools": [
       {
         "id": "ti-galaxy",
@@ -22,40 +15,9 @@
         "body_class": "hexmap-embed",
         "body_id": "hexmap-frame-wrap",
         "extra_controls": true
-      },
-      {
-        "id": "ti-factions",
-        "eyebrow": "FACTION DRAFT",
-        "accent": "blue",
-        "title": "Faction picker",
-        "desc": "Deal each player a hand of factions. They pick one — banker’s-draft style.",
-        "body_id": "faction-hands"
-      },
-      {
-        "id": "ti-objectives",
-        "eyebrow": "VICTORY POINTS",
-        "accent": "green",
-        "title": "Objective tracker",
-        "desc": "Track public and secret objectives, bonus VP, and player scores. First to 10 VP wins.",
-        "body_id": "obj-tracker-root"
-      },
-      {
-        "id": "ti-agenda",
-        "eyebrow": "AGENDA PHASE",
-        "accent": "red",
-        "title": "Agenda voter",
-        "desc": "Draw an agenda, cast votes, track the outcome.",
-        "body_id": "agenda-section"
-      },
-      {
-        "id": "ti-faction-designer",
-        "eyebrow": "FACTION DESIGNER",
-        "accent": "blue",
-        "title": "Faction designer",
-        "desc": "Design custom TI4 factions with auto-styled print-and-play components.",
-        "body_id": "faction-designer-link"
       }
     ],
+    "embed_id": "ti-tools",
     "engine_band": {
       "class": "hex-engine-band",
       "eyebrow": "OPEN SOURCE",
@@ -76,20 +38,8 @@
     "title": "Talisman tools",
     "css_files": ["tools", "tools-talisman", "tools-hexmaps", "cards"],
     "js_files": ["mg-hexmap-embed.js", "mg-tools-talisman-page.js"],
-    "jumpnav": [
-      { "label": "Characters", "href": "#talisman-characters", "accent": "purple" },
-      { "label": "Hex Board", "href": "#talisman-hexmap", "accent": "" },
-      { "label": "Encounters", "href": "#talisman-encounter", "accent": "green" }
-    ],
+    "jumpnav": [],
     "tools": [
-      {
-        "id": "talisman-characters",
-        "eyebrow": "CHARACTER DRAFT",
-        "accent": "purple",
-        "title": "Character lottery",
-        "desc": "Random character draw from the Talisman 4e (revised) base set.",
-        "body_id": "char-grid"
-      },
       {
         "id": "talisman-hexmap",
         "eyebrow": "HEX MAP",
@@ -99,14 +49,6 @@
         "body_class": "hexmap-embed",
         "body_id": "hexmap-frame-wrap",
         "extra_controls": true
-      },
-      {
-        "id": "talisman-encounter",
-        "eyebrow": "ENCOUNTER",
-        "accent": "green",
-        "title": "Encounter quick-draw",
-        "desc": "Draw a random encounter for any ring. Flavour text from the Hexed adventure deck.",
-        "body_id": "encounter-card"
       }
     ],
     "engine_band": {
@@ -129,12 +71,7 @@
     "title": "Nukes tools",
     "css_files": ["tools", "tools-nukes", "tools-hexmaps", "cards"],
     "js_files": ["mg-hexmap-embed.js", "mg-tools-nukes-page.js"],
-    "jumpnav": [
-      { "label": "Map", "href": "#nukes-hexmap", "accent": "red" },
-      { "label": "Combat", "href": "#nukes-combat", "accent": "blue" },
-      { "label": "Hostages", "href": "#nukes-hostages", "accent": "orange" },
-      { "label": "Units", "href": "#nukes-units", "accent": "green" }
-    ],
+    "jumpnav": [],
     "tools": [
       {
         "id": "nukes-hexmap",
@@ -145,30 +82,6 @@
         "body_class": "hexmap-embed",
         "body_id": "hexmap-frame-wrap",
         "extra_controls": true
-      },
-      {
-        "id": "nukes-combat",
-        "eyebrow": "COMBAT",
-        "accent": "blue",
-        "title": "Strength calculator",
-        "desc": "Calculate attacker vs defender strength. Attacker must be strictly greater to attack.",
-        "body_id": "combat-calc"
-      },
-      {
-        "id": "nukes-hostages",
-        "eyebrow": "HOSTAGES",
-        "accent": "orange",
-        "title": "Hostage tracker",
-        "desc": "Track hostages held per player. Return 1–3 per turn to earn moves. Run out and you’re eliminated.",
-        "body_id": "hostage-tracker"
-      },
-      {
-        "id": "nukes-units",
-        "eyebrow": "REFERENCE",
-        "accent": "green",
-        "title": "Unit types",
-        "desc": "Token count determines unit type. This is the fluid platoon principle.",
-        "body_id": "unit-table"
       }
     ],
     "engine_band": {
@@ -205,40 +118,18 @@
   "decks": {
     "slug": "decks",
     "title": "Card Deck Builder",
-    "css_files": ["tools", "tools-decks", "cards"],
+    "css_files": ["tools", "tools-decks"],
     "js_files": ["mg-tools-decks-page.js"],
-    "jumpnav": [
-      { "label": "Design", "href": "#decks-designer", "accent": "green" },
-      { "label": "Shuffle & Deal", "href": "#decks-dealer", "accent": "blue" },
-      { "label": "Presets", "href": "#decks-presets", "accent": "red" }
-    ],
-    "tools": [
-      {
-        "id": "decks-designer",
-        "eyebrow": "DESIGN",
-        "accent": "green",
-        "title": "Deck designer",
-        "desc": "Add card types with names and quantities to build your custom deck.",
-        "body_id": "deck-designer"
-      },
-      {
-        "id": "decks-dealer",
-        "eyebrow": "PLAY",
-        "accent": "blue",
-        "title": "Shuffle & Deal",
-        "desc": "Shuffle the deck and deal hands to players. Reshuffle any time.",
-        "body_id": "deck-dealer"
-      },
-      {
-        "id": "decks-presets",
-        "eyebrow": "PRESETS",
-        "accent": "red",
-        "title": "Preset decks",
-        "desc": "Load a standard deck to get started quickly.",
-        "body_id": "deck-presets"
-      }
-    ],
-    "body_width": "narrow"
+    "jumpnav": [],
+    "tools": [],
+    "tabbed": true,
+    "section_class": "decks-body",
+    "section_inner_class": "decks-body__inner",
+    "tabs_class": "decks-tabs",
+    "tabs_id": "decks-tabs",
+    "panel_class": "decks-panel",
+    "panel_id": "decks-panel",
+    "body_width": "wide"
   },
   "chess": {
     "slug": "chess",

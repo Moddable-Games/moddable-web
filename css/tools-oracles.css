@@ -2,22 +2,7 @@
 .oracle-body { padding: 48px 32px 96px; }
 .oracle-body__inner { max-width: 900px; margin: 0 auto; }
 
-/* Tabs — sticky pills, same as dice */
-.oracle-tabs {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 32px;
-  padding: 12px 0;
-  border-bottom: 1px solid #e6e3d8;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  justify-content: center;
-  position: sticky;
-  top: 64px;
-  background: #f5f4ef;
-  z-index: 10;
-}
+.oracle-tabs { display: none; }
 .oracle-tabs::-webkit-scrollbar { display: none; }
 .oracle-tabs__btn {
   font-family: var(--mg-font-body);
@@ -37,14 +22,7 @@
 .oracle-tabs__btn--active { background: #14161c; color: #fff; border-color: #14161c; }
 .oracle-tabs__btn--active:hover { background: #2a2d34; color: #fff; }
 
-/* Panel card */
-.oracle-panel {
-  background: #fff;
-  border: 1px solid #e6e3d8;
-  border-radius: 20px;
-  padding: 40px;
-  min-height: 400px;
-}
+.oracle-panel { padding: 0; min-height: 400px; }
 
 /* Section headers */
 .oracle-section-title {
