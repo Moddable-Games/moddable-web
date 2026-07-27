@@ -24,7 +24,7 @@
       "href": "/engines/",
       "accent": "#06b6d4",
       "children": [
-        { "label": "Chess", "href": "/engines/moddable-chess/" },
+        { "label": "Chess", "href": "/engines/chess/" },
         { "label": "Hexmaps", "href": "/engines/moddable-hexmaps/" }
       ]
     },
@@ -104,7 +104,7 @@
       "title": "Engines",
       "href": "/engines/",
       "links": [
-        { "label": "Chess", "href": "/engines/moddable-chess/" },
+        { "label": "Chess", "href": "/engines/chess/" },
         { "label": "Hexmaps", "href": "/engines/moddable-hexmaps/" }
       ]
     },

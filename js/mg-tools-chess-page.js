@@ -6,7 +6,9 @@ const ENGINE_API = location.hostname === 'localhost'
   ? '/MODDABLE/moddable-engine/api/'
   : 'https://engine.moddable.games/api/'
 
-const TOOLS_API = 'https://tools.moddable.games'
+const TOOLS_API = location.hostname === 'localhost'
+  ? 'https://moddable-tools-staging.neuroware.workers.dev'
+  : 'https://tools.moddable.games'
 
 const VARIANTS = [
   { key: 'standard', label: 'Standard', group: 'Classic' },

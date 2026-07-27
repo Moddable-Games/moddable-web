@@ -342,11 +342,11 @@ def gen_chess_engine():
     board_layer.putalpha(mask)
     img = Image.alpha_composite(img, board_layer)
     details = json.load(open('data/details.json'))
-    chess = details.get('moddable-chess', {})
+    chess = details.get('chess', {})
     add_text(img, 'ENGINE', chess.get('title', 'Moddable Chess'),
              f"{chess.get('stats', [['']])[0][1] if chess.get('stats') else ''} variants",
              accent=ENGINES)
-    save(img, 'img/og/engines-moddable-chess.png')
+    save(img, 'img/og/engines-chess.png')
 
 
 def gen_hexmaps_engine():

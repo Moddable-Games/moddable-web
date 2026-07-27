@@ -1349,8 +1349,8 @@
       }
     ]
   },
-  "moddable-chess": {
-    "slug": "moddable-chess",
+  "chess": {
+    "slug": "chess",
     "title": "Moddable Chess",
     "accent": "blue",
     "heroImage": "/img/moddable-chess-cube.svg",

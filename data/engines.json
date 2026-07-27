@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "slug": "moddable-chess",
+      "slug": "chess",
       "title": "Moddable Chess",
       "tagline": "{{counts.chess_variants}} chess variants. One modular engine.",
       "accent": "blue",

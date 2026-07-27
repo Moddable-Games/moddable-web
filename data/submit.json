@@ -4,7 +4,7 @@
   "sections": [
     {
       "type": "submit-form",
-      "action": "https://moddable-website.neuroware.workers.dev/api/submit",
+      "action": "https://moddable-tools-staging.neuroware.workers.dev/api/submit",
       "steps": [
         { "number": "1", "label": "The basics" },
         { "number": "2", "label": "The rules" },

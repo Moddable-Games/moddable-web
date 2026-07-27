@@ -858,7 +858,7 @@ def build_site():
 
     # Map detail keys to page types and slugs
     GAME_KEYS = {'nukes': 'nukes', 'mongo': 'planet-mongo', 'endless-skies': 'endless-skies'}
-    ENGINE_KEYS = {'moddable-chess': 'moddable-chess', 'moddable-hexmaps': 'moddable-hexmaps'}
+    ENGINE_KEYS = {'chess': 'chess', 'moddable-hexmaps': 'moddable-hexmaps'}
     MOD_SLUGS = set()
     for mod in mods:
         path = mod.get('path', '')
