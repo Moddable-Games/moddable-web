@@ -205,13 +205,16 @@ The goal is to move from client-rendered to server-built while changing as littl
 ## Changelog
 
 #### 2026-07-27
-- Slug rename: moddable-chess → chess across all data files and build scripts (closes #3)
-- Forms API updated: subscribe/submit now point at moddable-tools staging
-- Chess page TOOLS_API uses staging on localhost, production on deploy
-- Added mg-tools-common.js shared helper for tool page thin layers
-- Clarified architecture: moddable-web is a thin consumer only, no game logic or data
-- Created moddable-tools issues #13–#18 for embeddable widgets blocking remaining tool pages
-- Issue #2 updated with blocker status
+- Integrated @moddable/tools-sdk (v0.2.0) for all tool page embeds and API calls
+- All tool pages now use SDK embed helpers instead of manual iframe creation
+- Chess puzzles use tools.chess.renderSvg() instead of raw fetch
+- Dice, decks, oracles: full-width tabbed layout (embed provides own chrome)
+- TI4, nukes, talisman: hex map card + embed section below (awaiting tools-side deploy for tools embeds)
+- Hexmap controls reclassed to proper hexmap-embed CSS (no longer borrowing chess styles)
+- Removed redundant jumpnavs where embed widgets provide internal navigation
+- Template extended with embed_id section for bare embed containers below cards
+- Closed #2 (superseded by SDK approach), closed #4 (SDK integration complete)
+- Created moddable-tools #19 (chess SVG missing pieces), #20 (embed card mode)
 
 #### 2026-07-25
 - Tool sub-pages: 7 per-game tool page shells built (ti, talisman, nukes, dice, decks, chess, oracles)
