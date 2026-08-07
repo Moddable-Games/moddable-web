@@ -10,7 +10,7 @@ Static site generator for [moddable.games](https://moddable.games) — replaces 
 |------|--------|---------|------|
 | **moddable-engine** | engine.moddable.games | GitHub Pages (static) | Game logic SDK (play modules, AI, validation) + asset galleries (pieces, boards, tiles) |
 | **moddable-rules** | rules.moddable.games | GitHub Pages (static) | Rulebooks (markdown → HTML) + JSON API (metadata, oracles, entities) |
-| **moddable-web** (this) | moddable.games | GitHub Pages (static) | Marketing site (Python SSG) + JSON API (mods, news, team, stats) |
+| **moddable-web** (this) | moddable.games | Cloudflare Pages | Marketing site (Python SSG) + JSON API (mods, news, team, stats) |
 | **moddable-tools** | tools.moddable.games | Cloudflare Worker (private) | MCP server, REST API, game sessions, Discord bot — the ONLY compute |
 
 ### Data flow
@@ -205,6 +205,9 @@ The goal is to move from client-rendered to server-built while changing as littl
 ## Changelog
 
 #### 2026-08-07
+- Wired oracles, talisman, and nukes embed widgets (all three now live from tools.moddable.games)
+- All 7 tool pages fully functional with production embeds — zero remaining stub pages
+- Closed final open issue (#1 Visual QA)
 - All API URLs switched from staging to production (tools.moddable.games is live with 81 tools)
 - New unified Engine page at /developers/engine/ (133 variants, 6 families, assets, SDK)
 - New /developers/api/ page (8 namespaces, connection methods, CTA to live explorer)
