@@ -205,8 +205,12 @@ The goal is to move from client-rendered to server-built while changing as littl
 ## Changelog
 
 #### 2026-08-07
+- PRODUCTION LAUNCH — moddable.games now served by this repo via Cloudflare Pages
 - Wired oracles, talisman, and nukes embed widgets (all three now live from tools.moddable.games)
 - All 7 tool pages fully functional with production embeds — zero remaining stub pages
+- Added wrangler.jsonc + .assetsignore for Cloudflare Pages Worker deployment
+- Created dev branch (local development); main = production deploys
+- moddable-website archived
 - Closed final open issue (#1 Visual QA)
 - All API URLs switched from staging to production (tools.moddable.games is live with 81 tools)
 - New unified Engine page at /developers/engine/ (133 variants, 6 families, assets, SDK)
