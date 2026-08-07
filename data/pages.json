@@ -45,7 +45,7 @@
     "template": "page",
     "output": "developers/engine/index.html",
     "nav_active": "Developers",
-    "css_files": ["engine", "cards"]
+    "css_files": ["engine", "cards", "community", "developers"]
   },
   "404": {
     "template": "page",
