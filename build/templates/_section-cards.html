@@ -13,7 +13,7 @@
 {{#if card_style "icon"}}
 <div class="icon-cards" data-stagger>
   {{#each items}}
-  <div class="icon-card" data-reveal="up">
+  <div class="icon-card icon-card--{{accent}}" data-reveal="up">
     {{#if stat}}<div class="icon-card__stat">{{stat}}</div>{{/if}}
     <h3 class="icon-card__title">{{title}}</h3>
     <p class="icon-card__body">{{body}}</p>

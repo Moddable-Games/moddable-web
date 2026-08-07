@@ -219,14 +219,26 @@
 .icon-card {
   background: #fff;
   border: 1px solid var(--mg-hairline-light);
-  border-radius: 12px;
-  padding: 28px 24px;
+  border-left: 3px solid var(--mg-hairline-light);
+  border-radius: 0 12px 12px 0;
+  padding: 24px 24px;
   transition: border-color 0.2s, transform 0.2s;
 }
 .icon-card:hover {
   transform: translateY(-3px);
-  border-color: var(--mg-blue);
 }
+.icon-card--blue { border-left-color: var(--mg-blue); }
+.icon-card--green { border-left-color: var(--mg-green); }
+.icon-card--red { border-left-color: var(--mg-red); }
+.icon-card--amber { border-left-color: #e8a91a; }
+.icon-card--purple { border-left-color: #8b5cf6; }
+.icon-card--cyan { border-left-color: #06b6d4; }
+.icon-card--blue:hover { border-color: var(--mg-blue); border-left-color: var(--mg-blue); }
+.icon-card--green:hover { border-color: var(--mg-green); border-left-color: var(--mg-green); }
+.icon-card--red:hover { border-color: var(--mg-red); border-left-color: var(--mg-red); }
+.icon-card--amber:hover { border-color: #e8a91a; border-left-color: #e8a91a; }
+.icon-card--purple:hover { border-color: #8b5cf6; border-left-color: #8b5cf6; }
+.icon-card--cyan:hover { border-color: #06b6d4; border-left-color: #06b6d4; }
 .icon-card__stat {
   font-family: var(--mg-font-mono);
   font-size: 0.72rem;
@@ -238,7 +250,7 @@
 }
 .icon-card__title {
   font-family: var(--mg-font-display);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--mg-ink);
   margin: 0 0 8px;

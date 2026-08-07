@@ -1,7 +1,9 @@
-/* Engine page — section spacing */
-.engine-main .mg-heading-lg {
-  margin-top: 56px;
+/* Engine page */
+
+.engine-main .stats-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 64px;
 }
-.engine-main .mg-heading-lg:first-of-type {
-  margin-top: 0;
-}
+
+.engine-main .stats-grid .stat-card:nth-child(5) { border-top-color: #8b5cf6; }
+.engine-main .stats-grid .stat-card:nth-child(6) { border-top-color: #06b6d4; }

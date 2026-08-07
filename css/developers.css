@@ -24,6 +24,7 @@
 .dev-dest-card--blue:hover { border-color: var(--mg-blue); }
 .dev-dest-card--green:hover { border-color: var(--mg-green); }
 .dev-dest-card--red:hover { border-color: var(--mg-red); }
+.dev-dest-card--amber:hover { border-color: #e8a91a; }
 .dev-dest-card__stat {
   font-family: var(--mg-font-mono);
   font-size: 0.72rem;
@@ -35,6 +36,7 @@
 .dev-dest-card--blue .dev-dest-card__stat { color: var(--mg-blue); }
 .dev-dest-card--green .dev-dest-card__stat { color: var(--mg-green); }
 .dev-dest-card--red .dev-dest-card__stat { color: var(--mg-red); }
+.dev-dest-card--amber .dev-dest-card__stat { color: #e8a91a; }
 .dev-dest-card__title {
   font-family: var(--mg-font-display);
   font-size: 1.25rem;
