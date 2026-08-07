@@ -206,11 +206,16 @@ The goal is to move from client-rendered to server-built while changing as littl
 
 #### 2026-08-07
 - All API URLs switched from staging to production (tools.moddable.games is live with 81 tools)
-- New unified Engine page at /developers/engine/ showcasing full moddable-engine (133 variants, 6 families, assets, SDK)
+- New unified Engine page at /developers/engine/ (133 variants, 6 families, assets, SDK)
+- New /developers/api/ page (8 namespaces, connection methods, CTA to live explorer)
+- New /developers/examples/ page (6 build ideas)
+- Cmd+K universal search overlay (local index + rules API search)
 - Engines removed from top-level nav, consolidated under Developers
-- Updated tool/variant counts across site (81 tools, 100 chess variants, 133 total engine variants)
-- Added icon-card style to section-cards partial for informational card grids
-- Chess explorer CSS polish (focus rings, button states, rounded selects)
+- Legacy /engines/* URLs meta-redirect to /developers/engine/
+- Updated tool/variant counts (81 tools, 100 chess variants, 133 engine variants)
+- Added icon-card style to section-cards partial (accent borders, 3-col grid)
+- Developers index now 2x2 grid with 4 cards
+- Version bumped to 2.1.0
 
 #### 2026-07-27
 - Integrated @moddable/tools-sdk (v0.2.0) for all tool page embeds and API calls
