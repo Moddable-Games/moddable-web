@@ -4,7 +4,7 @@ body { background: #f5f4ef; }
 .community-main .community-cta { margin-top: 72px; }
 
 /* Stats row */
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 56px; }
 .stat-card { background: #fff; border: 1px solid var(--mg-hairline-light); border-radius: 16px; padding: 28px 20px; text-align: center; border-top: 3px solid var(--mg-hairline-light); }
 .stat-card:nth-child(1) { border-top-color: var(--mg-blue); }
 .stat-card:nth-child(2) { border-top-color: var(--mg-green); }

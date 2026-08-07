@@ -2,7 +2,6 @@
 
 .engine-main .stats-grid {
   grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 64px;
 }
 
 .engine-main .stats-grid .stat-card:nth-child(5) { border-top-color: #8b5cf6; }
