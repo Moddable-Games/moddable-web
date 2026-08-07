@@ -33,7 +33,7 @@ moddable-tools (Worker: imports engine SDK at bundle time,
 3. **Every other repo serves static JSON APIs** — predictable URLs at their domains, no Workers needed, consumable by tools or any external client
 4. **Web is the marketing site** — moddable.games; all content JSON-driven so tools, Discord bot, and agents can consume the same material
 5. **Rules stays separate** — rules.moddable.games renders its own markdown; also exposes structured JSON (game metadata, oracle tables, entity indexes) for tools to fetch at runtime
-6. **moddable-website stays live** — this repo replaces it incrementally; the old site runs untouched until web can fully replicate its content
+6. **moddable-website deprecated** — this repo replaces it; the old site is being archived
 7. **Tools is private** — holds secrets, Durable Objects for multiplayer sessions, player state, PvP logic; the only repo that needs to be private. Engine handles local play (vs AI, pass-and-play) publicly; tools adds the networked/session layer on top
 
 ### Agent-readiness by design
@@ -203,6 +203,14 @@ Everything the user reads is baked into HTML at build time. If a page has no JS 
 The goal is to move from client-rendered to server-built while changing as little as possible. If a page looks different after migration, that's a bug.
 
 ## Changelog
+
+#### 2026-08-07
+- All API URLs switched from staging to production (tools.moddable.games is live with 81 tools)
+- New unified Engine page at /developers/engine/ showcasing full moddable-engine (133 variants, 6 families, assets, SDK)
+- Engines removed from top-level nav, consolidated under Developers
+- Updated tool/variant counts across site (81 tools, 100 chess variants, 133 total engine variants)
+- Added icon-card style to section-cards partial for informational card grids
+- Chess explorer CSS polish (focus rings, button states, rounded selects)
 
 #### 2026-07-27
 - Integrated @moddable/tools-sdk (v0.2.0) for all tool page embeds and API calls
