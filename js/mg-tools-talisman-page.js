@@ -1,6 +1,14 @@
 import { tools } from './mg-tools-common.js'
 
-// Engine CTA buttons
+const embedEl = document.getElementById('talisman-tools')
+
+if (embedEl) {
+  tools.embed.talisman(embedEl, {
+    card: true,
+    vars: { '--embed-bg': '#f5f4ef' },
+  })
+}
+
 const hexBtns = document.getElementById('hex-engine-btns')
 if (hexBtns) {
   const engineUrl = location.hostname === 'localhost'

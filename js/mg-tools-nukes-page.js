@@ -1,6 +1,14 @@
 import { tools } from './mg-tools-common.js'
 
-// Engine CTA buttons
+const embedEl = document.getElementById('nukes-tools')
+
+if (embedEl) {
+  tools.embed.nukes(embedEl, {
+    card: true,
+    vars: { '--embed-bg': '#f5f4ef' },
+  })
+}
+
 const hexBtns = document.getElementById('hex-engine-btns')
 if (hexBtns) {
   const engineUrl = location.hostname === 'localhost'
