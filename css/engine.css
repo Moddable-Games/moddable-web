@@ -1,0 +1,7 @@
+/* Engine page — section spacing */
+.engine-main .mg-heading-lg {
+  margin-top: 56px;
+}
+.engine-main .mg-heading-lg:first-of-type {
+  margin-top: 0;
+}

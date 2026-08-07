@@ -20,15 +20,6 @@
       ]
     },
     {
-      "id": "Engines",
-      "href": "/engines/",
-      "accent": "#06b6d4",
-      "children": [
-        { "label": "Chess", "href": "/engines/chess/" },
-        { "label": "Hexmaps", "href": "/engines/moddable-hexmaps/" }
-      ]
-    },
-    {
       "id": "Games",
       "href": "/games/",
       "accent": "#e8a91a",
@@ -57,6 +48,7 @@
       "href": "/developers/",
       "accent": "#8b5cf6",
       "children": [
+        { "label": "Engine", "href": "/developers/engine/" },
         { "label": "Tools API", "href": "/developers/api/" },
         { "label": "Examples", "href": "/developers/examples/" },
         { "label": "Live Server", "href": "https://tools.moddable.games/" }
@@ -101,17 +93,10 @@
       ]
     },
     {
-      "title": "Engines",
-      "href": "/engines/",
-      "links": [
-        { "label": "Chess", "href": "/engines/chess/" },
-        { "label": "Hexmaps", "href": "/engines/moddable-hexmaps/" }
-      ]
-    },
-    {
       "title": "Developers",
       "href": "/developers/",
       "links": [
+        { "label": "Engine", "href": "/developers/engine/" },
         { "label": "Tools API", "href": "/developers/api/" },
         { "label": "Examples", "href": "/developers/examples/" },
         { "label": "Live Server", "href": "https://tools.moddable.games/" },

@@ -66,9 +66,18 @@
     "hexColor": "purple",
     "eyebrow": "DEVELOPERS",
     "title": "Board game engines as <em>AI</em> tools",
-    "lede": "{{counts.tool_count}} callable tools across seven namespaces. Connect from any MCP client, call via REST, or build bots for Telegram, Slack, and Discord.",
+    "lede": "{{counts.tool_count}} callable tools across {{counts.tool_families}} namespaces. Connect from any MCP client, call via REST, or build bots for Telegram, Slack, and Discord.",
     "feature": "svg",
     "feature_src": "/img/hero/feature-developers.svg"
+  },
+  "engine": {
+    "section": "developers",
+    "tier": 1,
+    "hexColor": "cyan",
+    "eyebrow": "THE ENGINE",
+    "title": "Any game. Any topology. <em>Zero</em> game-specific code",
+    "lede": "{{counts.engine_variants}} playable variants across {{counts.engine_families}} families. Pure ES modules, MIT licensed, zero dependencies. The foundation everything else is built on.",
+    "feature": "cube-engines"
   },
   "mods": {
     "section": "mods",

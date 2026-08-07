@@ -6,6 +6,13 @@
       "card_style": "destination",
       "items": [
         {
+          "title": "The Engine",
+          "body": "{{counts.engine_variants}} playable variants across {{counts.engine_families}} game families. Pure ES modules, zero dependencies. Chess, Draughts, Go, Shogi, Xiangqi, Reversi — plus {{counts.engine_pieces}} piece sets and {{counts.engine_tiles}} hex tiles.",
+          "href": "/developers/engine/",
+          "stat": "{{counts.engine_variants}} variants",
+          "accent": "blue"
+        },
+        {
           "title": "Tools API",
           "body": "{{counts.tool_count}} tools for chess, hex maps, piece gallery, rules queries, RPG oracles (10 systems), entity browser, encounter building, classic game engines, and utilities. Connect in one command via MCP or call via REST.",
           "href": "/developers/api/",

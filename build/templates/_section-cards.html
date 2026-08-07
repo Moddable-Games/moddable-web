@@ -10,6 +10,17 @@
   {{/each}}
 </div>
 {{/if}}
+{{#if card_style "icon"}}
+<div class="icon-cards" data-stagger>
+  {{#each items}}
+  <div class="icon-card" data-reveal="up">
+    {{#if stat}}<div class="icon-card__stat">{{stat}}</div>{{/if}}
+    <h3 class="icon-card__title">{{title}}</h3>
+    <p class="icon-card__body">{{body}}</p>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
 {{#unless card_style}}
 <div class="dev-grid" data-stagger>
   {{#each items}}

@@ -1,0 +1,139 @@
+{
+  "has_sidebar": false,
+  "sections": [
+    {
+      "type": "stats",
+      "items": [
+        { "number": "{{counts.engine_variants}}", "label": "playable variants" },
+        { "number": "{{counts.engine_families}}", "label": "game families" },
+        { "number": "{{counts.engine_pieces}}", "label": "piece sets" },
+        { "number": "{{counts.engine_tiles}}", "label": "terrain tiles" },
+        { "number": "{{counts.engine_tests}}", "label": "passing tests" },
+        { "number": "MIT", "label": "licence" }
+      ]
+    },
+    {
+      "type": "cards",
+      "card_style": "icon",
+      "heading": "Six game families. One unified engine",
+      "items": [
+        {
+          "icon": "chess",
+          "title": "Chess",
+          "body": "100 variants from Standard through to Duck Chess, Atomic, and Horde. Five AI difficulty tiers. Opening books. SVG board rendering with recolorable pieces.",
+          "stat": "100 variants"
+        },
+        {
+          "icon": "draughts",
+          "title": "Draughts",
+          "body": "International, English, Brazilian, Russian, Turkish, and more. Forced captures, flying kings, and configurable board sizes from 8x8 to 12x12.",
+          "stat": "13 variants"
+        },
+        {
+          "icon": "go",
+          "title": "Go",
+          "body": "Standard 9x9, 13x13, and 19x19 boards. Ko detection, territory scoring, handicap stones. Atari Go and Capture Go for beginners.",
+          "stat": "9 variants"
+        },
+        {
+          "icon": "shogi",
+          "title": "Shogi",
+          "body": "Standard Shogi, Mini Shogi, Judkins Shogi, and Tori Shogi. Piece drops, promotion zones, and impasse handling.",
+          "stat": "5 variants"
+        },
+        {
+          "icon": "xiangqi",
+          "title": "Xiangqi",
+          "body": "Chinese Chess with palace and river constraints. Standard, Banqi (blind chess), and Supply Chess variations.",
+          "stat": "3 variants"
+        },
+        {
+          "icon": "reversi",
+          "title": "Reversi",
+          "body": "Standard Reversi, Othello rules, and Anti-Reversi. Automatic flipping, pass detection, and endgame scoring.",
+          "stat": "3 variants"
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "card_style": "icon",
+      "heading": "Architecture",
+      "items": [
+        {
+          "icon": "code",
+          "title": "Pure ES modules",
+          "body": "Zero dependencies. No build step required. Import what you need directly from source. 15 modular packages."
+        },
+        {
+          "icon": "topology",
+          "title": "Six topologies",
+          "body": "Grid, Hex, Track, Pit, Graph, and Tableau. Any game board shape, from standard 8x8 to hex galaxies and card tableaux."
+        },
+        {
+          "icon": "ai",
+          "title": "Pluggable AI",
+          "body": "Minimax with alpha-beta pruning. Five difficulty tiers. Family-agnostic: the same engine evaluates chess, draughts, and Go positions."
+        },
+        {
+          "icon": "render",
+          "title": "SVG renderer",
+          "body": "Server-side and client-side rendering. Recolorable pieces. Theme-agnostic boards. Export as PNG or embed as live interactive widgets."
+        },
+        {
+          "icon": "embed",
+          "title": "Embed SDK",
+          "body": "Drop-in iframe widgets with postMessage bridging. Mount a playable board in any web page with three lines of code."
+        },
+        {
+          "icon": "test",
+          "title": "{{counts.engine_tests}}+ tests",
+          "body": "Move generation, AI evaluation, rendering pipeline, FEN parsing, variant rules. Every family, every topology, every edge case."
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "card_style": "destination",
+      "heading": "Asset library",
+      "items": [
+        {
+          "title": "Piece sets",
+          "body": "{{counts.engine_pieces}} recolorable SVG piece sets spanning chess, draughts, shogi, xiangqi, Go, and abstract traditions. Browse, search, and download.",
+          "href": "https://engine.moddable.games/pieces/",
+          "stat": "{{counts.engine_pieces}} sets",
+          "accent": "blue",
+          "external": true
+        },
+        {
+          "title": "Board layouts",
+          "body": "Downloadable board diagrams for every supported variant. SVG and PNG export. Custom colours and grid overlays.",
+          "href": "https://engine.moddable.games/boards/",
+          "stat": "333 boards",
+          "accent": "green",
+          "external": true
+        },
+        {
+          "title": "Hex tiles",
+          "body": "{{counts.engine_tiles}} terrain and game tiles for hex map generation. Four styles, procedural placement, field-of-view and pathfinding.",
+          "href": "https://engine.moddable.games/tiles/",
+          "stat": "{{counts.engine_tiles}} tiles",
+          "accent": "amber",
+          "external": true
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "style": "dark",
+      "cta_eyebrow": "OPEN SOURCE",
+      "cta_heading": "Fork it. Embed it. Extend it",
+      "cta_body": "MIT licensed. Published as importable ES modules. Used by the tools API, three original games, and seven community mods. The engine powers everything in this ecosystem.",
+      "buttons": [
+        { "label": "GitHub", "href": "https://github.com/Moddable-Games/moddable-engine", "style": "blue", "external": true },
+        { "label": "Live Demo", "href": "https://engine.moddable.games/play/", "style": "outline-dark", "external": true },
+        { "label": "Documentation", "href": "https://engine.moddable.games/docs/", "style": "outline-dark", "external": true }
+      ]
+    }
+  ]
+}

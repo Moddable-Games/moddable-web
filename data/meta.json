@@ -47,6 +47,12 @@
     "url": "https://moddable.games/developers/",
     "image": "https://moddable.games/img/og/developers.png"
   },
+  "engine": {
+    "title": "The Engine",
+    "description": "133 playable variants across 6 game families. Pure ES modules, MIT licensed, zero dependencies. Chess, Draughts, Go, Shogi, Xiangqi, Reversi.",
+    "url": "https://moddable.games/developers/engine/",
+    "image": "https://moddable.games/img/og/engines.png"
+  },
   "mods": {
     "title": "Mods",
     "description": "Browse our library of open-source rulebook mods for board games you already own.",
