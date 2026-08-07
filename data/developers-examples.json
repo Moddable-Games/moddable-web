@@ -1,0 +1,54 @@
+{
+  "has_sidebar": false,
+  "sections": [
+    {
+      "type": "cards",
+      "card_style": "icon",
+      "heading": "What you can build",
+      "items": [
+        {
+          "title": "Telegram chess coach",
+          "body": "Analyse positions, suggest moves, generate puzzles from any variant. Send a photo of a board or paste FEN notation.",
+          "accent": "blue"
+        },
+        {
+          "title": "Discord map bot",
+          "body": "Generate hex maps for Nukes, TI4, or Talisman on command. Share seeded maps that anyone can regenerate.",
+          "accent": "green"
+        },
+        {
+          "title": "Slack puzzle-of-the-day",
+          "body": "Post a daily chess puzzle with variant info, hint, and solution behind a spoiler. Track solve rates per channel.",
+          "accent": "purple"
+        },
+        {
+          "title": "AI game assistant",
+          "body": "Rules lookup, encounter building, and session management via Claude, GPT, or any MCP client. No custom code needed.",
+          "accent": "red"
+        },
+        {
+          "title": "Procedural world builder",
+          "body": "Combine hex map generation with oracle tables to create entire game worlds. Terrain, settlements, factions, encounters.",
+          "accent": "amber"
+        },
+        {
+          "title": "Tournament bracket system",
+          "body": "Manage chess variant tournaments with auto-pairing, result tracking, and live board rendering for spectators.",
+          "accent": "cyan"
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "style": "dark",
+      "cta_eyebrow": "GET STARTED",
+      "cta_heading": "From zero to calling tools in 30 seconds",
+      "cta_body": "Connect your MCP client to tools.moddable.games and start making calls. No API key, no signup, no rate limits during beta.",
+      "buttons": [
+        { "label": "Tools API", "href": "/developers/api/", "style": "blue" },
+        { "label": "Live Server", "href": "https://tools.moddable.games/", "style": "outline-dark", "external": true },
+        { "label": "GitHub", "href": "https://github.com/Moddable-Games", "style": "outline-dark", "external": true }
+      ]
+    }
+  ]
+}

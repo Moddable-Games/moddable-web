@@ -53,6 +53,18 @@
     "url": "https://moddable.games/developers/engine/",
     "image": "https://moddable.games/img/og/engines.png"
   },
+  "developers-api": {
+    "title": "Tools API",
+    "description": "81 AI-callable tools across 8 namespaces. Connect via MCP or REST. Chess, hex maps, rules, oracles, assets, and game sessions.",
+    "url": "https://moddable.games/developers/api/",
+    "image": "https://moddable.games/img/og/developers.png"
+  },
+  "developers-examples": {
+    "title": "Build Examples",
+    "description": "Telegram chess coaches, Discord map bots, Slack puzzle-of-the-day, AI game assistants, and procedural world builders.",
+    "url": "https://moddable.games/developers/examples/",
+    "image": "https://moddable.games/img/og/developers.png"
+  },
   "mods": {
     "title": "Mods",
     "description": "Browse our library of open-source rulebook mods for board games you already own.",

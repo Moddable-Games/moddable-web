@@ -78,6 +78,22 @@
     "title": "Any game. Any topology. Zero game-specific code",
     "lede": "{{counts.engine_variants}} playable variants across {{counts.engine_families}} families. Pure ES modules, MIT licensed, zero dependencies. The foundation everything else is built on."
   },
+  "developers-api": {
+    "section": "developers",
+    "tier": 2,
+    "hexColor": "purple",
+    "eyebrow": "TOOLS API",
+    "title": "{{counts.tool_count}} tools. One endpoint",
+    "lede": "Connect via MCP or call via REST. Chess analysis, hex map generation, rules search, RPG oracles, asset galleries, and game session management."
+  },
+  "developers-examples": {
+    "section": "developers",
+    "tier": 2,
+    "hexColor": "purple",
+    "eyebrow": "BUILD IDEAS",
+    "title": "Six things you can build today",
+    "lede": "Bots, coaches, world builders, and tournament systems. All powered by the tools API, no game logic required."
+  },
   "mods": {
     "section": "mods",
     "tier": 1,

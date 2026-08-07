@@ -47,6 +47,18 @@
     "nav_active": "Developers",
     "css_files": ["engine", "cards", "community", "developers"]
   },
+  "developers-api": {
+    "template": "page",
+    "output": "developers/api/index.html",
+    "nav_active": "Developers",
+    "css_files": ["developers", "cards", "community"]
+  },
+  "developers-examples": {
+    "template": "page",
+    "output": "developers/examples/index.html",
+    "nav_active": "Developers",
+    "css_files": ["developers", "cards"]
+  },
   "404": {
     "template": "page",
     "output": "404.html",
