@@ -1,0 +1,8 @@
+node_modules/
+build/
+.git/
+.github/
+.claude/
+.wrangler/
+CLAUDE.md
+wrangler.jsonc
