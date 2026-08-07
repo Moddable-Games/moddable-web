@@ -1,0 +1,8 @@
+{
+  "name": "moddable-web",
+  "private": true,
+  "scripts": {
+    "build": "python3 build/build.py",
+    "dev": "python3 build/build.py --base /MODDABLE/moddable-web"
+  }
+}
