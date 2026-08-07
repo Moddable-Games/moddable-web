@@ -1,8 +1,6 @@
 import { ModdableTools } from './mg-tools-sdk.js'
 
-const base = location.hostname === 'localhost'
-  ? 'https://moddable-tools-staging.neuroware.workers.dev'
-  : 'https://tools.moddable.games'
+const base = 'https://tools.moddable.games'
 
 const engineBase = location.hostname === 'localhost'
   ? location.origin + '/MODDABLE/moddable-engine'

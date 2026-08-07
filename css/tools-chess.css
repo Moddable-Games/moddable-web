@@ -68,8 +68,11 @@
 
 /* ── Variant Explorer ── */
 .chess-explorer__controls { display:flex; gap:10px; align-items:center; margin-bottom:16px; flex-wrap:wrap; }
-.chess-explorer__select { flex:1; min-width:200px; height:38px; padding:0 14px; border-radius:9999px; border:1px solid var(--mg-hairline-light); font-family:var(--mg-font-body); font-size:14px; background:#fff; outline:none; }
-.chess-explorer__select:focus { border-color:var(--mg-blue); }
+.chess-explorer__select { flex:1; min-width:200px; height:38px; padding:0 14px; border-radius:10px; border:1px solid #e6e3d8; font-family:var(--mg-font-body); font-size:14px; background:#f5f4ef; outline:none; transition:border-color 0.15s; cursor:pointer; }
+.chess-explorer__select:focus { border-color:var(--mg-blue); box-shadow:0 0 0 3px rgba(12,79,141,0.08); }
+.chess-explorer__btn { height:38px; padding:0 18px; border-radius:10px; border:1px solid #e6e3d8; font-family:var(--mg-font-body); font-weight:600; font-size:13px; background:#fff; color:#14161c; cursor:pointer; transition:all 0.15s; white-space:nowrap; }
+.chess-explorer__btn:hover { border-color:#14161c; background:#fafaf7; }
+.chess-explorer__btn:active { background:#14161c; color:#fff; border-color:#14161c; }
 .chess-explorer__info { margin-bottom:16px; }
 .chess-explorer__grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; }
 .chess-explorer__special { background:var(--mg-canvas-light); border-radius:8px; padding:10px 14px; margin-top:10px; }
@@ -86,16 +89,16 @@
 .chess-explorer__analyze-summary::before { content:'\25B8'; margin-right:8px; display:inline-block; transition:transform 0.15s; }
 .chess-explorer__analyze[open] .chess-explorer__analyze-summary::before { transform:rotate(90deg); }
 .chess-explorer__analyze-form { display:flex; gap:10px; align-items:center; padding:0 16px; margin-top:8px; flex-wrap:wrap; }
-.chess-explorer__analyze-input { flex:1; min-width:180px; height:34px; padding:0 12px; border-radius:9999px; border:1px solid var(--mg-hairline-light); font-family:var(--mg-font-mono); font-size:12px; background:#fff; outline:none; }
-.chess-explorer__analyze-input:focus { border-color:var(--mg-red); }
+.chess-explorer__analyze-input { flex:1; min-width:180px; height:34px; padding:0 12px; border-radius:10px; border:1px solid #e6e3d8; font-family:var(--mg-font-mono); font-size:12px; background:#f5f4ef; outline:none; transition:border-color 0.15s; }
+.chess-explorer__analyze-input:focus { border-color:var(--mg-red); box-shadow:0 0 0 3px rgba(209,26,26,0.08); }
 .chess-explorer__analyze-result { padding:0 16px; margin-top:12px; }
 
 /* ── Puzzle Gallery ── */
 .chess-puzzle__loading,.chess-puzzle__error { font-family:var(--mg-font-mono); font-size:13px; color:var(--mg-mute); padding:20px 0; text-align:center; }
 .chess-puzzle__error { color:var(--mg-red); }
 .chess-puzzle__controls { margin-bottom:16px; }
-.chess-puzzle__select { width:100%; height:38px; padding:0 14px; border-radius:9999px; border:1px solid var(--mg-hairline-light); font-family:var(--mg-font-body); font-size:14px; background:#fff; outline:none; }
-.chess-puzzle__select:focus { border-color:var(--mg-green); }
+.chess-puzzle__select { width:100%; height:38px; padding:0 14px; border-radius:10px; border:1px solid #e6e3d8; font-family:var(--mg-font-body); font-size:14px; background:#f5f4ef; outline:none; transition:border-color 0.15s; cursor:pointer; }
+.chess-puzzle__select:focus { border-color:var(--mg-green); box-shadow:0 0 0 3px rgba(58,153,40,0.08); }
 .chess-puzzle__meta { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
 .chess-puzzle__tag { font-family:var(--mg-font-mono); font-size:11px; font-weight:600; padding:3px 10px; border-radius:9999px; background:var(--mg-canvas-light); color:var(--mg-ink); }
 .chess-puzzle__tag--type { background:rgba(58,153,40,0.08); color:var(--mg-green); }

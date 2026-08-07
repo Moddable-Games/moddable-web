@@ -406,7 +406,7 @@
     var errorEl = document.getElementById('sub-error');
     var success = document.getElementById('sub-success');
     if (!submitBtn || !emailInput) return;
-    var apiUrl = submitBtn.getAttribute('data-action') || 'https://moddable-tools-staging.neuroware.workers.dev/api/subscribe';
+    var apiUrl = submitBtn.getAttribute('data-action') || 'https://tools.moddable.games/api/subscribe';
 
     submitBtn.addEventListener('click', function() {
       var email = emailInput.value.trim();

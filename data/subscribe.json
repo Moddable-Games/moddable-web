@@ -4,7 +4,7 @@
   "sections": [
     {
       "type": "form",
-      "action": "https://moddable-tools-staging.neuroware.workers.dev/api/subscribe",
+      "action": "https://tools.moddable.games/api/subscribe",
       "method": "POST",
       "email_placeholder": "your@email.com",
       "checks": ["Game launches", "Playtest invites", "Community news", "Mod releases"],
