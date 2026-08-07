@@ -72,12 +72,11 @@
   },
   "engine": {
     "section": "developers",
-    "tier": 1,
+    "tier": 2,
     "hexColor": "cyan",
     "eyebrow": "THE ENGINE",
-    "title": "Any game. Any topology. <em>Zero</em> game-specific code",
-    "lede": "{{counts.engine_variants}} playable variants across {{counts.engine_families}} families. Pure ES modules, MIT licensed, zero dependencies. The foundation everything else is built on.",
-    "feature": "cube-engines"
+    "title": "Any game. Any topology. Zero game-specific code",
+    "lede": "{{counts.engine_variants}} playable variants across {{counts.engine_families}} families. Pure ES modules, MIT licensed, zero dependencies. The foundation everything else is built on."
   },
   "mods": {
     "section": "mods",
