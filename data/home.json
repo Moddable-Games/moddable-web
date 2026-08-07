@@ -50,7 +50,7 @@
   "dev_band": {
     "eyebrow": "FOR DEVELOPERS",
     "heading": "Board game engines as AI tools",
-    "body": "{{counts.ai_tools}} AI-callable tools for chess variant analysis, hex map generation, and board game utilities. Connect from Claude, Cursor, or VS Code in one command. Or build bots for Telegram, Slack, and Discord.",
+    "body": "{{counts.ai_tools}} AI-callable tools across {{counts.tool_families}} namespaces. Chess variants, hex maps, rules search, RPG oracles, asset galleries, and game sessions. Connect from Claude, Cursor, or VS Code in one command.",
     "tool_rows": [
       ["chess_analyze_position", "chess_generate_puzzle", "hex_generate_map"],
       ["chess_validate_move", "hex_pathfind", "hex_compute_fov"],

@@ -1,52 +1,12 @@
-{{>_head}}
-{{>_navbar}}
-{{>_hero}}
-
-<section class="mg-section--tight" id="main-content">
-  <div class="mg-container">
-    <div id="engines-grid" class="engines-grid" data-stagger>
-      {{#each engines}}
-      <a href="/engines/{{slug}}/" class="engine-card mg-lift" data-reveal="up">
-        <div class="engine-card__bar" style="background:{{accent_color}}"></div>
-        {{#if image}}<img src="{{image}}" alt="{{title}} screenshot" class="engine-card__image">{{/if}}
-        <div class="engine-card__header">
-          <div class="engine-card__title-wrap">
-            <div class="engine-card__status" style="color:{{accent_color}}">Open source · Live</div>
-            <h3 class="engine-card__title">{{title}}</h3>
-          </div>
-        </div>
-        <p class="engine-card__tagline">{{tagline}}</p>
-        <div class="engine-card__stats">
-          {{#each stats}}
-          <div class="engine-card__stat">
-            <div class="engine-card__stat-value">{{value}}</div>
-            <div class="engine-card__stat-label">{{label}}</div>
-          </div>
-          {{/each}}
-        </div>
-        <div class="engine-card__features">
-          {{#each features}}
-          <span class="engine-card__feature">{{this}}</span>
-          {{/each}}
-        </div>
-      </a>
-      {{/each}}
-    </div>
-
-    {{#if engines_cta}}
-    <div class="engines-cta" data-reveal="up">
-      <div class="engines-cta__inner">
-        <h2 class="engines-cta__heading">{{engines_cta.heading}}</h2>
-        <p class="engines-cta__body">{{engines_cta.body}}</p>
-        <div>
-          {{#each engines_cta.buttons}}
-          <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
-          {{/each}}
-        </div>
-      </div>
-    </div>
-    {{/if}}
-  </div>
-</section>
-
-{{>_foot}}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0;url=/developers/engine/">
+<link rel="canonical" href="https://moddable.games/developers/engine/">
+<title>Redirecting…</title>
+</head>
+<body>
+<p>This page has moved to <a href="/developers/engine/">/developers/engine/</a>.</p>
+</body>
+</html>

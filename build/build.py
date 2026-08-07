@@ -871,8 +871,13 @@ def build_site():
             ctx, output_path = prepare_detail_context(key, detail_data, 'game', 'Games')
             build('detail', ctx, output_path)
         elif key in ENGINE_KEYS:
-            ctx, output_path = prepare_detail_context(key, detail_data, 'engine', 'Engines')
-            build('detail', ctx, output_path)
+            # Write redirect pages for deprecated engine detail pages
+            redirect_html = '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta http-equiv="refresh" content="0;url=/developers/engine/">\n<link rel="canonical" href="https://moddable.games/developers/engine/">\n<title>Redirecting…</title>\n</head>\n<body>\n<p>This page has moved to <a href="/developers/engine/">/developers/engine/</a>.</p>\n</body>\n</html>'
+            redir_path = os.path.join(ROOT, f'engines/{slug}/index.html')
+            os.makedirs(os.path.dirname(redir_path), exist_ok=True)
+            with open(redir_path, 'w') as f:
+                f.write(redirect_html)
+            print(f'  Redirect: engines/{slug}/index.html → /developers/engine/')
         elif slug in MOD_SLUGS:
             ctx, output_path = prepare_detail_context(key, detail_data, 'mod', 'Mods')
             build('detail', ctx, output_path)

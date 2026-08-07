@@ -5,8 +5,8 @@
       "title": "Moddable Chess",
       "tagline": "{{counts.chess_variants}} chess variants. One modular engine.",
       "accent": "blue",
-      "url": "https://chess.moddable.games/",
-      "repo": "https://github.com/Moddable-Games/moddable-chess",
+      "url": "https://engine.moddable.games/play/?family=chess",
+      "repo": "https://github.com/Moddable-Games/moddable-engine",
       "logo": "/img/moddable-chess-cube.svg",
       "image": "/img/engine-chess-screenshot.png",
       "stats": [
@@ -25,8 +25,8 @@
       "title": "Moddable Hexmaps",
       "tagline": "Hex map generation for any game. Seeded, shareable, moddable.",
       "accent": "green",
-      "url": "https://hex.moddable.games/",
-      "repo": "https://github.com/Moddable-Games/moddable-hexmaps",
+      "url": "https://engine.moddable.games/play/?family=hex",
+      "repo": "https://github.com/Moddable-Games/moddable-engine",
       "logo": "/img/moddable-hexmaps-cube.svg",
       "image": "/img/engine-hexmaps-screenshot.png",
       "stats": [
