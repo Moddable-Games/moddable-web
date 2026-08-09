@@ -204,6 +204,14 @@ The goal is to move from client-rendered to server-built while changing as littl
 
 ## Changelog
 
+#### 2026-08-09
+- Agent-readiness: build now generates full discovery layer (sitemap.xml, robots.txt, llms.txt, auth.md, .well-known/mcp.json, .well-known/mcp/server-card.json, .well-known/api-catalog, .well-known/agent-skills/index.json)
+- Added _headers file for Cloudflare Pages Link response headers (RFC 8288 agent discovery)
+- MCP server card updated to SEP-1649 format (serverInfo.name, serverInfo.version, transport, capabilities)
+- API catalog added per RFC 9727 (linkset+json pointing to REST API and MCP endpoints)
+- Content-Signal directives in robots.txt (ai-train=yes, search=yes, ai-input=yes)
+- Created issues for agent-readiness across all repos: moddable-tools #24/#25, moddable-engine #104, moddable-rules #251
+
 #### 2026-08-07
 - PRODUCTION LAUNCH — moddable.games now served by this repo via Cloudflare Pages
 - Wired oracles, talisman, and nukes embed widgets (all three now live from tools.moddable.games)
