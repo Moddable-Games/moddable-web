@@ -1,21 +1,12 @@
 import { tools } from './mg-tools-common.js'
 
-const VARIANTS = [
-  { key: 'standard', label: 'Standard', group: 'Classic' },
-  { key: 'chess960', label: 'Chess960', group: 'Classic' },
-  { key: 'torpedo', label: 'Torpedo', group: 'Classic' },
-  { key: 'atomic', label: 'Atomic', group: 'Tactical' },
-  { key: 'kingOfTheHill', label: 'King of the Hill', group: 'Tactical' },
-  { key: 'threeCheck', label: 'Three-Check', group: 'Tactical' },
-  { key: 'antichess', label: 'Antichess', group: 'Alternate Rules' },
-  { key: 'racingKings', label: 'Racing Kings', group: 'Alternate Rules' },
-  { key: 'crazyhouse', label: 'Crazyhouse', group: 'Alternate Rules' },
-  { key: 'duckChess', label: 'Duck Chess', group: 'Alternate Rules' },
-  { key: 'horde', label: 'Horde', group: 'Asymmetric' },
-  { key: 'capablanca', label: 'Capablanca', group: 'Large Boards' },
-  { key: 'losAlamos', label: 'Los Alamos', group: 'Small Boards' },
-  { key: 'minichess', label: 'Minichess', group: 'Small Boards' },
-]
+function slugToLabel(slug) {
+  return slug
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/[-_]/g, ' ')
+    .replace(/^\w/, c => c.toUpperCase())
+    .trim()
+}
 
 // --- Chess Explorer ---
 
@@ -28,14 +19,24 @@ if (body) {
 
   const variantSelect = document.createElement('select')
   variantSelect.className = 'chess-explorer__select'
-  VARIANTS.forEach(v => {
-    const opt = document.createElement('option')
-    opt.value = v.key
-    opt.textContent = v.label
-    if (v.key === currentVariant) opt.selected = true
-    variantSelect.appendChild(opt)
-  })
+  const defaultOpt = document.createElement('option')
+  defaultOpt.value = 'standard'
+  defaultOpt.textContent = 'Standard'
+  defaultOpt.selected = true
+  variantSelect.appendChild(defaultOpt)
   controls.appendChild(variantSelect)
+
+  tools.play.listVariants({ family: 'chess' }).then(result => {
+    const variants = (result.result || result).variants || []
+    variantSelect.innerHTML = ''
+    variants.forEach(v => {
+      const opt = document.createElement('option')
+      opt.value = v.slug
+      opt.textContent = slugToLabel(v.slug)
+      if (v.slug === currentVariant) opt.selected = true
+      variantSelect.appendChild(opt)
+    })
+  }).catch(() => {})
 
   const diffSelect = document.createElement('select')
   diffSelect.className = 'chess-explorer__select'
@@ -121,7 +122,7 @@ if (puzzleBody) {
   let svgCache = {}
 
   function variantLabel(key) {
-    return key.replace(/([A-Z])/g, ' $1').replace(/^./, c => c.toUpperCase()).trim()
+    return slugToLabel(key)
   }
 
   async function initPuzzles() {
