@@ -291,12 +291,53 @@ if (puzzleBody) {
     } catch (e) {}
   }
 
+  function applyUciMove(fen, uci) {
+    if (!fen || !uci || uci.length < 4) return fen
+    const parts = fen.split(' ')
+    const ranks = parts[0].split('/')
+    const fromFile = uci.charCodeAt(0) - 97
+    const fromRank = 8 - parseInt(uci[1])
+    const toFile = uci.charCodeAt(2) - 97
+    const toRank = 8 - parseInt(uci[3])
+    const promotion = uci.length > 4 ? uci[4] : null
+
+    function expandRank(r) {
+      const cells = []
+      for (const ch of r) {
+        if (ch >= '1' && ch <= '8') for (let i = 0; i < parseInt(ch); i++) cells.push('')
+        else cells.push(ch)
+      }
+      return cells
+    }
+    function compressRank(cells) {
+      let out = '', empty = 0
+      for (const c of cells) {
+        if (!c) { empty++; continue }
+        if (empty) { out += empty; empty = 0 }
+        out += c
+      }
+      if (empty) out += empty
+      return out
+    }
+
+    const board = ranks.map(expandRank)
+    const piece = board[fromRank][fromFile]
+    board[fromRank][fromFile] = ''
+    board[toRank][toFile] = promotion
+      ? (piece === piece.toUpperCase() ? promotion.toUpperCase() : promotion.toLowerCase())
+      : piece
+    parts[0] = board.map(compressRank).join('/')
+    return parts.join(' ')
+  }
+
   async function loadPuzzleBoardHighlight(p) {
     const move = Array.isArray(p.solution) ? p.solution[0] : p.solution
     if (!move) return
-    const highlights = [move.slice(0, 2), move.slice(2, 4)]
+    const from = move.slice(0, 2)
+    const to = move.slice(2, 4)
+    const newFen = applyUciMove(p.fen, move)
     try {
-      const result = await tools.chess.renderSvg({ variant: p.variant, fen: p.fen, highlights })
+      const result = await tools.chess.renderSvg({ variant: p.variant, fen: newFen, highlights: [from, to] })
       const svg = (result.result || result).svg
       if (svg) {
         const boardEl = document.getElementById('puzzle-board')
