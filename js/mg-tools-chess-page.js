@@ -219,17 +219,18 @@ if (puzzleBody) {
     }
     puzzleBody.appendChild(boardWrap)
 
-    if (p.fen) {
+    const displayFen = getPuzzleFen(p)
+    if (displayFen) {
       const fenWrap = document.createElement('div')
       fenWrap.className = 'chess-puzzle__fen'
-      fenWrap.innerHTML = '<span class="chess-puzzle__fen-label">FEN</span><code class="chess-puzzle__fen-value">' + p.fen + '</code>'
+      fenWrap.innerHTML = '<span class="chess-puzzle__fen-label">FEN</span><code class="chess-puzzle__fen-value">' + displayFen + '</code>'
       puzzleBody.appendChild(fenWrap)
     }
 
-    const toMove = p.fen ? (p.fen.split(' ')[1] === 'w' ? 'White' : 'Black') : ''
+    const solverSide = displayFen ? (displayFen.split(' ')[1] === 'w' ? 'White' : 'Black') : ''
     const hint = document.createElement('div')
     hint.className = 'chess-puzzle__hint'
-    hint.textContent = toMove ? toMove + ' to move. Find the winning move.' : 'Find the winning move.'
+    hint.textContent = solverSide ? solverSide + ' to move. Find the winning move.' : 'Find the winning move.'
     puzzleBody.appendChild(hint)
 
     const solWrap = document.createElement('div')
@@ -276,11 +277,20 @@ if (puzzleBody) {
     if (!svgCache[p.id]) loadPuzzleBoard()
   }
 
+  function getPuzzleFen(p) {
+    return p.setupMove ? applyUciMove(p.fen, p.setupMove) : p.fen
+  }
+
+  function isUci(move) {
+    return /^[a-h][1-8][a-h][1-8][qrbn]?$/.test(move)
+  }
+
   async function loadPuzzleBoard() {
     const p = filteredPuzzles[puzzleIdx]
     if (!p || svgCache[p.id]) return
     try {
-      const result = await tools.chess.renderSvg({ variant: p.variant, fen: p.fen })
+      const fen = getPuzzleFen(p)
+      const result = await tools.chess.renderSvg({ variant: p.variant, fen })
       const svg = (result.result || result).svg
       if (svg) {
         svgCache[p.id] = svg
@@ -328,23 +338,36 @@ if (puzzleBody) {
       ? (piece === piece.toUpperCase() ? promotion.toUpperCase() : promotion.toLowerCase())
       : piece
     parts[0] = board.map(compressRank).join('/')
+    if (parts[1]) parts[1] = parts[1] === 'w' ? 'b' : 'w'
     return parts.join(' ')
   }
 
   async function loadPuzzleBoardHighlight(p) {
     const move = Array.isArray(p.solution) ? p.solution[0] : p.solution
     if (!move) return
-    const from = move.slice(0, 2)
-    const to = move.slice(2, 4)
-    const newFen = applyUciMove(p.fen, move)
-    try {
-      const result = await tools.chess.renderSvg({ variant: p.variant, fen: newFen, highlights: [from, to] })
-      const svg = (result.result || result).svg
-      if (svg) {
-        const boardEl = document.getElementById('puzzle-board')
-        if (boardEl) boardEl.innerHTML = svg
-      }
-    } catch (e) {}
+    const puzzleFen = getPuzzleFen(p)
+    if (isUci(move)) {
+      const from = move.slice(0, 2)
+      const to = move.slice(2, 4)
+      const newFen = applyUciMove(puzzleFen, move)
+      try {
+        const result = await tools.chess.renderSvg({ variant: p.variant, fen: newFen, highlights: [from, to] })
+        const svg = (result.result || result).svg
+        if (svg) {
+          const boardEl = document.getElementById('puzzle-board')
+          if (boardEl) boardEl.innerHTML = svg
+        }
+      } catch (e) {}
+    } else {
+      try {
+        const result = await tools.chess.renderSvg({ variant: p.variant, fen: puzzleFen })
+        const svg = (result.result || result).svg
+        if (svg) {
+          const boardEl = document.getElementById('puzzle-board')
+          if (boardEl) boardEl.innerHTML = svg
+        }
+      } catch (e) {}
+    }
   }
 
   initPuzzles()
