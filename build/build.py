@@ -1230,7 +1230,7 @@ All engines and tools are MIT licensed. Game rules are CC-BY-SA 4.0. Source code
     write_file(os.path.join(ROOT, 'llms.txt'), llms_txt)
     print('  Built: llms.txt')
 
-    # ─── .well-known/mcp.json ─────────────────────────────────────────
+    # ─── .well-known/mcp.json (legacy location) ─────────────────────────
     mcp_json = {
         "schema_version": "1.0",
         "name": "Moddable.Games MCP Tools",
@@ -1252,6 +1252,66 @@ All engines and tools are MIT licensed. Game rules are CC-BY-SA 4.0. Source code
     write_file(mcp_path, json.dumps(mcp_json, indent=2) + '\n')
     print('  Built: .well-known/mcp.json')
 
+    # ─── .well-known/mcp/server-card.json (SEP-1649) ─────────────────
+    server_card = {
+        "serverInfo": {
+            "name": "Moddable.Games MCP Tools",
+            "version": "1.0.0"
+        },
+        "transport": {
+            "type": "sse",
+            "url": "https://tools.moddable.games/mcp"
+        },
+        "capabilities": {
+            "tools": True
+        },
+        "description": f"{tool_count} AI-callable tools for board game modding, chess variants, hex maps, RPG oracles, and game utilities.",
+        "homepage": "https://moddable.games/developers/",
+        "documentation": "https://tools.moddable.games/llms.txt",
+        "openapi": "https://tools.moddable.games/openapi.json",
+        "authentication": {
+            "type": "none",
+            "description": "No authentication required. All tools are free and open."
+        }
+    }
+    card_path = os.path.join(ROOT, '.well-known', 'mcp', 'server-card.json')
+    write_file(card_path, json.dumps(server_card, indent=2) + '\n')
+    print('  Built: .well-known/mcp/server-card.json')
+
+    # ─── .well-known/api-catalog (RFC 9727) ───────────────────────────
+    api_catalog = {
+        "linkset": [
+            {
+                "anchor": "https://moddable.games/.well-known/api-catalog",
+                "item": [
+                    {
+                        "href": "https://tools.moddable.games/api/call",
+                        "rel": "item",
+                        "service-desc": [
+                            {"href": "https://tools.moddable.games/openapi.json", "type": "application/json"}
+                        ],
+                        "service-doc": [
+                            {"href": "https://moddable.games/developers/api/", "type": "text/html"}
+                        ]
+                    },
+                    {
+                        "href": "https://tools.moddable.games/mcp",
+                        "rel": "item",
+                        "service-desc": [
+                            {"href": "https://moddable.games/.well-known/mcp/server-card.json", "type": "application/json"}
+                        ],
+                        "service-doc": [
+                            {"href": "https://moddable.games/developers/", "type": "text/html"}
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    catalog_path = os.path.join(ROOT, '.well-known', 'api-catalog')
+    write_file(catalog_path, json.dumps(api_catalog, indent=2) + '\n')
+    print('  Built: .well-known/api-catalog')
+
     # ─── .well-known/agent-skills/index.json ──────────────────────────
     agent_skills = {
         "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
@@ -1268,6 +1328,37 @@ All engines and tools are MIT licensed. Game rules are CC-BY-SA 4.0. Source code
     skills_path = os.path.join(ROOT, '.well-known', 'agent-skills', 'index.json')
     write_file(skills_path, json.dumps(agent_skills, indent=2) + '\n')
     print('  Built: .well-known/agent-skills/index.json')
+
+    # ─── auth.md ──────────────────────────────────────────────────────
+    auth_md = f"""# Authentication — Moddable.Games
+
+## API Access
+
+All {tool_count} tools are **free and open**. No authentication required.
+
+### REST API
+- **Endpoint:** `POST https://tools.moddable.games/api/call`
+- **Auth:** None
+- **Body:** `{{"tool": "tool_name", "args": {{...}}}}`
+
+### MCP (Model Context Protocol)
+- **Endpoint:** `https://tools.moddable.games/mcp`
+- **Transport:** SSE (Server-Sent Events)
+- **Auth:** None
+
+### OpenAPI
+- **Spec:** `https://tools.moddable.games/openapi.json`
+
+## Rate Limits
+
+No rate limits are currently enforced. Please be respectful of shared resources.
+
+## Agent Registration
+
+No registration required. Connect directly to any endpoint above.
+"""
+    write_file(os.path.join(ROOT, 'auth.md'), auth_md)
+    print('  Built: auth.md')
 
 
 if __name__ == '__main__':

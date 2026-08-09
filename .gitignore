@@ -21,5 +21,6 @@ css/page-*.css
 /sitemap.xml
 /robots.txt
 /llms.txt
+/auth.md
 /.well-known/
 build/__pycache__/
