@@ -1141,9 +1141,9 @@ def generate_stats(news_items, mods, team_members, tools_pages, details_raw, pag
         }
     }
 
-    stats_path = os.path.join(ROOT, 'api', 'stats.json')
+    stats_path = os.path.join(ROOT, '.well-known', 'stats.json')
     write_file(stats_path, json.dumps(stats_data, indent=2) + '\n')
-    print(f'  Built: api/stats.json ({page_count} pages)')
+    print(f'  Built: .well-known/stats.json ({page_count} pages)')
 
 
 def generate_discovery_files(data, news_items, mods, team_members, tools_pages, details_raw):
@@ -1209,7 +1209,7 @@ def generate_discovery_files(data, news_items, mods, team_members, tools_pages, 
                 urls.append((f'https://moddable.games/news/{slug}/', 'yearly', '0.6'))
 
     # Discovery file self-references
-    urls.append(('https://moddable.games/api/stats.json', 'daily', '0.5'))
+    urls.append(('https://moddable.games/.well-known/stats.json', 'daily', '0.5'))
     urls.append(('https://moddable.games/llms.txt', 'monthly', '0.7'))
     urls.append(('https://moddable.games/.well-known/mcp.json', 'monthly', '0.7'))
     urls.append(('https://moddable.games/.well-known/agent-skills/index.json', 'monthly', '0.7'))

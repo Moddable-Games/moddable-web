@@ -22,6 +22,5 @@ css/page-*.css
 /robots.txt
 /llms.txt
 /auth.md
-/api/
 /.well-known/
 build/__pycache__/
