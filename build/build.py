@@ -39,6 +39,58 @@ def get_version():
 
 # ─── Counts Substitution ──────────────────────────────────────────────────
 
+UNIVERSAL_STATS_URL = 'https://tools.moddable.games/api/stats'
+
+STATS_TO_COUNTS = {
+    'pieces': 'engine_pieces',
+    'boards': 'engine_boards',
+    'boardFamilies': 'engine_families',
+    'tiles': 'engine_tiles',
+    'puzzles': 'chess_puzzles',
+    'variants': 'engine_variants',
+    'games': 'games_count',
+    'tools': 'tool_count',
+    'families': 'tool_families',
+    'pages': 'page_count',
+    'newsArticles': 'news_count',
+    'modsListed': 'mods_count',
+}
+
+
+def refresh_counts():
+    """Fetch universal stats from tools API and update counts.json."""
+    import urllib.request
+    counts_path = os.path.join(DATA_DIR, 'counts.json')
+    try:
+        req = urllib.request.Request(UNIVERSAL_STATS_URL, headers={'Accept': 'application/json'})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            universal = json.loads(resp.read().decode())
+    except Exception as e:
+        print(f'  Stats fetch skipped ({e}) — using existing counts.json')
+        return
+
+    combined = universal.get('combined', {})
+    if not combined:
+        print('  Stats fetch returned no combined data — using existing counts.json')
+        return
+
+    counts = load_json(counts_path) if os.path.exists(counts_path) else {}
+    updated = 0
+    for stat_key, count_key in STATS_TO_COUNTS.items():
+        val = combined.get(stat_key)
+        if val is not None:
+            new_val = str(val)
+            if counts.get(count_key) != new_val:
+                counts[count_key] = new_val
+                updated += 1
+
+    if updated:
+        write_file(counts_path, json.dumps(counts, indent=2) + '\n')
+        print(f'  Refreshed counts.json from universal stats ({updated} values updated)')
+    else:
+        print('  Counts already up to date with universal stats')
+
+
 def load_counts():
     """Load counts.json — single source of truth for all dynamic numbers."""
     path = os.path.join(DATA_DIR, 'counts.json')
@@ -488,6 +540,8 @@ def build_site():
     base = get_base_path()
     if base:
         print(f'  Base path: {base}')
+
+    refresh_counts()
 
     def build(template_name, context, output_path):
         build_page(template_name, context, output_path, base)
@@ -1044,10 +1098,52 @@ def build_site():
     }
     build('home', home_ctx, 'index.html')
 
-    # ─── Discovery files ─────────────────────────────────────────────────
+    # ─── Stats + Discovery files ────────────────────────────────────────
+    generate_stats(news_items, mods, team_members, tools_pages, details_raw, pages)
     generate_discovery_files(data, news_items, mods, team_members, tools_pages, details_raw)
 
     print(f'\nBuild complete. Version: {version}')
+
+
+def generate_stats(news_items, mods, team_members, tools_pages, details_raw, pages):
+    """Generate api/stats.json — Web-authoritative stats for universal endpoint."""
+    from datetime import datetime, timezone
+
+    # Count all pages built
+    content_news_dir = os.path.join(CONTENT_DIR, 'news')
+    news_article_count = 0
+    if os.path.isdir(content_news_dir):
+        news_article_count = len([f for f in os.listdir(content_news_dir) if f.endswith('.md')])
+
+    page_count = (
+        len(pages) +                    # tier 1 content pages
+        5 +                             # index pages (mods, games, engines, news, tools)
+        len(tools_pages) +              # tool sub-pages
+        len(team_members) +             # team detail pages
+        news_article_count +            # news articles
+        len([k for k in details_raw     # game + mod detail pages
+             if k in ('nukes', 'mongo', 'endless-skies') or
+             details_raw[k].get('slug', k) in
+             {m.get('path', '').strip('/').split('/')[-1] for m in mods}]) +
+        1                               # home
+    )
+
+    stats_data = {
+        'project': 'web',
+        'generated': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'stats': {
+            'pages': page_count,
+            'news_articles': news_article_count,
+            'mods_listed': len(mods),
+            'tools_showcased': len(tools_pages),
+            'team_members': len(team_members),
+            'games': len([k for k in details_raw if k in ('nukes', 'mongo', 'endless-skies')]),
+        }
+    }
+
+    stats_path = os.path.join(ROOT, 'api', 'stats.json')
+    write_file(stats_path, json.dumps(stats_data, indent=2) + '\n')
+    print(f'  Built: api/stats.json ({page_count} pages)')
 
 
 def generate_discovery_files(data, news_items, mods, team_members, tools_pages, details_raw):
@@ -1113,6 +1209,7 @@ def generate_discovery_files(data, news_items, mods, team_members, tools_pages, 
                 urls.append((f'https://moddable.games/news/{slug}/', 'yearly', '0.6'))
 
     # Discovery file self-references
+    urls.append(('https://moddable.games/api/stats.json', 'daily', '0.5'))
     urls.append(('https://moddable.games/llms.txt', 'monthly', '0.7'))
     urls.append(('https://moddable.games/.well-known/mcp.json', 'monthly', '0.7'))
     urls.append(('https://moddable.games/.well-known/agent-skills/index.json', 'monthly', '0.7'))
