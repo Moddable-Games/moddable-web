@@ -18,17 +18,15 @@ if (embedCard) {
   let currentSize = config.defaultSize || null
   let currentLayout = config.defaultLayout || null
 
-  const params = { embed: '1', game: config.game, style: currentStyle, random: '1', bg: 'FFFFFF' }
+  const params = { game: config.game, style: currentStyle, random: '1', bg: 'FFFFFF' }
   if (currentSize) params.size = String(currentSize)
   if (currentLayout) params.players = String(parseInt(currentLayout))
 
   const embed = tools.embed.play(frameEl, {
-    game: config.game,
     params,
     title: 'Hex Map: ' + config.game,
     height: 500,
   })
-  embed._ready = true
 
   if (controlsEl) {
     const controls = document.createElement('div')
@@ -46,7 +44,7 @@ if (embedCard) {
       })
       styleSelect.addEventListener('change', () => {
         currentStyle = styleSelect.value
-        embed._send({ type: 'hexmap:setStyle', style: currentStyle })
+        embed.send('hexmap:setStyle', { style: currentStyle })
       })
       controls.appendChild(styleSelect)
     }
@@ -63,7 +61,7 @@ if (embedCard) {
       })
       sizeSelect.addEventListener('change', () => {
         currentSize = parseInt(sizeSelect.value)
-        embed._send({ type: 'hexmap:regenerate', size: currentSize, random: true })
+        embed.send('hexmap:regenerate', { size: currentSize, random: true })
       })
       controls.appendChild(sizeSelect)
     }
@@ -80,7 +78,7 @@ if (embedCard) {
       })
       layoutSelect.addEventListener('change', () => {
         currentLayout = layoutSelect.value
-        embed._send({ type: 'hexmap:regenerate', players: parseInt(currentLayout), random: true })
+        embed.send('hexmap:regenerate', { players: parseInt(currentLayout), random: true })
       })
       controls.appendChild(layoutSelect)
     }
@@ -88,7 +86,7 @@ if (embedCard) {
     const regenBtn = document.createElement('button')
     regenBtn.className = 'hexmap-embed__btn'
     regenBtn.textContent = 'Regenerate'
-    regenBtn.addEventListener('click', () => embed._send({ type: 'hexmap:regenerate', random: true }))
+    regenBtn.addEventListener('click', () => embed.send('hexmap:regenerate', { random: true }))
     controls.appendChild(regenBtn)
 
     controlsEl.appendChild(controls)
@@ -98,7 +96,7 @@ if (embedCard) {
     const exportBtn = document.createElement('button')
     exportBtn.className = 'hexmap-embed__btn'
     exportBtn.textContent = 'Export SVG'
-    exportBtn.addEventListener('click', () => embed._send({ type: 'hexmap:exportSvg' }))
+    exportBtn.addEventListener('click', () => embed.send('hexmap:exportSvg', {}))
     actionsEl.appendChild(exportBtn)
   }
 

@@ -70,22 +70,21 @@ if (body) {
   body.appendChild(wrap)
 
   const embed = tools.embed.play(wrap, {
-    params: { variant: 'standard', embed: '1' },
+    params: { family: 'chess', variant: 'standard' },
     title: 'Play Chess',
     height: 560,
   })
-  embed._ready = true
 
   variantSelect.addEventListener('change', () => {
     currentVariant = variantSelect.value
-    embed._send({ type: 'chess:setVariant', variant: currentVariant })
+    embed.setVariant(currentVariant)
   })
   diffSelect.addEventListener('change', () => {
-    embed._send({ type: 'chess:setDifficulty', difficulty: diffSelect.value })
+    embed.setDifficulty(diffSelect.value)
   })
-  newBtn.addEventListener('click', () => embed._send({ type: 'chess:newGame' }))
-  undoBtn.addEventListener('click', () => embed._send({ type: 'chess:undo' }))
-  flipBtn.addEventListener('click', () => embed._send({ type: 'chess:flip' }))
+  newBtn.addEventListener('click', () => embed.newGame())
+  undoBtn.addEventListener('click', () => embed.undo())
+  flipBtn.addEventListener('click', () => embed.flip())
 
   const statusBar = document.createElement('div')
   statusBar.className = 'chess-explorer__status'
@@ -94,14 +93,15 @@ if (body) {
 
   window.addEventListener('message', (e) => {
     if (!e.data || typeof e.data.type !== 'string') return
-    if (e.data.type === 'chess:ready') {
+    const type = e.data.type
+    if (type === 'game:ready' || type === 'chess:ready') {
       statusBar.textContent = 'White to move'
     }
-    if (e.data.type === 'chess:move') {
+    if (type === 'game:move' || type === 'chess:move') {
       const turn = e.data.fen && e.data.fen.includes(' b ') ? 'Black' : 'White'
       statusBar.textContent = turn + ' to move'
     }
-    if (e.data.type === 'chess:status') {
+    if (type === 'game:status' || type === 'chess:status') {
       statusBar.textContent = e.data.text === 'draw' ? 'Draw' :
         e.data.text === 'white' ? 'White wins' :
         e.data.text === 'black' ? 'Black wins' : e.data.text

@@ -137,6 +137,8 @@ class GamesNamespace extends Namespace {
   ti4DrawAgendas(args = {}) { return this.call('ti4_draw_agendas', args) }
   nukesSetup(args = {}) { return this.call('nukes_setup_generator', args) }
   nukesCombat(args) { return this.call('game_nukes_combat', args) }
+  talismanDrawCharacters(args = {}) { return this.call('talisman_draw_characters', args) }
+  talismanDrawEncounter(args = {}) { return this.call('talisman_draw_encounter', args) }
   colonyDiceOdds(args) { return this.call('colony_dice_odds', args) }
   deckCreate(args = {}) { return this.call('game_deck_create', args) }
   scoreTracker(args) { return this.call('game_score_tracker', args) }
@@ -272,7 +274,87 @@ class EmbedHelpers {
   talisman(container, opts = {}) { return this._create('talisman', container, opts) }
 
   play(container, opts = {}) {
-    return this._create('play', container, opts, this.client.engineBase + '/play/')
+    opts.params = { embed: '1', ...(opts.params || {}) }
+    return this._createPlay(container, opts)
+  }
+
+  _createPlay(container, opts) {
+    this._ensureListener()
+
+    const el = typeof container === 'string' ? document.querySelector(container) : container
+    if (!el) throw new Error(`Container not found: ${container}`)
+
+    const params = new URLSearchParams()
+    Object.entries(opts.params || {}).forEach(([k, v]) => params.set(k, v))
+
+    const src = this.client.engineBase + '/play/' + (params.toString() ? '?' + params : '')
+
+    const iframe = document.createElement('iframe')
+    iframe.src = src
+    iframe.style.cssText = 'width:100%;border:none;overflow:hidden;display:block;background:transparent;'
+    iframe.style.height = (opts.height || 560) + 'px'
+    iframe.setAttribute('loading', 'lazy')
+    iframe.setAttribute('allow', 'clipboard-write')
+    iframe.setAttribute('allowtransparency', 'true')
+    if (opts.title) iframe.setAttribute('title', opts.title)
+
+    el.innerHTML = ''
+    el.appendChild(iframe)
+
+    const instance = {
+      widget: 'play',
+      _iframe: iframe,
+      _ready: false,
+      _pending: [],
+      onReady: opts.onReady || null,
+      onResize: opts.onResize || null,
+
+      send(type, data = {}) {
+        const msg = { type, ...data }
+        if (this._ready) {
+          iframe.contentWindow.postMessage(msg, '*')
+        } else {
+          this._pending.push(msg)
+        }
+      },
+
+      setVariant(variant) { this.send('game:setVariant', { variant }) },
+      setFamily(family) { this.send('game:setFamily', { family }) },
+      setDifficulty(difficulty) { this.send('game:setDifficulty', { difficulty }) },
+      newGame() { this.send('game:newGame') },
+      undo() { this.send('game:undo') },
+      flip() { this.send('game:flip') },
+      pass() { this.send('game:pass') },
+      resign() { this.send('game:resign') },
+
+      destroy() {
+        iframe.remove()
+        this._instances && this._instances.delete('play')
+      },
+    }
+
+    instance._instances = this._instances
+    this._instances.set('play', instance)
+
+    const handler = (e) => {
+      if (!e.data || typeof e.data.type !== 'string') return
+      if (e.source !== iframe.contentWindow) return
+      const type = e.data.type
+      if (type === 'game:ready' || type === 'hexmap:ready') {
+        instance._ready = true
+        instance._pending.forEach(msg => iframe.contentWindow.postMessage(msg, '*'))
+        instance._pending = []
+        if (instance.onReady) instance.onReady(e.data)
+      }
+      if ((type === 'game:resize' || type === 'hexmap:resize') && e.data.height) {
+        iframe.style.height = e.data.height + 'px'
+        if (instance.onResize) instance.onResize(e.data.height)
+      }
+    }
+    window.addEventListener('message', handler)
+    instance._messageHandler = handler
+
+    return instance
   }
 
   _create(widget, container, opts = {}, customUrl) {
