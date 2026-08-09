@@ -1044,7 +1044,230 @@ def build_site():
     }
     build('home', home_ctx, 'index.html')
 
+    # ─── Discovery files ─────────────────────────────────────────────────
+    generate_discovery_files(data, news_items, mods, team_members, tools_pages, details_raw)
+
     print(f'\nBuild complete. Version: {version}')
+
+
+def generate_discovery_files(data, news_items, mods, team_members, tools_pages, details_raw):
+    """Generate sitemap.xml, robots.txt, llms.txt, and .well-known/* files."""
+    print('\n  Generating discovery files...')
+    counts = data.get('counts', {})
+
+    # Collect all URLs with priorities and change frequencies
+    urls = []
+
+    # Home
+    urls.append(('https://moddable.games/', 'weekly', '1.0'))
+
+    # Index pages
+    urls.append(('https://moddable.games/mods/', 'weekly', '0.9'))
+    urls.append(('https://moddable.games/games/', 'monthly', '0.9'))
+    urls.append(('https://moddable.games/engines/', 'monthly', '0.8'))
+    urls.append(('https://moddable.games/tools/', 'weekly', '0.8'))
+    urls.append(('https://moddable.games/news/', 'weekly', '0.8'))
+    urls.append(('https://moddable.games/developers/', 'monthly', '0.8'))
+    urls.append(('https://moddable.games/developers/engine/', 'monthly', '0.7'))
+    urls.append(('https://moddable.games/developers/api/', 'monthly', '0.7'))
+    urls.append(('https://moddable.games/developers/examples/', 'monthly', '0.7'))
+
+    # Static pages
+    urls.append(('https://moddable.games/about/', 'monthly', '0.7'))
+    urls.append(('https://moddable.games/about/roadmap/', 'monthly', '0.6'))
+    urls.append(('https://moddable.games/community/', 'monthly', '0.7'))
+    urls.append(('https://moddable.games/team/', 'monthly', '0.6'))
+    urls.append(('https://moddable.games/press/', 'monthly', '0.6'))
+    urls.append(('https://moddable.games/submit/', 'yearly', '0.5'))
+    urls.append(('https://moddable.games/subscribe/', 'yearly', '0.5'))
+
+    # Team detail pages
+    for member in team_members:
+        handle = member.get('handle', '')
+        if handle:
+            urls.append((f'https://moddable.games/team/{handle}/', 'yearly', '0.5'))
+
+    # Game detail pages
+    GAME_KEYS = {'nukes': 'nukes', 'mongo': 'planet-mongo', 'endless-skies': 'endless-skies'}
+    for key, slug in GAME_KEYS.items():
+        if key in details_raw:
+            urls.append((f'https://moddable.games/games/{slug}/', 'monthly', '0.8'))
+
+    # Mod detail pages
+    for mod in mods:
+        path = mod.get('path', '').strip('/')
+        if path:
+            urls.append((f'https://moddable.games/{path}/', 'monthly', '0.7'))
+
+    # Tool sub-pages
+    for tool_key, tool_data in tools_pages.items():
+        slug = tool_data.get('slug', tool_key)
+        urls.append((f'https://moddable.games/tools/{slug}/', 'monthly', '0.7'))
+
+    # News articles
+    for post in news_items:
+        slug = post.get('slug', '')
+        if slug:
+            md_path = os.path.join(CONTENT_DIR, 'news', f'{slug}.md')
+            if os.path.exists(md_path):
+                urls.append((f'https://moddable.games/news/{slug}/', 'yearly', '0.6'))
+
+    # Discovery file self-references
+    urls.append(('https://moddable.games/llms.txt', 'monthly', '0.7'))
+    urls.append(('https://moddable.games/.well-known/mcp.json', 'monthly', '0.7'))
+    urls.append(('https://moddable.games/.well-known/agent-skills/index.json', 'monthly', '0.7'))
+
+    # ─── sitemap.xml ──────────────────────────────────────────────────
+    sitemap_lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+                     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for loc, freq, priority in urls:
+        sitemap_lines.append(f'  <url><loc>{loc}</loc><changefreq>{freq}</changefreq><priority>{priority}</priority></url>')
+    sitemap_lines.append('</urlset>')
+    sitemap_lines.append('')
+    write_file(os.path.join(ROOT, 'sitemap.xml'), '\n'.join(sitemap_lines))
+    print(f'  Built: sitemap.xml ({len(urls)} URLs)')
+
+    # ─── robots.txt ───────────────────────────────────────────────────
+    robots = """User-agent: *
+Allow: /
+Disallow: /build/
+
+Sitemap: https://moddable.games/sitemap.xml
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: *
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+"""
+    write_file(os.path.join(ROOT, 'robots.txt'), robots)
+    print('  Built: robots.txt')
+
+    # ─── llms.txt ─────────────────────────────────────────────────────
+    mod_count = counts.get('mods_count', str(len(mods)))
+    tool_count = counts.get('tool_count', '83')
+    news_count = str(len(news_items))
+    team_count = counts.get('team_count', str(len(team_members)))
+    games_count = counts.get('games_count', '3')
+
+    llms_txt = f"""# Moddable.Games
+
+> Open-source engines, community-built mods, and original games designed to be taken apart.
+
+Moddable.Games is a workshop that publishes open-source rulebook mods for existing board games, plus original games designed to be modded from day one. We also build shared engines (Chess, Hexmaps) that power multiple games and tools.
+
+## Data Feeds
+
+These JSON files contain structured data about all our content:
+
+- [Mods Library](https://moddable.games/data/mods.json): {mod_count} rulebook mods
+- [Games](https://moddable.games/data/games.json): {games_count} original games (Endless Skies, Planet Mongo, Nukes)
+- [Engines](https://moddable.games/data/engines.json): 2 shared engines (Moddable Chess, Moddable Hexmaps)
+- [News](https://moddable.games/data/news.json): {news_count} articles about game design and modding
+- [Team](https://moddable.games/data/team.json): {team_count} team members
+
+## Key Pages
+
+- [Homepage](https://moddable.games/): Overview and featured content
+- [Mods Library](https://moddable.games/mods/): Filterable collection of all mods
+- [Games](https://moddable.games/games/): Original games catalogue
+- [Engines](https://moddable.games/engines/): Shared engine SDKs
+- [Tools](https://moddable.games/tools/): Interactive game tools (dice, drafters, trackers)
+- [News](https://moddable.games/news/): Articles on game design and modding philosophy
+- [About](https://moddable.games/about/): Mission and approach
+- [Community](https://moddable.games/community/): Discord and engagement
+
+## AI Tool Access (MCP)
+
+This site provides {tool_count} AI-callable tools via the Model Context Protocol (MCP) at:
+
+- **MCP endpoint:** https://tools.moddable.games/mcp (SSE transport)
+- **REST API:** https://tools.moddable.games/api/call (POST with {{"tool": "name", "args": {{...}}}})
+- **OpenAPI spec:** https://tools.moddable.games/openapi.json
+- **Agent skills:** https://tools.moddable.games/.well-known/agent-skills/index.json
+- **Server card:** https://tools.moddable.games/.well-known/mcp/server-card.json
+
+No authentication required. All tools are free and open.
+
+### Tool Namespaces
+
+- **Chess** (9 tools): variant listing, legal moves, analysis, puzzles, SVG render
+- **Hex Maps** (6 tools): map generation, pathfinding, FOV, SVG export
+- **Piece Gallery** (3 tools): search/browse 96 chess piece sets
+- **Rules Library** (5 tools): game/variant lookup, search, random
+- **Game Tools** (12 tools): TI4 drafting, Mancala, Morris, Ur, Pachisi, Nukes, Colony
+- **Oracles & RPG** (14 tools): oracle tables, encounters, entity browser (10 RPG systems)
+- **Utilities** (7 tools): dice, coins, teams, factions, mod jam
+
+## Open Source
+
+All engines and tools are MIT licensed. Game rules are CC-BY-SA 4.0. Source code available on GitHub.
+"""
+    write_file(os.path.join(ROOT, 'llms.txt'), llms_txt)
+    print('  Built: llms.txt')
+
+    # ─── .well-known/mcp.json ─────────────────────────────────────────
+    mcp_json = {
+        "schema_version": "1.0",
+        "name": "Moddable.Games MCP Tools",
+        "description": f"{tool_count} AI-callable tools for board game modding, chess variants, hex maps, RPG oracles, and game utilities. Free, open, no authentication required.",
+        "url": "https://tools.moddable.games/mcp",
+        "transport": "sse",
+        "homepage": "https://moddable.games/developers/",
+        "documentation": "https://tools.moddable.games/llms.txt",
+        "openapi": "https://tools.moddable.games/openapi.json",
+        "agent_skills": "https://tools.moddable.games/.well-known/agent-skills/index.json",
+        "configSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": False,
+            "description": "No configuration required. All tools are free and open, no API keys needed."
+        }
+    }
+    mcp_path = os.path.join(ROOT, '.well-known', 'mcp.json')
+    write_file(mcp_path, json.dumps(mcp_json, indent=2) + '\n')
+    print('  Built: .well-known/mcp.json')
+
+    # ─── .well-known/agent-skills/index.json ──────────────────────────
+    agent_skills = {
+        "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+        "skills": [
+            {
+                "name": "moddable-games-tools",
+                "type": "skill-md",
+                "description": f"{tool_count} AI-callable board game tools: chess variants, hex maps, piece gallery, rules library, RPG oracles, and game utilities via MCP",
+                "url": "https://tools.moddable.games/llms.txt",
+                "digest": "sha256:placeholder"
+            }
+        ]
+    }
+    skills_path = os.path.join(ROOT, '.well-known', 'agent-skills', 'index.json')
+    write_file(skills_path, json.dumps(agent_skills, indent=2) + '\n')
+    print('  Built: .well-known/agent-skills/index.json')
 
 
 if __name__ == '__main__':

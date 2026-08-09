@@ -18,4 +18,8 @@ CLAUDE.md
 /team/
 /tools/
 css/page-*.css
+/sitemap.xml
+/robots.txt
+/llms.txt
+/.well-known/
 build/__pycache__/

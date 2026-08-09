@@ -173,7 +173,7 @@ That's it for build time. The interactive tool pages (Tier 4) still call the API
 - [ ] `/developers/api/` and `/developers/examples/` sub-pages
 
 ### Phase 6: Discovery files + deploy
-- [ ] Build generates: `robots.txt`, `sitemap.xml`, `llms.txt`, `.well-known/*`
+- [x] Build generates: `robots.txt`, `sitemap.xml`, `llms.txt`, `.well-known/*`
 - [ ] `bump.sh` stamps version across all CSS/JS refs
 - [ ] Cloudflare Pages deploy config
 - [ ] Full visual regression: every page compared to live site
