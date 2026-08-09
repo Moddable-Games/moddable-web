@@ -66,6 +66,8 @@ def refresh_counts():
     rules_content = rules.get('content', {})
     rules_data = rules.get('data', {})
 
+    namespaces = tools.get('namespaces', {})
+
     fresh = {
         'engine_variants': engine.get('playableVariants'),
         'engine_families': engine.get('playableFamilies'),
@@ -83,6 +85,14 @@ def refresh_counts():
         'entities': rules_data.get('entities'),
         'tool_count': tools.get('tools'),
         'tool_families': tools.get('families'),
+        'tools_chess': namespaces.get('chess'),
+        'tools_play': namespaces.get('play'),
+        'tools_hex': namespaces.get('hex'),
+        'tools_rules': namespaces.get('rules'),
+        'tools_gallery': namespaces.get('gallery'),
+        'tools_oracles': namespaces.get('oracles'),
+        'tools_games': namespaces.get('games'),
+        'tools_utilities': namespaces.get('utilities'),
         'page_count': web.get('pages'),
         'news_count': web.get('news_articles'),
         'mods_count': web.get('mods_listed'),
@@ -1112,8 +1122,9 @@ def build_site():
     }
     build('home', home_ctx, 'index.html')
 
-    # ─── Stats + Discovery files ────────────────────────────────────────
+    # ─── Stats + Search + Discovery ─────────────────────────────────────
     generate_stats(news_items, mods, team_members, tools_pages, details_raw, pages)
+    generate_search_index(mods, data.get('games', {}), tools_pages, details_raw, news_items)
     generate_discovery_files(data, news_items, mods, team_members, tools_pages, details_raw)
 
     print(f'\nBuild complete. Version: {version}')
@@ -1158,6 +1169,58 @@ def generate_stats(news_items, mods, team_members, tools_pages, details_raw, pag
     stats_path = os.path.join(ROOT, '.well-known', 'stats.json')
     write_file(stats_path, json.dumps(stats_data, indent=2) + '\n')
     print(f'  Built: .well-known/stats.json ({page_count} pages)')
+
+
+def generate_search_index(mods, games, tools_pages, details_raw, news_items):
+    """Generate the search INDEX array in js/mg-search.js from data."""
+    entries = []
+
+    for mod in mods:
+        slug = mod.get('path', '').strip('/')
+        entries.append({'type': 'mod', 'title': mod.get('title', ''), 'desc': mod.get('tagline', mod.get('body', '')), 'href': f'/{slug}/'})
+
+    if isinstance(games, dict):
+        game_items = games.get('items', [])
+    else:
+        game_items = games
+    for game in game_items:
+        slug = game.get('slug', '')
+        entries.append({'type': 'game', 'title': game.get('title', ''), 'desc': game.get('tagline', game.get('body', '')), 'href': f'/games/{slug}/'})
+
+    entries.append({'type': 'engine', 'title': 'Moddable Engine', 'desc': 'Play engine: chess, draughts, go, shogi, xiangqi, reversi', 'href': '/developers/engine/'})
+
+    for tool_key, tool_data in tools_pages.items():
+        slug = tool_data.get('slug', tool_key)
+        title = tool_data.get('title', slug.title())
+        desc = tool_data.get('lede', tool_data.get('description', ''))
+        entries.append({'type': 'tool', 'title': title, 'desc': desc, 'href': f'/tools/{slug}/'})
+
+    static_pages = [
+        ('About', 'Our story and what we believe', '/about/'),
+        ('Developers', 'Engine, Tools API, build examples', '/developers/'),
+        ('Tools API', 'AI-callable tools via MCP or REST', '/developers/api/'),
+        ('Community', 'Join the Discord — designers, playtesters, rule-tinkerers', '/community/'),
+        ('Subscribe', 'Crowdfunding updates, playtest invites, game launches', '/subscribe/'),
+        ('Submit a Mod', 'Share your homebrew with the community', '/submit/'),
+        ('News', 'Essays, announcements, and build logs', '/news/'),
+        ('Press Kit', 'Logos, screenshots, brand colours for editorial use', '/press/'),
+    ]
+    for title, desc, href in static_pages:
+        entries.append({'type': 'page', 'title': title, 'desc': desc, 'href': href})
+
+    index_js = json.dumps(entries, ensure_ascii=False)
+
+    search_path = os.path.join(ROOT, 'js', 'mg-search.js')
+    content = read_file(search_path)
+    start = content.find('var INDEX = [')
+    end = content.find('];', start) + 2
+    if start == -1 or end == 1:
+        print('  Warning: could not find INDEX in mg-search.js')
+        return
+
+    new_content = content[:start] + f'var INDEX = {index_js};' + content[end:]
+    write_file(search_path, new_content)
+    print(f'  Built: js/mg-search.js search index ({len(entries)} entries)')
 
 
 def generate_discovery_files(data, news_items, mods, team_members, tools_pages, details_raw):

@@ -3,34 +3,7 @@
 
   var TOOLS_API = 'https://tools.moddable.games/api/call';
 
-  var INDEX = [
-    {type:'mod', title:'Dungeon Chess', desc:'Chess reimagined as asymmetric dungeon skirmish', href:'/mods/dungeon-chess/'},
-    {type:'mod', title:'Talisman Worlds', desc:'Open-world hex system replacing the Talisman board', href:'/mods/talisman-worlds/'},
-    {type:'mod', title:'Hyper Imperium', desc:'Faster ruleset for TI4 + Prophecy of Kings', href:'/mods/hyper-imperium/'},
-    {type:'mod', title:'Econopoly', desc:'Monopoly with a working economy and dynamic pricing', href:'/mods/econopoly/'},
-    {type:'mod', title:'Nukes: Siege', desc:'Asymmetric attacker/defender variant for Nukes', href:'/mods/nukes-siege/'},
-    {type:'mod', title:'Nukes: Asymmetric Powers', desc:'Faction abilities and unique unit compositions', href:'/mods/nukes-asymmetric-powers/'},
-    {type:'mod', title:'Nukes: Fallout', desc:'Post-war survival expansion with irradiated terrain', href:'/mods/nukes-fallout/'},
-    {type:'game', title:'Nukes', desc:'Cold-war territory control on a hex map', href:'/games/nukes/'},
-    {type:'game', title:'Planet Mongo', desc:'Hex-based territory control in the Flash Gordon universe', href:'/games/planet-mongo/'},
-    {type:'game', title:'Endless Skies', desc:'4X space exploration with worker placement and fleet management', href:'/games/endless-skies/'},
-    {type:'engine', title:'Moddable Engine', desc:'Play engine: chess, draughts, go, shogi, xiangqi, reversi', href:'/developers/engine/'},
-    {type:'tool', title:'Dice Roller', desc:'Roll any combination of dice for any game', href:'/tools/dice/'},
-    {type:'tool', title:'Card Deck Builder', desc:'Build and shuffle custom card decks', href:'/tools/decks/'},
-    {type:'tool', title:'TI4 Tools', desc:'Galaxy maps, faction picker, objectives, agendas', href:'/tools/ti/'},
-    {type:'tool', title:'Talisman Tools', desc:'Character lottery, hex board generator, encounters', href:'/tools/talisman/'},
-    {type:'tool', title:'Chess Variant Explorer', desc:'Play any variant with AI difficulty levels', href:'/tools/chess/'},
-    {type:'tool', title:'Nukes Tools', desc:'Hex map generator, combat calculator, hostage tracker', href:'/tools/nukes/'},
-    {type:'tool', title:'Oracles & RPG', desc:'Scene Forge, RPG Browser, Encounter Builder', href:'/tools/oracles/'},
-    {type:'page', title:'About', desc:'Our story and what we believe', href:'/about/'},
-    {type:'page', title:'Developers', desc:'Engine, Tools API, build examples', href:'/developers/'},
-    {type:'page', title:'Tools API', desc:'AI-callable tools via MCP or REST', href:'/developers/api/'},
-    {type:'page', title:'Community', desc:'Join the Discord — designers, playtesters, rule-tinkerers', href:'/community/'},
-    {type:'page', title:'Subscribe', desc:'Crowdfunding updates, playtest invites, game launches', href:'/subscribe/'},
-    {type:'page', title:'Submit a Mod', desc:'Share your homebrew with the community', href:'/submit/'},
-    {type:'page', title:'News', desc:'Essays, announcements, and build logs', href:'/news/'},
-    {type:'page', title:'Press Kit', desc:'Logos, screenshots, brand colours for editorial use', href:'/press/'},
-  ];
+  var INDEX = [{"type": "mod", "title": "Dungeon Chess", "desc": "Chess reimagined as an asymmetric dungeon skirmish. Four factions on modular boards with unique abilities, XP drafting, and environmental hazards. Powered by the Moddable Chess Engine.", "href": "/mods/dungeon-chess/"}, {"type": "mod", "title": "Talisman Worlds", "desc": "Replaces the Talisman board with 61 hexagonal tiles across four concentric rings plus a hidden ending. Every game generates a different board layout. Includes Dungeon expansion support.", "href": "/mods/talisman-worlds/"}, {"type": "mod", "title": "Hyper Imperium", "desc": "3D exploration via hyperlanes, blind voting with influence cards, shared secret objectives, and a 100-point mercenary faction builder. Five modular rule changes for TI4 + Prophecy of Kings.", "href": "/mods/hyper-imperium/"}, {"type": "mod", "title": "Econopoly", "desc": "Transforms Monopoly into a euro-game with resource collection, blind auctions, and victory point scoring via linked card combinations. Choose to move, trade, or build each turn.", "href": "/mods/econopoly/"}, {"type": "mod", "title": "Nukes: Siege", "desc": "Total conversion of the hostage mechanic. Start with your own tokens in reserve; recruit them by returning to occupied regions. Enemy hostages only arrive through combat.", "href": "/mods/nukes-siege/"}, {"type": "mod", "title": "Nukes: Asymmetric Powers", "desc": "Each player draws one Power Card at setup — Covert Network, Arms Industry, or Airborne Corps. No two players hold the same card. Standard Nukes underneath, explicit asymmetry on top.", "href": "/mods/nukes-asymmetric-powers/"}, {"type": "mod", "title": "Nukes: Fallout", "desc": "Biohazard tiles spread each round. Every nuclear strike leaves a growing contamination zone. City tiles are immune to spread. Win before the map runs out.", "href": "/mods/nukes-fallout/"}, {"type": "game", "title": "Nukes", "desc": "", "href": "/games//"}, {"type": "game", "title": "Planet Mongo", "desc": "", "href": "/games//"}, {"type": "game", "title": "Endless Skies", "desc": "", "href": "/games//"}, {"type": "engine", "title": "Moddable Engine", "desc": "Play engine: chess, draughts, go, shogi, xiangqi, reversi", "href": "/developers/engine/"}, {"type": "tool", "title": "Twilight Imperium tools", "desc": "", "href": "/tools/ti/"}, {"type": "tool", "title": "Talisman tools", "desc": "", "href": "/tools/talisman/"}, {"type": "tool", "title": "Nukes tools", "desc": "", "href": "/tools/nukes/"}, {"type": "tool", "title": "Dice Lab", "desc": "", "href": "/tools/dice/"}, {"type": "tool", "title": "Card Deck Builder", "desc": "", "href": "/tools/decks/"}, {"type": "tool", "title": "Chess Variant Explorer", "desc": "", "href": "/tools/chess/"}, {"type": "tool", "title": "Oracles", "desc": "", "href": "/tools/oracles/"}, {"type": "page", "title": "About", "desc": "Our story and what we believe", "href": "/about/"}, {"type": "page", "title": "Developers", "desc": "Engine, Tools API, build examples", "href": "/developers/"}, {"type": "page", "title": "Tools API", "desc": "AI-callable tools via MCP or REST", "href": "/developers/api/"}, {"type": "page", "title": "Community", "desc": "Join the Discord — designers, playtesters, rule-tinkerers", "href": "/community/"}, {"type": "page", "title": "Subscribe", "desc": "Crowdfunding updates, playtest invites, game launches", "href": "/subscribe/"}, {"type": "page", "title": "Submit a Mod", "desc": "Share your homebrew with the community", "href": "/submit/"}, {"type": "page", "title": "News", "desc": "Essays, announcements, and build logs", "href": "/news/"}, {"type": "page", "title": "Press Kit", "desc": "Logos, screenshots, brand colours for editorial use", "href": "/press/"}];
 
   var overlay = null;
   var activeIdx = 0;
