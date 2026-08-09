@@ -285,6 +285,77 @@ if (puzzleBody) {
     return /^[a-h][1-8][a-h][1-8][qrbn]?$/.test(move)
   }
 
+  function sanToUci(san, fen) {
+    if (!san || !fen) return null
+    const clean = san.replace(/[+#!?]/g, '')
+    const parts = fen.split(' ')
+    const isWhite = parts[1] === 'w'
+
+    function expandBoard(fenPos) {
+      return fenPos.split('/').map(rank => {
+        const cells = []
+        for (const ch of rank) {
+          if (ch >= '1' && ch <= '8') for (let i = 0; i < parseInt(ch); i++) cells.push('')
+          else cells.push(ch)
+        }
+        return cells
+      })
+    }
+
+    const board = expandBoard(parts[0])
+
+    function pieceAt(file, rank) {
+      return board[7 - rank][file] || ''
+    }
+
+    if (clean === 'O-O' || clean === 'O-O-O') {
+      const rank = isWhite ? 0 : 7
+      const from = 'e' + (rank + 1)
+      const to = (clean === 'O-O' ? 'g' : 'c') + (rank + 1)
+      return from + to
+    }
+
+    let pieceType, toFile, toRank, disambigFile = -1, disambigRank = -1, promotion = ''
+    let idx = 0
+
+    if (clean[idx] >= 'A' && clean[idx] <= 'Z') {
+      pieceType = clean[idx]; idx++
+    } else {
+      pieceType = 'P'
+    }
+
+    const remaining = clean.slice(idx).replace('x', '')
+    const toMatch = remaining.match(/([a-h])([1-8])([qrbn])?$/)
+    if (!toMatch) return null
+    toFile = toMatch[1].charCodeAt(0) - 97
+    toRank = parseInt(toMatch[2]) - 1
+    promotion = toMatch[3] || ''
+
+    const before = remaining.slice(0, remaining.indexOf(toMatch[1] + toMatch[2]))
+    if (before.length === 1) {
+      if (before[0] >= 'a' && before[0] <= 'h') disambigFile = before.charCodeAt(0) - 97
+      else if (before[0] >= '1' && before[0] <= '8') disambigRank = parseInt(before[0]) - 1
+    } else if (before.length === 2) {
+      disambigFile = before.charCodeAt(0) - 97
+      disambigRank = parseInt(before[1]) - 1
+    }
+
+    const fenChar = isWhite ? (pieceType === 'P' ? 'P' : pieceType) : (pieceType === 'P' ? 'p' : pieceType.toLowerCase())
+
+    for (let r = 0; r < 8; r++) {
+      for (let f = 0; f < 8; f++) {
+        if (pieceAt(f, r) !== fenChar) continue
+        if (disambigFile >= 0 && f !== disambigFile) continue
+        if (disambigRank >= 0 && r !== disambigRank) continue
+        if (f === toFile && r === toRank) continue
+        const from = String.fromCharCode(97 + f) + (r + 1)
+        const to = String.fromCharCode(97 + toFile) + (toRank + 1)
+        return from + to + promotion
+      }
+    }
+    return null
+  }
+
   async function loadPuzzleBoard() {
     const p = filteredPuzzles[puzzleIdx]
     if (!p || svgCache[p.id]) return
@@ -346,21 +417,13 @@ if (puzzleBody) {
     const move = Array.isArray(p.solution) ? p.solution[0] : p.solution
     if (!move) return
     const puzzleFen = getPuzzleFen(p)
-    if (isUci(move)) {
-      const from = move.slice(0, 2)
-      const to = move.slice(2, 4)
-      const newFen = applyUciMove(puzzleFen, move)
+    const uci = isUci(move) ? move : sanToUci(move, puzzleFen)
+    if (uci) {
+      const from = uci.slice(0, 2)
+      const to = uci.slice(2, 4)
+      const newFen = applyUciMove(puzzleFen, uci)
       try {
         const result = await tools.chess.renderSvg({ variant: p.variant, fen: newFen, highlights: [from, to] })
-        const svg = (result.result || result).svg
-        if (svg) {
-          const boardEl = document.getElementById('puzzle-board')
-          if (boardEl) boardEl.innerHTML = svg
-        }
-      } catch (e) {}
-    } else {
-      try {
-        const result = await tools.chess.renderSvg({ variant: p.variant, fen: puzzleFen })
         const svg = (result.result || result).svg
         if (svg) {
           const boardEl = document.getElementById('puzzle-board')
