@@ -41,22 +41,6 @@ def get_version():
 
 UNIVERSAL_STATS_URL = 'https://tools.moddable.games/api/stats'
 
-STATS_TO_COUNTS = {
-    'pieces': 'engine_pieces',
-    'boards': 'engine_boards',
-    'boardFamilies': 'engine_families',
-    'tiles': 'engine_tiles',
-    'puzzles': 'chess_puzzles',
-    'variants': 'engine_variants',
-    'games': 'games_count',
-    'tools': 'tool_count',
-    'families': 'tool_families',
-    'pages': 'page_count',
-    'newsArticles': 'news_count',
-    'modsListed': 'mods_count',
-}
-
-
 def refresh_counts():
     """Fetch universal stats from tools API and update counts.json."""
     import urllib.request
@@ -69,19 +53,49 @@ def refresh_counts():
         print(f'  Stats fetch skipped ({e}) — using existing counts.json')
         return
 
-    combined = universal.get('combined', {})
-    if not combined:
-        print('  Stats fetch returned no combined data — using existing counts.json')
+    engine = universal.get('engine', {})
+    rules = universal.get('rules', {})
+    tools = universal.get('tools', {})
+    web = universal.get('web', {})
+
+    if not engine and not rules and not tools:
+        print('  Stats fetch returned no data — using existing counts.json')
         return
+
+    rules_games = rules.get('games', {})
+    rules_content = rules.get('content', {})
+    rules_data = rules.get('data', {})
+
+    fresh = {
+        'engine_variants': engine.get('playableVariants'),
+        'engine_families': engine.get('playableFamilies'),
+        'engine_pieces': engine.get('pieces'),
+        'engine_boards': engine.get('boards'),
+        'engine_board_families': engine.get('boardFamilies'),
+        'engine_tiles': engine.get('tiles'),
+        'chess_puzzles': engine.get('puzzles'),
+        'chess_variants': 100,
+        'games_count': rules_games.get('total'),
+        'rules_variants': rules_content.get('variants'),
+        'rules_families': rules_games.get('total'),
+        'rpg_systems': rules_data.get('rpgSystems'),
+        'oracle_tables': rules_data.get('oracleTables'),
+        'entities': rules_data.get('entities'),
+        'tool_count': tools.get('tools'),
+        'tool_families': tools.get('families'),
+        'page_count': web.get('pages'),
+        'news_count': web.get('news_articles'),
+        'mods_count': web.get('mods_listed'),
+        'team_count': web.get('team_members'),
+    }
 
     counts = load_json(counts_path) if os.path.exists(counts_path) else {}
     updated = 0
-    for stat_key, count_key in STATS_TO_COUNTS.items():
-        val = combined.get(stat_key)
+    for key, val in fresh.items():
         if val is not None:
             new_val = str(val)
-            if counts.get(count_key) != new_val:
-                counts[count_key] = new_val
+            if counts.get(key) != new_val:
+                counts[key] = new_val
                 updated += 1
 
     if updated:
@@ -1266,10 +1280,12 @@ Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
     # ─── llms.txt ─────────────────────────────────────────────────────
     mod_count = counts.get('mods_count', str(len(mods)))
-    tool_count = counts.get('tool_count', '83')
+    tool_count = counts.get('tool_count', '84')
     news_count = str(len(news_items))
     team_count = counts.get('team_count', str(len(team_members)))
-    games_count = counts.get('games_count', '3')
+    games_count = counts.get('games_count', '46')
+    pieces_count = counts.get('engine_pieces', '115')
+    rpg_systems = counts.get('rpg_systems', '10')
 
     llms_txt = f"""# Moddable.Games
 
@@ -1314,10 +1330,10 @@ No authentication required. All tools are free and open.
 
 - **Chess** (9 tools): variant listing, legal moves, analysis, puzzles, SVG render
 - **Hex Maps** (6 tools): map generation, pathfinding, FOV, SVG export
-- **Piece Gallery** (3 tools): search/browse 96 chess piece sets
+- **Piece Gallery** (3 tools): search/browse {pieces_count} chess piece sets
 - **Rules Library** (5 tools): game/variant lookup, search, random
 - **Game Tools** (12 tools): TI4 drafting, Mancala, Morris, Ur, Pachisi, Nukes, Colony
-- **Oracles & RPG** (14 tools): oracle tables, encounters, entity browser (10 RPG systems)
+- **Oracles & RPG** (14 tools): oracle tables, encounters, entity browser ({rpg_systems} RPG systems)
 - **Utilities** (7 tools): dice, coins, teams, factions, mod jam
 
 ## Open Source

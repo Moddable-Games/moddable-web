@@ -182,7 +182,7 @@
         },
         {
           "label": "Team",
-          "value": "4 people"
+          "value": "{{counts.team_count}} people"
         },
         {
           "label": "Games",
@@ -190,7 +190,7 @@
         },
         {
           "label": "Mods",
-          "value": "10 published"
+          "value": "{{counts.mods_count}} published"
         },
         {
           "label": "Engines",

@@ -63,7 +63,7 @@
         },
         {
           "title": "Rules Library",
-          "body": "Full-text search across 46 game rulebooks with 8,400+ indexed entries and variant documentation.",
+          "body": "Full-text search across {{counts.games_count}} game rulebooks with indexed entries and variant documentation.",
           "href": "https://tools.moddable.games/",
           "stat": "5 tools",
           "accent": "red",
@@ -71,7 +71,7 @@
         },
         {
           "title": "Asset Gallery",
-          "body": "Browse and search 115 piece sets, 333 board layouts, and hex tile collections with metadata.",
+          "body": "Browse and search {{counts.engine_pieces}} piece sets, {{counts.engine_boards}} board layouts, and hex tile collections with metadata.",
           "href": "https://tools.moddable.games/",
           "stat": "9 tools",
           "accent": "blue",
@@ -79,7 +79,7 @@
         },
         {
           "title": "Oracles and RPG",
-          "body": "Oracle tables, scene recipes, character generation, and encounter building for 10 RPG systems.",
+          "body": "Oracle tables, scene recipes, character generation, and encounter building for {{counts.rpg_systems}} RPG systems.",
           "href": "https://tools.moddable.games/",
           "stat": "17 tools",
           "accent": "amber",

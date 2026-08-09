@@ -195,7 +195,7 @@
     "hexColor": "blue",
     "eyebrow": "ORACLES & RPG LIBRARY",
     "title": "Scene Forge, RPG Browser, Encounter Builder",
-    "lede": "Narrative scene generation, oracle rolls, and encounter building for 10 tabletop RPG systems."
+    "lede": "Narrative scene generation, oracle rolls, and encounter building for {{counts.rpg_systems}} tabletop RPG systems."
   },
   "404": {
     "section": "about",

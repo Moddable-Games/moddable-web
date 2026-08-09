@@ -169,7 +169,7 @@
         { "num": "{{counts.chess_variants}}", "label": "Playable variants" },
         { "num": "50", "label": "Lines to add a variant" },
         { "num": "12×8", "label": "Max board size" },
-        { "num": "1,557", "label": "Puzzles in pool" }
+        { "num": "{{counts.chess_puzzles}}", "label": "Puzzles in pool" }
       ],
       "btns_id": "engine-btns"
     },

@@ -49,13 +49,13 @@
   },
   "engine": {
     "title": "The Engine",
-    "description": "133 playable variants across 6 game families. Pure ES modules, MIT licensed, zero dependencies. Chess, Draughts, Go, Shogi, Xiangqi, Reversi.",
+    "description": "{{counts.engine_variants}} playable variants across {{counts.engine_families}} game families. Pure ES modules, MIT licensed, zero dependencies. Chess, Draughts, Go, Shogi, Xiangqi, Reversi.",
     "url": "https://moddable.games/developers/engine/",
     "image": "https://moddable.games/img/og/engines.png"
   },
   "developers-api": {
     "title": "Tools API",
-    "description": "81 AI-callable tools across 8 namespaces. Connect via MCP or REST. Chess, hex maps, rules, oracles, assets, and game sessions.",
+    "description": "{{counts.tool_count}} AI-callable tools across {{counts.tool_families}} namespaces. Connect via MCP or REST. Chess, hex maps, rules, oracles, assets, and game sessions.",
     "url": "https://moddable.games/developers/api/",
     "image": "https://moddable.games/img/og/developers.png"
   },

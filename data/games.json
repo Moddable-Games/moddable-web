@@ -37,10 +37,10 @@
   "rules_section": {
     "eyebrow": "THE RULEBOOK LIBRARY",
     "heading": "Every rule in a git repo",
-    "body": "24 game families, 147 variants, printable PDFs, and board diagrams. All under open licences. Fork a rulebook, write a variant, or just read the rules before game night.",
+    "body": "{{counts.games_count}} game families, {{counts.rules_variants}} variants, printable PDFs, and board diagrams. All under open licences. Fork a rulebook, write a variant, or just read the rules before game night.",
     "stats": [
-      { "value": "20", "label": "Game Families" },
-      { "value": "135", "label": "Variants" },
+      { "value": "{{counts.games_count}}", "label": "Game Families" },
+      { "value": "{{counts.rules_variants}}", "label": "Variants" },
       { "value": "CC BY-SA", "label": "Licence" },
       { "value": "PDF + Web", "label": "Formats" }
     ],

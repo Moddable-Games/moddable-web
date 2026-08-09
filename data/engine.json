@@ -19,9 +19,9 @@
       "items": [
         {
           "title": "Chess",
-          "body": "100 variants from Standard through to Duck Chess, Atomic, and Horde. Five AI difficulty tiers. Opening books.",
+          "body": "{{counts.chess_variants}} variants from Standard through to Duck Chess, Atomic, and Horde. Five AI difficulty tiers. Opening books.",
           "href": "https://engine.moddable.games/play/?family=chess",
-          "stat": "100 variants",
+          "stat": "{{counts.chess_variants}} variants",
           "accent": "blue",
           "external": true
         },
@@ -121,7 +121,7 @@
           "title": "Board layouts",
           "body": "Downloadable board diagrams for every supported variant. SVG and PNG export. Custom colours and grid overlays.",
           "href": "https://engine.moddable.games/boards/",
-          "stat": "333 boards",
+          "stat": "{{counts.engine_boards}} boards",
           "accent": "green",
           "external": true
         },

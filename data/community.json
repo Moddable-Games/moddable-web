@@ -319,7 +319,7 @@
             },
             {
               "cmd": "/puzzle",
-              "desc": "Random puzzle from 1,500+ across 66 variants"
+              "desc": "Random puzzle from {{counts.chess_puzzles}}+ across {{counts.chess_variants}} variants"
             },
             {
               "cmd": "/puzzle types",
