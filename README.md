@@ -58,12 +58,14 @@ All content is JSON-driven so that multiple consumers (website, Discord bot, API
 
 | Source | Method | Content |
 |--------|--------|---------|
-| Engine API | HTTP fetch at build time | Dynamic data: tool listings, variant counts, piece gallery stats, game states, live stats |
-| Local JSON | `data/*.json` | Marketing content: page copy, descriptions, features, hero configs, nav structure, team, news, meta |
+| Universal stats API | `tools.moddable.games/api/stats` fetched at build time | Live counts from all 4 projects → `data/counts.json` |
+| Local JSON | `data/*.json` with `{{counts.X}}` substitution | Marketing content: page copy, descriptions, features, hero configs, nav, team, news, meta |
 
-**API-driven** = anything that changes when the engine deploys (tool counts go up, new variants added, piece sets change). The build fetches this live so the site stays current without manual updates.
+**Universal stats** = the build fetches `tools.moddable.games/api/stats` which aggregates live counts from engine, rules, tools, and web. These are written to `data/counts.json` and substituted into all data files via `{{counts.X}}` placeholders. Falls back gracefully if offline.
 
-**Local JSON** = authored marketing content for the site. Structured as JSON (not markdown) so the same data can be served via API to other consumers (Discord bot, AI agents, partner integrations).
+**Local JSON** = authored marketing content for the site. Structured as JSON (not markdown) so the same data can be served via API to other consumers (Discord bot, AI agents, partner integrations). Numbers in these files ALWAYS use `{{counts.X}}` — never hardcode stats.
+
+**Web's own stats** = the build generates `.well-known/stats.json` with page count, news articles, mods listed, etc. This feeds back into the universal endpoint.
 
 Rules content lives at rules.moddable.games — this site links to it but does not import or render it.
 
@@ -73,67 +75,28 @@ Rules content lives at rules.moddable.games — this site links to it but does n
 python build/build.py
 ```
 
-1. Fetches ALL content from engine API (tools, games, mods, rules markdown, stats, team, news)
-2. Renders all templates with fetched data → writes static HTML
-3. Generates discovery files (sitemap.xml, llms.txt, .well-known/*)
-4. Stamps version + cache-busting params
+1. Fetches universal stats from `tools.moddable.games/api/stats` → refreshes `data/counts.json`
+2. Loads all data JSON (with `{{counts.X}}` substitution applied)
+3. Renders all templates → writes static HTML
+4. Generates `.well-known/stats.json` (Web's contribution to universal endpoint)
+5. Generates discovery files (sitemap.xml, llms.txt, .well-known/*)
+6. Bundles CSS per page
 
-Output goes directly to repo root (GitHub Pages compatible). No /dist folder.
+Output goes directly to repo root. Cloudflare Pages deploys from `main`.
 
-The build fails loudly if the engine API is unreachable — no fallback to stale local data. This ensures the site always reflects current engine state.
+## Universal stats
 
-## Migration plan
+All stats across the ecosystem are dynamically derived — zero hardcoded numbers.
 
-This repo grows incrementally while moddable-website continues serving production traffic.
-
-### Phase 0: Scaffold (current)
-- Repo structure, build script skeleton, base templates
-- CSS copied from moddable-website (shared design system unchanged)
-- Prove with one simple page (e.g. about)
-
-### Phase 1: Simple content pages
-- About, press, community, team, subscribe, 404
-- These pages have no interactive widgets — pure template rendering
-- Validate: page-for-page visual match with current site
-
-### Phase 2: Index pages
-- Mods, games, engines, news indexes
-- Card rendering in templates (not JS)
-- Search/filter stays as client-side JS enhancement
-
-### Phase 3: Detail pages
-- Mod detail pages, news articles, team profiles
-- Articles sourced from rules markdown where applicable
-
-### Phase 4: Complex pages
-- Tools hub and tool sub-pages (content is static HTML; tools themselves are iframes/embeds from engine)
-- Home page (hero animations via CSS/UX JS, content is static)
-- Developers/API page
-
-### Phase 5: Cutover
-- DNS switch: moddable.games points to this repo's deploy
-- moddable-website archived
-- Old repo's Workers (discord bot, forms API) already independent
-
-## Parallel workstreams
-
-These happen independently and don't block each other:
-
-| Stream | Repo | Work |
-|--------|------|------|
-| Engine publishes SDK modules | moddable-engine | Extract game logic into importable JS; expose static gallery APIs |
-| Engine absorbs chess/hexmaps | moddable-engine | Import game logic from moddable-chess/hexmaps, replace those repos |
-| Rules exposes JSON API | moddable-rules | Serve metadata, oracle tables, entity indexes as static JSON |
-| Tools becomes standalone | moddable-tools (new, private) | Extract Worker from moddable-website; import engine SDK; fetch APIs |
-| Web pages built incrementally | moddable-web | This plan — page-by-page migration |
-| Agent-readiness | all repos | Issues #129, #60, #235, #34 |
-
-### Dependency chain
-
-- Engine SDK must exist before tools can import it (currently tools bundles chess/hex JS directly)
-- Rules JSON API must exist before tools stops bundling oracle-data.json / rules-index.json
-- Web JSON API must exist before tools fetches marketing content at runtime
-- None of this blocks the web SSG migration (web reads its own local JSON for now, transitions to serving it as API later)
+```
+engine.moddable.games/api/stats.json  ─┐
+rules.moddable.games/api/stats.json   ─┤
+tools (local stats)                    ─┼─→ tools.moddable.games/api/stats (universal)
+moddable.games/.well-known/stats.json  ─┘
+                                            │
+                                            ▼
+                              build.py fetches → data/counts.json → {{counts.X}} in templates
+```
 
 ## JavaScript philosophy
 
@@ -205,6 +168,12 @@ The goal is to move from client-rendered to server-built while changing as littl
 ## Changelog
 
 #### 2026-08-09
+- Universal stats system: build fetches `tools.moddable.games/api/stats` at start, refreshes all counts dynamically
+- Web generates `.well-known/stats.json` (page count, news, mods, tools showcased) — feeds into universal endpoint
+- All data JSON files converted to `{{counts.X}}` — zero hardcoded stats remaining
+- Added counts keys: rules_variants, rules_families, rpg_systems, oracle_tables, entities, engine_board_families
+- Removed duplicate counts (chess_variants vs engine_variants clarified: chess=100 family-specific, engine=133 total)
+- Fixed stale values across site: pieces 96→115, tools 81→84, puzzles 1557→1876, games 3→46, variants 147→296
 - Agent-readiness: build now generates full discovery layer (sitemap.xml, robots.txt, llms.txt, auth.md, .well-known/mcp.json, .well-known/mcp/server-card.json, .well-known/api-catalog, .well-known/agent-skills/index.json)
 - Added _headers file for Cloudflare Pages Link response headers (RFC 8288 agent discovery)
 - MCP server card updated to SEP-1649 format (serverInfo.name, serverInfo.version, transport, capabilities)
