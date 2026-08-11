@@ -181,6 +181,13 @@
     {{#if type "timeline"}}{{>_section-timeline}}{{/if}}
     {{#if type "vision"}}{{>_section-vision}}{{/if}}
     {{#if type "cards"}}{{>_section-cards}}{{/if}}
+    {{#if type "embed"}}
+    <div class="tools-embed-section" id="{{embed_id}}-section">
+      <div class="tools-embed-section__inner">
+        <div id="{{embed_id}}"></div>
+      </div>
+    </div>
+    {{/if}}
     {{#if type "cta"}}{{>_section-cta}}{{/if}}
     {{#if type "form"}}{{>_section-form}}{{/if}}
     {{/each}}
@@ -190,4 +197,9 @@
 {{/unless}}
 </div>
 
+{{#if js_files}}
+{{#each js_files}}
+<script type="module" src="/js/{{this}}?v={{version}}"></script>
+{{/each}}
+{{/if}}
 {{>_foot}}

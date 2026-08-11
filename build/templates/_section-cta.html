@@ -3,11 +3,14 @@
   {{#if cta_eyebrow}}<div class="mg-eyebrow">{{cta_eyebrow}}</div>{{/if}}
   <h2 class="dev-cta-card__heading">{{cta_heading}}</h2>
   <p class="dev-cta-card__body">{{cta_body}}</p>
+  {{#if embed_id}}<div class="dev-cta-card__embed" id="{{embed_id}}"></div>{{/if}}
+  {{#if buttons}}
   <div class="dev-cta-card__btns">
     {{#each buttons}}
     <a href="{{href}}" class="mg-btn mg-btn--{{style}}"{{#if external}} target="_blank" rel="noopener"{{/if}}>{{label}}</a>
     {{/each}}
   </div>
+  {{/if}}
 </div>
 {{/if}}
 {{#unless style}}

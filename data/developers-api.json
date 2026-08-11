@@ -1,5 +1,6 @@
 {
   "has_sidebar": false,
+  "js_files": ["mg-api-explorer.js"],
   "sections": [
     {
       "type": "stats",
@@ -109,11 +110,7 @@
       "cta_eyebrow": "TRY IT NOW",
       "cta_heading": "Interactive API explorer",
       "cta_body": "Browse all tools, inspect schemas, fill in parameters, and run live queries against the production server. No authentication required.",
-      "buttons": [
-        { "label": "Open Explorer", "href": "https://tools.moddable.games/", "style": "blue", "external": true },
-        { "label": "OpenAPI Spec", "href": "https://tools.moddable.games/openapi.json", "style": "outline-dark", "external": true },
-        { "label": "llms.txt", "href": "https://tools.moddable.games/llms.txt", "style": "outline-dark", "external": true }
-      ]
+      "embed_id": "api-explorer"
     }
   ]
 }

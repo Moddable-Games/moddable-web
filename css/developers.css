@@ -96,8 +96,20 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+.dev-cta-card__embed {
+  margin-top: 32px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.dev-cta-card__embed iframe {
+  width: 100%;
+  min-height: 520px;
+  border: none;
+  border-radius: 12px;
+}
 @media (max-width: 768px) {
   .dev-cta-card { padding: 40px 24px; border-radius: 16px; }
+  .dev-cta-card__embed iframe { min-height: 400px; }
 }
 
 /* ── Connect section (light) ── */
