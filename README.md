@@ -10,7 +10,7 @@ Static site generator for [moddable.games](https://moddable.games) — replaces 
 |------|--------|---------|------|
 | **moddable-engine** | engine.moddable.games | GitHub Pages (static) | Game logic SDK (play modules, AI, validation) + asset galleries (pieces, boards, tiles) |
 | **moddable-rules** | rules.moddable.games | GitHub Pages (static) | Rulebooks (markdown → HTML) + JSON API (metadata, oracles, entities) |
-| **moddable-web** (this) | moddable.games | Cloudflare Pages | Marketing site (Python SSG) + JSON API (mods, news, team, stats) |
+| **moddable-web** (this) | moddable.games | Cloudflare Workers (static assets) | Marketing site (Python SSG) + JSON API (mods, news, team, stats) |
 | **moddable-tools** | tools.moddable.games | Cloudflare Worker (private) | MCP server, REST API, game sessions, Discord bot — the ONLY compute |
 
 ### Data flow
@@ -187,10 +187,15 @@ The goal is to move from client-rendered to server-built while changing as littl
 - Fixed single-tab widgets showing unnecessary tab bar (source fix in moddable-tools)
 - API page namespace cards now deep-link to anchored sections on tools.moddable.games
 - Decks page supports hash-based tab selection (#custom deep-links to custom builder)
-- Closed #10, #11, #12, #13; created #14 (blocked by tools#29 explorer widget)
+- Embedded interactive API explorer widget on /developers/api/ page (dark theme, inside CTA card)
+- Added embed section type and js_files support to page template
+- Added SDK explorer() method + theme param to moddable-tools SDK
+- Fixed explorer embed infinite resize loop (100vh → fixed height)
+- Added predeploy sync script to eliminate SDK source drift in moddable-tools
+- Closed #10, #11, #12, #13, #14
 
 #### 2026-08-07
-- PRODUCTION LAUNCH — moddable.games now served by this repo via Cloudflare Pages
+- PRODUCTION LAUNCH — moddable.games now served by this repo via Cloudflare Workers
 - Wired oracles, talisman, and nukes embed widgets (all three now live from tools.moddable.games)
 - All 7 tool pages fully functional with production embeds — zero remaining stub pages
 - Added wrangler.jsonc + .assetsignore for Cloudflare Pages Worker deployment
