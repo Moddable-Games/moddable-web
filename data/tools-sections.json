@@ -2,8 +2,7 @@
   "intro": "Interactive tools for tabletop gaming. Each tool runs in your browser and is powered by the Moddable engine.",
   "jumpnav": [
     { "label": "Rules Lookup", "href": "#section-rules", "accent": "red" },
-    { "label": "Game Night", "href": "#section-game-night", "accent": "blue" },
-    { "label": "Planning", "href": "#section-planning", "accent": "green" },
+    { "label": "Game Night", "href": "#gamenight-body", "accent": "blue" },
     { "label": "Per-Game", "href": "#section-per-game", "accent": "purple" }
   ],
   "featured": {

@@ -10,43 +10,35 @@
   </div>
 </nav>
 
-<section class="tools-main mg-section--tight mg-section--light" id="main-content">
+<section class="tools-body" id="main-content">
+  <div class="tools-body__inner tools-body__inner--narrow">
+
+    {{#if tools_sections.featured}}
+    <div class="tool-card tool-card--featured" id="section-{{tools_sections.featured.id}}">
+      <div class="tool-card__header">
+        <div class="tool-card__accent tool-card__accent--{{tools_sections.featured.accent}}"></div>
+        <div>
+          <div class="tool-card__eyebrow tool-card__eyebrow--{{tools_sections.featured.accent}}">{{tools_sections.featured.eyebrow}}</div>
+          <h3 class="tool-card__title">{{tools_sections.featured.title}}</h3>
+          <p class="tool-card__desc">{{tools_sections.featured.desc}}</p>
+        </div>
+      </div>
+      <div class="tool-card__body" id="{{tools_sections.featured.id}}-body"></div>
+    </div>
+    {{/if}}
+
+  </div>
+</section>
+
+<section class="tools-embed-section" id="gamenight-section">
+  <div class="tools-embed-section__inner">
+    <div id="gamenight-body"></div>
+  </div>
+</section>
+
+<section class="tools-main mg-section--tight mg-section--light">
   <div class="mg-container">
-    <div id="tools-grid" class="tools-grid">
-
-      {{#if tools_sections.featured}}
-      <div class="tool-card tool-card--featured" id="section-{{tools_sections.featured.id}}">
-        <div class="tool-card__header">
-          <div class="tool-card__accent tool-card__accent--{{tools_sections.featured.accent}}"></div>
-          <div>
-            <div class="tool-card__eyebrow tool-card__eyebrow--{{tools_sections.featured.accent}}">{{tools_sections.featured.eyebrow}}</div>
-            <h3 class="tool-card__title">{{tools_sections.featured.title}}</h3>
-            <p class="tool-card__desc">{{tools_sections.featured.desc}}</p>
-          </div>
-        </div>
-        <div class="tool-card__body" id="{{tools_sections.featured.id}}-body"></div>
-      </div>
-      {{/if}}
-
-      {{#each tools_sections.sections}}
-      <div class="tools-section-header" id="section-{{key}}">
-        <h2 class="tools-section__heading tools-section__heading--{{accent}}">{{heading}}</h2>
-        <p class="tools-section__sub">{{sub}}</p>
-      </div>
-      {{#each tools}}
-      <div class="tool-card" id="tool-{{id}}">
-        <div class="tool-card__header">
-          <div class="tool-card__accent tool-card__accent--{{accent}}"></div>
-          <div>
-            <div class="tool-card__eyebrow tool-card__eyebrow--{{accent}}">{{eyebrow}}</div>
-            <h3 class="tool-card__title">{{title}}</h3>
-            <p class="tool-card__desc">{{desc}}</p>
-          </div>
-        </div>
-        <div class="tool-card__body" id="{{id}}-body"></div>
-      </div>
-      {{/each}}
-      {{/each}}
+    <div class="tools-grid">
 
       <div class="tools-section-header" id="section-per-game">
         <h2 class="tools-section__heading tools-section__heading--purple">{{tools_sections.per_game_heading}}</h2>
@@ -67,4 +59,9 @@
   </div>
 </section>
 
-{{>_foot}}
+{{>_footer}}
+<script type="module" src="/js/mg-tools-index-page.js?v={{version}}"></script>
+<script src="/js/mg-enhance.js?v={{version}}" defer></script>
+<script src="/js/mg-search.js?v={{version}}" defer></script>
+</body>
+</html>

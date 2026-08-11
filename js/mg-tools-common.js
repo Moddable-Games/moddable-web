@@ -1,4 +1,8 @@
-import { ModdableTools } from './mg-tools-sdk.js'
+const sdkUrl = location.hostname === 'localhost'
+  ? '/MODDABLE/moddable-tools/sdk/index.js'
+  : 'https://tools.moddable.games/sdk.js'
+
+const { ModdableTools } = await import(sdkUrl)
 
 const base = 'https://tools.moddable.games'
 
