@@ -181,6 +181,14 @@ The goal is to move from client-rendered to server-built while changing as littl
 - Content-Signal directives in robots.txt (ai-train=yes, search=yes, ai-input=yes)
 - Created issues for agent-readiness across all repos: moddable-tools #24/#25, moddable-engine #104, moddable-rules #251
 
+#### 2026-08-11
+- Switched to hosted SDK from tools.moddable.games/sdk.js (deleted local copy)
+- Tools index page now embeds live rules widget and tabbed gamenight widget
+- Fixed single-tab widgets showing unnecessary tab bar (source fix in moddable-tools)
+- API page namespace cards now deep-link to anchored sections on tools.moddable.games
+- Decks page supports hash-based tab selection (#custom deep-links to custom builder)
+- Closed #10, #11, #12, #13; created #14 (blocked by tools#29 explorer widget)
+
 #### 2026-08-07
 - PRODUCTION LAUNCH — moddable.games now served by this repo via Cloudflare Pages
 - Wired oracles, talisman, and nukes embed widgets (all three now live from tools.moddable.games)
