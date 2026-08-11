@@ -40,7 +40,7 @@
         {
           "title": "Chess Engine",
           "body": "Variant analysis, puzzle generation, position evaluation, SVG board rendering, opening books.",
-          "href": "https://tools.moddable.games/",
+          "href": "https://tools.moddable.games/#chess-engine",
           "stat": "{{counts.tools_chess}} tools",
           "accent": "blue",
           "external": true
@@ -48,7 +48,7 @@
         {
           "title": "Universal Play",
           "body": "Start games, make moves, get AI suggestions across chess, draughts, Go, shogi, xiangqi, reversi.",
-          "href": "https://tools.moddable.games/",
+          "href": "https://tools.moddable.games/#universal-play",
           "stat": "{{counts.tools_play}} tools",
           "accent": "green",
           "external": true
@@ -56,7 +56,7 @@
         {
           "title": "Hex Maps",
           "body": "Procedural hex map generation with field-of-view, pathfinding, terrain styles, and SVG export.",
-          "href": "https://tools.moddable.games/",
+          "href": "https://tools.moddable.games/#hex-maps",
           "stat": "{{counts.tools_hex}} tools",
           "accent": "green",
           "external": true
@@ -64,7 +64,7 @@
         {
           "title": "Rules Library",
           "body": "Full-text search across {{counts.games_count}} game rulebooks with indexed entries and variant documentation.",
-          "href": "https://tools.moddable.games/",
+          "href": "https://tools.moddable.games/#rules-library",
           "stat": "{{counts.tools_rules}} tools",
           "accent": "red",
           "external": true
@@ -72,7 +72,7 @@
         {
           "title": "Asset Gallery",
           "body": "Browse and search {{counts.engine_pieces}} piece sets, {{counts.engine_boards}} board layouts, and hex tile collections with metadata.",
-          "href": "https://tools.moddable.games/",
+          "href": "https://tools.moddable.games/#asset-gallery",
           "stat": "{{counts.tools_gallery}} tools",
           "accent": "blue",
           "external": true
@@ -80,7 +80,7 @@
         {
           "title": "Oracles and RPG",
           "body": "Oracle tables, scene recipes, character generation, and encounter building for {{counts.rpg_systems}} RPG systems.",
-          "href": "https://tools.moddable.games/",
+          "href": "https://tools.moddable.games/#oracles-rpg",
           "stat": "{{counts.tools_oracles}} tools",
           "accent": "amber",
           "external": true
@@ -88,7 +88,7 @@
         {
           "title": "Game Sessions",
           "body": "TI4 drafting, Nukes combat, card deck management, score tracking, and Mod Jam utilities.",
-          "href": "https://tools.moddable.games/",
+          "href": "https://tools.moddable.games/#game-sessions",
           "stat": "{{counts.tools_games}} tools",
           "accent": "red",
           "external": true
@@ -96,7 +96,7 @@
         {
           "title": "Utilities",
           "body": "Dice rolling, coin flips, team generation, turn order, timer suggestions.",
-          "href": "https://tools.moddable.games/",
+          "href": "https://tools.moddable.games/#utilities",
           "stat": "{{counts.tools_utilities}} tools",
           "accent": "amber",
           "external": true
