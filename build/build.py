@@ -40,13 +40,17 @@ def get_version():
 # ─── Counts Substitution ──────────────────────────────────────────────────
 
 UNIVERSAL_STATS_URL = 'https://tools.moddable.games/api/stats'
+BOT_COMMANDS_URL = 'https://tools.moddable.games/api/bot-commands'
 
 def refresh_counts():
     """Fetch universal stats from tools API and update counts.json."""
     import urllib.request
     counts_path = os.path.join(DATA_DIR, 'counts.json')
     try:
-        req = urllib.request.Request(UNIVERSAL_STATS_URL, headers={'Accept': 'application/json'})
+        req = urllib.request.Request(UNIVERSAL_STATS_URL, headers={
+            'Accept': 'application/json',
+            'User-Agent': 'moddable-web-ssg/1.0',
+        })
         with urllib.request.urlopen(req, timeout=10) as resp:
             universal = json.loads(resp.read().decode())
     except Exception as e:
@@ -76,7 +80,7 @@ def refresh_counts():
         'engine_board_families': engine.get('boardFamilies'),
         'engine_tiles': engine.get('tiles'),
         'chess_puzzles': engine.get('puzzles'),
-        'chess_variants': 100,
+        'chess_variants': engine.get('playableByFamily', {}).get('chess'),
         'games_count': rules_games.get('total'),
         'rules_variants': rules_content.get('variants'),
         'rules_families': rules_games.get('total'),
@@ -121,6 +125,61 @@ def load_counts():
     if os.path.exists(path):
         return load_json(path)
     return {}
+
+
+BOT_GROUP_ACCENTS = {
+    'Dice & Utilities': '',
+    'Play': 'play',
+    'Hex Maps': 'hex',
+    'Rules Library': 'rules',
+    'Twilight Imperium': 'ti4',
+    'Game Tools': 'game',
+    'Oracles': 'oracles',
+    'RPG Library': 'rpg',
+    'Mod Jam': 'jam',
+    'Meta': '',
+}
+
+def fetch_bot_commands():
+    """Fetch bot commands from tools API and transform to template format."""
+    import urllib.request
+    try:
+        req = urllib.request.Request(BOT_COMMANDS_URL, headers={
+            'Accept': 'application/json',
+            'User-Agent': 'moddable-web-ssg/1.0',
+        })
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode())
+    except Exception as e:
+        print(f'  Bot commands fetch skipped ({e}) — using existing data')
+        return None
+
+    commands = data.get('commands', [])
+    groups_order = data.get('groups', [])
+    if not commands:
+        return None
+
+    grouped = {}
+    for cmd in commands:
+        group = cmd.get('group', 'Other')
+        if group not in grouped:
+            grouped[group] = []
+        grouped[group].append({
+            'cmd': cmd.get('example', '/' + cmd.get('name', '')),
+            'desc': cmd.get('description', ''),
+        })
+
+    result = []
+    for group_name in groups_order:
+        if group_name in grouped:
+            result.append({
+                'name': group_name,
+                'accent': BOT_GROUP_ACCENTS.get(group_name, ''),
+                'commands': grouped[group_name],
+            })
+
+    print(f'  Fetched {len(commands)} bot commands across {len(result)} groups')
+    return result
 
 
 def substitute_counts(obj, counts):
@@ -571,6 +630,14 @@ def build_site():
         build_page(template_name, context, output_path, base)
 
     data = load_all_data()
+
+    bot_groups = fetch_bot_commands()
+    if bot_groups and 'community' in data:
+        for section in data['community'].get('sections', []):
+            if section.get('type') == 'house':
+                section['groups'] = bot_groups
+                break
+
     nav_raw = data.get('nav', {})
     nav_raw = mark_footer_external(nav_raw)
     heroes = data.get('heroes', {})

@@ -90,12 +90,14 @@ body { background: #f5f4ef; }
 .house-intro code { font-family: var(--mg-font-mono); font-size: 14px; background: rgba(12,79,141,0.06); padding: 2px 6px; border-radius: 4px; }
 .house-commands { margin-top: 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .house-commands__group { background: #fff; border: 1px solid var(--mg-hairline-light); border-radius: 14px; padding: 20px 22px; border-top: 3px solid var(--mg-cosmic-glow); }
-.house-commands__group--chess { border-top-color: var(--mg-blue); }
+.house-commands__group--play { border-top-color: var(--mg-blue); }
 .house-commands__group--hex { border-top-color: var(--mg-green); }
 .house-commands__group--ti4 { border-top-color: var(--mg-blue); }
 .house-commands__group--jam { border-top-color: var(--mg-red); }
 .house-commands__group--rules { border-top-color: var(--mg-red); }
 .house-commands__group--game { border-top-color: var(--mg-green); }
+.house-commands__group--oracles { border-top-color: var(--mg-amber, #e8a91a); }
+.house-commands__group--rpg { border-top-color: var(--mg-amber, #e8a91a); }
 .house-commands__heading { font-family: var(--mg-font-display); font-weight: 600; font-size: 15px; color: var(--mg-ink); margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--mg-hairline-light); }
 .house-cmd { display: grid; grid-template-columns: auto 1fr; gap: 12px; padding: 7px 0; }
 .house-cmd code { font-family: var(--mg-font-mono); font-size: 12px; font-weight: 600; color: var(--mg-blue); white-space: nowrap; }
