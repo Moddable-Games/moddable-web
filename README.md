@@ -172,7 +172,7 @@ The goal is to move from client-rendered to server-built while changing as littl
 - Web generates `.well-known/stats.json` (page count, news, mods, tools showcased) — feeds into universal endpoint
 - All data JSON files converted to `{{counts.X}}` — zero hardcoded stats remaining
 - Added counts keys: rules_variants, rules_families, rpg_systems, oracle_tables, entities, engine_board_families
-- Removed duplicate counts (chess_variants vs engine_variants clarified: chess=100 family-specific, engine=133 total)
+- Removed duplicate counts (chess_variants vs engine_variants clarified: chess=family-specific playable, engine=total playable)
 - Fixed stale values across site: pieces 96→115, tools 81→84, puzzles 1557→1876, games 3→46, variants 147→296
 - Agent-readiness: build now generates full discovery layer (sitemap.xml, robots.txt, llms.txt, auth.md, .well-known/mcp.json, .well-known/mcp/server-card.json, .well-known/api-catalog, .well-known/agent-skills/index.json)
 - Added _headers file for Cloudflare Pages Link response headers (RFC 8288 agent discovery)
@@ -180,6 +180,13 @@ The goal is to move from client-rendered to server-built while changing as littl
 - API catalog added per RFC 9727 (linkset+json pointing to REST API and MCP endpoints)
 - Content-Signal directives in robots.txt (ai-train=yes, search=yes, ai-input=yes)
 - Created issues for agent-readiness across all repos: moddable-tools #24/#25, moddable-engine #104, moddable-rules #251
+
+#### 2026-08-14
+- chess_variants now derived from engine.playableByFamily.chess API (was hardcoded to 100, now 136)
+- Community page bot commands fetched dynamically from tools.moddable.games/api/bot-commands at build time
+- Removed stale commands (/validate, /openings, /moves, /analyze), added 12 new ones (32 total across 10 groups)
+- Added User-Agent header to all API fetches (Cloudflare was blocking Python's default UA, causing silent fallback)
+- Stats refreshed: engine_variants 133→169, chess_variants 100→136, tool_count 84→85
 
 #### 2026-08-11
 - Switched to hosted SDK from tools.moddable.games/sdk.js (deleted local copy)
@@ -209,7 +216,7 @@ The goal is to move from client-rendered to server-built while changing as littl
 - Cmd+K universal search overlay (local index + rules API search)
 - Engines removed from top-level nav, consolidated under Developers
 - Legacy /engines/* URLs meta-redirect to /developers/engine/
-- Updated tool/variant counts (81 tools, 100 chess variants, 133 engine variants)
+- Updated tool/variant counts (all derived from universal stats API)
 - Added icon-card style to section-cards partial (accent borders, 3-col grid)
 - Developers index now 2x2 grid with 4 cards
 - Version bumped to 2.1.0
