@@ -167,6 +167,10 @@ The goal is to move from client-rendered to server-built while changing as littl
 
 ## Changelog
 
+#### 2026-08-16
+- Fix mobile overflow on tool pages: added overflow:hidden to .tool-card preventing iframe embeds from blowing out viewport width
+- Chess embed uses aspect-ratio:1 on mobile so the board scales proportionally instead of fixed 560px height
+
 #### 2026-08-09
 - Universal stats system: build fetches `tools.moddable.games/api/stats` at start, refreshes all counts dynamically
 - Web generates `.well-known/stats.json` (page count, news, mods, tools showcased) — feeds into universal endpoint
