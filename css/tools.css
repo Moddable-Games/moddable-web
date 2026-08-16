@@ -84,7 +84,7 @@ body { background: #f5f4ef; }
 .tools-section { scroll-margin-top: 120px; margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--mg-hairline-light); }
 
 /* Tool card (unified wrapper) */
-.tool-card { background: #fff; border: 1px solid var(--mg-hairline-light); border-radius: 20px; padding: 32px; scroll-margin-top: 128px; }
+.tool-card { background: #fff; border: 1px solid var(--mg-hairline-light); border-radius: 20px; padding: 32px; scroll-margin-top: 128px; overflow: hidden; }
 .tool-card__header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--mg-hairline-light); }
 .tool-card__accent { width: 6px; min-height: 48px; border-radius: 3px; flex: none; }
 .tool-card__accent--blue { background: var(--mg-blue); }
