@@ -278,82 +278,60 @@ if (puzzleBody) {
   }
 
   function getPuzzleFen(p) {
-    return p.setupMove ? applyUciMove(p.fen, p.setupMove) : p.fen
+    return p.position || p.fen
+  }
+
+  function variantSlug(p) {
+    return p.variantSlug || p.variant.replace(/([A-Z])/g, '-$1').toLowerCase().replace(/^-/, '')
   }
 
   function isUci(move) {
-    return /^[a-h][1-8][a-h][1-8][qrbn]?$/.test(move)
+    return /^[a-z][1-9][a-z][1-9][qrbn]?$/.test(move)
   }
 
-  function sanToUci(san, fen) {
-    if (!san || !fen) return null
-    const clean = san.replace(/[+#!?]/g, '')
-    const parts = fen.split(' ')
-    const isWhite = parts[1] === 'w'
-
-    function expandBoard(fenPos) {
-      return fenPos.split('/').map(rank => {
-        const cells = []
-        for (const ch of rank) {
-          if (ch >= '1' && ch <= '8') for (let i = 0; i < parseInt(ch); i++) cells.push('')
-          else cells.push(ch)
-        }
-        return cells
-      })
-    }
-
-    const board = expandBoard(parts[0])
-
-    function pieceAt(file, rank) {
-      return board[7 - rank][file] || ''
-    }
-
+  async function resolveSanToSquares(san, fen, variant) {
+    const clean = san.replace(/[+#!?x]/g, '')
     if (clean === 'O-O' || clean === 'O-O-O') {
-      const rank = isWhite ? 0 : 7
-      const from = 'e' + (rank + 1)
-      const to = (clean === 'O-O' ? 'g' : 'c') + (rank + 1)
-      return from + to
+      const loadResult = await tools.call('play_load_fen', { family: 'chess', fen, variant })
+      const { moves } = await tools.call('play_get_moves', { state: loadResult.state })
+      const king = moves.find(m => m.from[0] === 'e' && m.to[0] === (clean === 'O-O' ? 'g' : 'c'))
+      return king ? { from: king.from, to: king.to } : null
     }
-
-    let pieceType, toFile, toRank, disambigFile = -1, disambigRank = -1, promotion = ''
-    let idx = 0
-
-    if (clean[idx] >= 'A' && clean[idx] <= 'Z') {
-      pieceType = clean[idx]; idx++
-    } else {
-      pieceType = 'P'
-    }
-
-    const remaining = clean.slice(idx).replace('x', '')
-    const toMatch = remaining.match(/([a-h])([1-8])([qrbn])?$/)
-    if (!toMatch) return null
-    toFile = toMatch[1].charCodeAt(0) - 97
-    toRank = parseInt(toMatch[2]) - 1
-    promotion = toMatch[3] || ''
-
-    const before = remaining.slice(0, remaining.indexOf(toMatch[1] + toMatch[2]))
-    if (before.length === 1) {
-      if (before[0] >= 'a' && before[0] <= 'h') disambigFile = before.charCodeAt(0) - 97
-      else if (before[0] >= '1' && before[0] <= '8') disambigRank = parseInt(before[0]) - 1
-    } else if (before.length === 2) {
-      disambigFile = before.charCodeAt(0) - 97
-      disambigRank = parseInt(before[1]) - 1
-    }
-
-    const fenChar = isWhite ? (pieceType === 'P' ? 'P' : pieceType) : (pieceType === 'P' ? 'p' : pieceType.toLowerCase())
-
-    for (let r = 0; r < 8; r++) {
-      for (let f = 0; f < 8; f++) {
-        if (pieceAt(f, r) !== fenChar) continue
-        if (disambigFile >= 0 && f !== disambigFile) continue
-        if (disambigRank >= 0 && r !== disambigRank) continue
-        if (f === toFile && r === toRank) continue
-        const from = String.fromCharCode(97 + f) + (r + 1)
-        const to = String.fromCharCode(97 + toFile) + (toRank + 1)
-        return from + to + promotion
+    const destMatch = clean.match(/([a-z])([1-9])([qrbn])?$/)
+    if (!destMatch) return null
+    const dest = destMatch[1] + destMatch[2]
+    const loadResult = await tools.call('play_load_fen', { family: 'chess', fen, variant })
+    const { moves } = await tools.call('play_get_moves', { state: loadResult.state })
+    const candidates = moves.filter(m => m.to === dest)
+    if (candidates.length === 1) return { from: candidates[0].from, to: candidates[0].to }
+    const hasUpperStart = clean[0] >= 'A' && clean[0] <= 'Z'
+    const afterPiece = hasUpperStart ? clean.slice(1) : clean
+    const beforeDest = afterPiece.slice(0, afterPiece.indexOf(destMatch[1] + destMatch[2]))
+    if (beforeDest.length === 1) {
+      if (beforeDest >= 'a' && beforeDest <= 'z') {
+        const match = candidates.find(m => m.from[0] === beforeDest)
+        if (match) return { from: match.from, to: match.to }
+      } else {
+        const match = candidates.find(m => m.from[1] === beforeDest)
+        if (match) return { from: match.from, to: match.to }
       }
+    } else if (beforeDest.length === 2) {
+      const match = candidates.find(m => m.from === beforeDest)
+      if (match) return { from: match.from, to: match.to }
     }
-    return null
+    if (!hasUpperStart && candidates.length > 1) {
+      const fromFile = clean[0]
+      const match = candidates.find(m => m.from[0] === fromFile)
+      if (match) return { from: match.from, to: match.to }
+    }
+    return candidates[0] ? { from: candidates[0].from, to: candidates[0].to } : null
+  }
+
+  async function applyMoveRemote(fen, variant, move) {
+    const loadResult = await tools.call('play_load_fen', { family: 'chess', fen, variant })
+    const applyResult = await tools.call('play_apply_move', { state: loadResult.state, move })
+    const exportResult = await tools.call('play_export_fen', { state: applyResult.state })
+    return exportResult.fen
   }
 
   async function loadPuzzleBoard() {
@@ -361,7 +339,7 @@ if (puzzleBody) {
     if (!p || svgCache[p.id]) return
     try {
       const fen = getPuzzleFen(p)
-      const result = await tools.chess.renderSvg({ variant: p.variant, fen })
+      const result = await tools.chess.renderSvg({ variant: variantSlug(p), fen })
       const svg = (result.result || result).svg
       if (svg) {
         svgCache[p.id] = svg
@@ -373,64 +351,32 @@ if (puzzleBody) {
     } catch (e) {}
   }
 
-  function applyUciMove(fen, uci) {
-    if (!fen || !uci || uci.length < 4) return fen
-    const parts = fen.split(' ')
-    const ranks = parts[0].split('/')
-    const fromFile = uci.charCodeAt(0) - 97
-    const fromRank = 8 - parseInt(uci[1])
-    const toFile = uci.charCodeAt(2) - 97
-    const toRank = 8 - parseInt(uci[3])
-    const promotion = uci.length > 4 ? uci[4] : null
-
-    function expandRank(r) {
-      const cells = []
-      for (const ch of r) {
-        if (ch >= '1' && ch <= '8') for (let i = 0; i < parseInt(ch); i++) cells.push('')
-        else cells.push(ch)
-      }
-      return cells
-    }
-    function compressRank(cells) {
-      let out = '', empty = 0
-      for (const c of cells) {
-        if (!c) { empty++; continue }
-        if (empty) { out += empty; empty = 0 }
-        out += c
-      }
-      if (empty) out += empty
-      return out
-    }
-
-    const board = ranks.map(expandRank)
-    const piece = board[fromRank][fromFile]
-    board[fromRank][fromFile] = ''
-    board[toRank][toFile] = promotion
-      ? (piece === piece.toUpperCase() ? promotion.toUpperCase() : promotion.toLowerCase())
-      : piece
-    parts[0] = board.map(compressRank).join('/')
-    if (parts[1]) parts[1] = parts[1] === 'w' ? 'b' : 'w'
-    return parts.join(' ')
-  }
-
   async function loadPuzzleBoardHighlight(p) {
     const move = Array.isArray(p.solution) ? p.solution[0] : p.solution
     if (!move) return
     const puzzleFen = getPuzzleFen(p)
-    const uci = isUci(move) ? move : sanToUci(move, puzzleFen)
-    if (uci) {
-      const from = uci.slice(0, 2)
-      const to = uci.slice(2, 4)
-      const newFen = applyUciMove(puzzleFen, uci)
-      try {
-        const result = await tools.chess.renderSvg({ variant: p.variant, fen: newFen, highlights: [from, to] })
-        const svg = (result.result || result).svg
-        if (svg) {
-          const boardEl = document.getElementById('puzzle-board')
-          if (boardEl) boardEl.innerHTML = svg
-        }
-      } catch (e) {}
-    }
+    const slug = variantSlug(p)
+    try {
+      let from, to, newFen
+      if (isUci(move)) {
+        from = move.slice(0, 2)
+        to = move.slice(2, 4)
+        const promotion = move.length > 4 ? move[4] : undefined
+        newFen = await applyMoveRemote(puzzleFen, slug, { from, to, ...(promotion && { promotion }) })
+      } else {
+        const squares = await resolveSanToSquares(move, puzzleFen, slug)
+        if (!squares) return
+        from = squares.from
+        to = squares.to
+        newFen = await applyMoveRemote(puzzleFen, slug, { from, to })
+      }
+      const result = await tools.chess.renderSvg({ variant: slug, fen: newFen, highlights: [from, to] })
+      const svg = (result.result || result).svg
+      if (svg) {
+        const boardEl = document.getElementById('puzzle-board')
+        if (boardEl) boardEl.innerHTML = svg
+      }
+    } catch (e) {}
   }
 
   initPuzzles()

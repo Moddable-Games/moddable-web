@@ -167,6 +167,9 @@ The goal is to move from client-rendered to server-built while changing as littl
 
 ## Changelog
 
+#### 2026-08-17
+- Fix chess puzzle board rendering for non-8x8 variants (closes #17): pass variantSlug to renderer, use pre-computed position field, delete all hand-rolled FEN mutators and delegate move application to tools API
+
 #### 2026-08-16
 - Fix mobile overflow on tool pages: added overflow:hidden to .tool-card preventing iframe embeds from blowing out viewport width
 - Chess embed uses aspect-ratio:1 on mobile so the board scales proportionally instead of fixed 560px height
