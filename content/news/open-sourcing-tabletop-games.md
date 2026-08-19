@@ -14,7 +14,7 @@ In software, open-source means access to the code that makes a product work. For
 Not a free-for-all. Structured openness. The distinction matters and is often missed. A publisher might open their rules but keep artwork proprietary. They might release digital assets but retain manufacturing exclusivity. It is a spectrum, not a switch.
 
 <figure class="breakout">
-  <a href="https://rules.moddable.games/dist/dungeon-chess/" target="_blank" rel="noopener">
+  <a href="https://rules.moddable.games/dungeon-chess/" target="_blank" rel="noopener">
     <img src="/img/news/open-source-rulebook.png" alt="Dungeon Chess open-source rulebook showing structured sections and faction data" loading="lazy">
   </a>
   <figcaption>Every rulebook is forkable. Dungeon Chess rules, free to read, remix, and redistribute.</figcaption>

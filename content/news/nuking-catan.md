@@ -6,7 +6,7 @@ Moddable.Games does not have this problem. In fact, we encourage it.
 
 We are designing [open-source games](/news/open-sourcing-tabletop-games/), freely available for others to modify and redistribute under their own brands. Our first game is [Nukes](/games/nukes/), which in many ways was born from understanding [the origins and evolution of chess](/news/conquering-the-constrains-of-chess/). Although Nukes has been under development for over a decade, it was not until around a year ago that we realised you could play the game using a set of Catan tiles as the board.
 
-Nukes uses hex tiles as its board. Catan uses hex tiles as its board. Nukes uses generic tokens (no unique pieces). Catan ships with generic wooden settlements and roads, but you could also use pieces from [Checkers](https://rules.moddable.games/dist/draughts/), [Go](https://rules.moddable.games/dist/go/) or Draughts.
+Nukes uses hex tiles as its board. Catan uses hex tiles as its board. Nukes uses generic tokens (no unique pieces). Catan ships with generic wooden settlements and roads, but you could also use pieces from [Checkers](https://rules.moddable.games/draughts/), [Go](https://rules.moddable.games/go/) or Draughts.
 
 <div class="prose-callout">
   <strong>The overlap</strong>
@@ -53,9 +53,9 @@ No new components. No expansions. No purchases. The game you already own now con
 
 Where Nukes sits in the lineage of deterministic strategy:
 
-- **[Checkers](https://rules.moddable.games/dist/draughts/)** — 2 piece types, fixed board, more games than atoms in the universe
-- **[Go](https://rules.moddable.games/dist/go/)** — one piece type, one rule, more possible games than any other system
-- **[Chess](https://rules.moddable.games/dist/moddable-chess/)** — 6 unique movers on the same grid, lands somewhere between the two
+- **[Checkers](https://rules.moddable.games/draughts/)** — 2 piece types, fixed board, more games than atoms in the universe
+- **[Go](https://rules.moddable.games/go/)** — one piece type, one rule, more possible games than any other system
+- **[Chess](https://rules.moddable.games/moddable-chess/)** — 6 unique movers on the same grid, lands somewhere between the two
 - **Catan** — dice, 8 terrains, up to 6 players, billions of outcomes
 - **Nukes** — 2 components, modular board, no theoretical ceiling
 

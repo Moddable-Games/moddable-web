@@ -6,10 +6,10 @@ When we reset our sense of time, the idea of what constitutes an old game shifts
 
 These are not relics. They are living systems, still played daily by millions of people across continents:
 
-- **[Mancala](https://rules.moddable.games/dist/mancala/)** (~8,000 years) — pit-and-pebble optimisation, no publisher needed
-- **[Go](https://rules.moddable.games/dist/go/)** (~4,000 years) — emergent complexity from two piece types and one rule
+- **[Mancala](https://rules.moddable.games/mancala/)** (~8,000 years) — pit-and-pebble optimisation, no publisher needed
+- **[Go](https://rules.moddable.games/go/)** (~4,000 years) — emergent complexity from two piece types and one rule
 - **Ashtapada** (~2,600 years) — grid movement that eventually became Chess
-- **[Chess](https://rules.moddable.games/dist/moddable-chess/)** (~1,500 years) — unique pieces, the template for deterministic strategy
+- **[Chess](https://rules.moddable.games/moddable-chess/)** (~1,500 years) — unique pieces, the template for deterministic strategy
 
 <figure class="figure-compact">
   <a href="https://commons.wikimedia.org/wiki/File:Go-board-animated.gif" target="_blank" rel="noopener">
@@ -20,7 +20,7 @@ These are not relics. They are living systems, still played daily by millions of
 
 ## Ancient origins
 
-Many of the mechanics we celebrate in modern design are not new inventions, but are rather rediscoveries rebroadcasted. Grid-based movement comes from Ashtapada. Area control and emergent complexity from Go, a game whose simple rules generate strategic depth that continues to challenge both humans and machines. Race mechanics and probability management from [The Royal Game of Ur](https://rules.moddable.games/dist/royal-ur/) and [Backgammon](https://rules.moddable.games/dist/backgammon/). Pattern-building from [Nine Men's Morris](https://rules.moddable.games/dist/morris/) and [Checkers](https://rules.moddable.games/dist/draughts/), both relying on forming structures and gradually constraining an opponent's options. Resource optimisation from Mancala's endless variants as worker placement origins.
+Many of the mechanics we celebrate in modern design are not new inventions, but are rather rediscoveries rebroadcasted. Grid-based movement comes from Ashtapada. Area control and emergent complexity from Go, a game whose simple rules generate strategic depth that continues to challenge both humans and machines. Race mechanics and probability management from [The Royal Game of Ur](https://rules.moddable.games/royal-ur/) and [Backgammon](https://rules.moddable.games/backgammon/). Pattern-building from [Nine Men's Morris](https://rules.moddable.games/morris/) and [Checkers](https://rules.moddable.games/draughts/), both relying on forming structures and gradually constraining an opponent's options. Resource optimisation from Mancala's endless variants as worker placement origins.
 
 These ancient systems were solving the same design problems we wrestle with today: how to make decisions meaningful, how to balance skill against chance, and how to keep players engaged across repeated plays. The same problems we explored in [Conquering the Constraints of Chess](/news/conquering-the-constrains-of-chess/).
 

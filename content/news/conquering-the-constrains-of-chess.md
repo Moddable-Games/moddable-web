@@ -2,9 +2,9 @@
 
 Three classical games define the space:
 
-- **[Checkers](https://rules.moddable.games/dist/draughts/)** (5,000 years ago) established simplicity as the standard. Minimal components, minimal rules, maximum accessibility.
-- **[Go](https://rules.moddable.games/dist/go/)** (4,000 years ago) introduced epic scope whilst remaining teachable in minutes. Two piece types with more possibilities than atoms in the universe.
-- **[Chess](https://rules.moddable.games/dist/moddable-chess/)** (1,500 years ago) pioneered unique pieces with individual movement rules. Miniature components. Character and narrative baked into the mechanics.
+- **[Checkers](https://rules.moddable.games/draughts/)** (5,000 years ago) established simplicity as the standard. Minimal components, minimal rules, maximum accessibility.
+- **[Go](https://rules.moddable.games/go/)** (4,000 years ago) introduced epic scope whilst remaining teachable in minutes. Two piece types with more possibilities than atoms in the universe.
+- **[Chess](https://rules.moddable.games/moddable-chess/)** (1,500 years ago) pioneered unique pieces with individual movement rules. Miniature components. Character and narrative baked into the mechanics.
 
 All three share constraints. They only support two players, have static boards, and fixed starting positions. For 5,000 years, that was the template.
 

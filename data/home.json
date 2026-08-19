@@ -43,7 +43,7 @@
       { "label": "Version", "value": "v2.0.1" }
     ],
     "buttons": [
-      { "label": "Read Rules", "href": "https://rules.moddable.games/dist/hyper-imperium/", "style": "primary", "external": true },
+      { "label": "Read Rules", "href": "https://rules.moddable.games/hyper-imperium/", "style": "primary", "external": true },
       { "label": "View Components", "href": "/mods/hyper-imperium/", "style": "outline-dark" }
     ]
   },

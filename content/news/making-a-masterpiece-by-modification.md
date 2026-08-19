@@ -6,7 +6,7 @@ Chess is a battlefield with sixty-four squares that has been the playground of k
 
 It first reached Persia and became *Shatranj*. It is here that we were given checkered squares of black and white, and also from where the game was gifted to the Arab world with an infamous special edition containing sixteen emerald pieces and sixteen ruby pieces. Shatranj also had its own variation: known today as Tamerlane Chess, the epic board contains 112 squares instead of the standard 64, featuring new pieces such as giraffes, camels, war machines and more. Most importantly, it is from within these regions and times that rules were properly published.
 
-Something interesting happened when Chaturanga reached China, who were already developing their own astronomical games. By the 7th century *[Xiangqi](https://rules.moddable.games/dist/xiangqi/)* emerged as the dominant variation within Asia. Even today, the international popularity of Xiangqi is at an all-time high, with several seasoned chess players preferring its streamlined efficiency. Xiangqi brings:
+Something interesting happened when Chaturanga reached China, who were already developing their own astronomical games. By the 7th century *[Xiangqi](https://rules.moddable.games/xiangqi/)* emerged as the dominant variation within Asia. Even today, the international popularity of Xiangqi is at an all-time high, with several seasoned chess players preferring its streamlined efficiency. Xiangqi brings:
 
 - **River barrier** dividing the board that elephants cannot cross
 - **Restricted palace zones** for generals and advisors only
