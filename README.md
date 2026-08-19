@@ -167,6 +167,10 @@ The goal is to move from client-rendered to server-built while changing as littl
 
 ## Changelog
 
+#### 2026-08-19
+- Removed `dist/` prefix from all rules.moddable.games URLs in news articles, home.json, and search widget
+- Fixed stale `moddable-chess` slug → `chess` in rules links
+
 #### 2026-08-17
 - Fix chess puzzle board rendering for non-8x8 variants (closes #17): pass variantSlug to renderer, use pre-computed position field, delete all hand-rolled FEN mutators and delegate move application to tools API
 

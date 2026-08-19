@@ -55,7 +55,7 @@ Where Nukes sits in the lineage of deterministic strategy:
 
 - **[Checkers](https://rules.moddable.games/draughts/)** — 2 piece types, fixed board, more games than atoms in the universe
 - **[Go](https://rules.moddable.games/go/)** — one piece type, one rule, more possible games than any other system
-- **[Chess](https://rules.moddable.games/moddable-chess/)** — 6 unique movers on the same grid, lands somewhere between the two
+- **[Chess](https://rules.moddable.games/chess/)** — 6 unique movers on the same grid, lands somewhere between the two
 - **Catan** — dice, 8 terrains, up to 6 players, billions of outcomes
 - **Nukes** — 2 components, modular board, no theoretical ceiling
 

@@ -9,7 +9,7 @@ These are not relics. They are living systems, still played daily by millions of
 - **[Mancala](https://rules.moddable.games/mancala/)** (~8,000 years) — pit-and-pebble optimisation, no publisher needed
 - **[Go](https://rules.moddable.games/go/)** (~4,000 years) — emergent complexity from two piece types and one rule
 - **Ashtapada** (~2,600 years) — grid movement that eventually became Chess
-- **[Chess](https://rules.moddable.games/moddable-chess/)** (~1,500 years) — unique pieces, the template for deterministic strategy
+- **[Chess](https://rules.moddable.games/chess/)** (~1,500 years) — unique pieces, the template for deterministic strategy
 
 <figure class="figure-compact">
   <a href="https://commons.wikimedia.org/wiki/File:Go-board-animated.gif" target="_blank" rel="noopener">

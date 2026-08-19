@@ -41,10 +41,10 @@ What if publishers actively tracked and encouraged house rules? In a digital era
 
 The [open-source model](/news/open-sourcing-tabletop-games/) we are building treats house rules as first-class contributions. Our [Moddable Rules engine](/news/the-infrastructure-behind-the-games/) versions every rulebook, tracks changes, and publishes every difference. When a community discovers a better rule, it can be merged upstream and in-turn benefit everything downstream.
 
-We have started with the process of gathering variations with chess: [74 variants documented](https://rules.moddable.games/moddable-chess/), each with full rules, board diagrams, and version history. [Checkers](https://rules.moddable.games/draughts/) and [Go](https://rules.moddable.games/go/) are next, with their own deep traditions of regional variation that have never been collected in one place. Beyond our own games, the long-term vision is a public archive where anyone can submit, document, and preserve the variants their community plays. Not just our house rules. Yours too.
+We have started with the process of gathering variations with chess: [74 variants documented](https://rules.moddable.games/chess/), each with full rules, board diagrams, and version history. [Checkers](https://rules.moddable.games/draughts/) and [Go](https://rules.moddable.games/go/) are next, with their own deep traditions of regional variation that have never been collected in one place. Beyond our own games, the long-term vision is a public archive where anyone can submit, document, and preserve the variants their community plays. Not just our house rules. Yours too.
 
 <figure class="breakout">
-  <a href="https://rules.moddable.games/moddable-chess/variants/suicide/" target="_blank" rel="noopener">
+  <a href="https://rules.moddable.games/chess/variants/suicide/" target="_blank" rel="noopener">
     <img src="/img/news/suicide-chess-rules.png" alt="Suicide Chess variant page showing rules, board diagram, and key concepts" loading="lazy">
   </a>
   <figcaption>Suicide Chess: a house rule, now documented and versioned.</figcaption>
